@@ -1,0 +1,65 @@
+<section class="z-home container-fluid">
+	<div class="z-row row">
+		<div class="z-col col-md-12">
+			<div class="z-card-center">
+				<div class="z-card">
+					<div>
+						<img src="assets/brand/user.jpg" alt="User Admin" />
+
+						<h2>Iniciar sesión</h2>
+
+						<p>Ingresa los datos de tu cuenta</p>
+
+						<div class="z-form-login">
+							<form
+								[formGroup]="formLogin"
+								(ngSubmit)="create()"
+								novalidate="novalidate"
+								autocomplete="off"
+							>
+								<div class="row">
+									<mat-form-field class="col-lg-12" appearance="outline">
+										<mat-label>Cuenta</mat-label>
+										<input matInput formControlName="usr_cuenta" />
+										<mat-error *ngIf="errorMatcher.isErrorState(usr_cuenta, null)">
+											<span *ngIf="usr_cuenta.errors?.['required']">
+												<i class="fas fa-exclamation-circle mr-1"></i>
+												La cuenta es requerida.
+											</span>
+										</mat-error>
+									</mat-form-field>
+
+									<mat-form-field class="col-lg-12" appearance="outline">
+										<mat-label>Contraseña</mat-label>
+										<input
+											type="{{ visibility ? 'password' : 'text' }}"
+											matInput
+											formControlName="usr_clave"
+										/>
+										<a (click)="visibility = !visibility" mat-icon-button matSuffix>
+											<mat-icon>
+												{{ !visibility ? 'visibility' : 'visibility_off' }}
+											</mat-icon>
+										</a>
+										<mat-error *ngIf="errorMatcher.isErrorState(usr_clave, null)">
+											<span *ngIf="usr_clave.errors?.['required']">
+												<i class="fas fa-exclamation-circle mr-1"></i>
+												La contraseña es requerida.
+											</span>
+										</mat-error>
+									</mat-form-field>
+								</div>
+								<div class="z-container-buttons">
+									<a routerLink="/" mat-icon-button>
+										<mat-icon>arrow_back</mat-icon>
+									</a>
+									<button class="z-button z-primary">Ingresar</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
