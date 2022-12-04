@@ -15,6 +15,7 @@ export const environment = {
 	zephyrus: {
 		// category
 		category: `${point.server}/category`,
-		post: `${point.server}/post`
+		post: `${point.server}/post`,
+		departamentLaw: `${point.server}/departament-Law`
 	}
 };
