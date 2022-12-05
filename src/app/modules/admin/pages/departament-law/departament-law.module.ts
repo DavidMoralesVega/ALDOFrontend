@@ -26,8 +26,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DepartamentLawService } from './services/departament-law.service';
 import { MatSnackBarService } from '../../../../core/services/mat-snack-bar.service';
 import { DepartamentLawFacade } from './facades/departament-law.facade';
-import { DepartamentLawCreateModule } from './components/departament-law-create/container/departament-law-create/departament-law-create.module';
-import { DepartamentLawUpdateModule } from './components/departament-law-update/container/departament-law-update/departament-law-update.module';
+import { DepartamentLawCreateModule } from './components/departament-law-create/departament-law-create.module';
+import { DepartamentLawUpdateModule } from './components/departament-law-update/departament-law-update.module';
 
 @NgModule({
 	declarations: [DepartamentLawComponent],

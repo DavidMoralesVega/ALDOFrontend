@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DepartamentLawCreateComponent } from '../departament-law-create.component';
+import { DepartamentLawCreateComponent } from './container/departament-law-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
 	declarations: [DepartamentLawCreateComponent],
 	imports: [
@@ -20,7 +21,8 @@ import { MatRadioModule } from '@angular/material/radio';
 		MatIconModule,
 		MatButtonModule,
 		MatSelectModule,
-		MatRadioModule
+		MatRadioModule,
+		MatNativeDateModule
 	],
 
 	exports: [DepartamentLawCreateComponent]
