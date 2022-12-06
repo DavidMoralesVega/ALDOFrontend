@@ -6,5 +6,8 @@ export enum ZEffects {
 	// adsi
 	adsi_adm_erp = 'adsi-adm-erp',
 	adsi_adm_usuario = 'adsi-adm-usuario',
-	departament_law = 'departament-law'
+	departament_law = 'departament-law',
+
+	/* dev */
+	category = 'category'
 }
