@@ -5,6 +5,7 @@ export enum ZEffects {
 	departament_law = 'departament-law',
 	resolutions = 'resolutions',
 	request_written = 'request-written',
+	recognition = 'recognition',
 	/* dev */
 	category = 'category',
 	call = 'call',
