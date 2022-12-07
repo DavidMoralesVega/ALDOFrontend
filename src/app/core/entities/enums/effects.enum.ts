@@ -3,5 +3,6 @@ export enum ZEffects {
 	z_auth_user = 'z-auth-user',
 
 	// adsi
-	departament_law = 'departament-law'
+	departament_law = 'departament-law',
+	resolutions = 'resolutions'
 }

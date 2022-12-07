@@ -17,6 +17,7 @@ export const environment = {
 		// category
 		category: `${point.server}/category`,
 		post: `${point.server}/post`,
-		departamentLaw: `${point.server}/departament-Law`
+		departamentLaw: `${point.server}/departament-Law`,
+		resolutions: `${point.server}/resolutions`
 	}
 };
