@@ -1,1 +1,116 @@
-<p>resolutions-update works!</p>
+<div class="dialogContainer">
+	<div class="dialogContainer__header">
+		<h2 mat-dialog-title>Actualizar P.I.E</h2>
+		<button mat-icon-button mat-dialog-close>
+			<mat-icon class="material-symbols-outlined">close</mat-icon>
+		</button>
+	</div>
+
+	<form [formGroup]="formUpdate" (ngSubmit)="update()" novalidate="novalidate" autocomplete="off">
+		<div mat-dialog-content>
+			<div class="row">
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Título</mat-label>
+
+					<input matInput maxlength="40" formControlName="RETitle" placeholder="Título" />
+					<mat-hint align="start">El título debe tener como máximo 40 caracteres. </mat-hint>
+					<mat-hint align="end">{{ RETitle.value.length }} / 40</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(RETitle, null)">
+						<span *ngIf="RETitle.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El título es requerida.
+						</span>
+
+						<span *ngIf="RETitle.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El título debe tener como máximo 40 caracteres.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Resumen</mat-label>
+
+					<input matInput maxlength="40" formControlName="RESummary" placeholder="Resumen" />
+					<mat-hint align="start">El resumen debe tener como máximo 40 caracteres. </mat-hint>
+					<mat-hint align="end">{{ RESummary.value.length }} / 40</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(RESummary, null)">
+						<span *ngIf="RESummary.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El resumen es requerida.
+						</span>
+
+						<span *ngIf="RESummary.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El resumen debe tener como máximo 40 caracteres.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Fecha de publicación</mat-label>
+					<input
+						matInput
+						[matDatepicker]="REPublicationDate"
+						formControlName="REPublicationDate"
+					/>
+					<mat-hint>MM/DD/YYYY</mat-hint>
+					<mat-datepicker-toggle matSuffix [for]="REPublicationDate"></mat-datepicker-toggle>
+					<mat-datepicker touchUi #REPublicationDate></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Fecha de emisión</mat-label>
+					<input matInput [matDatepicker]="REIssueDate" formControlName="REIssueDate" />
+					<mat-hint>MM/DD/YYYY</mat-hint>
+					<mat-datepicker-toggle matSuffix [for]="REIssueDate"></mat-datepicker-toggle>
+					<mat-datepicker touchUi #REIssueDate></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Número de documento</mat-label>
+					<input
+						matInput
+						formControlName="REDocumentNumber"
+						placeholder="Número de documento"
+					/>
+					<mat-error *ngIf="errorMatcher.isErrorState(REDocumentNumber, null)">
+						<span *ngIf="REDocumentNumber.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El número de documento es requerido.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Tipo</mat-label>
+					<mat-select formControlName="REType">
+						<mat-option
+							*ngFor="let resolution of ZListResolutions"
+							[value]="resolution.value"
+						>
+							{{ resolution.key }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<div class="z-container-raddio-button">
+					<label class="z-label">Seleccionar la visibilidad</label>
+
+					<mat-radio-group formControlName="REVisibility" class="z-radio-group">
+						<mat-radio-button class="z-radio-button" value="Público">
+							Público
+						</mat-radio-button>
+						<mat-radio-button class="z-radio-button" value="Privado">
+							Privado
+						</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</div>
+		</div>
+		<mat-dialog-actions align="end">
+			<button mat-button mat-dialog-close>Cancelar</button>
+			<button mat-button *ngIf="!(updateIsLoading$ | async)">Guardar</button>
+			<button mat-button *ngIf="updateIsLoading$ | async" disabled>Guardando...</button>
+		</mat-dialog-actions>
+	</form>
+</div>
