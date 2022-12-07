@@ -16,7 +16,9 @@ export const environment = {
 		auth: `${point.server}/auth`,
 		// category
 		category: `${point.server}/category`,
+		call: `${point.server}/calls`,
 		post: `${point.server}/post`,
+		requestReports: `${point.server}/request-reports`,
 		departamentLaw: `${point.server}/departament-Law`
 	}
 };
