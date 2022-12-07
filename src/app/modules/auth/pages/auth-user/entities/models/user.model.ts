@@ -4,30 +4,21 @@ import { ETypeUser } from '../../../../entities/enums/type-user';
 
 export class UserAdapter {
 	constructor(
-		public readonly usr_id: string,
-		public readonly usr_cuenta: string,
-		public readonly usr_correo: string,
-		public readonly usr_clave: string,
-		public readonly usr_fecha: string,
-		public readonly usr_clave1: string,
-		public readonly usr_fecha1: string,
-		public readonly usr_clave2: string,
-		public readonly usr_fecha2: string,
-		public readonly usr_documento: string,
-		public readonly usr_estado: boolean,
-		public readonly usr_creado: string
+		public readonly IdUser: string,
+		public readonly Email: string,
+		public readonly Password: string,
+		public readonly FullName: string,
+		public readonly IsActive: boolean,
+		public readonly Roles: string[]
 	) {}
 }
 
-export type CreateUserDto = Omit<
-	UserAdapter,
-	'usr_id' | 'usr_clave1' | 'usr_fecha1' | 'usr_clave2' | 'usr_fecha2'
->;
-export type UpdateUserDto = Omit<Partial<UserAdapter>, 'usr_id'>;
+export type CreateUserDto = Omit<UserAdapter, 'IdUser'>;
+export type UpdateUserDto = Omit<Partial<UserAdapter>, 'IdUser'>;
 
 export interface LoginUserDto {
-	usr_cuenta: string;
-	usr_clave: string;
+	Email: string;
+	Password: string;
 }
 
 export interface UserTokenDto extends UserAdapter {
@@ -39,18 +30,12 @@ export interface UserTokenDto extends UserAdapter {
 export class User implements Adapter<UserAdapter> {
 	adapter(user: UserAdapter): UserAdapter {
 		return new UserAdapter(
-			user.usr_id,
-			user.usr_cuenta,
-			user.usr_correo,
-			user.usr_clave,
-			user.usr_fecha,
-			user.usr_clave1,
-			user.usr_fecha1,
-			user.usr_clave2,
-			user.usr_fecha2,
-			user.usr_documento,
-			user.usr_estado,
-			user.usr_creado
+			user.IdUser,
+			user.Email,
+			user.Password,
+			user.FullName,
+			user.IsActive,
+			user.Roles
 		);
 	}
 }

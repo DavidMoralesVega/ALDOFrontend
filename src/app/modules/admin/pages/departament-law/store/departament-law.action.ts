@@ -30,7 +30,7 @@ export enum DepartamentLawActionTypes {
 // create
 export const DEPARTAMENTLAW_CREATE_REQUESTED = createAction(
 	DepartamentLawActionTypes.DEPARTAMENTLAW_CREATE_REQUESTED,
-	props<Payload<CreateDepartamentLawDto>>()
+	props<Payload<FormData>>()
 );
 
 export const DEPARTAMENTLAW_CREATE_LOADED = createAction(

@@ -6,11 +6,55 @@ export const ZPaths: IZPath[] = [
 	{
 		module: 'adsi',
 		collase: true,
-		name: 'adsi',
-		icon: 'tachometer-alt',
+		name: 'Gaceta',
+		icon: 'gavel',
 		children: [
 			{ module: 'calls', path: `${ZPath_ADMIN}/calls`, name: 'calls', icon: 'bell' },
-			{ module: 'category', path: `${ZPath_ADMIN}/category`, name: 'category', icon: 'bell' },
+			{ module: 'category', path: `${ZPath_ADMIN}/category`, name: 'Ctaegorias', icon: 'bell' },
+			{ module: 'contract', path: `${ZPath_ADMIN}/contract`, name: 'contract', icon: 'bell' },
+			{
+				module: 'departament-law',
+				path: `${ZPath_ADMIN}/departament-law`,
+				name: 'departament-law',
+				icon: 'bell'
+			},
+			{ module: 'post', path: `${ZPath_ADMIN}/post`, name: 'post', icon: 'bell' },
+			{
+				module: 'recognition',
+				path: `${ZPath_ADMIN}/recognition`,
+				name: 'recognition',
+				icon: 'bell'
+			},
+			{
+				module: 'request-reports',
+				path: `${ZPath_ADMIN}/request-reports`,
+				name: 'request-reports',
+				icon: 'bell'
+			},
+			{
+				module: 'request-written',
+				path: `${ZPath_ADMIN}/request-written`,
+				name: 'request-written',
+				icon: 'bell'
+			},
+			{
+				module: 'resolutions',
+				path: `${ZPath_ADMIN}/resolutions`,
+				name: 'resolutions',
+				icon: 'bell'
+			},
+			{ module: 'user', path: `${ZPath_ADMIN}/user`, name: 'user', icon: 'bell' }
+		]
+	},
+
+	{
+		module: 'adsi',
+		collase: true,
+		name: 'Gaceta',
+		icon: 'gavel',
+		children: [
+			{ module: 'calls', path: `${ZPath_ADMIN}/calls`, name: 'calls', icon: 'bell' },
+			{ module: 'category', path: `${ZPath_ADMIN}/category`, name: 'Ctaegorias', icon: 'bell' },
 			{ module: 'contract', path: `${ZPath_ADMIN}/contract`, name: 'contract', icon: 'bell' },
 			{
 				module: 'departament-law',
