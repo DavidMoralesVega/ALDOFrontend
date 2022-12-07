@@ -32,7 +32,8 @@ export class DepartamentLawComponent implements OnInit, AfterViewInit, OnDestroy
 		'DTIssueDate',
 		'DTDocumentNumber',
 		'DTDateRegister',
-		//'DTVisibility',
+		'DTVisibility',
+		'IdUser',
 		'DTState',
 		'z-actions'
 	];

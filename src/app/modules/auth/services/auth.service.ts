@@ -13,7 +13,7 @@ import { ETypeUser } from '../entities';
 
 @Injectable()
 export class AuthService {
-	private readonly ZPAuthUser: string = environment.zephyrus.category;
+	private readonly ZPAuthUser: string = environment.zephyrus.auth;
 
 	constructor(private readonly httpClient: HttpClient) {}
 

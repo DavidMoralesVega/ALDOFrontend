@@ -25,7 +25,7 @@ export class DepartamentLawEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.DEPARTAMENTLAW_CREATE_REQUESTED),
-				switchMap((action: Payload<CreateDepartamentLawDto>) =>
+				switchMap((action: Payload<FormData>) =>
 					this.departamentLawService.create(action.payload).pipe(
 						map((response: Response<DepartamentLaw>) => {
 							this.matSnackBarService.open('success', ZMessages.success);

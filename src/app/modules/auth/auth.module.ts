@@ -12,12 +12,10 @@ import { StoreModule } from '@ngrx/store';
 import { ZEffects } from '../../core/entities/enums/effects.enum';
 import { AuthReducer } from './store/auth.reducer';
 import { AuthEffects } from './store/auth.effects';
-import { ZQuicklinkModule } from 'src/app/core/shared/z-quicklink.module';
 
 @NgModule({
 	declarations: [AuthComponent],
 	imports: [
-		ZQuicklinkModule,
 		CommonModule,
 		AuthRoutingModule,
 		MatSnackBarModule,

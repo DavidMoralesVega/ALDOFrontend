@@ -1,6 +1,5 @@
 export enum ZEffects {
 	z_auth = 'z-auth',
-	z_auth_erp = 'z-auth-erp',
 	z_auth_user = 'z-auth-user',
 
 	// adsi

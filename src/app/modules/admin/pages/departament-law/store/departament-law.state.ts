@@ -7,7 +7,7 @@ import {
 
 export interface DepartamentLawState {
 	create: {
-		createDepartamentLawDto: CreateDepartamentLawDto | null;
+		createDepartamentLawDto: FormData | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		response: Response<DepartamentLaw> | null;

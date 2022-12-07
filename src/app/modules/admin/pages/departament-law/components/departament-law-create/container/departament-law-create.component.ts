@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { DefaultErrorMatcher } from '../../../../../../../core/shared/default.error-matcher';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
 import {
 	DepartamentLaw,
 	CreateDepartamentLawDto
 } from '../../../entities/models/departament-law.model';
 import { DepartamentLawFacade } from '../../../facades/departament-law.facade';
+import { Pagination, PayloadFile } from 'src/app/core/entities';
 
 @Component({
 	selector: 'z-departament-law-create',
@@ -24,6 +24,11 @@ export class DepartamentLawCreateComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
+
+	// variables imagen
+	private file!: File;
+	private isValidImage: boolean = false;
+
 	constructor(private readonly departamentLawFacade: DepartamentLawFacade) {
 		this.createIsLoading$ = departamentLawFacade.createIsLoading$;
 	}
@@ -59,18 +64,33 @@ export class DepartamentLawCreateComponent implements OnInit {
 		return this.formCreate.get('DTVisibility')!;
 	}
 	create() {
+		console.log('hola antes form');
+
 		if (this.formCreate.invalid) return;
 
-		const createDepartamentLawDto: CreateDepartamentLawDto = {
-			DTTitle: this.DTTitle.value,
-			DTSummary: this.DTSummary.value,
-			DTPublicationDate: this.DTPublicationDate.value,
-			DTIssueDate: this.DTIssueDate.value,
-			DTDocumentNumber: this.DTDocumentNumber.value,
-			DTVisibility: this.DTVisibility.value
-		};
+		// if (!this.isValidImage) return;
+		console.log('DTVisibility', this.DTVisibility.value);
+		console.log('DTFile', this.file);
+
+		let createDepartamentLawDto = new FormData();
+		createDepartamentLawDto.append('DTTitle', this.DTTitle.value);
+		createDepartamentLawDto.append('DTSummary', this.DTSummary.value);
+		createDepartamentLawDto.append('DTPublicationDate', this.DTPublicationDate.value);
+		createDepartamentLawDto.append('DTIssueDate', this.DTIssueDate.value);
+		createDepartamentLawDto.append('DTDocumentNumber', this.DTDocumentNumber.value);
+		createDepartamentLawDto.append('DTVisibility', this.DTVisibility.value);
+		createDepartamentLawDto.append('DTFile', this.file);
+
 		console.log(createDepartamentLawDto);
 
 		this.departamentLawFacade.create(createDepartamentLawDto);
+	}
+
+	// Obtener imagen
+	handleUpload(payloadFile: PayloadFile) {
+		this.isValidImage = payloadFile.isValid;
+		this.file = payloadFile.file;
+
+		console.log(payloadFile);
 	}
 }
