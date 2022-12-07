@@ -19,6 +19,7 @@ export const environment = {
 		post: `${point.server}/post`,
 		departamentLaw: `${point.server}/departament-law`,
 		resolutions: `${point.server}/resolutions`,
-		requestWritten: `${point.server}/request-written`
+		requestWritten: `${point.server}/request-written`,
+		recognition: `${point.server}/recognition`
 	}
 };

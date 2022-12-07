@@ -1,1 +1,111 @@
-<p>recognition-create works!</p>
+<div class="dialogContainer">
+	<div class="dialogContainer__header">
+		<h2 mat-dialog-title>Crear</h2>
+		<button mat-icon-button mat-dialog-close>
+			<mat-icon class="material-symbols-outlined">close</mat-icon>
+		</button>
+	</div>
+
+	<form [formGroup]="formCreate" (ngSubmit)="create()" novalidate="novalidate" autocomplete="off">
+		<div mat-dialog-content>
+			<div class="row">
+				<div class="col-12">
+					<z-upload-input-type-document
+						(onUpload)="handleUpload($event)"
+					></z-upload-input-type-document>
+				</div>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Título</mat-label>
+
+					<input matInput maxlength="40" formControlName="RTitle" placeholder="Título" />
+					<mat-hint align="start">El título debe tener como máximo 40 caracteres. </mat-hint>
+					<mat-hint align="end">{{ RTitle.value.length }} / 40</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(RTitle, null)">
+						<span *ngIf="RTitle.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El título es requerida.
+						</span>
+
+						<span *ngIf="RTitle.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El título debe tener como máximo 40 caracteres.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Resumen</mat-label>
+
+					<input matInput maxlength="40" formControlName="RSummary" placeholder="Resumen" />
+					<mat-hint align="start">El resumen debe tener como máximo 40 caracteres. </mat-hint>
+					<mat-hint align="end">{{ RSummary.value.length }} / 40</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(RSummary, null)">
+						<span *ngIf="RSummary.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El resumen es requerida.
+						</span>
+
+						<span *ngIf="RSummary.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El resumen debe tener como máximo 40 caracteres.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Fecha de publicación</mat-label>
+					<input
+						matInput
+						[matDatepicker]="RPublicationDate"
+						formControlName="RPublicationDate"
+					/>
+					<mat-hint>MM/DD/YYYY</mat-hint>
+					<mat-datepicker-toggle matSuffix [for]="RPublicationDate"></mat-datepicker-toggle>
+					<mat-datepicker touchUi #RPublicationDate></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Fecha de emisión</mat-label>
+					<input matInput [matDatepicker]="RIssueDate" formControlName="RIssueDate" />
+					<mat-hint>MM/DD/YYYY</mat-hint>
+					<mat-datepicker-toggle matSuffix [for]="RIssueDate"></mat-datepicker-toggle>
+					<mat-datepicker touchUi #RIssueDate></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Número de documento</mat-label>
+					<input
+						matInput
+						formControlName="RDocumentNumber"
+						placeholder="Número de documento"
+					/>
+					<mat-error *ngIf="errorMatcher.isErrorState(RDocumentNumber, null)">
+						<span *ngIf="RDocumentNumber.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El número de documento es requerido.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<div class="z-container-raddio-button">
+					<label class="z-label">Seleccionar la visibilidad</label>
+
+					<mat-radio-group formControlName="RVisibility" class="z-radio-group">
+						<mat-radio-button class="z-radio-button" value="Público">
+							Público
+						</mat-radio-button>
+						<mat-radio-button class="z-radio-button" value="Privado">
+							Privado
+						</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</div>
+		</div>
+		<mat-dialog-actions align="end">
+			<button mat-button mat-dialog-close>Cancelar</button>
+			<button mat-button *ngIf="!(createIsLoading$ | async)">Guardar</button>
+			<button mat-button *ngIf="createIsLoading$ | async" disabled>Guardando...</button>
+		</mat-dialog-actions>
+	</form>
+</div>
