@@ -9,85 +9,49 @@ export const ZPaths: IZPath[] = [
 		name: 'Gaceta',
 		icon: 'gavel',
 		children: [
-			{ module: 'calls', path: `${ZPath_ADMIN}/calls`, name: 'calls', icon: 'bell' },
-			{ module: 'category', path: `${ZPath_ADMIN}/category`, name: 'Categorias', icon: 'bell' },
 			{ module: 'contract', path: `${ZPath_ADMIN}/contract`, name: 'Contratos', icon: 'bell' },
+			{ module: 'calls', path: `${ZPath_ADMIN}/calls`, name: 'Convocatorias', icon: 'bell' },
 			{
 				module: 'departament-law',
 				path: `${ZPath_ADMIN}/departament-law`,
-				name: 'departament-law',
+				name: 'Leyes departamentales',
 				icon: 'bell'
 			},
-			{ module: 'post', path: `${ZPath_ADMIN}/post`, name: 'post', icon: 'bell' },
 			{
 				module: 'recognition',
 				path: `${ZPath_ADMIN}/recognition`,
-				name: 'recognition',
+				name: 'Reconocimientos',
 				icon: 'bell'
 			},
 			{
 				module: 'request-reports',
 				path: `${ZPath_ADMIN}/request-reports`,
-				name: 'request-reports',
+				name: 'Petición de informe oral',
 				icon: 'bell'
 			},
 			{
 				module: 'request-written',
 				path: `${ZPath_ADMIN}/request-written`,
-				name: 'request-written',
+				name: 'Petición de informe inscrito',
 				icon: 'bell'
 			},
 			{
 				module: 'resolutions',
 				path: `${ZPath_ADMIN}/resolutions`,
-				name: 'resolutions',
+				name: 'Resoluciones',
 				icon: 'bell'
-			},
-			{ module: 'user', path: `${ZPath_ADMIN}/user`, name: 'user', icon: 'bell' }
+			}
 		]
 	},
-
 	{
 		module: 'adsi',
 		collase: true,
 		name: 'Blog',
-		icon: 'gavel',
+		icon: 'newspaper',
 		children: [
-			{ module: 'calls', path: `${ZPath_ADMIN}/calls`, name: 'calls', icon: 'bell' },
-			{ module: 'category', path: `${ZPath_ADMIN}/category`, name: 'Ctaegorias', icon: 'bell' },
-			{ module: 'contract', path: `${ZPath_ADMIN}/contract`, name: 'contract', icon: 'bell' },
-			{
-				module: 'departament-law',
-				path: `${ZPath_ADMIN}/departament-law`,
-				name: 'departament-law',
-				icon: 'bell'
-			},
-			{ module: 'post', path: `${ZPath_ADMIN}/post`, name: 'post', icon: 'bell' },
-			{
-				module: 'recognition',
-				path: `${ZPath_ADMIN}/recognition`,
-				name: 'recognition',
-				icon: 'bell'
-			},
-			{
-				module: 'request-reports',
-				path: `${ZPath_ADMIN}/request-reports`,
-				name: 'request-reports',
-				icon: 'bell'
-			},
-			{
-				module: 'request-written',
-				path: `${ZPath_ADMIN}/request-written`,
-				name: 'request-written',
-				icon: 'bell'
-			},
-			{
-				module: 'resolutions',
-				path: `${ZPath_ADMIN}/resolutions`,
-				name: 'resolutions',
-				icon: 'bell'
-			},
-			{ module: 'user', path: `${ZPath_ADMIN}/user`, name: 'user', icon: 'bell' }
+			{ module: 'user', path: `${ZPath_ADMIN}/user`, name: 'Usuario', icon: 'bell' },
+			{ module: 'category', path: `${ZPath_ADMIN}/category`, name: 'Categorias', icon: 'bell' },
+			{ module: 'post', path: `${ZPath_ADMIN}/post`, name: 'Publicaciones', icon: 'bell' }
 		]
 	}
 	// {
