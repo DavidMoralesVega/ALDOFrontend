@@ -106,9 +106,8 @@
 					>
 						<mat-icon class="material-symbols-outlined" fontIcon="edit"></mat-icon>
 					</button>
-
 					<a
-						href="{{ row.DTFile }}"
+						href="{{ row.DTFile | staticFile }}"
 						target="_blank"
 						class="z-btn-action"
 						matTooltip="Visualizar"
