@@ -28,6 +28,7 @@ import { MatSnackBarService } from '../../../../core/services/mat-snack-bar.serv
 import { DepartamentLawFacade } from './facades/departament-law.facade';
 import { DepartamentLawCreateModule } from './components/departament-law-create/departament-law-create.module';
 import { DepartamentLawUpdateModule } from './components/departament-law-update/departament-law-update.module';
+import { StaticFilePipeModule } from '../../../../core/pipes/static-file/static-file.module';
 
 @NgModule({
 	declarations: [DepartamentLawComponent],
@@ -46,6 +47,9 @@ import { DepartamentLawUpdateModule } from './components/departament-law-update/
 		MatIconModule,
 
 		MatProgressSpinnerModule,
+
+		// GET PIPE STATIC FILE
+		StaticFilePipeModule,
 
 		MatChipsModule,
 		MatButtonModule,
