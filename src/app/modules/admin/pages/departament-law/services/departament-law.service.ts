@@ -16,7 +16,7 @@ export class DepartamentLawService {
 
 	constructor(private readonly httpClient: HttpClient) {}
 
-	create(createDepartamentLawDto: CreateDepartamentLawDto): Observable<Response<DepartamentLaw>> {
+	create(createDepartamentLawDto: FormData): Observable<Response<DepartamentLaw>> {
 		return this.httpClient.post<Response<DepartamentLaw>>(
 			this.ZPDepartamentLaw,
 			createDepartamentLawDto

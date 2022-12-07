@@ -16,6 +16,7 @@
 					<mdb-squeezebox [multiple]="false" aria-multiselectable="false">
 						<mdb-item *ngFor="let path of zPaths" [ngClass]="{ 'no-collase': !path.collase }">
 							<mdb-item-head mdbWavesEffect>
+								<!-- <mat-icon fontIcon="{{ path.icon }}"></mat-icon> -->
 								<mdb-icon fas icon="{{ path.icon }}" class="mr-1"></mdb-icon>
 								{{ path.name }}
 							</mdb-item-head>

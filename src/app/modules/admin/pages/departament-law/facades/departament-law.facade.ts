@@ -10,13 +10,13 @@ import {
 	DEPARTAMENTLAW_FIND_ONE_REQUESTED,
 	DEPARTAMENTLAW_UPDATE_REQUESTED
 } from '../store/departament-law.action';
-import { CreateDepartamentLawDto, DepartamentLaw, UpdateDepartamentLawDto } from '../entities';
+import { DepartamentLaw, UpdateDepartamentLawDto } from '../entities';
 import { DepartamentLawState } from '../store/departament-law.state';
 
 @Injectable()
 export class DepartamentLawFacade {
 	// create
-	public createDto$: Observable<CreateDepartamentLawDto | null>;
+	public createDto$: Observable<FormData | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<DepartamentLaw> | null>;
@@ -67,7 +67,7 @@ export class DepartamentLawFacade {
 		this.updateResponse$ = this.store.select(zSelector.getDepartamentLawUpdateResponse);
 	}
 
-	create(createDepartamentLawDto: CreateDepartamentLawDto) {
+	create(createDepartamentLawDto: FormData) {
 		this.store.dispatch(DEPARTAMENTLAW_CREATE_REQUESTED({ payload: createDepartamentLawDto }));
 	}
 
