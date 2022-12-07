@@ -10,8 +10,8 @@ export const ZPaths: IZPath[] = [
 		icon: 'gavel',
 		children: [
 			{ module: 'calls', path: `${ZPath_ADMIN}/calls`, name: 'calls', icon: 'bell' },
-			{ module: 'category', path: `${ZPath_ADMIN}/category`, name: 'Ctaegorias', icon: 'bell' },
-			{ module: 'contract', path: `${ZPath_ADMIN}/contract`, name: 'contract', icon: 'bell' },
+			{ module: 'category', path: `${ZPath_ADMIN}/category`, name: 'Categorias', icon: 'bell' },
+			{ module: 'contract', path: `${ZPath_ADMIN}/contract`, name: 'Contratos', icon: 'bell' },
 			{
 				module: 'departament-law',
 				path: `${ZPath_ADMIN}/departament-law`,
@@ -50,7 +50,7 @@ export const ZPaths: IZPath[] = [
 	{
 		module: 'adsi',
 		collase: true,
-		name: 'Gaceta',
+		name: 'Blog',
 		icon: 'gavel',
 		children: [
 			{ module: 'calls', path: `${ZPath_ADMIN}/calls`, name: 'calls', icon: 'bell' },
@@ -200,4 +200,25 @@ export const ZListCivilStatus: any = [
 	{ value: 'D', key: 'Divorciado' },
 	{ value: 'S', key: 'Soltero' },
 	{ value: 'V', key: 'Viudo' }
+];
+
+// resoluciones
+export const ZListResolutions: any = [
+	{ value: '0', key: 'Resolución del pleno público o privado' },
+	{ value: '1', key: 'Resolución administrativas' },
+	{ value: '2', key: 'Resolución de directiva' }
+];
+
+// convocatorias
+export const ZListCalls: any = [
+	{ value: '0', key: 'Convocatoria ordinaria' },
+	{ value: '1', key: 'Convocatoria extraodinaria' },
+	{ value: '2', key: 'Convocatoria honor' }
+];
+
+// contrato
+export const ZListContract: any = [
+	{ value: '0', key: 'Contrato uno' },
+	{ value: '1', key: 'Contrato dos' },
+	{ value: '2', key: 'Contrato tres' }
 ];
