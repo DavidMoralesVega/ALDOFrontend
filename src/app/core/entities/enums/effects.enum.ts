@@ -6,6 +6,7 @@ export enum ZEffects {
 	resolutions = 'resolutions',
 	request_written = 'request-written',
 	recognition = 'recognition',
+	contract = 'contract',
 	/* dev */
 	category = 'category',
 	call = 'call',

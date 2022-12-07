@@ -23,6 +23,7 @@ export const environment = {
 		resolutions: `${point.server}/resolutions`,
 		requestWritten: `${point.server}/request-written`,
 		recognition: `${point.server}/recognition`,
+		contract: `${point.server}/contract`,
 
 		requestReports: `${point.server}/request-reports`
 	}
