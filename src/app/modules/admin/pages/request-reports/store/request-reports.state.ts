@@ -3,7 +3,7 @@ import { RequestReports, CreateRequestReportsDto, UpdateRequestReportsDto } from
 
 export interface RequestReportsState {
 	create: {
-		createRequestReportsDto: CreateRequestReportsDto | null;
+		createRequestReportsDto: FormData | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		response: Response<RequestReports> | null;

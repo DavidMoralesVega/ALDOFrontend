@@ -50,11 +50,15 @@
 			</ng-container>
 			<ng-container matColumnDef="call_dateUpdate">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de Actualizacion</th>
-				<td mat-cell *matCellDef="let row">{{ row.call_dateUpdate }}</td>
+				<td mat-cell *matCellDef="let row">{{ row.call_dateUpdate | date : 'medium' }}</td>
 			</ng-container>
-			<ng-container matColumnDef="call_pdfList">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header>Lista Pdf</th>
-				<td mat-cell *matCellDef="let row">{{ row.call_pdfList }}</td>
+			<ng-container matColumnDef="IdUser">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
+				<td mat-cell *matCellDef="let row">{{ row.user.FullName }}</td>
+			</ng-container>
+			<ng-container matColumnDef="CallVisibility">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Visibilidad</th>
+				<td mat-cell *matCellDef="let row">{{ row.CallVisibility }}</td>
 			</ng-container>
 			<ng-container matColumnDef="call_create">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de creación</th>
@@ -90,6 +94,16 @@
 					>
 						<mat-icon class="material-symbols-outlined" fontIcon="edit"></mat-icon>
 					</button>
+					<a
+						href="{{ row.CallFile | staticFile }}"
+						target="_blank"
+						class="z-btn-action"
+						matTooltip="Visualizar"
+						mat-icon-button
+						matTooltipClass="z-tooltip"
+					>
+						<mat-icon class="material-symbols-outlined" fontIcon="visibility"></mat-icon>
+					</a>
 				</td>
 			</ng-container>
 

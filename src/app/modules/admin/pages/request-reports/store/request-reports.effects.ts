@@ -26,7 +26,7 @@ export class RequestReportsEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.REQUESTREPORTS_CREATE_REQUESTED),
-				switchMap((action: Payload<CreateRequestReportsDto>) =>
+				switchMap((action: Payload<FormData>) =>
 					this.requestReportsService.create(action.payload).pipe(
 						map((response: Response<RequestReports>) => {
 							this.matSnackBarService.open('success', ZMessages.success);

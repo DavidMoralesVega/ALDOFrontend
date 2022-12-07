@@ -3,7 +3,7 @@ import { Call, CreateCallDto, UpdateCallDto } from '../entities';
 
 export interface CallState {
 	create: {
-		createCallDto: CreateCallDto | null;
+		createCallDto: FormData | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		response: Response<Call> | null;

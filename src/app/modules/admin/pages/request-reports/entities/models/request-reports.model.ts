@@ -10,14 +10,15 @@ export class RequestReportsAdapter {
 		public readonly reqR_abstract: string,
 		public readonly reqR_listPdf: string,
 		public readonly reqR_management: string,
-		public readonly reqR_condition: boolean,
-		public readonly reqR_create: string
+		public readonly reqR_state: boolean,
+		public readonly reqR_create: string,
+		public readonly reqR_Visibility: string
 	) {}
 }
 
 export type CreateRequestReportsDto = Omit<
 	RequestReportsAdapter,
-	'reqR_id' | 'reqR_create' | 'reqR_condition'
+	'reqR_id' | 'reqR_create' | 'reqR_state'
 >;
 
 export interface UpdateRequestReportsDto extends Partial<RequestReportsAdapter> {}
@@ -33,8 +34,9 @@ export class RequestReports implements Adapter<RequestReportsAdapter> {
 			requestReportsAdapter.reqR_abstract,
 			requestReportsAdapter.reqR_listPdf,
 			requestReportsAdapter.reqR_management,
-			requestReportsAdapter.reqR_condition,
-			requestReportsAdapter.reqR_create
+			requestReportsAdapter.reqR_state,
+			requestReportsAdapter.reqR_create,
+			requestReportsAdapter.reqR_Visibility
 		);
 	}
 }

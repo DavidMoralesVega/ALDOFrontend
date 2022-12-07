@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { RequestReportsFacade } from '../../../facades/request-reports.facade';
 import { CreateRequestReportsDto } from '../../../entities';
+import { PayloadFile } from 'src/app/core/entities';
 
 @Component({
 	selector: 'z-request-reports-create',
@@ -13,8 +14,11 @@ import { CreateRequestReportsDto } from '../../../entities';
 export class RequestReportsCreateComponent implements OnInit {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
-
 	public createIsLoading$: Observable<boolean>;
+
+	// variables imagen
+	private file!: File;
+	private isValidImage: boolean = false;
 
 	constructor(private readonly requestReportsFacade: RequestReportsFacade) {
 		this.createIsLoading$ = requestReportsFacade.createIsLoading$;
@@ -39,10 +43,7 @@ export class RequestReportsCreateComponent implements OnInit {
 				Validators.required,
 				Validators.pattern('[a-zA-Z0-9 ]{1,}')
 			]),
-			reqR_listPdf: new FormControl('', [
-				Validators.required,
-				Validators.pattern('[a-zA-Z0-9 ]{1,}')
-			]),
+			reqR_Visibility: new FormControl('', [Validators.required]),
 			reqR_management: new FormControl('', [Validators.required])
 		});
 	}
@@ -59,8 +60,8 @@ export class RequestReportsCreateComponent implements OnInit {
 	get reqR_abstract() {
 		return this.formCreate.get('reqR_abstract')!;
 	}
-	get reqR_listPdf() {
-		return this.formCreate.get('reqR_listPdf')!;
+	get reqR_Visibility() {
+		return this.formCreate.get('reqR_Visibility')!;
 	}
 	get reqR_management() {
 		return this.formCreate.get('reqR_management')!;
@@ -71,15 +72,23 @@ export class RequestReportsCreateComponent implements OnInit {
 
 		if (this.formCreate.invalid) return;
 
-		const createRequestReportsDto: CreateRequestReportsDto = {
-			reqR_num: this.reqR_num.value,
-			reqR_petitioner: this.reqR_petitioner.value,
-			reqR_addressee: this.reqR_addressee.value,
-			reqR_abstract: this.reqR_abstract.value,
-			reqR_listPdf: this.reqR_listPdf.value,
-			reqR_management: this.reqR_management.value
-		};
+		let createRequestReportsDto = new FormData();
+		createRequestReportsDto.append('reqR_num', this.reqR_num.value);
+		createRequestReportsDto.append('reqR_petitioner', this.reqR_petitioner.value);
+		createRequestReportsDto.append('reqR_addressee', this.reqR_addressee.value);
+		createRequestReportsDto.append('reqR_abstract', this.reqR_abstract.value);
+		createRequestReportsDto.append('reqR_Visibility', this.reqR_Visibility.value);
+		createRequestReportsDto.append('reqR_management', this.reqR_management.value);
+		createRequestReportsDto.append('reqRFile', this.file);
 
 		this.requestReportsFacade.create(createRequestReportsDto);
+	}
+
+	// Obtener imagen
+	handleUpload(payloadFile: PayloadFile) {
+		this.isValidImage = payloadFile.isValid;
+		this.file = payloadFile.file;
+
+		// console.log(payloadFile);
 	}
 }

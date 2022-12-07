@@ -25,6 +25,8 @@ import { CallsUpdateModule } from './components/calls-update/calls-update.module
 import { CallService } from './services/call.service';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { CallFacade } from './facades/call.facade';
+import { UploadInputTypeDocumentModule } from 'src/app/core/components/upload-input-type-image/upload-input-type-image.module';
+import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file.module';
 
 @NgModule({
 	declarations: [CallsComponent],
@@ -46,7 +48,8 @@ import { CallFacade } from './facades/call.facade';
 		MatPaginatorModule,
 		MatDialogModule,
 		CallsCreateModule,
-		CallsUpdateModule
+		CallsUpdateModule,
+		StaticFilePipeModule
 	],
 	providers: [CallService, MatSnackBarService, CallFacade],
 	exports: [StoreModule, EffectsModule]

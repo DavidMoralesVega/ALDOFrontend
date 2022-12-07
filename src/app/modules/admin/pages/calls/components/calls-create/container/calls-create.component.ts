@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { PayloadFile } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from '../../../../../../../core/shared/default.error-matcher';
 import { CreateCallDto } from '../../../entities';
 import { CallFacade } from '../../../facades/call.facade';
@@ -13,8 +14,11 @@ import { CallFacade } from '../../../facades/call.facade';
 export class CallsCreateComponent implements OnInit {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
-
 	public createIsLoading$: Observable<boolean>;
+
+	// variables imagen
+	private file!: File;
+	private isValidImage: boolean = false;
 
 	constructor(private readonly callFacade: CallFacade) {
 		this.createIsLoading$ = callFacade.createIsLoading$;
@@ -36,7 +40,7 @@ export class CallsCreateComponent implements OnInit {
 				Validators.pattern('[a-zA-Z]{1,100}')
 			]),
 			call_dateUpdate: new FormControl('', [Validators.required]),
-			call_pdfList: new FormControl('', [Validators.required])
+			CallVisibility: new FormControl('', [Validators.required])
 		});
 	}
 
@@ -52,21 +56,30 @@ export class CallsCreateComponent implements OnInit {
 	get call_dateUpdate() {
 		return this.formCreate.get('call_dateUpdate')!;
 	}
-	get call_pdfList() {
-		return this.formCreate.get('call_pdfList')!;
+	get CallVisibility() {
+		return this.formCreate.get('CallVisibility')!;
 	}
 
 	create() {
 		if (this.formCreate.invalid) return;
 
-		const createCallDto: CreateCallDto = {
-			call_title: this.call_title.value,
-			call_management: this.call_management.value,
-			call_modality: this.call_modality.value,
-			call_dateUpdate: this.call_dateUpdate.value,
-			call_pdfList: this.call_pdfList.value
-		};
+		let createCallDto = new FormData();
+		createCallDto.append('call_title', this.call_title.value);
+		createCallDto.append('call_management', this.call_management.value);
+		createCallDto.append('call_modality', this.call_modality.value);
+		createCallDto.append('call_dateUpdate', this.call_dateUpdate.value);
+		createCallDto.append('CallVisibility', this.CallVisibility.value);
+		createCallDto.append('CallFile', this.file);
 
+		console.log(createCallDto.forEach);
 		this.callFacade.create(createCallDto);
+	}
+
+	// Obtener imagen
+	handleUpload(payloadFile: PayloadFile) {
+		this.isValidImage = payloadFile.isValid;
+		this.file = payloadFile.file;
+
+		// console.log(payloadFile);
 	}
 }
