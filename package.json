@@ -33,7 +33,6 @@
 		"easy-pie-chart": "2.1.x",
 		"hammerjs": "^2.0.8",
 		"ng-uikit-pro-standard": "file:ng-uikit-pro-standard-14.0.0.tgz",
-		"ngx-quicklink": "^0.3.0",
 		"rxjs": "~7.5.0",
 		"screenfull": "3.3.x",
 		"tslib": "^2.3.0",
