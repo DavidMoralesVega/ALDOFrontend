@@ -33,7 +33,7 @@ export class RequestWrittenComponent implements OnInit, AfterViewInit, OnDestroy
 		'RWDocumentNumber',
 		'RWDateRegister',
 		'RWVisibility',
-		'User',
+		'IdUser',
 		'RWState',
 		'z-actions'
 	];
