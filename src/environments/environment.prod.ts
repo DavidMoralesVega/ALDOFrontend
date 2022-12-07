@@ -20,10 +20,9 @@ export const environment = {
 		post: `${point.server}/post`,
 
 		departamentLaw: `${point.server}/departament-Law`,
-		resolutions: `${point.server}/resolutions`
+		resolutions: `${point.server}/resolutions`,
+		requestWritten: `${point.server}/request-written`,
 
-		requestReports: `${point.server}/request-reports`,
-		departamentLaw: `${point.server}/departament-Law`
-
+		requestReports: `${point.server}/request-reports`
 	}
 };
