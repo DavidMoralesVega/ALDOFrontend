@@ -25,6 +25,8 @@ import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service'
 import { PostFacade } from './facades/post.facade';
 import { PostCreateModule } from './components/post-create/post-create.module';
 import { PostUpdateModule } from './components/post-update/post-update.module';
+import { CategoryModule } from '../category/category.module';
+import { CategoryFacade } from '../category/facades/category.facade';
 
 @NgModule({
 	declarations: [PostComponent],
@@ -46,9 +48,10 @@ import { PostUpdateModule } from './components/post-update/post-update.module';
 		MatPaginatorModule,
 		MatDialogModule,
 		PostCreateModule,
-		PostUpdateModule
+		PostUpdateModule,
+		CategoryModule
 	],
-	providers: [PostService, MatSnackBarService, PostFacade],
+	providers: [PostService, MatSnackBarService, PostFacade, CategoryFacade],
 	exports: [StoreModule, EffectsModule]
 })
 export class PostModule {}

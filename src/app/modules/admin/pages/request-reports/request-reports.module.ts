@@ -23,6 +23,8 @@ import { RequestReportsEffects } from './store/request-reports.effects';
 import { RequestReportsService } from './services/request-reports.service';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { RequestReportsFacade } from './facades/request-reports.facade';
+import { RequestReportsCreateModule } from './components/request-reports-create/request-reports-create.module';
+import { RequestReportsUpdateModule } from './components/request-reports-update/request-reports-update.module';
 
 @NgModule({
 	declarations: [RequestReportsComponent],
@@ -42,7 +44,9 @@ import { RequestReportsFacade } from './facades/request-reports.facade';
 		MatSortModule,
 		MatTableModule,
 		MatPaginatorModule,
-		MatDialogModule
+		MatDialogModule,
+		RequestReportsCreateModule,
+		RequestReportsUpdateModule
 	],
 	providers: [RequestReportsService, MatSnackBarService, RequestReportsFacade],
 	exports: [StoreModule, EffectsModule]

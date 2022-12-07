@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Adapter } from 'src/app/core/entities/adapters/object.adapter';
+import { CategoryAdapter } from '../../../category/entities/models/category.model';
 
 export class PostAdapter {
 	constructor(
@@ -13,10 +14,12 @@ export class PostAdapter {
 	) {}
 }
 
-export type CreatePostDto = Omit<
-	PostAdapter,
-	'post_id' | 'post_estado' | 'post_creado' | 'cat_post_id'
->;
+export type CreatePostDto = Omit<PostAdapter, 'post_id' | 'post_estado' | 'post_creado'>;
+
+export interface PostForeignAdapter extends PostAdapter {
+	readonly category: CategoryAdapter;
+	readonly cat_post_id: string;
+}
 
 export interface UpdatePostDto extends Partial<PostAdapter> {}
 

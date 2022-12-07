@@ -85,7 +85,7 @@ export class RequestReportsComponent implements OnInit {
 
 	changeState(requestReportsAdapter: RequestReportsAdapter) {
 		const updateRequestReportsDto: UpdateRequestReportsDto = {
-			reqR_condition: requestReportsAdapter.reqR_condition
+			reqR_condition: !requestReportsAdapter.reqR_condition
 		};
 
 		this.requestReportsFacade.update(requestReportsAdapter.reqR_id, updateRequestReportsDto);
@@ -96,7 +96,7 @@ export class RequestReportsComponent implements OnInit {
 		}, 100);
 	}
 
-	openCategoryCreate(): void {
+	openRequestReportCreate(): void {
 		const dialogRef = this.matDialog.open(RequestReportsCreateComponent, {
 			width: '500px',
 			// height: '400px',
@@ -107,7 +107,7 @@ export class RequestReportsComponent implements OnInit {
 		dialogRef.afterClosed().subscribe(() => this.requestReportsFacade.findAll(this.pagination));
 	}
 
-	openCategoryUpdate(requestReports: RequestReports): void {
+	openRequestReportUpdate(requestReports: RequestReports): void {
 		const dialogRef = this.matDialog.open(RequestReportsUpdateComponent, {
 			width: '500px',
 			// height: '400px',
