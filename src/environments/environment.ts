@@ -11,7 +11,7 @@ export const point = {
 };
 
 export const environment = {
-	production: true,
+	production: false,
 	zephyrus: {
 		auth: `${point.server}/auth`,
 		// category
