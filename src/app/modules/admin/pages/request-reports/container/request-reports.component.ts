@@ -29,10 +29,11 @@ export class RequestReportsComponent implements OnInit {
 		'reqR_petitioner',
 		'reqR_addressee',
 		'reqR_abstract',
-		'reqR_listPdf',
 		'reqR_management',
+		'reqR_Visibility',
 		'reqR_create',
-		'reqR_condition',
+		'IdUser',
+		'reqR_state',
 		'z-actions'
 	];
 
@@ -66,7 +67,7 @@ export class RequestReportsComponent implements OnInit {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<RequestReports[]> | null) => {
-					// console.log(response);
+					console.log(response);
 					setTimeout(() => {
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;
@@ -85,7 +86,7 @@ export class RequestReportsComponent implements OnInit {
 
 	changeState(requestReportsAdapter: RequestReportsAdapter) {
 		const updateRequestReportsDto: UpdateRequestReportsDto = {
-			reqR_condition: !requestReportsAdapter.reqR_condition
+			reqR_state: !requestReportsAdapter.reqR_state
 		};
 
 		this.requestReportsFacade.update(requestReportsAdapter.reqR_id, updateRequestReportsDto);

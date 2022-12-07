@@ -10,6 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { UploadInputTypeDocumentModule } from 'src/app/core/components/upload-input-type-image/upload-input-type-image.module';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
 	declarations: [RequestReportsCreateComponent],
@@ -23,7 +25,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 		MatButtonModule,
 		MatSelectModule,
 		MatDatepickerModule,
-		MatNativeDateModule
+		MatNativeDateModule,
+		UploadInputTypeDocumentModule,
+		MatRadioModule
 	]
 })
 export class RequestReportsCreateModule {}

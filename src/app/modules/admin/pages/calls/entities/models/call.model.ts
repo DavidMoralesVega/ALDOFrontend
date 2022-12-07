@@ -10,7 +10,8 @@ export class CallAdapter {
 		public readonly call_dateUpdate: Date,
 		public readonly call_pdfList: string,
 		public readonly call_create: string,
-		public readonly call_estado: boolean
+		public readonly call_estado: boolean,
+		public readonly CallVisibility: string
 	) {}
 }
 
@@ -29,7 +30,8 @@ export class Call implements Adapter<CallAdapter> {
 			callAdapter.call_dateUpdate,
 			callAdapter.call_pdfList,
 			callAdapter.call_create,
-			callAdapter.call_estado
+			callAdapter.call_estado,
+			callAdapter.CallVisibility
 		);
 	}
 }

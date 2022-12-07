@@ -28,7 +28,7 @@ export enum RequestReportsActionTypes {
 // create
 export const REQUESTREPORTS_CREATE_REQUESTED = createAction(
 	RequestReportsActionTypes.REQUESTREPORTS_CREATE_REQUESTED,
-	props<Payload<CreateRequestReportsDto>>()
+	props<Payload<FormData>>()
 );
 
 export const REQUESTREPORTS_CREATE_LOADED = createAction(

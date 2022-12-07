@@ -3,7 +3,7 @@ import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entiti
 import { CreateCallDto, UpdateCallDto, Call } from '../entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
 
-export enum CategoryActionTypes {
+export enum CallActionTypes {
 	// create
 	CALL_CREATE_REQUESTED = '[Call] CREATE Requested',
 	CALL_CREATE_LOADED = '[Call] CREATE Loaded',
@@ -27,64 +27,64 @@ export enum CategoryActionTypes {
 
 // create
 export const CALL_CREATE_REQUESTED = createAction(
-	CategoryActionTypes.CALL_CREATE_REQUESTED,
-	props<Payload<CreateCallDto>>()
+	CallActionTypes.CALL_CREATE_REQUESTED,
+	props<Payload<FormData>>()
 );
 
 export const CALL_CREATE_LOADED = createAction(
-	CategoryActionTypes.CALL_CREATE_LOADED,
+	CallActionTypes.CALL_CREATE_LOADED,
 	props<Payload<Response<Call>>>()
 );
 
 export const CALL_CREATE_FAILED = createAction(
-	CategoryActionTypes.CALL_CREATE_FAILED,
+	CallActionTypes.CALL_CREATE_FAILED,
 	props<Payload<Exception>>()
 );
 
 // findAll
 export const CALL_FIND_ALL_REQUESTED = createAction(
-	CategoryActionTypes.CALL_FIND_ALL_REQUESTED,
+	CallActionTypes.CALL_FIND_ALL_REQUESTED,
 	props<Payload<Pagination>>()
 );
 
 export const CALL_FIND_ALL_LOADED = createAction(
-	CategoryActionTypes.CALL_FIND_ALL_LOADED,
+	CallActionTypes.CALL_FIND_ALL_LOADED,
 	props<Payload<Response<Call[]>>>()
 );
 
 export const CALL_FIND_ALL_FAILED = createAction(
-	CategoryActionTypes.CALL_FIND_ALL_FAILED,
+	CallActionTypes.CALL_FIND_ALL_FAILED,
 	props<Payload<Exception>>()
 );
 
 // findOne
 export const CALL_FIND_ONE_REQUESTED = createAction(
-	CategoryActionTypes.CALL_FIND_ONE_REQUESTED,
+	CallActionTypes.CALL_FIND_ONE_REQUESTED,
 	props<Payload<string>>()
 );
 
 export const CALL_FIND_ONE_LOADED = createAction(
-	CategoryActionTypes.CALL_FIND_ONE_LOADED,
+	CallActionTypes.CALL_FIND_ONE_LOADED,
 	props<Payload<Response<Call>>>()
 );
 
 export const CALL_FIND_ONE_FAILED = createAction(
-	CategoryActionTypes.CALL_FIND_ONE_FAILED,
+	CallActionTypes.CALL_FIND_ONE_FAILED,
 	props<Payload<Exception>>()
 );
 
 // update
 export const CALL_UPDATE_REQUESTED = createAction(
-	CategoryActionTypes.CALL_UPDATE_REQUESTED,
+	CallActionTypes.CALL_UPDATE_REQUESTED,
 	props<PayloadUpdate<UpdateCallDto, string>>()
 );
 
 export const CALL_UPDATE_LOADED = createAction(
-	CategoryActionTypes.CALL_UPDATE_LOADED,
+	CallActionTypes.CALL_UPDATE_LOADED,
 	props<Payload<Response<Call>>>()
 );
 
 export const CALL_UPDATE_FAILED = createAction(
-	CategoryActionTypes.CALL_UPDATE_FAILED,
+	CallActionTypes.CALL_UPDATE_FAILED,
 	props<Payload<Exception>>()
 );

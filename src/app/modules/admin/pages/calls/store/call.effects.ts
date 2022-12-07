@@ -22,7 +22,7 @@ export class CallEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.CALL_CREATE_REQUESTED),
-				switchMap((action: Payload<CreateCallDto>) =>
+				switchMap((action: Payload<FormData>) =>
 					this.callService.create(action.payload).pipe(
 						map((response: Response<Call>) => {
 							this.matSnackBarService.open('success', ZMessages.success);

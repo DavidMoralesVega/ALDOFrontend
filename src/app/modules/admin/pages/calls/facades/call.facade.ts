@@ -15,7 +15,7 @@ import {
 @Injectable()
 export class CallFacade {
 	// create
-	public createDto$: Observable<CreateCallDto | null>;
+	public createDto$: Observable<FormData | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<Call> | null>;
@@ -66,8 +66,8 @@ export class CallFacade {
 		this.updateResponse$ = this.store.select(zSelector.getCallUpdateResponse);
 	}
 
-	create(createCategoryDto: CreateCallDto) {
-		this.store.dispatch(CALL_CREATE_REQUESTED({ payload: createCategoryDto }));
+	create(createCallDto: FormData) {
+		this.store.dispatch(CALL_CREATE_REQUESTED({ payload: createCallDto }));
 	}
 
 	findAll(pagination: Pagination) {

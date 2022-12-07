@@ -25,6 +25,7 @@ import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service'
 import { RequestReportsFacade } from './facades/request-reports.facade';
 import { RequestReportsCreateModule } from './components/request-reports-create/request-reports-create.module';
 import { RequestReportsUpdateModule } from './components/request-reports-update/request-reports-update.module';
+import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file.module';
 
 @NgModule({
 	declarations: [RequestReportsComponent],
@@ -46,7 +47,8 @@ import { RequestReportsUpdateModule } from './components/request-reports-update/
 		MatPaginatorModule,
 		MatDialogModule,
 		RequestReportsCreateModule,
-		RequestReportsUpdateModule
+		RequestReportsUpdateModule,
+		StaticFilePipeModule
 	],
 	providers: [RequestReportsService, MatSnackBarService, RequestReportsFacade],
 	exports: [StoreModule, EffectsModule]

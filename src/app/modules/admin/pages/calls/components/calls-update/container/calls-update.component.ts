@@ -40,7 +40,7 @@ export class CallsUpdateComponent implements OnInit {
 				Validators.pattern('[a-zA-Z]{1,100}')
 			]),
 			call_dateUpdate: new FormControl(this.callAdapter.call_dateUpdate, [Validators.required]),
-			call_pdfList: new FormControl(this.callAdapter.call_pdfList, [Validators.required])
+			CallVisibility: new FormControl(this.callAdapter.CallVisibility, [Validators.required])
 		});
 	}
 
@@ -56,8 +56,8 @@ export class CallsUpdateComponent implements OnInit {
 	get call_dateUpdate() {
 		return this.formUpdate.get('call_dateUpdate')!;
 	}
-	get call_pdfList() {
-		return this.formUpdate.get('call_pdfList')!;
+	get CallVisibility() {
+		return this.formUpdate.get('CallVisibility')!;
 	}
 
 	update() {
@@ -65,10 +65,10 @@ export class CallsUpdateComponent implements OnInit {
 
 		const updateCallDto: UpdateCallDto = {
 			call_title: this.call_title.value,
-			call_management: this.call_management.value,
+			call_management: this.call_management.value.toString(),
 			call_modality: this.call_modality.value,
 			call_dateUpdate: this.call_dateUpdate.value,
-			call_pdfList: this.call_pdfList.value
+			CallVisibility: this.CallVisibility.value
 		};
 
 		this.callFacade.update(this.callAdapter.call_id, updateCallDto);

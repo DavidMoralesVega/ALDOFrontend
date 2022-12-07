@@ -13,8 +13,10 @@ import { CreateCategoryDto } from '../../../entities';
 export class CategoryCreateComponent implements OnInit {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
-
 	public createIsLoading$: Observable<boolean>;
+
+	private file!: File;
+	private isValidImage: boolean = false;
 
 	constructor(private readonly categoryFacade: CategoryFacade) {
 		this.createIsLoading$ = categoryFacade.createIsLoading$;

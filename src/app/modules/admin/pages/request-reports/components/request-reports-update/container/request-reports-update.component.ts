@@ -43,7 +43,7 @@ export class RequestReportsUpdateComponent implements OnInit {
 			reqR_abstract: new FormControl(this.RequestReportsAdapter.reqR_abstract, [
 				Validators.required
 			]),
-			reqR_listPdf: new FormControl(this.RequestReportsAdapter.reqR_listPdf, [
+			reqR_Visibility: new FormControl(this.RequestReportsAdapter.reqR_Visibility, [
 				Validators.required
 			]),
 			reqR_management: new FormControl(this.RequestReportsAdapter.reqR_management, [
@@ -64,8 +64,8 @@ export class RequestReportsUpdateComponent implements OnInit {
 	get reqR_abstract() {
 		return this.formUpdate.get('reqR_abstract')!;
 	}
-	get reqR_listPdf() {
-		return this.formUpdate.get('reqR_listPdf')!;
+	get reqR_Visibility() {
+		return this.formUpdate.get('reqR_Visibility')!;
 	}
 	get reqR_management() {
 		return this.formUpdate.get('reqR_management')!;
@@ -79,8 +79,8 @@ export class RequestReportsUpdateComponent implements OnInit {
 			reqR_petitioner: this.reqR_petitioner.value,
 			reqR_addressee: this.reqR_addressee.value,
 			reqR_abstract: this.reqR_abstract.value,
-			reqR_listPdf: this.reqR_listPdf.value,
-			reqR_management: this.reqR_management.value
+			reqR_Visibility: this.reqR_Visibility.value,
+			reqR_management: this.reqR_management.value.toString()
 		};
 
 		this.requestReportsFacade.update(this.RequestReportsAdapter.reqR_id, updateRequestReportsDto);

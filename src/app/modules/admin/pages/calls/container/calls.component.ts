@@ -29,8 +29,9 @@ export class CallsComponent implements OnInit {
 		'call_management',
 		'call_modality',
 		'call_dateUpdate',
-		'call_pdfList',
 		'call_create',
+		'CallVisibility',
+		'IdUser',
 		'call_estado',
 		'z-actions'
 	];
@@ -62,7 +63,7 @@ export class CallsComponent implements OnInit {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<Call[]> | null) => {
-					// console.log(response);
+					console.log(response);
 					setTimeout(() => {
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;
