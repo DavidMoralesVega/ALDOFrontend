@@ -20,11 +20,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
-import { CategoryFacade } from './facades/category.facade';
 import { CategoryService } from './services/category.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CategoryCreateModule } from './components/category-create/category-create.module';
 import { CategoryUpdateModule } from './components/category-update/category-update.module';
+import { CategoryFacade } from './facades/category.facade';
 
 @NgModule({
 	declarations: [CategoryComponent],

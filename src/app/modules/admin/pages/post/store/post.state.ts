@@ -1,15 +1,15 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { AdmPais, CreateAdmPaisDto, UpdateAdmPaisDto } from '../entities';
+import { Post, CreatePostDto, UpdatePostDto } from '../entities';
 
-export interface AdmPaisState {
+export interface PostState {
 	create: {
-		createAdmPaisDto: CreateAdmPaisDto | null;
+		createPostDto: CreatePostDto | null;
 		exception: Exception | null;
 		isLoading: boolean;
-		response: Response<AdmPais> | null;
+		response: Response<Post> | null;
 	};
 	findAll: {
-		response: Response<AdmPais[]> | null;
+		response: Response<Post[]> | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		pagination: Pagination | null;
@@ -17,19 +17,19 @@ export interface AdmPaisState {
 	findOne: {
 		exception: Exception | null;
 		isLoading: boolean;
-		response: Response<AdmPais> | null;
+		response: Response<Post> | null;
 		id: string | null;
 	};
 	update: {
-		updateAdmPaisDto: UpdateAdmPaisDto | null;
+		updatePostDto: UpdatePostDto | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;
-		response: Response<AdmPais> | null;
+		response: Response<Post> | null;
 	};
 }
 
-export const admPaisInitialState: AdmPaisState = {
+export const postInitialState: PostState = {
 	findAll: {
 		response: null,
 		exception: null,
@@ -37,7 +37,7 @@ export const admPaisInitialState: AdmPaisState = {
 		pagination: null
 	},
 	create: {
-		createAdmPaisDto: null,
+		createPostDto: null,
 		exception: null,
 		isLoading: false,
 		response: null
@@ -49,7 +49,7 @@ export const admPaisInitialState: AdmPaisState = {
 		id: null
 	},
 	update: {
-		updateAdmPaisDto: null,
+		updatePostDto: null,
 		exception: null,
 		id: undefined,
 		isLoading: false,

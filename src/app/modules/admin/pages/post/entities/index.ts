@@ -1,6 +1,6 @@
 // Interfaces
 
 // Models
-export * from './models/call.model';
+export * from './models/post.model';
 
 // Adapters

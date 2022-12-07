@@ -9,5 +9,8 @@ export enum ZEffects {
 	departament_law = 'departament-law',
 
 	/* dev */
-	category = 'category'
+	category = 'category',
+	call = 'call',
+	requestReports = 'request-reports',
+	post = 'post'
 }

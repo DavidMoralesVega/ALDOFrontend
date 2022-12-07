@@ -1,35 +1,35 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import * as zActions from './adm-pais.action';
-import { admPaisInitialState, AdmPaisState } from './adm-pais.state';
+import * as zActions from './post.action';
+import { postInitialState, PostState } from './post.state';
 
-const _admPaisReducer = createReducer(
-	admPaisInitialState,
+const _postReducer = createReducer(
+	postInitialState,
 
 	// create
-	on(zActions.ADMPAIS_CREATE_REQUESTED, (state, { payload }) => ({
+	on(zActions.POST_CREATE_REQUESTED, (state, { payload }) => ({
 		...state,
 		create: {
-			createAdmPaisDto: payload,
+			createPostDto: payload,
 			exception: null,
 			isLoading: true,
 			response: null
 		}
 	})),
 
-	on(zActions.ADMPAIS_CREATE_LOADED, (state, { payload }) => ({
+	on(zActions.POST_CREATE_LOADED, (state, { payload }) => ({
 		...state,
 		create: {
-			createAdmPaisDto: null,
+			createPostDto: null,
 			exception: null,
 			isLoading: false,
 			response: payload
 		}
 	})),
 
-	on(zActions.ADMPAIS_CREATE_FAILED, (state, { payload }) => ({
+	on(zActions.POST_CREATE_FAILED, (state, { payload }) => ({
 		...state,
 		create: {
-			createAdmPaisDto: null,
+			createPostDto: null,
 			exception: payload,
 			isLoading: false,
 			response: null
@@ -38,7 +38,7 @@ const _admPaisReducer = createReducer(
 
 	// findAll
 
-	on(zActions.ADMPAIS_FIND_ALL_REQUESTED, (state, { payload }) => ({
+	on(zActions.POST_FIND_ALL_REQUESTED, (state, { payload }) => ({
 		...state,
 		findAll: {
 			response: null,
@@ -48,7 +48,7 @@ const _admPaisReducer = createReducer(
 		}
 	})),
 
-	on(zActions.ADMPAIS_FIND_ALL_LOADED, (state, { payload }) => ({
+	on(zActions.POST_FIND_ALL_LOADED, (state, { payload }) => ({
 		...state,
 		findAll: {
 			response: payload,
@@ -58,7 +58,7 @@ const _admPaisReducer = createReducer(
 		}
 	})),
 
-	on(zActions.ADMPAIS_FIND_ALL_FAILED, (state, { payload }) => ({
+	on(zActions.POST_FIND_ALL_FAILED, (state, { payload }) => ({
 		...state,
 		findAll: {
 			response: null,
@@ -69,7 +69,7 @@ const _admPaisReducer = createReducer(
 	})),
 
 	// findOne
-	on(zActions.ADMPAIS_FIND_ONE_REQUESTED, (state, { payload }) => ({
+	on(zActions.POST_FIND_ONE_REQUESTED, (state, { payload }) => ({
 		...state,
 		findOne: {
 			exception: null,
@@ -79,7 +79,7 @@ const _admPaisReducer = createReducer(
 		}
 	})),
 
-	on(zActions.ADMPAIS_FIND_ONE_LOADED, (state, { payload }) => ({
+	on(zActions.POST_FIND_ONE_LOADED, (state, { payload }) => ({
 		...state,
 		findOne: {
 			exception: null,
@@ -89,7 +89,7 @@ const _admPaisReducer = createReducer(
 		}
 	})),
 
-	on(zActions.ADMPAIS_FIND_ONE_FAILED, (state, { payload }) => ({
+	on(zActions.POST_FIND_ONE_FAILED, (state, { payload }) => ({
 		...state,
 		findOne: {
 			exception: payload,
@@ -100,10 +100,10 @@ const _admPaisReducer = createReducer(
 	})),
 
 	// update
-	on(zActions.ADMPAIS_UPDATE_REQUESTED, (state, { payload, id }) => ({
+	on(zActions.POST_UPDATE_REQUESTED, (state, { payload, id }) => ({
 		...state,
 		update: {
-			updateAdmPaisDto: payload,
+			updatePostDto: payload,
 			exception: null,
 			id,
 			isLoading: true,
@@ -111,10 +111,10 @@ const _admPaisReducer = createReducer(
 		}
 	})),
 
-	on(zActions.ADMPAIS_UPDATE_LOADED, (state, { payload }) => ({
+	on(zActions.POST_UPDATE_LOADED, (state, { payload }) => ({
 		...state,
 		update: {
-			updateAdmPaisDto: null,
+			updatePostDto: null,
 			exception: null,
 			id: undefined,
 			isLoading: false,
@@ -122,10 +122,10 @@ const _admPaisReducer = createReducer(
 		}
 	})),
 
-	on(zActions.ADMPAIS_UPDATE_FAILED, (state, { payload }) => ({
+	on(zActions.POST_UPDATE_FAILED, (state, { payload }) => ({
 		...state,
 		update: {
-			updateAdmPaisDto: null,
+			updatePostDto: null,
 			exception: payload,
 			id: undefined,
 			isLoading: false,
@@ -134,6 +134,6 @@ const _admPaisReducer = createReducer(
 	}))
 );
 
-export function AdmPaisReducer(state: AdmPaisState, action: Action) {
-	return _admPaisReducer(state, action);
+export function PostReducer(state: PostState, action: Action) {
+	return _postReducer(state, action);
 }

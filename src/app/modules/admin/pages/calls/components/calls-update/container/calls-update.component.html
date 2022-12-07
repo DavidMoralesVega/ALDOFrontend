@@ -1,1 +1,113 @@
-<p>calls-update works!</p>
+<div class="dialogContainer">
+	<div class="dialogContainer__header">
+		<h2 mat-dialog-title>Actualizar Convocatoria</h2>
+		<button mat-icon-button mat-dialog-close>
+			<mat-icon class="material-symbols-outlined">close</mat-icon>
+		</button>
+	</div>
+
+	<form [formGroup]="formUpdate" (ngSubmit)="update()" novalidate="novalidate" autocomplete="off">
+		<div mat-dialog-content>
+			<div class="row">
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Titulo</mat-label>
+
+					<input matInput maxlength="100" formControlName="call_title" placeholder="Titulo" />
+					<mat-hint align="start">El titulo debe tener como máximo 100 caracteres. </mat-hint>
+					<mat-hint align="end">{{ call_title.value.length }} / 100</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(call_title, null)">
+						<span *ngIf="call_title.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El titulo es requerida.
+						</span>
+
+						<span *ngIf="call_title.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El titulo debe tener como máximo 100 caracteres.
+						</span>
+
+						<span *ngIf="call_title.errors?.['pattern']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El titulo solo debe de tener cadenas de texto.
+						</span>
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Gestion</mat-label>
+
+					<input
+						matInput
+						type="number"
+						formControlName="call_management"
+						placeholder="Gestion"
+					/>
+					<mat-error *ngIf="errorMatcher.isErrorState(call_management, null)">
+						<span *ngIf="call_management.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							La gestion es requerida.
+						</span>
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Modalidad</mat-label>
+
+					<input
+						matInput
+						maxlength="100"
+						formControlName="call_modality"
+						placeholder="Modalidad"
+					/>
+					<mat-hint align="start"
+						>La modalidad debe tener como máximo 100 caracteres.
+					</mat-hint>
+					<mat-hint align="end">{{ call_modality.value.length }} / 100</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(call_modality, null)">
+						<span *ngIf="call_modality.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							La modalidad es requerida.
+						</span>
+
+						<span *ngIf="call_modality.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							La modalidad debe tener como máximo 100 caracteres.
+						</span>
+
+						<span *ngIf="call_modality.errors?.['pattern']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							La modalidad solo debe de tener cadenas de texto.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Fecha de actualizacion</mat-label>
+					<input
+						matInput
+						[matDatepicker]="call_dateUpdate"
+						formControlName="call_dateUpdate"
+					/>
+					<mat-hint>MM/DD/YYYY</mat-hint>
+					<mat-datepicker-toggle matSuffix [for]="call_dateUpdate"></mat-datepicker-toggle>
+					<mat-datepicker touchUi #call_dateUpdate></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Lista Pdf</mat-label>
+
+					<input matInput formControlName="call_pdfList" placeholder="Lista Pdf" />
+					<mat-error *ngIf="errorMatcher.isErrorState(call_pdfList, null)">
+						<span *ngIf="call_pdfList.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							los pdf son requeridos.
+						</span>
+					</mat-error>
+				</mat-form-field>
+			</div>
+		</div>
+		<mat-dialog-actions align="end">
+			<button mat-button mat-dialog-close>Cancelar</button>
+			<button mat-button *ngIf="!(updateIsLoading$ | async)">Guardar</button>
+			<button mat-button *ngIf="updateIsLoading$ | async" disabled>Guardando...</button>
+		</mat-dialog-actions>
+	</form>
+</div>
