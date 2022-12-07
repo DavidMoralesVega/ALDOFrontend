@@ -186,3 +186,47 @@ export const ZListContract: any = [
 	{ value: '1', key: 'Contrato dos' },
 	{ value: '2', key: 'Contrato tres' }
 ];
+
+// Comisiones
+export const ZListCardCommissions: any = [
+	{
+		path: '/',
+		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		title: 'Comisión de Constitución, Desarrollo Legislativo, Sistema Electoral y Justicia'
+	},
+	{
+		path: '/',
+		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		title: 'Comisión de Planificación, Política Económica y Finanzas Publicas'
+	},
+	{
+		path: '/',
+		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		title: 'Comisión de Infraestructura y Obra Públicas de Desarrollo'
+	},
+	{
+		path: '/',
+		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		title: 'Comisión de Minería e Hidrocarburos, Recursos Naturales, Producción Industria, Comercio y Servicios'
+	},
+	{
+		path: '/',
+		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		title: 'Comisión de Autonomía, Organización Territorial y Límites'
+	},
+	{
+		path: '/',
+		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		title: 'Comisión de Relaciones Intergubernamentales e Internacionales'
+	},
+	{
+		path: '/',
+		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		title: 'Comisión de Educación, Salud, Derechos Humanos y Política Social'
+	},
+	{
+		path: '/',
+		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		title: 'Comisión de Medio Ambiente, Desarrollo Rural Integral Sustentable y Soberanía Alimentaria'
+	}
+];

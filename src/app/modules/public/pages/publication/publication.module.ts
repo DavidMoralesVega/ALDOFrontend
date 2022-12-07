@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PublicationRoutingModule } from './publication-routing.module';
+import { PublicationComponent } from './container/publication.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PublicationComponent
+  ],
   imports: [
     CommonModule,
     PublicationRoutingModule
