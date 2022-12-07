@@ -38,23 +38,23 @@ $frontend-theme: mat.define-light-theme(
 
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
-@import 'ng-uikit-pro-standard/assets/scss/core/colors';
-@import 'ng-uikit-pro-standard/assets/scss/core/variables';
-@import 'ng-uikit-pro-standard/assets/scss/core/variables-pro';
+// @import 'ng-uikit-pro-standard/assets/scss/core/colors';
+// @import 'ng-uikit-pro-standard/assets/scss/core/variables';
+// @import 'ng-uikit-pro-standard/assets/scss/core/variables-pro';
 
-@import 'ng-uikit-pro-standard/assets/scss/sections-pro/_contacts-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/sections-pro/_magazine-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/sections-pro/_pricing-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/sections-pro/_social-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/sections-pro/_team-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/sections-pro/_templates-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/sections-pro/_testimonials-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/addons-pro/_blog-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/addons-pro/_chat-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/addons-pro/_ecommerce-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/addons-pro/_steppers-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/addons-pro/_timeline-pro.scss';
-@import 'ng-uikit-pro-standard/assets/scss/addons-pro/_timelines-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/sections-pro/_contacts-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/sections-pro/_magazine-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/sections-pro/_pricing-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/sections-pro/_social-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/sections-pro/_team-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/sections-pro/_templates-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/sections-pro/_testimonials-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/addons-pro/_blog-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/addons-pro/_chat-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/addons-pro/_ecommerce-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/addons-pro/_steppers-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/addons-pro/_timeline-pro.scss';
+// @import 'ng-uikit-pro-standard/assets/scss/addons-pro/_timelines-pro.scss';
 
 :root {
 	--z-theme-color-white: #fff;
@@ -528,6 +528,9 @@ mdb-item-body {
 }
 .side-nav {
 	.collapsible {
+		// navabar logo fixed
+		margin-top: 6rem !important;
+
 		.card-body {
 			li {
 				a {
@@ -1358,4 +1361,10 @@ td.mat-column-position {
 		line-height: 48px;
 		letter-spacing: -0.5px;
 	}
+}
+
+// nvabar menu
+.z-nav-link-active {
+	font-weight: 600;
+	color: #4285f4 !important;
 }

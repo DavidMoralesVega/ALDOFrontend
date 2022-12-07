@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { DefaultErrorMatcher } from './core/shared/default.error-matcher';
 import { AuthService } from './modules/auth/services/auth.service';
 import { authInterceptorProviders } from './core/interceptors/http.interceptor';
+import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -31,7 +32,8 @@ import { authInterceptorProviders } from './core/interceptors/http.interceptor';
 		ServiceWorkerModule.register('ngsw-worker.js', {
 			enabled: environment.production,
 			registrationStrategy: 'registerWhenStable:30000'
-		})
+		}),
+		MDBBootstrapModulesPro.forRoot()
 	],
 	// providers: [AuthERPService, { provide: ErrorStateMatcher, useClass: DefaultErrorMatcher }],
 	providers: [
@@ -39,7 +41,7 @@ import { authInterceptorProviders } from './core/interceptors/http.interceptor';
 		authInterceptorProviders,
 		{ provide: ErrorStateMatcher, useClass: DefaultErrorMatcher }
 	],
-
+	schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

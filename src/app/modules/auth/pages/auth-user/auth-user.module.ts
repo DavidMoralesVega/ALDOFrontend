@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { AuthFacade } from '../../facades/auth.facade';
+import { NavbarModule } from '../../../public/components/navbar/navbar.module';
 
 @NgModule({
 	declarations: [AuthUserComponent],
@@ -29,7 +30,8 @@ import { AuthFacade } from '../../facades/auth.facade';
 		CardsModule,
 		ButtonsModule,
 
-		MatSnackBarModule
+		MatSnackBarModule,
+		NavbarModule
 	],
 	providers: [MatSnackBarService, AuthFacade]
 })

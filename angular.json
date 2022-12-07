@@ -32,6 +32,8 @@
 							"node_modules/ng-uikit-pro-standard/assets/scss/bootstrap/bootstrap.scss",
 							"node_modules/ng-uikit-pro-standard/assets/scss/mdb.scss",
 							"node_modules/angular-calendar/scss/angular-calendar.scss",
+							"src/assets/mdb/css/mdb.min.css",
+							"src/assets/mdb/plugins/css/all.min.css",
 							"src/styles.scss"
 						],
 						"scripts": [
