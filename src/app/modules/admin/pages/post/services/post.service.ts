@@ -12,7 +12,7 @@ export class PostService {
 
 	constructor(private readonly httpClient: HttpClient) {}
 
-	create(createPostDto: CreatePostDto): Observable<Response<Post>> {
+	create(createPostDto: FormData): Observable<Response<Post>> {
 		return this.httpClient.post<Response<Post>>(this.ZPPost, createPostDto);
 	}
 

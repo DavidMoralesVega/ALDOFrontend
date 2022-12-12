@@ -28,7 +28,7 @@ export enum PostActionTypes {
 // create
 export const POST_CREATE_REQUESTED = createAction(
 	PostActionTypes.POST_CREATE_REQUESTED,
-	props<Payload<CreatePostDto>>()
+	props<Payload<FormData>>()
 );
 
 export const POST_CREATE_LOADED = createAction(
