@@ -3,7 +3,7 @@ import { Post, CreatePostDto, UpdatePostDto } from '../entities';
 
 export interface PostState {
 	create: {
-		createPostDto: CreatePostDto | null;
+		createPostDto: FormData | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		response: Response<Post> | null;

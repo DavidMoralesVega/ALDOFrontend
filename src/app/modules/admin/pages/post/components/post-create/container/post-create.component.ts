@@ -7,6 +7,7 @@ import { Category } from '../../../../category/entities/';
 import { CategoryFacade } from '../../../../category/facades/category.facade';
 import { CreatePostDto } from '../../../entities';
 import { PostFacade } from '../../../facades/post.facade';
+import { PayloadFile } from 'src/app/core/entities';
 
 @Component({
 	selector: 'z-post-create',
@@ -27,6 +28,9 @@ export class PostCreateComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
+
+	private post_fotografia!: File;
+	private isValidImage: boolean = false;
 
 	constructor(
 		private readonly postFacade: PostFacade,
@@ -73,16 +77,27 @@ export class PostCreateComponent implements OnInit {
 	create() {
 		if (this.formCreate.invalid) return;
 
-		const createPostDto: CreatePostDto = {
+		/* const createPostDto: CreatePostDto = {
 			post_author: this.post_author.value,
 			post_content: this.post_content.value,
 			post_tittle: this.post_tittle.value,
 			cat_post_id: this.cat_post_id.value
-		};
-		// console.log(createAdmDepartamentoDto);
+		}; */
+
+		const createPostDto = new FormData();
+		createPostDto.append('post_author', this.post_author.value);
+		createPostDto.append('post_content', this.post_content.value);
+		createPostDto.append('post_tittle', this.post_tittle.value);
+		createPostDto.append('cat_post_id', this.cat_post_id.value);
+		createPostDto.append('post_fotografia', this.post_fotografia);
 
 		this.postFacade.create(createPostDto);
+	}
 
-		// this.matDialogRef.close();
+	handleUpload(payloadFile: PayloadFile) {
+		this.isValidImage = payloadFile.isValid;
+		this.post_fotografia = payloadFile.file;
+
+		// console.log(payloadFile.file);
 	}
 }

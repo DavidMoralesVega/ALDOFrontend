@@ -21,7 +21,7 @@ export class PostEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.POST_CREATE_REQUESTED),
-				switchMap((action: Payload<CreatePostDto>) =>
+				switchMap((action: Payload<FormData>) =>
 					this.postService.create(action.payload).pipe(
 						map((response: Response<Post>) => {
 							this.matSnackBarService.open('success', ZMessages.success);
