@@ -34,7 +34,7 @@ export class ResolutionFacade {
 	public findOneResponse$: Observable<Response<Resolution> | null>;
 
 	// update
-	public updateDto$: Observable<UpdateResolutionDto | null>;
+	public updateDto$: Observable<UpdateResolutionDto | FormData | null>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -79,7 +79,7 @@ export class ResolutionFacade {
 		this.store.dispatch(RESOLUTION_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateResolutionDto: UpdateResolutionDto) {
+	update(id: string, updateResolutionDto: UpdateResolutionDto | FormData) {
 		this.store.dispatch(
 			RESOLUTION_UPDATE_REQUESTED({
 				id,

@@ -29,22 +29,11 @@
 				</mat-form-field>
 
 				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Resumen</mat-label>
-
-					<input matInput maxlength="40" formControlName="RSummary" placeholder="Resumen" />
-					<mat-hint align="start">El resumen debe tener como máximo 40 caracteres. </mat-hint>
-					<mat-hint align="end">{{ RSummary.value.length }} / 40</mat-hint>
-					<mat-error *ngIf="errorMatcher.isErrorState(RSummary, null)">
-						<span *ngIf="RSummary.errors?.['required']">
-							<i class="fas fa-exclamation-circle mr-1"></i>
-							El resumen es requerida.
-						</span>
-
-						<span *ngIf="RSummary.errors?.['maxlength']">
-							<i class="fas fa-exclamation-circle mr-1"></i>
-							El resumen debe tener como máximo 40 caracteres.
-						</span>
-					</mat-error>
+					<mat-label>Fecha de evento</mat-label>
+					<input matInput [matDatepicker]="REventDate" formControlName="REventDate" />
+					<mat-hint>MM/DD/YYYY</mat-hint>
+					<mat-datepicker-toggle matSuffix [for]="REventDate"></mat-datepicker-toggle>
+					<mat-datepicker touchUi #REventDate></mat-datepicker>
 				</mat-form-field>
 
 				<mat-form-field class="col-lg-12" appearance="outline">
@@ -68,18 +57,11 @@
 				</mat-form-field>
 
 				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Número de documento</mat-label>
-					<input
-						matInput
-						formControlName="RDocumentNumber"
-						placeholder="Número de documento"
-					/>
-					<mat-error *ngIf="errorMatcher.isErrorState(RDocumentNumber, null)">
-						<span *ngIf="RDocumentNumber.errors?.['required']">
-							<i class="fas fa-exclamation-circle mr-1"></i>
-							El número de documento es requerido.
-						</span>
-					</mat-error>
+					<mat-label>Fecha de evento</mat-label>
+					<input matInput [matDatepicker]="REventDate" formControlName="REventDate" />
+					<mat-hint>MM/DD/YYYY</mat-hint>
+					<mat-datepicker-toggle matSuffix [for]="REventDate"></mat-datepicker-toggle>
+					<mat-datepicker touchUi #REventDate></mat-datepicker>
 				</mat-form-field>
 
 				<div class="z-container-raddio-button">

@@ -40,7 +40,7 @@ export class RequestWrittenCreateComponent implements OnInit {
 			RWPublicationDate: new FormControl('', [Validators.required]),
 			RWIssueDate: new FormControl('', [Validators.required]),
 			RWDocumentNumber: new FormControl('', [Validators.required]),
-			RWVisibility: new FormControl(true, [Validators.required])
+			RWVisibility: new FormControl('Público', [Validators.required])
 		});
 	}
 	get RWTitle() {

@@ -9,6 +9,7 @@ export class DepartamentLawAdapter {
 		public readonly DTPublicationDate: string,
 		public readonly DTIssueDate: string,
 		public readonly DTDocumentNumber: string,
+		public readonly DTArea: string,
 		public readonly DTFile: any,
 		public readonly DTVisibility: boolean,
 		public readonly DTState: boolean,
@@ -33,6 +34,7 @@ export class DepartamentLaw implements Adapter<DepartamentLawAdapter> {
 			departamentLawAdapter.DTPublicationDate,
 			departamentLawAdapter.DTIssueDate,
 			departamentLawAdapter.DTDocumentNumber,
+			departamentLawAdapter.DTArea,
 			departamentLawAdapter.DTFile,
 
 			departamentLawAdapter.DTVisibility,

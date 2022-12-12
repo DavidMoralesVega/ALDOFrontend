@@ -28,7 +28,7 @@ export class RecognitionComponent implements OnInit, AfterViewInit, OnDestroy {
 		'RSummary',
 		'RPublicationDate',
 		'RIssueDate',
-		'RDocumentNumber',
+		'REventDate',
 		'RDateRegister',
 		'RVisibility',
 		'IdUser',

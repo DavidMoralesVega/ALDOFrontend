@@ -77,7 +77,7 @@ export const RESOLUTION_FIND_ONE_FAILED = createAction(
 // update
 export const RESOLUTION_UPDATE_REQUESTED = createAction(
 	ResolutionActionTypes.RESOLUTION_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateResolutionDto, string>>()
+	props<PayloadUpdate<UpdateResolutionDto | FormData, string>>()
 );
 
 export const RESOLUTION_UPDATE_LOADED = createAction(

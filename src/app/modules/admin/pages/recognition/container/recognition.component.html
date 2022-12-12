@@ -57,9 +57,9 @@
 				<td mat-cell *matCellDef="let row">{{ row.RIssueDate | date : 'medium' }}</td>
 			</ng-container>
 
-			<ng-container matColumnDef="RDocumentNumber"
-				><th mat-header-cell *matHeaderCellDef mat-sort-header>Número de documento</th>
-				<td mat-cell *matCellDef="let row">{{ row.RDocumentNumber }}</td>
+			<ng-container matColumnDef="REventDate">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de evento</th>
+				<td mat-cell *matCellDef="let row">{{ row.REventDate | date : 'medium' }}</td>
 			</ng-container>
 
 			<ng-container matColumnDef="RDateRegister">

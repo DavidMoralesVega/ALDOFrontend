@@ -187,6 +187,13 @@ export const ZListContract: any = [
 	{ value: '2', key: 'Contrato tres' }
 ];
 
+// area
+export const ZListArea: any = [
+	{ value: '0', key: 'Area 1' },
+	{ value: '1', key: 'Area dos' },
+	{ value: '2', key: 'Area tres' }
+];
+
 // Comisiones
 export const ZListCardCommissions: any = [
 	{

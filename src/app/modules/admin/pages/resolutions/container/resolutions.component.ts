@@ -35,6 +35,8 @@ export class ResolutionsComponent implements OnInit {
 		'REPublicationDate',
 		'REIssueDate',
 		'REDocumentNumber',
+		'REStartYear',
+		'REEndYear',
 		'REType',
 		'REDateRegister',
 		'REVisibility',

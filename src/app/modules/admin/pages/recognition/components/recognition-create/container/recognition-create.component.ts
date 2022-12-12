@@ -38,7 +38,7 @@ export class RecognitionCreateComponent implements OnInit {
 			RSummary: new FormControl('', [Validators.required, Validators.maxLength(40)]),
 			RPublicationDate: new FormControl('', [Validators.required]),
 			RIssueDate: new FormControl('', [Validators.required]),
-			RDocumentNumber: new FormControl('', [Validators.required]),
+			REventDate: new FormControl('', [Validators.required]),
 			RVisibility: new FormControl(true, [Validators.required])
 		});
 	}
@@ -54,8 +54,8 @@ export class RecognitionCreateComponent implements OnInit {
 	get RIssueDate() {
 		return this.formCreate.get('RIssueDate')!;
 	}
-	get RDocumentNumber() {
-		return this.formCreate.get('RDocumentNumber')!;
+	get REventDate() {
+		return this.formCreate.get('REventDate')!;
 	}
 
 	get RVisibility() {
@@ -76,7 +76,7 @@ export class RecognitionCreateComponent implements OnInit {
 		createRecognitionDto.append('RSummary', this.RSummary.value);
 		createRecognitionDto.append('RPublicationDate', this.RPublicationDate.value);
 		createRecognitionDto.append('RIssueDate', this.RIssueDate.value);
-		createRecognitionDto.append('RDocumentNumber', this.RDocumentNumber.value);
+		createRecognitionDto.append('REventDate', this.REventDate.value);
 
 		createRecognitionDto.append('RVisibility', this.RVisibility.value);
 		createRecognitionDto.append('RFile', this.file);

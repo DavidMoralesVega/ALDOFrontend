@@ -9,40 +9,38 @@
 	<form [formGroup]="formUpdate" (ngSubmit)="update()" novalidate="novalidate" autocomplete="off">
 		<div mat-dialog-content>
 			<div class="row">
+				<div class="col-12">
+					<z-upload-input-type-document
+						(onUpload)="handleUpload($event)"
+					></z-upload-input-type-document>
+				</div>
 				<mat-form-field class="col-lg-12" appearance="outline">
 					<mat-label>Título</mat-label>
 
 					<input matInput maxlength="40" formControlName="RETitle" placeholder="Título" />
-					<mat-hint align="start">El título debe tener como máximo 40 caracteres. </mat-hint>
+					<mat-hint align="start">El título debe tener como máximo 40 carácteres. </mat-hint>
 					<mat-hint align="end">{{ RETitle.value.length }} / 40</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(RETitle, null)">
 						<span *ngIf="RETitle.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El título es requerida.
+							El título es requerido.
 						</span>
 
 						<span *ngIf="RETitle.errors?.['maxlength']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El título debe tener como máximo 40 caracteres.
+							Máximo 40 carácteres.
 						</span>
 					</mat-error>
 				</mat-form-field>
 
-				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Resumen</mat-label>
+				<mat-form-field class="example-full-width" appearance="outline">
+					<mat-label>Descripción</mat-label>
+					<textarea formControlName="RESummary" rows="7" matInput></textarea>
 
-					<input matInput maxlength="40" formControlName="RESummary" placeholder="Resumen" />
-					<mat-hint align="start">El resumen debe tener como máximo 40 caracteres. </mat-hint>
-					<mat-hint align="end">{{ RESummary.value.length }} / 40</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(RESummary, null)">
 						<span *ngIf="RESummary.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El resumen es requerida.
-						</span>
-
-						<span *ngIf="RESummary.errors?.['maxlength']">
-							<i class="fas fa-exclamation-circle mr-1"></i>
-							El resumen debe tener como máximo 40 caracteres.
+							El resumen es requerido.
 						</span>
 					</mat-error>
 				</mat-form-field>
@@ -65,6 +63,33 @@
 					<mat-hint>MM/DD/YYYY</mat-hint>
 					<mat-datepicker-toggle matSuffix [for]="REIssueDate"></mat-datepicker-toggle>
 					<mat-datepicker touchUi #REIssueDate></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Año de inicio</mat-label>
+					<input
+						type="number"
+						matInput
+						formControlName="REStartYear"
+						placeholder="Año de inicio"
+					/>
+					<mat-error *ngIf="errorMatcher.isErrorState(REStartYear, null)">
+						<span *ngIf="REStartYear.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El año de inicio es requerido.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Año fin</mat-label>
+					<input type="number" matInput formControlName="REEndYear" placeholder="Año fin" />
+					<mat-error *ngIf="errorMatcher.isErrorState(REEndYear, null)">
+						<span *ngIf="REEndYear.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							EL año final es requerido.
+						</span>
+					</mat-error>
 				</mat-form-field>
 
 				<mat-form-field class="col-lg-12" appearance="outline">

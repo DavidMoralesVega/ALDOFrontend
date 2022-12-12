@@ -27,7 +27,10 @@ export class ResolutionService {
 		return this.httpClient.get<Response<Resolution>>(`${this.ZPResolution}/${id}`);
 	}
 
-	update(id: string, updateResolutionDto: UpdateResolutionDto): Observable<Response<Resolution>> {
+	update(
+		id: string,
+		updateResolutionDto: UpdateResolutionDto | FormData
+	): Observable<Response<Resolution>> {
 		return this.httpClient.patch<Response<Resolution>>(
 			`${this.ZPResolution}/${id}`,
 			updateResolutionDto

@@ -45,6 +45,8 @@ export class ResolutionsCreateComponent implements OnInit {
 			REPublicationDate: new FormControl('', [Validators.required]),
 			REIssueDate: new FormControl('', [Validators.required]),
 			REDocumentNumber: new FormControl('', [Validators.required]),
+			REStartYear: new FormControl('', [Validators.required]),
+			REEndYear: new FormControl('', [Validators.required]),
 			REType: new FormControl('', [Validators.required]),
 
 			REVisibility: new FormControl(true, [Validators.required])
@@ -64,6 +66,12 @@ export class ResolutionsCreateComponent implements OnInit {
 	}
 	get REDocumentNumber() {
 		return this.formCreate.get('REDocumentNumber')!;
+	}
+	get REStartYear() {
+		return this.formCreate.get('REStartYear')!;
+	}
+	get REEndYear() {
+		return this.formCreate.get('REEndYear')!;
 	}
 	get REType() {
 		return this.formCreate.get('REType')!;
@@ -86,6 +94,8 @@ export class ResolutionsCreateComponent implements OnInit {
 		createResolutionDto.append('REPublicationDate', this.REPublicationDate.value);
 		createResolutionDto.append('REIssueDate', this.REIssueDate.value);
 		createResolutionDto.append('REDocumentNumber', this.REDocumentNumber.value);
+		createResolutionDto.append('REStartYear', this.REStartYear.value);
+		createResolutionDto.append('REEndYear', this.REEndYear.value);
 		createResolutionDto.append('REType', this.REType.value);
 
 		createResolutionDto.append('REVisibility', this.REVisibility.value);
