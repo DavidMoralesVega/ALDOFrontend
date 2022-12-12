@@ -10,7 +10,7 @@ export class UploadInputTypeImageComponent implements OnInit {
 	@Output()
 	public onUpload = new EventEmitter<any>();
 
-	public imagePreview: string | ArrayBuffer = 'assets/brand/placeholder-avatar.webp';
+	public imagePreview: string | ArrayBuffer = 'assets/brand/placeholder-avatar.png';
 	public imageName!: string;
 	public isImage!: boolean;
 

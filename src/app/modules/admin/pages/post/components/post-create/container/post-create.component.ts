@@ -49,15 +49,9 @@ export class PostCreateComponent implements OnInit {
 	}
 	initFormCreate(): void {
 		this.formCreate = new FormGroup({
-			post_author: new FormControl('', [
-				Validators.required,
-				Validators.pattern('[a-zA-Z ]{1,50}')
-			]),
+			post_author: new FormControl('', [Validators.required]),
 			post_content: new FormControl('', [Validators.required]),
-			post_tittle: new FormControl('', [
-				Validators.required,
-				Validators.pattern('[a-zA-Z ]{1,100}')
-			]),
+			post_tittle: new FormControl('', [Validators.required]),
 			cat_post_id: new FormControl('', [Validators.required])
 		});
 	}

@@ -3,13 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { RequestReportOralRoutingModule } from './requestReportOral-routing.module';
 import { RequestReportOralComponent } from './container/requestReportOral.component';
-import { CallFacade } from 'src/app/modules/admin/pages/calls/facades/call.facade';
-import { CallsModule } from 'src/app/modules/admin/pages/calls/calls.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RequestReportsFacade } from 'src/app/modules/admin/pages/request-reports/facades/request-reports.facade';
+import { RequestReportsModule } from 'src/app/modules/admin/pages/request-reports/request-reports.module';
 
 @NgModule({
 	declarations: [RequestReportOralComponent],
-	imports: [CommonModule, RequestReportOralRoutingModule, CallsModule, NgxPaginationModule],
-	providers: [CallFacade]
+	imports: [
+		CommonModule,
+		RequestReportOralRoutingModule,
+		RequestReportsModule,
+		NgxPaginationModule
+	],
+	providers: [RequestReportsFacade]
 })
 export class RequestReportOralModule {}

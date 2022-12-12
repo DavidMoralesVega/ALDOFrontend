@@ -4,6 +4,8 @@ import { Pagination, Response } from 'src/app/core/entities';
 import { Observable, Subscription } from 'rxjs';
 import { Call } from 'src/app/modules/admin/pages/calls/entities';
 import { CallFacade } from 'src/app/modules/admin/pages/calls/facades/call.facade';
+import { ResolutionFacade } from 'src/app/modules/admin/pages/resolutions/facades/resolutions.facade';
+import { Resolution } from 'src/app/modules/admin/pages/resolutions/entities';
 
 @Component({
 	selector: 'z-commission',
@@ -13,11 +15,11 @@ import { CallFacade } from 'src/app/modules/admin/pages/calls/facades/call.facad
 export class ResolutionComponent implements OnInit {
 	public ZListCardCommissions: any[] = ZListCardCommissions;
 
-	public findAllResponse$: Observable<Response<Call[]> | null>;
+	public findAllResponse$: Observable<Response<Resolution[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 
 	private subscriptors: Subscription[] = [];
-	public dataCall: any = [];
+	public dataResolution: any = [];
 
 	public page!: number;
 
@@ -26,13 +28,13 @@ export class ResolutionComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
-	constructor(private readonly callFacade: CallFacade) {
-		this.findAllResponse$ = this.callFacade.findAllResponse$;
-		this.findAllIsLoading$ = this.callFacade.findAllIsLoading$;
+	constructor(private readonly resolutionFacade: ResolutionFacade) {
+		this.findAllResponse$ = this.resolutionFacade.findAllResponse$;
+		this.findAllIsLoading$ = this.resolutionFacade.findAllIsLoading$;
 	}
 
 	ngOnInit(): void {
-		this.callFacade.findAll(this.pagination);
+		this.resolutionFacade.findAll(this.pagination);
 	}
 
 	ngAfterViewInit(): void {
@@ -43,8 +45,8 @@ export class ResolutionComponent implements OnInit {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
-					this.dataCall = response?.data.filter((data) => {
-						if (data.CallVisibility === 'Público') {
+					this.dataResolution = response?.data.filter((data) => {
+						if (data.REVisibility === 'Público' && data.REState === true) {
 							return data;
 						}
 					});
@@ -53,28 +55,24 @@ export class ResolutionComponent implements OnInit {
 		);
 	}
 
-	filterData(valueToSearch: string): void {
-		const QUERY_BY_NAME = {};
-	}
-
-	buscarConvocatoria(termino: string): Call[] {
+	buscar(termino: string): Call[] {
 		this.findAll();
 
-		let CallArr: Call[] = [];
+		let Arr: Call[] = [];
 		termino = termino.toLowerCase();
 
-		for (let i = 0; i < this.dataCall.length; i++) {
-			let call = this.dataCall[i];
+		for (let i = 0; i < this.dataResolution.length; i++) {
+			let call = this.dataResolution[i];
 
-			let nombre = call.call_title.toLowerCase();
+			let nombre = call.RETitle.toLowerCase();
 
 			if (nombre.indexOf(termino) >= 0) {
-				CallArr.push(call);
+				Arr.push(call);
 			}
 		}
 
-		this.dataCall = CallArr;
-		// console.log(CallArr);
-		return CallArr;
+		this.dataResolution = Arr;
+		// console.log(Arr);
+		return Arr;
 	}
 }

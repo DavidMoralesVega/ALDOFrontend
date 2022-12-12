@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ZListCardCommissions } from 'src/app/core/entities';
 import { Pagination, Response } from 'src/app/core/entities';
 import { Observable, Subscription } from 'rxjs';
-import { Call } from 'src/app/modules/admin/pages/calls/entities';
-import { CallFacade } from 'src/app/modules/admin/pages/calls/facades/call.facade';
+import { RecognitionFacade } from 'src/app/modules/admin/pages/recognition/facades/recognition.facade';
+import { Recognition } from 'src/app/modules/admin/pages/recognition/entities';
 
 @Component({
 	selector: 'z-commission',
@@ -13,11 +13,11 @@ import { CallFacade } from 'src/app/modules/admin/pages/calls/facades/call.facad
 export class ManageRecognitionComponent implements OnInit {
 	public ZListCardCommissions: any[] = ZListCardCommissions;
 
-	public findAllResponse$: Observable<Response<Call[]> | null>;
+	public findAllResponse$: Observable<Response<Recognition[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 
 	private subscriptors: Subscription[] = [];
-	public dataCall: any = [];
+	public dataManageReg: any = [];
 
 	public page!: number;
 
@@ -26,13 +26,13 @@ export class ManageRecognitionComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
-	constructor(private readonly callFacade: CallFacade) {
-		this.findAllResponse$ = this.callFacade.findAllResponse$;
-		this.findAllIsLoading$ = this.callFacade.findAllIsLoading$;
+	constructor(private readonly recognitionFacade: RecognitionFacade) {
+		this.findAllResponse$ = this.recognitionFacade.findAllResponse$;
+		this.findAllIsLoading$ = this.recognitionFacade.findAllIsLoading$;
 	}
 
 	ngOnInit(): void {
-		this.callFacade.findAll(this.pagination);
+		this.recognitionFacade.findAll(this.pagination);
 	}
 
 	ngAfterViewInit(): void {
@@ -43,8 +43,8 @@ export class ManageRecognitionComponent implements OnInit {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
-					this.dataCall = response?.data.filter((data) => {
-						if (data.CallVisibility === 'Público') {
+					this.dataManageReg = response?.data.filter((data) => {
+						if (data.RVisibility === 'Público' && data.RState === true) {
 							return data;
 						}
 					});
@@ -53,28 +53,24 @@ export class ManageRecognitionComponent implements OnInit {
 		);
 	}
 
-	filterData(valueToSearch: string): void {
-		const QUERY_BY_NAME = {};
-	}
-
-	buscarConvocatoria(termino: string): Call[] {
+	buscar(termino: string): Recognition[] {
 		this.findAll();
 
-		let CallArr: Call[] = [];
+		let Arr: Recognition[] = [];
 		termino = termino.toLowerCase();
 
-		for (let i = 0; i < this.dataCall.length; i++) {
-			let call = this.dataCall[i];
+		for (let i = 0; i < this.dataManageReg.length; i++) {
+			let manageReg = this.dataManageReg[i];
 
-			let nombre = call.call_title.toLowerCase();
+			let nombre = manageReg.RTitle.toLowerCase();
 
 			if (nombre.indexOf(termino) >= 0) {
-				CallArr.push(call);
+				Arr.push(manageReg);
 			}
 		}
 
-		this.dataCall = CallArr;
-		// console.log(CallArr);
-		return CallArr;
+		this.dataManageReg = Arr;
+		// console.log(Arr);
+		return Arr;
 	}
 }

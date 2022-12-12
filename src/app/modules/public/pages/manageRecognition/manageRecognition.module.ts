@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { ManageRecognitionRoutingModule } from './manageRecognition-routing.module';
 import { ManageRecognitionComponent } from './container/manageRecognition.component';
-import { CallFacade } from 'src/app/modules/admin/pages/calls/facades/call.facade';
-import { CallsModule } from 'src/app/modules/admin/pages/calls/calls.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RecognitionFacade } from 'src/app/modules/admin/pages/recognition/facades/recognition.facade';
+import { RecognitionModule } from 'src/app/modules/admin/pages/recognition/recognition.module';
 
 @NgModule({
 	declarations: [ManageRecognitionComponent],
-	imports: [CommonModule, ManageRecognitionRoutingModule, CallsModule, NgxPaginationModule],
-	providers: [CallFacade]
+	imports: [CommonModule, ManageRecognitionRoutingModule, RecognitionModule, NgxPaginationModule],
+	providers: [RecognitionFacade]
 })
 export class ManageRecognitionModule {}

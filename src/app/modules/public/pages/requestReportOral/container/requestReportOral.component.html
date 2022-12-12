@@ -20,17 +20,20 @@
 	</form>
 
 	<section class="mb-10">
-		<h2 class="fw-bold mb-5 text-center">Convocatorias<u class="text-primary"> 2022</u></h2>
+		<h2 class="fw-bold mb-5 text-center">Informes Orales<u class="text-primary"> 2022</u></h2>
 		<div class="row">
 			<div
 				class="card col-lg-6 col-md-12 mb-4"
-				*ngFor="let call of dataCall | paginate : { itemsPerPage: 10, currentPage: page }"
+				*ngFor="
+					let data of dataRequestReOral | paginate : { itemsPerPage: 10, currentPage: page }
+				"
 			>
 				<img src="assets/brand/back.jpg" class="card-img-top" alt="Fissure in Sandstone" />
 				<div class="card-body">
-					<h5 class="card-title">{{ call.call_title }}</h5>
-					<p class="card-text">Modalidad: {{ call.call_modality }}</p>
-					<span>{{ call.call_create | date : 'medium' }}</span>
+					<h5 class="card-title">{{ data.reqR_num }}</h5>
+					<p class="card-text">Peticionario: {{ data.reqR_petitioner }}</p>
+					<p class="card-text">Remitente: {{ data.reqR_addressee }}</p>
+					<span>{{ data.reqR_create | date : 'medium' }}</span>
 					<!-- <a href="#!" class="btn btn-primary">Button</a> -->
 				</div>
 			</div>
