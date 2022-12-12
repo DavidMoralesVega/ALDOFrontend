@@ -7,11 +7,11 @@
 			class="form-control mr-sm-2"
 			type="text"
 			placeholder="Buscar por titulo"
-			(keyup)="buscarConvocatoria(buscarTexto.value)"
+			(keyup)="buscar(buscarTexto.value)"
 			#buscarTexto
 		/>
 		<button
-			(click)="buscarConvocatoria(buscarTexto.value)"
+			(click)="buscar(buscarTexto.value)"
 			class="btn btn-outline-primary my-2 my-sm-0"
 			type="button"
 		>
@@ -20,17 +20,17 @@
 	</form>
 
 	<section class="mb-10">
-		<h2 class="fw-bold mb-5 text-center">Convocatorias<u class="text-primary"> 2022</u></h2>
+		<h2 class="fw-bold mb-5 text-center">Reconocimientos<u class="text-primary"> 2022</u></h2>
 		<div class="row">
 			<div
 				class="card col-lg-6 col-md-12 mb-4"
-				*ngFor="let call of dataCall | paginate : { itemsPerPage: 10, currentPage: page }"
+				*ngFor="let data of dataManageReg | paginate : { itemsPerPage: 10, currentPage: page }"
 			>
 				<img src="assets/brand/back.jpg" class="card-img-top" alt="Fissure in Sandstone" />
 				<div class="card-body">
-					<h5 class="card-title">{{ call.call_title }}</h5>
-					<p class="card-text">Modalidad: {{ call.call_modality }}</p>
-					<span>{{ call.call_create | date : 'medium' }}</span>
+					<h5 class="card-title">{{ data.RTitle }}</h5>
+					<p class="card-text">{{ data.RSummary }}</p>
+					<span>{{ data.RPublicationDate | date : 'medium' }}</span>
 					<!-- <a href="#!" class="btn btn-primary">Button</a> -->
 				</div>
 			</div>

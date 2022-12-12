@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ZListCardCommissions } from 'src/app/core/entities';
 import { Pagination, Response } from 'src/app/core/entities';
 import { Observable, Subscription } from 'rxjs';
-import { Call } from 'src/app/modules/admin/pages/calls/entities';
-import { CallFacade } from 'src/app/modules/admin/pages/calls/facades/call.facade';
+import { RequestReports } from 'src/app/modules/admin/pages/request-reports/entities';
+import { RequestReportsFacade } from 'src/app/modules/admin/pages/request-reports/facades/request-reports.facade';
 
 @Component({
 	selector: 'z-commission',
@@ -11,13 +10,11 @@ import { CallFacade } from 'src/app/modules/admin/pages/calls/facades/call.facad
 	styleUrls: ['./requestReportOral.component.scss']
 })
 export class RequestReportOralComponent implements OnInit {
-	public ZListCardCommissions: any[] = ZListCardCommissions;
-
-	public findAllResponse$: Observable<Response<Call[]> | null>;
+	public findAllResponse$: Observable<Response<RequestReports[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 
 	private subscriptors: Subscription[] = [];
-	public dataCall: any = [];
+	public dataRequestReOral: any = [];
 
 	public page!: number;
 
@@ -26,13 +23,13 @@ export class RequestReportOralComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
-	constructor(private readonly callFacade: CallFacade) {
-		this.findAllResponse$ = this.callFacade.findAllResponse$;
-		this.findAllIsLoading$ = this.callFacade.findAllIsLoading$;
+	constructor(private readonly requestReportsFacade: RequestReportsFacade) {
+		this.findAllResponse$ = this.requestReportsFacade.findAllResponse$;
+		this.findAllIsLoading$ = this.requestReportsFacade.findAllIsLoading$;
 	}
 
 	ngOnInit(): void {
-		this.callFacade.findAll(this.pagination);
+		this.requestReportsFacade.findAll(this.pagination);
 	}
 
 	ngAfterViewInit(): void {
@@ -43,8 +40,8 @@ export class RequestReportOralComponent implements OnInit {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
-					this.dataCall = response?.data.filter((data) => {
-						if (data.CallVisibility === 'Público') {
+					this.dataRequestReOral = response?.data.filter((data) => {
+						if (data.reqR_Visibility === 'Público' && data.reqR_state === true) {
 							return data;
 						}
 					});
@@ -53,28 +50,24 @@ export class RequestReportOralComponent implements OnInit {
 		);
 	}
 
-	filterData(valueToSearch: string): void {
-		const QUERY_BY_NAME = {};
-	}
-
-	buscarConvocatoria(termino: string): Call[] {
+	buscarConvocatoria(termino: string): RequestReports[] {
 		this.findAll();
 
-		let CallArr: Call[] = [];
+		let Arr: RequestReports[] = [];
 		termino = termino.toLowerCase();
 
-		for (let i = 0; i < this.dataCall.length; i++) {
-			let call = this.dataCall[i];
+		for (let i = 0; i < this.dataRequestReOral.length; i++) {
+			let requestR = this.dataRequestReOral[i];
 
-			let nombre = call.call_title.toLowerCase();
+			let nombre = requestR.reqR_abstract.toLowerCase();
 
 			if (nombre.indexOf(termino) >= 0) {
-				CallArr.push(call);
+				Arr.push(requestR);
 			}
 		}
 
-		this.dataCall = CallArr;
+		this.dataRequestReOral = Arr;
 		// console.log(CallArr);
-		return CallArr;
+		return Arr;
 	}
 }
