@@ -44,7 +44,7 @@ export class DepartamentLawsComponent implements OnInit {
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
 					this.data = response?.data.filter((data) => {
-						if (data.DTVisibility === 'Público') {
+						if (data.DTVisibility === 'Público' && data.DTState === true) {
 							return data;
 						}
 					});
