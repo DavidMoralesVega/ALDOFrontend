@@ -14,12 +14,27 @@
 						(onUpload)="handleUpload($event)"
 					></z-upload-input-type-document>
 				</div>
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Área</mat-label>
+					<mat-select formControlName="DTArea">
+						<mat-option *ngFor="let area of ZListArea" [value]="area.value">
+							{{ area.key }}
+						</mat-option>
+					</mat-select>
+
+					<mat-error *ngIf="errorMatcher.isErrorState(DTArea, null)">
+						<span *ngIf="DTArea.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El área es requerido.
+						</span>
+					</mat-error>
+				</mat-form-field>
 
 				<mat-form-field class="col-lg-12" appearance="outline">
 					<mat-label>Título</mat-label>
 
 					<input matInput maxlength="40" formControlName="DTTitle" placeholder="Título" />
-					<mat-hint align="start">El título debe tener como máximo 40 caracteres. </mat-hint>
+					<mat-hint align="start">Máximo 40 carácteres. </mat-hint>
 					<mat-hint align="end">{{ DTTitle.value.length }} / 40</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(DTTitle, null)">
 						<span *ngIf="DTTitle.errors?.['required']">
@@ -29,26 +44,18 @@
 
 						<span *ngIf="DTTitle.errors?.['maxlength']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El título debe tener como máximo 40 caracteres.
+							Máximo 40 carácteres.
 						</span>
 					</mat-error>
 				</mat-form-field>
+				<mat-form-field class="example-full-width" appearance="outline">
+					<mat-label>Descripción</mat-label>
+					<textarea formControlName="DTSummary" rows="7" matInput></textarea>
 
-				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Resumen</mat-label>
-
-					<input matInput maxlength="40" formControlName="DTSummary" placeholder="Resumen" />
-					<mat-hint align="start">El resumen debe tener como máximo 40 caracteres. </mat-hint>
-					<mat-hint align="end">{{ DTSummary.value.length }} / 40</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(DTSummary, null)">
 						<span *ngIf="DTSummary.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El resumen es requerida.
-						</span>
-
-						<span *ngIf="DTSummary.errors?.['maxlength']">
-							<i class="fas fa-exclamation-circle mr-1"></i>
-							El resumen debe tener como máximo 40 caracteres.
+							La descripción es requerida.
 						</span>
 					</mat-error>
 				</mat-form-field>

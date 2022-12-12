@@ -7,7 +7,7 @@ import {
 	CreateDepartamentLawDto
 } from '../../../entities/models/departament-law.model';
 import { DepartamentLawFacade } from '../../../facades/departament-law.facade';
-import { Pagination, PayloadFile } from 'src/app/core/entities';
+import { Pagination, PayloadFile, ZListArea } from 'src/app/core/entities';
 
 @Component({
 	selector: 'z-departament-law-create',
@@ -18,7 +18,7 @@ export class DepartamentLawCreateComponent implements OnInit {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
-
+	public ZListArea: any[] = ZListArea;
 	private pagination: Pagination = {
 		limit: 100,
 		offset: 0,
@@ -42,6 +42,7 @@ export class DepartamentLawCreateComponent implements OnInit {
 			DTPublicationDate: new FormControl('', [Validators.required]),
 			DTIssueDate: new FormControl('', [Validators.required]),
 			DTDocumentNumber: new FormControl('', [Validators.required]),
+			DTArea: new FormControl('', [Validators.required]),
 			DTVisibility: new FormControl(true, [Validators.required])
 		});
 	}
@@ -59,6 +60,9 @@ export class DepartamentLawCreateComponent implements OnInit {
 	}
 	get DTDocumentNumber() {
 		return this.formCreate.get('DTDocumentNumber')!;
+	}
+	get DTArea() {
+		return this.formCreate.get('DTArea')!;
 	}
 	get DTVisibility() {
 		return this.formCreate.get('DTVisibility')!;
@@ -78,6 +82,7 @@ export class DepartamentLawCreateComponent implements OnInit {
 		createDepartamentLawDto.append('DTPublicationDate', this.DTPublicationDate.value);
 		createDepartamentLawDto.append('DTIssueDate', this.DTIssueDate.value);
 		createDepartamentLawDto.append('DTDocumentNumber', this.DTDocumentNumber.value);
+		createDepartamentLawDto.append('DTArea', this.DTArea.value);
 		createDepartamentLawDto.append('DTVisibility', this.DTVisibility.value);
 		createDepartamentLawDto.append('DTFile', this.file);
 

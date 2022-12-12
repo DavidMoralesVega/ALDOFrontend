@@ -21,7 +21,7 @@ export interface ResolutionState {
 		id: string | null;
 	};
 	update: {
-		updateResolutionDto: UpdateResolutionDto | null;
+		updateResolutionDto: UpdateResolutionDto | FormData | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

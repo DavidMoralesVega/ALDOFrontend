@@ -34,21 +34,14 @@
 					</mat-error>
 				</mat-form-field>
 
-				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Resumen</mat-label>
+				<mat-form-field class="example-full-width" appearance="outline">
+					<mat-label>Descripción</mat-label>
+					<textarea formControlName="RESummary" rows="7" matInput></textarea>
 
-					<input matInput maxlength="40" formControlName="RESummary" placeholder="Resumen" />
-					<mat-hint align="start">El resumen debe tener como máximo 40 caracteres. </mat-hint>
-					<mat-hint align="end">{{ RESummary.value.length }} / 40</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(RESummary, null)">
 						<span *ngIf="RESummary.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El resumen es requerida.
-						</span>
-
-						<span *ngIf="RESummary.errors?.['maxlength']">
-							<i class="fas fa-exclamation-circle mr-1"></i>
-							El resumen debe tener como máximo 40 caracteres.
+							La descripción es requerida.
 						</span>
 					</mat-error>
 				</mat-form-field>
@@ -71,6 +64,33 @@
 					<mat-hint>MM/DD/YYYY</mat-hint>
 					<mat-datepicker-toggle matSuffix [for]="REIssueDate"></mat-datepicker-toggle>
 					<mat-datepicker touchUi #REIssueDate></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Año de inicio</mat-label>
+					<input
+						type="number"
+						matInput
+						formControlName="REStartYear"
+						placeholder="Año de inicio"
+					/>
+					<mat-error *ngIf="errorMatcher.isErrorState(REStartYear, null)">
+						<span *ngIf="REStartYear.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El año de inicio es requerido.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Año fin</mat-label>
+					<input type="number" matInput formControlName="REEndYear" placeholder="Año fin" />
+					<mat-error *ngIf="errorMatcher.isErrorState(REEndYear, null)">
+						<span *ngIf="REEndYear.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							EL año final es requerido.
+						</span>
+					</mat-error>
 				</mat-form-field>
 
 				<mat-form-field class="col-lg-12" appearance="outline">

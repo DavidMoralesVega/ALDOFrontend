@@ -19,36 +19,29 @@
 					<mat-label>Título</mat-label>
 
 					<input matInput maxlength="40" formControlName="RWTitle" placeholder="Título" />
-					<mat-hint align="start">El título debe tener como máximo 40 caracteres. </mat-hint>
+					<mat-hint align="start">Máximo 40 carácteres. </mat-hint>
 					<mat-hint align="end">{{ RWTitle.value.length }} / 40</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(RWTitle, null)">
 						<span *ngIf="RWTitle.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El título es requerida.
+							El título es requerido.
 						</span>
 
 						<span *ngIf="RWTitle.errors?.['maxlength']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El título debe tener como máximo 40 caracteres.
+							Máximo 40 carácteres.
 						</span>
 					</mat-error>
 				</mat-form-field>
 
-				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Resumen</mat-label>
+				<mat-form-field class="example-full-width" appearance="outline">
+					<mat-label>Descripción</mat-label>
+					<textarea formControlName="RWSummary" rows="7" matInput></textarea>
 
-					<input matInput maxlength="40" formControlName="RWSummary" placeholder="Resumen" />
-					<mat-hint align="start">El resumen debe tener como máximo 40 caracteres. </mat-hint>
-					<mat-hint align="end">{{ RWSummary.value.length }} / 40</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(RWSummary, null)">
 						<span *ngIf="RWSummary.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El resumen es requerida.
-						</span>
-
-						<span *ngIf="RWSummary.errors?.['maxlength']">
-							<i class="fas fa-exclamation-circle mr-1"></i>
-							El resumen debe tener como máximo 40 caracteres.
+							La descripción es requerida.
 						</span>
 					</mat-error>
 				</mat-form-field>

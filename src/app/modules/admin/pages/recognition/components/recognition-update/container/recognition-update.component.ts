@@ -46,9 +46,7 @@ export class RecognitionUpdateComponent implements OnInit {
 				Validators.required
 			]),
 			RIssueDate: new FormControl(this.recognitionAdapter.RIssueDate, [Validators.required]),
-			RDocumentNumber: new FormControl(this.recognitionAdapter.RDocumentNumber, [
-				Validators.required
-			]),
+			REventDate: new FormControl(this.recognitionAdapter.REventDate, [Validators.required]),
 			RVisibility: new FormControl(this.recognitionAdapter.RVisibility, [Validators.required])
 		});
 	}
@@ -64,8 +62,8 @@ export class RecognitionUpdateComponent implements OnInit {
 	get RIssueDate() {
 		return this.formUpdate.get('RIssueDate')!;
 	}
-	get RDocumentNumber() {
-		return this.formUpdate.get('RDocumentNumber')!;
+	get REventDate() {
+		return this.formUpdate.get('REventDate')!;
 	}
 	get RVisibility() {
 		return this.formUpdate.get('RVisibility')!;
@@ -78,7 +76,7 @@ export class RecognitionUpdateComponent implements OnInit {
 			RSummary: this.RSummary.value,
 			RPublicationDate: this.RPublicationDate.value,
 			RIssueDate: this.RIssueDate.value,
-			RDocumentNumber: this.RDocumentNumber.value,
+			REventDate: this.REventDate.value,
 			RVisibility: this.RVisibility.value
 		};
 		console.log(this.recognitionAdapter.IdRecognition);

@@ -92,7 +92,7 @@ export class ResolutionEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.RESOLUTION_UPDATE_REQUESTED),
-				switchMap((action: PayloadUpdate<UpdateResolutionDto, string>) => {
+				switchMap((action: PayloadUpdate<UpdateResolutionDto | FormData, string>) => {
 					return this.resolutionService.update(action.id || '', action.payload).pipe(
 						map((response: Response<Resolution>) => {
 							this.matSnackBarService.open('success', ZMessages.success);
