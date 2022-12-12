@@ -44,7 +44,7 @@ export class CallPComponent implements OnInit {
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
 					this.dataCall = response?.data.filter((data) => {
-						if (data.CallVisibility === 'Público') {
+						if (data.CallVisibility === 'Público' && data.call_estado === true) {
 							return data;
 						}
 					});

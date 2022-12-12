@@ -42,7 +42,7 @@ export class ContractsComponent implements OnInit {
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
 					this.data = response?.data.filter((data) => {
-						if (data.CTVisibility) {
+						if (data.CTVisibility && data.CTState) {
 							return data;
 						}
 					});
