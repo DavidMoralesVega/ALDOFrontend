@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { RequestWrittenModule } from './pages/request-written/request-written.module';
 
 export const AdminRoutes: Routes = [
 	{
@@ -52,5 +51,9 @@ export const AdminRoutes: Routes = [
 	{
 		path: 'user',
 		loadChildren: () => import('./pages/user/user.module').then((m) => m.UserModule)
+	},
+	{
+		path: 'biblioteca',
+		loadChildren: () => import('./pages/library/library.module').then((m) => m.LibraryModule)
 	}
 ];

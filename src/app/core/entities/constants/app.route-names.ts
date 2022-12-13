@@ -40,6 +40,12 @@ export const ZPaths: IZPath[] = [
 				path: `${ZPath_ADMIN}/resolutions`,
 				name: 'Resoluciones',
 				icon: 'bell'
+			},
+			{
+				module: 'biblioteca',
+				path: `${ZPath_ADMIN}/biblioteca`,
+				name: 'Biblioteca',
+				icon: 'bell'
 			}
 		]
 	},
@@ -197,43 +203,43 @@ export const ZListArea: any = [
 // Comisiones
 export const ZListCardCommissions: any = [
 	{
-		path: '/',
+		path: 'constitucion-desarrollo-legislativo-sistema-electoral-justicia',
 		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Comisión de Constitución, Desarrollo Legislativo, Sistema Electoral y Justicia'
+		title: 'Constitución, Desarrollo Legislativo, Sistema Electoral y Justicia'
 	},
 	{
-		path: '/',
+		path: 'planificacion-politica-economica-finanzas-publicas',
 		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Comisión de Planificación, Política Económica y Finanzas Publicas'
+		title: 'Planificación, Política Económica y Finanzas Publicas'
 	},
 	{
-		path: '/',
+		path: 'infraestructura-obras-publicas-desarrollo',
 		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Comisión de Infraestructura y Obra Públicas de Desarrollo'
+		title: 'Infraestructura y Obra Públicas de Desarrollo'
 	},
 	{
-		path: '/',
+		path: 'mineria-hidrocarburos-recursos-naturales-produccion-industria-comercio-servicios',
 		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Comisión de Minería e Hidrocarburos, Recursos Naturales, Producción Industria, Comercio y Servicios'
+		title: 'Minería e Hidrocarburos, Recursos Naturales, Producción Industria, Comercio y Servicios'
 	},
 	{
-		path: '/',
+		path: 'autonomia-organizacion-territorial-limites',
 		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Comisión de Autonomía, Organización Territorial y Límites'
+		title: 'Autonomía, Organización Territorial y Límites'
 	},
 	{
-		path: '/',
+		path: 'relaciones-intergubernamentales-internacionales',
 		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Comisión de Relaciones Intergubernamentales e Internacionales'
+		title: 'Relaciones Intergubernamentales e Internacionales'
 	},
 	{
-		path: '/',
+		path: 'educacion-salud-derechos-humanos-politica-social',
 		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Comisión de Educación, Salud, Derechos Humanos y Política Social'
+		title: 'Educación, Salud, Derechos Humanos y Política Social'
 	},
 	{
-		path: '/',
+		path: 'medio-ambiente-desarrollo-rural-integral-sustentable-soberania-alimentaria',
 		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Comisión de Medio Ambiente, Desarrollo Rural Integral Sustentable y Soberanía Alimentaria'
+		title: 'Medio Ambiente, Desarrollo Rural Integral Sustentable y Soberanía Alimentaria'
 	}
 ];
