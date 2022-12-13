@@ -1,23 +1,103 @@
+<!--Section: Design Block-->
+<section>
+	<!-- Intro -->
+	<div
+		id="intro"
+		class="text-center bg-image"
+		style="background-image: url('assets/brand/back	.jpg'); height: 70vh"
+	>
+		<div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
+			<div class="d-flex justify-content-center align-items-center h-100 mt-4">
+				<div class="text-white">
+					<form
+						[formGroup]="formCreate"
+						class="form-inline my-2 my-lg-0"
+						(ngSubmit)="create()"
+					>
+						<div class="row">
+							<div class="col-12">
+								<input
+									class="form-control mr-sm-2"
+									type="text"
+									placeholder="Buscar por titulo"
+									(keyup)="buscarConvocatoria(buscarTexto.value)"
+									#buscarTexto
+								/>
+								<button
+									(click)="buscarConvocatoria(buscarTexto.value)"
+									class="btn btn-outline-white my-2 my-sm-0"
+									type="button"
+								>
+									Buscar
+								</button>
+							</div>
+							<div class="col-12 mt-4">
+								<a href="" class="btn text-light" (click)="showData($event)"
+									>Busqueda Avanzada</a
+								>
+							</div>
+							<div
+								class="col-12 row block__search"
+								style="max-width: 55%; margin: auto"
+								*ngIf="element == true"
+							>
+								<div class="col-6 mt-5">
+									<mat-form-field
+										class="col-lg-12 text-light"
+										style="background: #fafafa; padding: 10px"
+									>
+										<mat-label>Área</mat-label>
+										<mat-select formControlName="departLawArea">
+											<mat-option *ngFor="let area of ZListArea" [value]="area.value">
+												{{ area.key }}
+											</mat-option>
+										</mat-select>
+									</mat-form-field>
+								</div>
+								<div class="col-6 mt-5">
+									<mat-form-field
+										appearance="fill"
+										class="example-form-field"
+										style="background: #fafafa"
+									>
+										<mat-label>Enter a date range</mat-label>
+										<mat-date-range-input [rangePicker]="rangePicker">
+											<input matStartDate placeholder="Start date" />
+											<input matEndDate placeholder="End date" />
+										</mat-date-range-input>
+										<mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+										<mat-datepicker-toggle
+											matIconSuffix
+											[for]="rangePicker"
+										></mat-datepicker-toggle>
+										<mat-date-range-picker #rangePicker>
+											<mat-date-range-picker-actions>
+												<button mat-button matDateRangePickerCancel>Cancel</button>
+												<button
+													mat-raised-button
+													color="primary"
+													matDateRangePickerApply
+												>
+													Apply
+												</button>
+											</mat-date-range-picker-actions>
+										</mat-date-range-picker>
+									</mat-form-field>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Intro -->
+</section>
+<!--Section: Design Block-->
+
 <!-- Container for demo purpose -->
 <div class="container my-5 py-5">
 	<!-- Section: Design Block -->
-
-	<form class="form-inline my-2 my-lg-0">
-		<input
-			class="form-control mr-sm-2"
-			type="text"
-			placeholder="Buscar por titulo"
-			(keyup)="buscarConvocatoria(buscarTexto.value)"
-			#buscarTexto
-		/>
-		<button
-			(click)="buscarConvocatoria(buscarTexto.value)"
-			class="btn btn-outline-primary my-2 my-sm-0"
-			type="button"
-		>
-			Buscar
-		</button>
-	</form>
 
 	<section class="mb-10">
 		<h2 class="fw-bold mb-5 text-center">
