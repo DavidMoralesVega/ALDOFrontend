@@ -1,11 +1,12 @@
 <!--Section: Design Block-->
 <section>
 	<!-- Intro -->
-	<div
+	<div id="intro" class="text-center bg-image" style="height: 70vh">
+		<!-- <div
 		id="intro"
 		class="text-center bg-image"
 		style="background-image: url('assets/brand/back	.jpg'); height: 70vh"
-	>
+	> -->
 		<div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
 			<div class="d-flex justify-content-center align-items-center h-100 mt-4">
 				<div class="text-white">
@@ -61,7 +62,10 @@
 										style="background: #fafafa"
 									>
 										<mat-label>Enter a date range</mat-label>
-										<mat-date-range-input [rangePicker]="rangePicker">
+										<mat-date-range-input
+											[rangePicker]="rangePicker"
+											style="color: #0058a5"
+										>
 											<input matStartDate placeholder="Start date" />
 											<input matEndDate placeholder="End date" />
 										</mat-date-range-input>
