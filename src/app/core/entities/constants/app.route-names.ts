@@ -195,9 +195,23 @@ export const ZListContract: any = [
 
 // area
 export const ZListArea: any = [
-	{ value: '0', key: 'Area 1' },
+	{ value: '0', key: 'Area uno' },
 	{ value: '1', key: 'Area dos' },
 	{ value: '2', key: 'Area tres' }
+];
+
+// categoria
+export const ZListCategory: any = [
+	{ value: '0', key: 'Categoria uno' },
+	{ value: '1', key: 'Categoria dos' },
+	{ value: '2', key: 'Categoria tres' }
+];
+
+// area
+export const ZListModule: any = [
+	{ value: '0', key: 'Modulo uno' },
+	{ value: '1', key: 'Modulo dos' },
+	{ value: '2', key: 'Modulo tres' }
 ];
 
 // Comisiones
