@@ -36,3 +36,21 @@ export const getDepartamentLawUpdateId = createSelector(zS, (z) => z.update.id);
 export const getDepartamentLawUpdateException = createSelector(zS, (z) => z.update.exception);
 export const getDepartamentLawUpdateIsLoading = createSelector(zS, (z) => z.update.isLoading);
 export const getDepartamentLawUpdateResponse = createSelector(zS, (z) => z.update.response);
+
+// SERACH
+export const getDepartamentLawSearchPagination = createSelector(zS, (z) => z.search.search);
+export const getDepartamentLawSearchException = createSelector(zS, (z) => z.search.exception);
+export const getDepartamentLawSearchIsLoading = createSelector(zS, (z) => z.search.isLoading);
+export const getDepartamentLawSearchResponse = createSelector(zS, (z) => z.search.response);
+
+// SEARCH ADVANCED
+export const getDepartamentLawSearchAdvancedPagination = createSelector(zS, (z) => z.search.search);
+export const getDepartamentLawSearchAdvancedException = createSelector(
+	zS,
+	(z) => z.search.exception
+);
+export const getDepartamentLawSearchAdvancedIsLoading = createSelector(
+	zS,
+	(z) => z.search.isLoading
+);
+export const getDepartamentLawSearchAdvancedResponse = createSelector(zS, (z) => z.search.response);

@@ -66,7 +66,7 @@ export class DepartamentLawsComponent implements OnInit {
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
 					this.data = response?.data.filter((data) => {
-						if (data.DTVisibility === 'Público' && data.DTState === true) {
+						if (data.dtvisibility === 'publico' && data.dtstate === true) {
 							return data;
 						}
 					});
@@ -84,7 +84,7 @@ export class DepartamentLawsComponent implements OnInit {
 		for (let i = 0; i < this.data.length; i++) {
 			let departamentLaws = this.data[i];
 
-			let nombre = departamentLaws.DTTitle.toLowerCase();
+			let nombre = departamentLaws.dttitle.toLowerCase();
 
 			if (nombre.indexOf(termino) >= 0) {
 				Arr.push(departamentLaws);

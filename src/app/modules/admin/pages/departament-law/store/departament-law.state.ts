@@ -1,4 +1,5 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
+import { search } from 'src/app/core/entities/interfaces/search.interface';
 import { DepartamentLaw } from '../entities';
 import {
 	CreateDepartamentLawDto,
@@ -31,6 +32,18 @@ export interface DepartamentLawState {
 		isLoading: boolean;
 		response: Response<DepartamentLaw> | null;
 	};
+	search: {
+		response: Response<DepartamentLaw[]> | null;
+		exception: Exception | null;
+		isLoading: boolean;
+		search: search | null;
+	};
+	searchAdvanced: {
+		response: Response<DepartamentLaw[]> | null;
+		exception: Exception | null;
+		isLoading: boolean;
+		search: search | null;
+	};
 }
 
 export const departamentLawInitialState: DepartamentLawState = {
@@ -58,5 +71,17 @@ export const departamentLawInitialState: DepartamentLawState = {
 		id: undefined,
 		isLoading: false,
 		response: null
+	},
+	search: {
+		response: null,
+		exception: null,
+		isLoading: false,
+		search: null
+	},
+	searchAdvanced: {
+		response: null,
+		exception: null,
+		isLoading: false,
+		search: null
 	}
 };

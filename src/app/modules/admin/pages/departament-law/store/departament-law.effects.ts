@@ -7,6 +7,7 @@ import * as zActions from './departament-law.action';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { Payload, PayloadUpdate } from 'src/app/core/entities/adapters/object.adapter';
 import { DepartamentLawService } from '../services/departament-law.service';
+import { search } from '../../../../../core/entities/interfaces/search.interface';
 import {
 	DepartamentLaw,
 	CreateDepartamentLawDto,
@@ -115,5 +116,52 @@ export class DepartamentLawEffects {
 					);
 				})
 			) // , { dispatch: false }
+	);
+
+	/* SEARCH */
+	search$ = createEffect(
+		(): Observable<any> =>
+			this.actions$.pipe(
+				ofType(zActions.DEPARTAMENTLAW_SEARCH_REQUESTED),
+				mergeMap((action: Payload<search>) =>
+					this.departamentLawService.search(action.payload).pipe(
+						map((response: Response<DepartamentLaw[]>) => {
+							return zActions.DEPARTAMENTLAW_SEARCH_LOADED({
+								payload: response
+							});
+						}),
+						catchError((exception: Exception) =>
+							of(
+								zActions.DEPARTAMENTLAW_SEARCH_FAILED({
+									payload: exception
+								})
+							)
+						)
+					)
+				)
+			)
+	);
+	/* SEARCH ADVANCED */
+	searchAdvanced$ = createEffect(
+		(): Observable<any> =>
+			this.actions$.pipe(
+				ofType(zActions.DEPARTAMENTLAW_SEARCHADVANCED_REQUESTED),
+				mergeMap((action: Payload<search>) =>
+					this.departamentLawService.searchAdvanced(action.payload).pipe(
+						map((response: Response<DepartamentLaw[]>) => {
+							return zActions.DEPARTAMENTLAW_SEARCHADVANCED_LOADED({
+								payload: response
+							});
+						}),
+						catchError((exception: Exception) =>
+							of(
+								zActions.DEPARTAMENTLAW_SEARCHADVANCED_FAILED({
+									payload: exception
+								})
+							)
+						)
+					)
+				)
+			)
 	);
 }

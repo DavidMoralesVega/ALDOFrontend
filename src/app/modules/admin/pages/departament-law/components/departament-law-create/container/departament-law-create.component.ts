@@ -76,14 +76,16 @@ export class DepartamentLawCreateComponent implements OnInit {
 		console.log('DTVisibility', this.DTVisibility.value);
 		console.log('DTFile', this.file);
 
+		// createDepartamentLawDto.append('DTTitle', this.DTTitle.value);
+		// createDepartamentLawDto.append('DTSummary', this.DTSummary.value);
 		let createDepartamentLawDto = new FormData();
-		createDepartamentLawDto.append('DTTitle', this.DTTitle.value);
-		createDepartamentLawDto.append('DTSummary', this.DTSummary.value);
-		createDepartamentLawDto.append('DTPublicationDate', this.DTPublicationDate.value);
-		createDepartamentLawDto.append('DTIssueDate', this.DTIssueDate.value);
+		createDepartamentLawDto.append('dttitle', this.DTTitle.value);
+		createDepartamentLawDto.append('dtsummary', this.DTSummary.value);
+		createDepartamentLawDto.append('dtpublicationDate', this.DTPublicationDate.value);
+		createDepartamentLawDto.append('dtissueDate', this.DTIssueDate.value);
 		createDepartamentLawDto.append('DTDocumentNumber', this.DTDocumentNumber.value);
-		createDepartamentLawDto.append('DTArea', this.DTArea.value);
-		createDepartamentLawDto.append('DTVisibility', this.DTVisibility.value);
+		createDepartamentLawDto.append('dtarea', this.DTArea.value);
+		createDepartamentLawDto.append('dtvisibility', this.DTVisibility.value);
 		createDepartamentLawDto.append('DTFile', this.file);
 
 		console.log(createDepartamentLawDto);

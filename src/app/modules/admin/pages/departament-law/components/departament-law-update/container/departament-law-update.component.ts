@@ -39,24 +39,24 @@ export class DepartamentLawUpdateComponent implements OnInit {
 	}
 	initFormUpdate(): void {
 		this.formUpdate = new FormGroup({
-			DTTitle: new FormControl(this.departamentLawAdapter.DTTitle, [
+			DTTitle: new FormControl(this.departamentLawAdapter.dttitle, [
 				Validators.required,
 				Validators.maxLength(40)
 			]),
-			DTSummary: new FormControl(this.departamentLawAdapter.DTSummary, [
+			DTSummary: new FormControl(this.departamentLawAdapter.dtsummary, [
 				Validators.required,
 				Validators.maxLength(40)
 			]),
-			DTPublicationDate: new FormControl(this.departamentLawAdapter.DTPublicationDate, [
+			DTPublicationDate: new FormControl(this.departamentLawAdapter.dtpublicationDate, [
 				Validators.required
 			]),
-			DTIssueDate: new FormControl(this.departamentLawAdapter.DTIssueDate, [
+			DTIssueDate: new FormControl(this.departamentLawAdapter.dtissueDate, [
 				Validators.required
 			]),
 			DTDocumentNumber: new FormControl(this.departamentLawAdapter.DTDocumentNumber, [
 				Validators.required
 			]),
-			DTVisibility: new FormControl(this.departamentLawAdapter.DTVisibility, [
+			DTVisibility: new FormControl(this.departamentLawAdapter.dtvisibility, [
 				Validators.required
 			])
 		});
@@ -83,14 +83,14 @@ export class DepartamentLawUpdateComponent implements OnInit {
 		if (this.formUpdate.invalid) return;
 
 		const updateDepartamentLawDto: UpdateDepartamentLawDto = {
-			DTTitle: this.DTTitle.value,
-			DTSummary: this.DTSummary.value,
-			DTPublicationDate: this.DTPublicationDate.value,
-			DTIssueDate: this.DTIssueDate.value,
+			dttitle: this.DTTitle.value,
+			dtsummary: this.DTSummary.value,
+			dtpublicationDate: this.DTPublicationDate.value,
+			dtissueDate: this.DTIssueDate.value,
 			DTDocumentNumber: this.DTDocumentNumber.value,
-			DTVisibility: this.DTVisibility.value
+			dtvisibility: this.DTVisibility.value
 		};
-		console.log(this.departamentLawAdapter.IdDepartamentaLaw);
+		// console.log(this.departamentLawAdapter.IdDepartamentaLaw);
 
 		this.departamentLawFacade.update(
 			this.departamentLawAdapter.IdDepartamentaLaw,
