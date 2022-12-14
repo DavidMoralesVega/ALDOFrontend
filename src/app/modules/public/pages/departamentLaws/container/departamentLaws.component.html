@@ -1,11 +1,12 @@
 <!--Section: Design Block-->
 <section>
 	<!-- Intro -->
-	<div
+	<div id="intro" class="text-center bg-image" style="height: 70vh">
+		<!-- <div
 		id="intro"
 		class="text-center bg-image"
 		style="background-image: url('assets/brand/back	.jpg'); height: 70vh"
-	>
+	> -->
 		<div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
 			<div class="d-flex justify-content-center align-items-center h-100 mt-4">
 				<div class="text-white">
@@ -20,15 +21,23 @@
 									class="form-control mr-sm-2"
 									type="text"
 									placeholder="Buscar por titulo"
-									(keyup)="buscarConvocatoria(buscarTexto.value)"
 									#buscarTexto
+									formControlName="dataQuery"
+									(keyup)="findSearch()"
 								/>
 								<button
-									(click)="buscarConvocatoria(buscarTexto.value)"
+									(click)="findSearch()"
 									class="btn btn-outline-white my-2 my-sm-0"
 									type="button"
 								>
 									Buscar
+								</button>
+								<button
+									(click)="reset()"
+									class="btn btn-outline-white my-2 my-sm-0"
+									type="button"
+								>
+									Reset
 								</button>
 							</div>
 							<div class="col-12 mt-4">
@@ -109,13 +118,16 @@
 		<div class="row">
 			<div
 				class="card col-lg-6 col-md-12 mb-4"
-				*ngFor="let departamentLey of data | paginate : { itemsPerPage: 10, currentPage: page }"
+				*ngFor="
+					let departamentLey of dataSearchDepartament
+						| paginate : { itemsPerPage: 10, currentPage: page }
+				"
 			>
 				<img src="assets/brand/back.jpg" class="card-img-top" alt="Fissure in Sandstone" />
 				<div class="card-body">
-					<h5 class="card-title">{{ departamentLey.DTTitle }}</h5>
-					<p class="card-text">{{ departamentLey.DTSummary }}</p>
-					<span>{{ departamentLey.DTIssueDate | date : 'medium' }}</span>
+					<h5 class="card-title">{{ departamentLey.dttitle }}</h5>
+					<p class="card-text">{{ departamentLey.dtsummary }}</p>
+					<span>{{ departamentLey.dtpublicationdate | date : 'medium' }}</span>
 					<!-- <a href="#!" class="btn btn-primary">Button</a> -->
 				</div>
 			</div>

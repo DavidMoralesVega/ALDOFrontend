@@ -46,14 +46,14 @@ export class DepartamentLawService {
 	}
 
 	search(search: search): Observable<Response<DepartamentLaw[]>> {
-		return this.httpClient.patch<Response<DepartamentLaw[]>>(
+		return this.httpClient.post<Response<DepartamentLaw[]>>(
 			`${this.ZPDepartamentLaw}/search`,
 			search
 		);
 	}
 
 	searchAdvanced(search: search): Observable<Response<DepartamentLaw[]>> {
-		return this.httpClient.patch<Response<DepartamentLaw[]>>(
+		return this.httpClient.post<Response<DepartamentLaw[]>>(
 			`${this.ZPDepartamentLaw}/searchAdvanced`,
 			search
 		);
