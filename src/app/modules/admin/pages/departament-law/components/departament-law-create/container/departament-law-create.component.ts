@@ -19,11 +19,6 @@ export class DepartamentLawCreateComponent implements OnInit {
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
 	public ZListArea: any[] = ZListArea;
-	private pagination: Pagination = {
-		limit: 100,
-		offset: 0,
-		filter: 'ALL'
-	};
 
 	// variables imagen
 	private file!: File;
@@ -68,20 +63,26 @@ export class DepartamentLawCreateComponent implements OnInit {
 		return this.formCreate.get('DTVisibility')!;
 	}
 	create() {
-		console.log('hola antes form');
+		// console.log('hola antes form');
 
 		if (this.formCreate.invalid) return;
 
 		// if (!this.isValidImage) return;
-		console.log('DTVisibility', this.DTVisibility.value);
-		console.log('DTFile', this.file);
+		// console.log('DTVisibility', this.DTVisibility.value);
+		// console.log('DTFile', this.file);
 
-		// createDepartamentLawDto.append('DTTitle', this.DTTitle.value);
-		// createDepartamentLawDto.append('DTSummary', this.DTSummary.value);
+		/* console.log(this.DTTitle.value);
+		console.log(this.DTSummary.value);
+		console.log(this.DTPublicationDate.value);
+		console.log(this.DTIssueDate.value);
+		console.log(this.DTDocumentNumber.value);
+		console.log(this.DTArea.value);
+		console.log(this.DTVisibility.value); */
+
 		let createDepartamentLawDto = new FormData();
 		createDepartamentLawDto.append('dttitle', this.DTTitle.value);
 		createDepartamentLawDto.append('dtsummary', this.DTSummary.value);
-		createDepartamentLawDto.append('dtpublicationDate', this.DTPublicationDate.value);
+		createDepartamentLawDto.append('dtpublicationdate', this.DTPublicationDate.value);
 		createDepartamentLawDto.append('dtissueDate', this.DTIssueDate.value);
 		createDepartamentLawDto.append('DTDocumentNumber', this.DTDocumentNumber.value);
 		createDepartamentLawDto.append('dtarea', this.DTArea.value);
