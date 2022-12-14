@@ -131,6 +131,67 @@ const _departamentLawReducer = createReducer(
 			isLoading: false,
 			response: null
 		}
+	})),
+	// SERACH
+
+	on(zActions.DEPARTAMENTLAW_SEARCH_REQUESTED, (state, { payload }) => ({
+		...state,
+		search: {
+			response: null,
+			exception: null,
+			isLoading: true,
+			search: payload
+		}
+	})),
+
+	on(zActions.DEPARTAMENTLAW_SEARCH_LOADED, (state, { payload }) => ({
+		...state,
+		search: {
+			response: payload,
+			exception: null,
+			isLoading: false,
+			search: null
+		}
+	})),
+
+	on(zActions.DEPARTAMENTLAW_SEARCH_FAILED, (state, { payload }) => ({
+		...state,
+		search: {
+			response: null,
+			exception: payload,
+			isLoading: false,
+			search: null
+		}
+	})), // SEARCH ADVANCED
+
+	on(zActions.DEPARTAMENTLAW_SEARCHADVANCED_REQUESTED, (state, { payload }) => ({
+		...state,
+		searchAdvanced: {
+			response: null,
+			exception: null,
+			isLoading: true,
+			search: payload
+		}
+	})),
+
+	on(zActions.DEPARTAMENTLAW_SEARCHADVANCED_LOADED, (state, { payload }) => ({
+		...state,
+		searchAdvanced: {
+			response: payload,
+			exception: null,
+			isLoading: false,
+			search: null
+		}
+	})),
+
+	on(zActions.DEPARTAMENTLAW_SEARCHADVANCED_FAILED, (state, { payload }) => ({
+		...state,
+		searchAdvanced: {
+			response: null,
+			exception: payload,
+			isLoading: false,
+			search: null
+		}
 	}))
 );
 

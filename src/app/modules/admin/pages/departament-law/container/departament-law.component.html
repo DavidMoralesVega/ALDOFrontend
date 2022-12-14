@@ -39,22 +39,22 @@
 
 			<ng-container matColumnDef="DTTitle">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Título</th>
-				<td mat-cell *matCellDef="let row">{{ row.DTTitle }}</td>
+				<td mat-cell *matCellDef="let row">{{ row.dttitle }}</td>
 			</ng-container>
 
 			<ng-container matColumnDef="DTSummary">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Resumen</th>
-				<td mat-cell *matCellDef="let row">{{ row.DTSummary }}</td>
+				<td mat-cell *matCellDef="let row">{{ row.dtsummary }}</td>
 			</ng-container>
 
 			<ng-container matColumnDef="DTPublicationDate">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de publicación</th>
-				<td mat-cell *matCellDef="let row">{{ row.DTPublicationDate | date : 'medium' }}</td>
+				<td mat-cell *matCellDef="let row">{{ row.dtpublicationDate | date : 'medium' }}</td>
 			</ng-container>
 
 			<ng-container matColumnDef="DTIssueDate">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de emisión</th>
-				<td mat-cell *matCellDef="let row">{{ row.DTIssueDate | date : 'medium' }}</td>
+				<td mat-cell *matCellDef="let row">{{ row.dtissueDate | date : 'medium' }}</td>
 			</ng-container>
 
 			<ng-container matColumnDef="DTDocumentNumber"
@@ -69,7 +69,7 @@
 
 			<ng-container matColumnDef="DTVisibility">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Visibilidad</th>
-				<td mat-cell *matCellDef="let row">{{ row.DTVisibility }}</td>
+				<td mat-cell *matCellDef="let row">{{ row.dtvisibility }}</td>
 			</ng-container>
 
 			<ng-container matColumnDef="IdUser">
@@ -86,10 +86,10 @@
 						*ngIf="!(updateIsLoading$ | async)"
 						(click)="changeState(row)"
 						class="z-badge"
-						[ngClass]="row.DTState ? 'z-badge-success' : 'z-badge-danger'"
+						[ngClass]="row.dtstate ? 'z-badge-success' : 'z-badge-danger'"
 					>
 						<mat-icon fontIcon="check"></mat-icon>
-						{{ row.DTState ? 'Activo' : 'Inactivo' }}
+						{{ row.dtstate ? 'Activo' : 'Inactivo' }}
 					</span>
 				</td>
 			</ng-container>

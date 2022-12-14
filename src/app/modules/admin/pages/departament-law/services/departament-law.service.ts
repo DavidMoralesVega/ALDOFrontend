@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
 import { Response } from 'src/app/core/entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
+import { search } from '../../../../../core/entities/interfaces/search.interface';
 import {
 	CreateDepartamentLawDto,
 	DepartamentLaw,
@@ -41,6 +42,20 @@ export class DepartamentLawService {
 		return this.httpClient.patch<Response<DepartamentLaw>>(
 			`${this.ZPDepartamentLaw}/${id}`,
 			updateDepartamentLawDto
+		);
+	}
+
+	search(search: search): Observable<Response<DepartamentLaw[]>> {
+		return this.httpClient.patch<Response<DepartamentLaw[]>>(
+			`${this.ZPDepartamentLaw}/search`,
+			search
+		);
+	}
+
+	searchAdvanced(search: search): Observable<Response<DepartamentLaw[]>> {
+		return this.httpClient.patch<Response<DepartamentLaw[]>>(
+			`${this.ZPDepartamentLaw}/searchAdvanced`,
+			search
 		);
 	}
 }

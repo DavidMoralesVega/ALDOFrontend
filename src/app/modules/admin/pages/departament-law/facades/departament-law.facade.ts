@@ -8,10 +8,13 @@ import {
 	DEPARTAMENTLAW_CREATE_REQUESTED,
 	DEPARTAMENTLAW_FIND_ALL_REQUESTED,
 	DEPARTAMENTLAW_FIND_ONE_REQUESTED,
-	DEPARTAMENTLAW_UPDATE_REQUESTED
+	DEPARTAMENTLAW_UPDATE_REQUESTED,
+	DEPARTAMENTLAW_SEARCH_REQUESTED,
+	DEPARTAMENTLAW_SEARCHADVANCED_REQUESTED
 } from '../store/departament-law.action';
 import { DepartamentLaw, UpdateDepartamentLawDto } from '../entities';
 import { DepartamentLawState } from '../store/departament-law.state';
+import { search } from '../../../../../core/entities/interfaces/search.interface';
 
 @Injectable()
 export class DepartamentLawFacade {
@@ -40,6 +43,18 @@ export class DepartamentLawFacade {
 	public updateIsLoading$: Observable<boolean>;
 	public updateResponse$: Observable<Response<DepartamentLaw> | null>;
 
+	// Search
+	public searchData$: Observable<search | null>;
+	public searchException$: Observable<Exception | null>;
+	public searchIsLoading$: Observable<boolean>;
+	public searchResponse$: Observable<Response<DepartamentLaw[]> | null>;
+
+	// Search Advanced
+	public searchAdvancedData$: Observable<search | null>;
+	public searchAdvancedException$: Observable<Exception | null>;
+	public searchAdvancedIsLoading$: Observable<boolean>;
+	public searchAdvancedResponse$: Observable<Response<DepartamentLaw[]> | null>;
+
 	constructor(private readonly store: Store<DepartamentLawState>) {
 		// create
 		this.createDto$ = this.store.select(zSelector.getDepartamentLawCreateDto);
@@ -65,6 +80,26 @@ export class DepartamentLawFacade {
 		this.updateException$ = this.store.select(zSelector.getDepartamentLawUpdateException);
 		this.updateIsLoading$ = this.store.select(zSelector.getDepartamentLawUpdateIsLoading);
 		this.updateResponse$ = this.store.select(zSelector.getDepartamentLawUpdateResponse);
+
+		// search
+		this.searchData$ = this.store.select(zSelector.getDepartamentLawSearchPagination);
+		this.searchException$ = this.store.select(zSelector.getDepartamentLawSearchException);
+		this.searchIsLoading$ = this.store.select(zSelector.getDepartamentLawSearchIsLoading);
+		this.searchResponse$ = this.store.select(zSelector.getDepartamentLawSearchResponse);
+
+		// search advanced
+		this.searchAdvancedData$ = this.store.select(
+			zSelector.getDepartamentLawSearchAdvancedPagination
+		);
+		this.searchAdvancedException$ = this.store.select(
+			zSelector.getDepartamentLawSearchAdvancedException
+		);
+		this.searchAdvancedIsLoading$ = this.store.select(
+			zSelector.getDepartamentLawSearchAdvancedIsLoading
+		);
+		this.searchAdvancedResponse$ = this.store.select(
+			zSelector.getDepartamentLawSearchAdvancedResponse
+		);
 	}
 
 	create(createDepartamentLawDto: FormData) {
@@ -86,5 +121,13 @@ export class DepartamentLawFacade {
 				payload: updateDepartamentLawDto
 			})
 		);
+	}
+
+	search(search: search) {
+		this.store.dispatch(DEPARTAMENTLAW_SEARCH_REQUESTED({ payload: search }));
+	}
+
+	searchAdvanced(search: search) {
+		this.store.dispatch(DEPARTAMENTLAW_SEARCHADVANCED_REQUESTED({ payload: search }));
 	}
 }
