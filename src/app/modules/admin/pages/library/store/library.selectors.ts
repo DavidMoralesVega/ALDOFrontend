@@ -28,3 +28,9 @@ export const getLibraryUpdateId = createSelector(zS, (z) => z.update.id);
 export const getLibraryUpdateException = createSelector(zS, (z) => z.update.exception);
 export const getLibraryUpdateIsLoading = createSelector(zS, (z) => z.update.isLoading);
 export const getLibraryUpdateResponse = createSelector(zS, (z) => z.update.response);
+
+// SERACH
+export const getLibrarySearchPagination = createSelector(zS, (z) => z.search.search);
+export const getLibrarySearchException = createSelector(zS, (z) => z.search.exception);
+export const getLibrarySearchIsLoading = createSelector(zS, (z) => z.search.isLoading);
+export const getLibrarySearchResponse = createSelector(zS, (z) => z.search.response);

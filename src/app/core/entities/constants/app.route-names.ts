@@ -52,6 +52,12 @@ export const ZPaths: IZPath[] = [
 				path: `${ZPath_ADMIN}/biblioteca`,
 				name: 'Biblioteca',
 				icon: 'bell'
+			},
+			{
+				module: 'search-biblioteca',
+				path: `${ZPath_ADMIN}/search-biblioteca`,
+				name: 'Buscador Biblioteca',
+				icon: 'bell'
 			}
 		]
 	},

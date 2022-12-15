@@ -34,30 +34,23 @@ import { LibraryFacade } from './facades/library.facade';
 		CommonModule,
 		LibraryRoutingModule,
 		DatePipe,
-
 		StoreModule.forFeature(ZEffects.library, LibraryReducer),
 		EffectsModule.forFeature([LibraryEffects]),
 		MatSnackBarModule,
-
 		ReactiveFormsModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatIconModule,
-
 		MatProgressSpinnerModule,
-
 		// GET PIPE STATIC FILE
 		StaticFilePipeModule,
-
 		MatChipsModule,
 		MatButtonModule,
 		MatTooltipModule,
-
 		MatSortModule,
 		MatTableModule,
 		MatPaginatorModule,
 		MatDialogModule,
-
 		LibraryCreateModule,
 		LibraryUpdateModule
 	],

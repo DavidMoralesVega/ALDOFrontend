@@ -131,6 +131,37 @@ const _libraryReducer = createReducer(
 			isLoading: false,
 			response: null
 		}
+	})),
+	// SEARCH
+
+	on(zActions.LIBRARY_SEARCH_REQUESTED, (state, { payload }) => ({
+		...state,
+		search: {
+			response: null,
+			exception: null,
+			isLoading: true,
+			search: payload
+		}
+	})),
+
+	on(zActions.LIBRARY_SEARCH_LOADED, (state, { payload }) => ({
+		...state,
+		search: {
+			response: payload,
+			exception: null,
+			isLoading: false,
+			search: null
+		}
+	})),
+
+	on(zActions.LIBRARY_SEARCH_FAILED, (state, { payload }) => ({
+		...state,
+		search: {
+			response: null,
+			exception: payload,
+			isLoading: false,
+			search: null
+		}
 	}))
 );
 

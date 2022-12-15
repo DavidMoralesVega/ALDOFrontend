@@ -1,6 +1,7 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
 import { Library } from '../entities';
 import { UpdateLibraryDto } from '../entities/models/library.model';
+import { SearchLibrary } from '../../../../../core/entities/interfaces/searchLibrary.interface';
 
 export interface LibraryState {
 	create: {
@@ -27,6 +28,12 @@ export interface LibraryState {
 		id: string | undefined;
 		isLoading: boolean;
 		response: Response<Library> | null;
+	};
+	search: {
+		response: Response<Library[]> | null;
+		exception: Exception | null;
+		isLoading: boolean;
+		search: SearchLibrary | null;
 	};
 }
 
@@ -55,5 +62,11 @@ export const libraryInitialState: LibraryState = {
 		id: undefined,
 		isLoading: false,
 		response: null
+	},
+	search: {
+		response: null,
+		exception: null,
+		isLoading: false,
+		search: null
 	}
 };

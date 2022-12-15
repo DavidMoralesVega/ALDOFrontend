@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Response } from 'src/app/core/entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
 import { Library, UpdateLibraryDto } from '../entities/models/library.model';
+import { SearchLibrary } from '../../../../../core/entities/interfaces/searchLibrary.interface';
 
 @Injectable()
 export class LibraryService {
@@ -29,5 +30,9 @@ export class LibraryService {
 
 	update(id: string, updateLibraryDto: UpdateLibraryDto): Observable<Response<Library>> {
 		return this.httpClient.patch<Response<Library>>(`${this.ZPLibrary}/${id}`, updateLibraryDto);
+	}
+
+	search(searchLibrary: SearchLibrary): Observable<Response<Library[]>> {
+		return this.httpClient.post<Response<Library[]>>(`${this.ZPLibrary}/search`, searchLibrary);
 	}
 }

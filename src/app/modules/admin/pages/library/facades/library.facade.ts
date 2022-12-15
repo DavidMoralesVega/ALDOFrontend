@@ -10,8 +10,10 @@ import {
 	LIBRARY_CREATE_REQUESTED,
 	LIBRARY_FIND_ALL_REQUESTED,
 	LIBRARY_FIND_ONE_REQUESTED,
-	LIBRARY_UPDATE_REQUESTED
+	LIBRARY_UPDATE_REQUESTED,
+	LIBRARY_SEARCH_REQUESTED
 } from '../store/library.action';
+import { SearchLibrary } from 'src/app/core/entities/interfaces/searchLibrary.interface';
 
 @Injectable()
 export class LibraryFacade {
@@ -40,6 +42,12 @@ export class LibraryFacade {
 	public updateIsLoading$: Observable<boolean>;
 	public updateResponse$: Observable<Response<Library> | null>;
 
+	// Search
+	public searchData$: Observable<SearchLibrary | null>;
+	public searchException$: Observable<Exception | null>;
+	public searchIsLoading$: Observable<boolean>;
+	public searchResponse$: Observable<Response<Library[]> | null>;
+
 	constructor(private readonly store: Store<LibraryState>) {
 		// create
 		this.createDto$ = this.store.select(zSelector.getLibraryCreateDto);
@@ -65,6 +73,12 @@ export class LibraryFacade {
 		this.updateException$ = this.store.select(zSelector.getLibraryUpdateException);
 		this.updateIsLoading$ = this.store.select(zSelector.getLibraryUpdateIsLoading);
 		this.updateResponse$ = this.store.select(zSelector.getLibraryUpdateResponse);
+
+		// search
+		this.searchData$ = this.store.select(zSelector.getLibrarySearchPagination);
+		this.searchException$ = this.store.select(zSelector.getLibrarySearchException);
+		this.searchIsLoading$ = this.store.select(zSelector.getLibrarySearchIsLoading);
+		this.searchResponse$ = this.store.select(zSelector.getLibrarySearchResponse);
 	}
 
 	create(createLibraryDto: FormData) {
@@ -86,5 +100,9 @@ export class LibraryFacade {
 				payload: updateLibraryDto
 			})
 		);
+	}
+
+	search(searchLibrary: SearchLibrary) {
+		this.store.dispatch(LIBRARY_SEARCH_REQUESTED({ payload: searchLibrary }));
 	}
 }

@@ -162,7 +162,9 @@ const _departamentLawReducer = createReducer(
 			isLoading: false,
 			search: null
 		}
-	})), // SEARCH ADVANCED
+	})),
+
+	// SEARCH ADVANCED
 
 	on(zActions.DEPARTAMENTLAW_SEARCHADVANCED_REQUESTED, (state, { payload }) => ({
 		...state,
