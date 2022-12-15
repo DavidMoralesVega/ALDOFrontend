@@ -8,6 +8,7 @@ export enum ZEffects {
 	recognition = 'recognition',
 	contract = 'contract',
 	library = 'library',
+	user = 'user',
 	/* dev */
 	category = 'category',
 	call = 'call',
