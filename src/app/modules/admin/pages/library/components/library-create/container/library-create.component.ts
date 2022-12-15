@@ -68,19 +68,16 @@ export class LibraryCreateComponent implements OnInit {
 		if (this.formCreate.invalid) return;
 
 		// if (!this.isValidImage) return;
-		console.log('LVisibility', this.LVisibility.value);
-		console.log('LFile', this.file);
+		// console.log('LVisibility', this.LVisibility.value);
+		// console.log('LFile', this.file);
 
 		let createLibraryDto = new FormData();
-		createLibraryDto.append('LTitle', this.LTitle.value);
-		createLibraryDto.append('LDescription', this.LDescription.value);
-		createLibraryDto.append('LCategory', this.LCategory.value);
-		createLibraryDto.append('LModule', this.LModule.value);
-		createLibraryDto.append('LVisibility', this.LVisibility.value);
-
+		createLibraryDto.append('ltitle', this.LTitle.value);
+		createLibraryDto.append('ldescription', this.LDescription.value);
+		createLibraryDto.append('lcategory', this.LCategory.value);
+		createLibraryDto.append('lmodule', this.LModule.value);
+		createLibraryDto.append('lvisibility', this.LVisibility.value);
 		createLibraryDto.append('LFile', this.file);
-
-		console.log(createLibraryDto);
 
 		this.libraryFacade.create(createLibraryDto);
 	}

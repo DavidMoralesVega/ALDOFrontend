@@ -8,6 +8,7 @@ import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service'
 import { Payload, PayloadUpdate } from 'src/app/core/entities/adapters/object.adapter';
 import { LibraryService } from '../services/library.service';
 import { Library, UpdateLibraryDto } from '../entities/models/library.model';
+import { SearchLibrary } from 'src/app/core/entities/interfaces/searchLibrary.interface';
 
 @Injectable()
 export class LibraryEffects {
@@ -111,5 +112,29 @@ export class LibraryEffects {
 					);
 				})
 			) // , { dispatch: false }
+	);
+
+	/* SEARCH */
+	search$ = createEffect(
+		(): Observable<any> =>
+			this.actions$.pipe(
+				ofType(zActions.LIBRARY_SEARCH_REQUESTED),
+				mergeMap((action: Payload<SearchLibrary>) =>
+					this.libraryService.search(action.payload).pipe(
+						map((response: Response<Library[]>) => {
+							return zActions.LIBRARY_SEARCH_LOADED({
+								payload: response
+							});
+						}),
+						catchError((exception: Exception) =>
+							of(
+								zActions.LIBRARY_SEARCH_FAILED({
+									payload: exception
+								})
+							)
+						)
+					)
+				)
+			)
 	);
 }

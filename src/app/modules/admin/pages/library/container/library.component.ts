@@ -84,7 +84,7 @@ export class LibraryComponent implements OnInit, AfterViewInit, OnDestroy {
 
 	changeState(libraryAdapter: LibraryAdapter) {
 		const updateLibraryDto: UpdateLibraryDto = {
-			LState: !libraryAdapter.LState
+			lstate: !libraryAdapter.lstate
 		};
 
 		this.libraryFacade.update(libraryAdapter.IdLibrary, updateLibraryDto);

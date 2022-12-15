@@ -2,6 +2,7 @@ import { createAction, props } from '@ngrx/store';
 import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entities';
 
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
+import { SearchLibrary } from 'src/app/core/entities/interfaces/searchLibrary.interface';
 import { Library } from '../entities';
 import { UpdateLibraryDto } from '../entities/models/library.model';
 
@@ -24,7 +25,12 @@ export enum LibraryActionTypes {
 	// update
 	LIBRARY_UPDATE_REQUESTED = '[Library] UPDATE Requested',
 	LIBRARY_UPDATE_LOADED = '[Library] UPDATE Loaded',
-	LIBRARY_UPDATE_FAILED = '[Library] UPDATE Failed'
+	LIBRARY_UPDATE_FAILED = '[Library] UPDATE Failed',
+
+	// update
+	LIBRARY_SEARCH_REQUESTED = '[Library] SEARCH Requested',
+	LIBRARY_SEARCH_LOADED = '[Library] SEARCH Loaded',
+	LIBRARY_SEARCH_FAILED = '[Library] SEARCH Failed'
 }
 
 // create
@@ -88,5 +94,21 @@ export const LIBRARY_UPDATE_LOADED = createAction(
 
 export const LIBRARY_UPDATE_FAILED = createAction(
 	LibraryActionTypes.LIBRARY_UPDATE_FAILED,
+	props<Payload<Exception>>()
+);
+
+// SEARCH
+export const LIBRARY_SEARCH_REQUESTED = createAction(
+	LibraryActionTypes.LIBRARY_SEARCH_REQUESTED,
+	props<Payload<SearchLibrary>>()
+);
+
+export const LIBRARY_SEARCH_LOADED = createAction(
+	LibraryActionTypes.LIBRARY_SEARCH_LOADED,
+	props<Payload<Response<Library[]>>>()
+);
+
+export const LIBRARY_SEARCH_FAILED = createAction(
+	LibraryActionTypes.LIBRARY_SEARCH_FAILED,
 	props<Payload<Exception>>()
 );

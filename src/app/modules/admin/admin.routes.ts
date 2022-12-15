@@ -62,5 +62,10 @@ export const AdminRoutes: Routes = [
 	{
 		path: 'biblioteca',
 		loadChildren: () => import('./pages/library/library.module').then((m) => m.LibraryModule)
+	},
+	{
+		path: 'search-biblioteca',
+		loadChildren: () =>
+			import('./pages/library-search/library-search.module').then((m) => m.LibrarySearchModule)
 	}
 ];
