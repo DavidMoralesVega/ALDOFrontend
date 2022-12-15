@@ -18,6 +18,12 @@ export const ZPaths: IZPath[] = [
 				icon: 'bell'
 			},
 			{
+				module: 'departament-law-search',
+				path: `${ZPath_ADMIN}/departament-law-search`,
+				name: 'Busqueda Leyes departamentales',
+				icon: 'bell'
+			},
+			{
 				module: 'recognition',
 				path: `${ZPath_ADMIN}/recognition`,
 				name: 'Reconocimientos',
