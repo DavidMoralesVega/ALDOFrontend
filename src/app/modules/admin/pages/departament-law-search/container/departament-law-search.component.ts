@@ -4,16 +4,16 @@ import { Pagination, Response } from 'src/app/core/entities';
 import { Observable, Subscription } from 'rxjs';
 import { DepartamentLawFacade } from 'src/app/modules/admin/pages/departament-law/facades/departament-law.facade';
 import { DepartamentLaw } from 'src/app/modules/admin/pages/departament-law/entities';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { DefaultErrorMatcher } from '../../../../../core/shared/default.error-matcher';
 import { search } from 'src/app/core/entities/interfaces/search.interface';
 
 @Component({
 	selector: 'z-commission',
-	templateUrl: './departamentLaws.component.html',
-	styleUrls: ['./departamentLaws.component.scss']
+	templateUrl: './departament-law-search.component.html',
+	styleUrls: ['./departament-law-search.component.scss']
 })
-export class DepartamentLawsComponent implements OnInit {
+export class DepartamentLawsSearchComponent implements OnInit {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public findAllResponse$: Observable<Response<DepartamentLaw[]> | null>;
@@ -102,8 +102,6 @@ export class DepartamentLawsComponent implements OnInit {
 
 			const dataSearch: search = {
 				data: this.dataQuery.value,
-				visibility: 'publico',
-				state: true,
 				area: this.departLawArea.value,
 				dateStart: dateInit,
 				dateEnd: dateEnd
@@ -127,8 +125,7 @@ export class DepartamentLawsComponent implements OnInit {
 		} else {
 			const dataSearch: search = {
 				data: this.dataQuery.value,
-				visibility: 'publico',
-				state: true
+				visibility: 'all'
 			};
 
 			this.departamentLawFacade.search(dataSearch);
@@ -156,9 +153,7 @@ export class DepartamentLawsComponent implements OnInit {
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
 					this.dataSearchDepartament = response?.data.filter((data) => {
-						if (data.dtvisibility === 'publico' && data.dtstate === true) {
-							return data;
-						}
+						return data;
 					});
 				}
 			})

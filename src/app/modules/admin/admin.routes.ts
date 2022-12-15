@@ -21,6 +21,13 @@ export const AdminRoutes: Routes = [
 			)
 	},
 	{
+		path: 'departament-law-search',
+		loadChildren: () =>
+			import('./pages/departament-law-search/departament-law-search.module').then(
+				(m) => m.DepartamentLawsSearchModule
+			)
+	},
+	{
 		path: 'post',
 		loadChildren: () => import('./pages/post/post.module').then((m) => m.PostModule)
 	},
