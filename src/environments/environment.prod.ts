@@ -25,6 +25,7 @@ export const environment = {
 		recognition: `${point.server}/recognition`,
 		contract: `${point.server}/contract`,
 		library: `${point.server}/library`,
+		user: `${point.server}/auth`,
 
 		requestReports: `${point.server}/request-reports`
 	}

@@ -18,6 +18,12 @@ export const ZPaths: IZPath[] = [
 				icon: 'bell'
 			},
 			{
+				module: 'user',
+				path: `${ZPath_ADMIN}/user`,
+				name: 'usuario',
+				icon: 'bell'
+			},
+			{
 				module: 'departament-law-search',
 				path: `${ZPath_ADMIN}/departament-law-search`,
 				name: 'Busqueda Leyes departamentales',
@@ -217,6 +223,15 @@ export const ZListCategory: any = [
 	{ value: '0', key: 'Categoria uno' },
 	{ value: '1', key: 'Categoria dos' },
 	{ value: '2', key: 'Categoria tres' }
+];
+
+// role
+export const ZListRoles: any = [
+	{ value: '0', key: 'ENCARGADA DEL AREA DE PROCESOS LEGISLATIVOS' },
+	{ value: '1', key: 'PROFESIONAL ADMINISTRATIVO II - TRANSCRIPTOR' },
+	{ value: '2', key: 'ENCARGADO DE PROCESO JURIDICOS ADMINISTRATIVOS' },
+	{ value: '3', key: 'Oficilia mayor' },
+	{ value: '4', key: 'Responsable de archivos' }
 ];
 
 // area
