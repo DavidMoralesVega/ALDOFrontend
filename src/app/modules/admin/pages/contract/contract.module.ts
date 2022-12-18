@@ -6,6 +6,8 @@ import { ContractComponent } from './container/contract.component';
 import { StoreModule } from '@ngrx/store';
 import { ZEffects } from 'src/app/core/entities';
 import { EffectsModule } from '@ngrx/effects';
+import { ResolutionReducer } from '../resolutions/store/resolutions.reducer';
+import { ResolutionEffects } from '../resolutions/store/resolutions.effects';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';

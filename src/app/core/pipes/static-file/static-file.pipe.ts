@@ -9,6 +9,7 @@ export class StaticFilePipe implements PipeTransform {
 
 	transform(resource: string): string {
 		// return `${this.ZPServerPoint}/files/static/${resource}`;
+
 		return `${this.ZPServerPoint}/${resource}`;
 	}
 }
