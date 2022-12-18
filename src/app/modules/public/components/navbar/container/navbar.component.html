@@ -26,6 +26,15 @@
 				<li class="nav-item">
 					<a
 						class="nav-link"
+						routerLink="/marco-institucional"
+						routerLinkActive="z-nav-link-active"
+						>Marco institucional</a
+					>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link"
 						[matMenuTriggerFor]="comisiones"
 						class="nav-link dropdown-toggle waves-light"
 						>Comisiones</a
@@ -38,6 +47,24 @@
 							routerLink="/comisiones/{{ commission.path }}"
 						>
 							{{ commission.title }}
+						</a>
+					</mat-menu>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link"
+						[matMenuTriggerFor]="asamblea"
+						class="nav-link dropdown-toggle waves-light"
+						>Asambleistas</a
+					>
+					<mat-menu #asamblea="matMenu">
+						<a
+							routerLinkActive="z-nav-link-active"
+							mat-menu-item
+							routerLink="/comisiones/directiva"
+						>
+							Mesa directiva
 						</a>
 					</mat-menu>
 				</li>
@@ -65,9 +92,9 @@
 						>
 						<a
 							mat-menu-item
-							routerLink="/reconocimientos"
+							routerLink="/peticion-infome-escrito"
 							routerLinkActive="z-nav-link-active"
-							>Reconocimientos</a
+							>Petición de informe escrito</a
 						>
 						<a
 							mat-menu-item
@@ -77,9 +104,9 @@
 						>
 						<a
 							mat-menu-item
-							routerLink="/peticion-infome-escrito"
+							routerLink="/reconocimientos"
 							routerLinkActive="z-nav-link-active"
-							>Petición de informe escrito</a
+							>Reconocimientos</a
 						>
 						<a mat-menu-item routerLink="/resoluciones" routerLinkActive="z-nav-link-active"
 							>Resoluciones</a
@@ -90,6 +117,11 @@
 				<li class="nav-item">
 					<a class="nav-link" routerLink="/publicaciones" routerLinkActive="z-nav-link-active"
 						>Publicaciones</a
+					>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/contacto" routerLinkActive="z-nav-link-active"
+						>Contacto</a
 					>
 				</li>
 			</ul>

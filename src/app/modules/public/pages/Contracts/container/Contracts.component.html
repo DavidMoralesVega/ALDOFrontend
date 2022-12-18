@@ -1,45 +1,148 @@
+<section>
+	<div
+		style="
+			background-image: url('assets/brand/galery/5.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+		"
+	>
+		<div class="full-bg-img flex-center white-text rgba-stylish-strong">
+			<ul class="animated fadeIn col-md-12 list-unstyled">
+				<li class="mt-5 pt-5">
+					<h1 class="h1-responsive font-weight-bold mt-5 pt-5 mb-5">CONTRATOS</h1>
+				</li>
+
+				<li class="pb-5">
+					<div class="container">
+						<div class="h-100 d-flex justify-content-center align-items-center">
+							<h3 class="badge">
+								<form class="form-inline my-2 my-lg-0 w-100">
+									<input
+										class="form-control mr-sm-2"
+										type="text"
+										placeholder="Buscar por titulo"
+										(keyup)="buscar(buscarTexto.value)"
+										#buscarTexto
+									/>
+									<button
+										(click)="buscar(buscarTexto.value)"
+										class="btn btn-danger my-2 my-sm-0"
+										type="button"
+									>
+										Buscar
+									</button>
+								</form>
+							</h3>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
 <!-- Container for demo purpose -->
 <div class="container my-5 py-5">
 	<!-- Section: Design Block -->
 
-	<form class="form-inline my-2 my-lg-0">
-		<input
-			class="form-control mr-sm-2"
-			type="text"
-			placeholder="Buscar por titulo"
-			(keyup)="buscar(buscarTexto.value)"
-			#buscarTexto
-		/>
-		<button
-			(click)="buscar(buscarTexto.value)"
-			class="btn btn-outline-primary my-2 my-sm-0"
-			type="button"
-		>
-			Buscar
-		</button>
-	</form>
-
 	<section class="mb-10">
-		<h2 class="fw-bold mb-5 text-center">Contratos<u class="text-primary"> 2022</u></h2>
 		<div class="row">
-			<div
-				class="card col-lg-6 col-md-12 mb-4"
-				*ngFor="let item of data | paginate : { itemsPerPage: 10, currentPage: page }"
-			>
-				<img src="assets/brand/back.jpg" class="card-img-top" alt="Fissure in Sandstone" />
-				<div class="card-body">
-					<h5 class="card-title">{{ item.CTTitle }}</h5>
-					<p class="card-text">{{ item.CTSummary }}</p>
-					<span>{{ item.CTIssueDate | date : 'medium' }}</span>
-					<!-- <a href="#!" class="btn btn-primary">Button</a> -->
+			<div class="row">
+				<div
+					class="col-xl-6 mb-4"
+					*ngFor="let item of data | paginate : { itemsPerPage: 10, currentPage: page }"
+				>
+					<div class="card">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="d-flex align-items-center">
+									<img
+										src="assets/brand/pdf-svgrepo-com.svg"
+										alt=""
+										style="width: 45px; height: 45px"
+									/>
+									<div class="ms-3">
+										<p class="fw-bold mb-1">{{ item.CTTitle }}</p>
+										<p class="text-muted mb-0">{{ item.CTSummary }}</p>
+									</div>
+								</div>
+								<span class="badge rounded-pill badge-success">{{
+									item.CTIssueDate | date : 'medium'
+								}}</span>
+							</div>
+						</div>
+						<div class="card-footer border-0 bg-light p-2 d-flex justify-content-around">
+							<a
+								class="btn btn-link m-0 text-reset"
+								href="{{ item.CTFile | staticFile }}"
+								target="_blank"
+								role="button"
+								data-ripple-color="primary"
+								>Abrir
+								<i class="fas fa-external-link-alt ms-2"></i>
+							</a>
+							<a
+								class="btn btn-link m-0 text-reset"
+								target="_blank"
+								href="{{ item.CTFile | staticFile }}"
+								data-ripple-color="primary"
+								download="{{ item.CTTitle }}"
+								>Descargar<i class="fas fa-download ms-2"></i
+							></a>
+						</div>
+					</div>
+					<form class="form-inline my-2 my-lg-0">
+						<input
+							class="form-control mr-sm-2"
+							type="text"
+							placeholder="Buscar por titulo"
+							(keyup)="buscar(buscarTexto.value)"
+							#buscarTexto
+						/>
+						<button
+							(click)="buscar(buscarTexto.value)"
+							class="btn btn-outline-primary my-2 my-sm-0"
+							type="button"
+						>
+							Buscar
+						</button>
+					</form>
+
+					<section class="mb-10">
+						<h2 class="fw-bold mb-5 text-center">
+							Contratos<u class="text-primary"> 2022</u>
+						</h2>
+						<div class="row">
+							<div
+								class="card col-lg-6 col-md-12 mb-4"
+								*ngFor="
+									let item of data | paginate : { itemsPerPage: 10, currentPage: page }
+								"
+							>
+								<img
+									src="assets/brand/back.jpg"
+									class="card-img-top"
+									alt="Fissure in Sandstone"
+								/>
+								<div class="card-body">
+									<h5 class="card-title">{{ item.CTTitle }}</h5>
+									<p class="card-text">{{ item.CTSummary }}</p>
+									<span>{{ item.CTIssueDate | date : 'medium' }}</span>
+									<!-- <a href="#!" class="btn btn-primary">Button</a> -->
+								</div>
+							</div>
+						</div>
+					</section>
+					<div class="h-100 d-flex justify-content-center align-items-center">
+						<pagination-controls
+							(pageChange)="page = $event"
+							previousLabel="Anterior"
+							nextLabel="Siguiente"
+						></pagination-controls>
+					</div>
 				</div>
+				<!-- Container for demo purpose -->
 			</div>
 		</div>
 	</section>
-	<pagination-controls
-		(pageChange)="page = $event"
-		previousLabel="Anterior"
-		nextLabel="Siguiente"
-	></pagination-controls>
 </div>
-<!-- Container for demo purpose -->

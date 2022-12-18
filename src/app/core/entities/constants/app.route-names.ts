@@ -6,27 +6,15 @@ export const ZPaths: IZPath[] = [
 	{
 		module: 'adsi',
 		collase: true,
-		name: 'Gaceta',
-		icon: 'gavel',
+		name: 'adsi',
+		icon: 'tachometer-alt',
 		children: [
 			{ module: 'contract', path: `${ZPath_ADMIN}/contract`, name: 'Contratos', icon: 'bell' },
 			{ module: 'calls', path: `${ZPath_ADMIN}/calls`, name: 'Convocatorias', icon: 'bell' },
 			{
 				module: 'departament-law',
 				path: `${ZPath_ADMIN}/departament-law`,
-				name: 'Leyes departamentales',
-				icon: 'bell'
-			},
-			{
-				module: 'user',
-				path: `${ZPath_ADMIN}/user`,
-				name: 'usuario',
-				icon: 'bell'
-			},
-			{
-				module: 'departament-law-search',
-				path: `${ZPath_ADMIN}/departament-law-search`,
-				name: 'Busqueda Leyes departamentales',
+				name: 'departament-law',
 				icon: 'bell'
 			},
 			{
@@ -50,32 +38,10 @@ export const ZPaths: IZPath[] = [
 			{
 				module: 'resolutions',
 				path: `${ZPath_ADMIN}/resolutions`,
-				name: 'Resoluciones',
+				name: 'resolutions',
 				icon: 'bell'
 			},
-			{
-				module: 'biblioteca',
-				path: `${ZPath_ADMIN}/biblioteca`,
-				name: 'Biblioteca',
-				icon: 'bell'
-			},
-			{
-				module: 'search-biblioteca',
-				path: `${ZPath_ADMIN}/search-biblioteca`,
-				name: 'Buscador Biblioteca',
-				icon: 'bell'
-			}
-		]
-	},
-	{
-		module: 'adsi',
-		collase: true,
-		name: 'Blog',
-		icon: 'newspaper',
-		children: [
-			{ module: 'user', path: `${ZPath_ADMIN}/user`, name: 'Usuario', icon: 'bell' },
-			{ module: 'category', path: `${ZPath_ADMIN}/category`, name: 'Categorias', icon: 'bell' },
-			{ module: 'post', path: `${ZPath_ADMIN}/post`, name: 'Publicaciones', icon: 'bell' }
+			{ module: 'user', path: `${ZPath_ADMIN}/user`, name: 'user', icon: 'bell' }
 		]
 	}
 	// {
@@ -188,99 +154,4 @@ export const ZListCivilStatus: any = [
 	{ value: 'D', key: 'Divorciado' },
 	{ value: 'S', key: 'Soltero' },
 	{ value: 'V', key: 'Viudo' }
-];
-
-// resoluciones
-export const ZListResolutions: any = [
-	{ value: '0', key: 'Resolución del pleno público o privado' },
-	{ value: '1', key: 'Resolución administrativas' },
-	{ value: '2', key: 'Resolución de directiva' }
-];
-
-// convocatorias
-export const ZListCalls: any = [
-	{ value: '0', key: 'Convocatoria ordinaria' },
-	{ value: '1', key: 'Convocatoria extraodinaria' },
-	{ value: '2', key: 'Convocatoria honor' }
-];
-
-// contrato
-export const ZListContract: any = [
-	{ value: '0', key: 'Contrato uno' },
-	{ value: '1', key: 'Contrato dos' },
-	{ value: '2', key: 'Contrato tres' }
-];
-
-// area
-export const ZListArea: any = [
-	{ value: '0', key: 'Area uno' },
-	{ value: '1', key: 'Area dos' },
-	{ value: '2', key: 'Area tres' }
-];
-
-// categoria
-export const ZListCategory: any = [
-	{ value: '0', key: 'Categoria uno' },
-	{ value: '1', key: 'Categoria dos' },
-	{ value: '2', key: 'Categoria tres' }
-];
-
-// role
-export const ZListRoles: any = [
-	{ value: '0', key: 'ENCARGADA DEL AREA DE PROCESOS LEGISLATIVOS' },
-	{ value: '1', key: 'PROFESIONAL ADMINISTRATIVO II - TRANSCRIPTOR' },
-	{ value: '2', key: 'ENCARGADO DE PROCESO JURIDICOS ADMINISTRATIVOS' },
-	{ value: '3', key: 'Oficilia mayor' },
-	{ value: '4', key: 'Responsable de archivos' }
-];
-
-// area
-export const ZListModule: any = [
-	{ value: '0', key: 'Modulo uno' },
-	{ value: '1', key: 'Modulo dos' },
-	{ value: '2', key: 'Modulo tres' }
-];
-
-// Comisiones
-export const ZListCardCommissions: any = [
-	{
-		path: 'constitucion-desarrollo-legislativo-sistema-electoral-justicia',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Constitución, Desarrollo Legislativo, Sistema Electoral y Justicia'
-	},
-	{
-		path: 'planificacion-politica-economica-finanzas-publicas',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Planificación, Política Económica y Finanzas Publicas'
-	},
-	{
-		path: 'infraestructura-obras-publicas-desarrollo',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Infraestructura y Obra Públicas de Desarrollo'
-	},
-	{
-		path: 'mineria-hidrocarburos-recursos-naturales-produccion-industria-comercio-servicios',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Minería e Hidrocarburos, Recursos Naturales, Producción Industria, Comercio y Servicios'
-	},
-	{
-		path: 'autonomia-organizacion-territorial-limites',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Autonomía, Organización Territorial y Límites'
-	},
-	{
-		path: 'relaciones-intergubernamentales-internacionales',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Relaciones Intergubernamentales e Internacionales'
-	},
-	{
-		path: 'educacion-salud-derechos-humanos-politica-social',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Educación, Salud, Derechos Humanos y Política Social'
-	},
-	{
-		path: 'medio-ambiente-desarrollo-rural-integral-sustentable-soberania-alimentaria',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Medio Ambiente, Desarrollo Rural Integral Sustentable y Soberanía Alimentaria'
-	}
 ];
