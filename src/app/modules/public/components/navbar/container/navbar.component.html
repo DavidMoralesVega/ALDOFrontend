@@ -1,0 +1,137 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+	<div class="container-fluid">
+		<button
+			class="navbar-toggler"
+			type="button"
+			data-mdb-toggle="collapse"
+			data-mdb-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		>
+			<i class="fas fa-bars"></i>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<a class="navbar-brand mt-2 mt-lg-0" href="#">
+				<img src="assets/brand/logo.png" height="40" alt="A.L.D.O. Logo" loading="lazy" />
+			</a>
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/inicio" routerLinkActive="z-nav-link-active"
+						>Inicio</a
+					>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link"
+						routerLink="/marco-institucional"
+						routerLinkActive="z-nav-link-active"
+						>Marco institucional</a
+					>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link"
+						[matMenuTriggerFor]="comisiones"
+						class="nav-link dropdown-toggle waves-light"
+						>Comisiones</a
+					>
+					<mat-menu #comisiones="matMenu">
+						<a
+							routerLinkActive="z-nav-link-active"
+							*ngFor="let commission of ZListCardCommissions"
+							mat-menu-item
+							routerLink="/comisiones/{{ commission.path }}"
+						>
+							{{ commission.title }}
+						</a>
+					</mat-menu>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link"
+						[matMenuTriggerFor]="asamblea"
+						class="nav-link dropdown-toggle waves-light"
+						>Asambleistas</a
+					>
+					<mat-menu #asamblea="matMenu">
+						<a
+							routerLinkActive="z-nav-link-active"
+							mat-menu-item
+							routerLink="/comisiones/directiva"
+						>
+							Mesa directiva
+						</a>
+					</mat-menu>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link"
+						[matMenuTriggerFor]="gaceta"
+						class="nav-link dropdown-toggle waves-light"
+						>Gaceta</a
+					>
+
+					<mat-menu #gaceta="matMenu">
+						<a mat-menu-item routerLink="/contratos" routerLinkActive="z-nav-link-active"
+							>Contratos</a
+						>
+						<a mat-menu-item routerLink="/convocatorias" routerLinkActive="z-nav-link-active"
+							>Convocatorias</a
+						>
+						<a
+							mat-menu-item
+							routerLink="/leyes-departamentales"
+							routerLinkActive="z-nav-link-active"
+							>Leyes departamentales</a
+						>
+						<a
+							mat-menu-item
+							routerLink="/peticion-infome-escrito"
+							routerLinkActive="z-nav-link-active"
+							>Petición de informe escrito</a
+						>
+						<a
+							mat-menu-item
+							routerLink="/peticion-infome-oral"
+							routerLinkActive="z-nav-link-active"
+							>Petición de informe oral</a
+						>
+						<a
+							mat-menu-item
+							routerLink="/reconocimientos"
+							routerLinkActive="z-nav-link-active"
+							>Reconocimientos</a
+						>
+						<a mat-menu-item routerLink="/resoluciones" routerLinkActive="z-nav-link-active"
+							>Resoluciones</a
+						>
+					</mat-menu>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/publicaciones" routerLinkActive="z-nav-link-active"
+						>Publicaciones</a
+					>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/contacto" routerLinkActive="z-nav-link-active"
+						>Contacto</a
+					>
+				</li>
+			</ul>
+		</div>
+		<div class="d-flex align-items-center">
+			<!-- <button type="button" class="btn btn-link px-3 me-2">Login</button> -->
+
+			<button routerLink="/auth/user" type="button" class="btn btn-primary me-3">
+				Iniciar sesión
+			</button>
+		</div>
+	</div>
+</nav>

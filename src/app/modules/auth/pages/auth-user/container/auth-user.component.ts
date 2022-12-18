@@ -29,25 +29,25 @@ export class AuthUserComponent implements OnInit {
 
 	initFormCreate(): void {
 		this.formLogin = new FormGroup({
-			usr_cuenta: new FormControl('mfernandezds', [Validators.required]),
-			usr_clave: new FormControl('R2oberts$', [Validators.required])
+			Email: new FormControl('ronaldzurrita@gmail.com', [Validators.required]),
+			Password: new FormControl('R2oberts$', [Validators.required])
 		});
 	}
 
-	get usr_cuenta() {
-		return this.formLogin.get('usr_cuenta')!;
+	get Email() {
+		return this.formLogin.get('Email')!;
 	}
 
-	get usr_clave() {
-		return this.formLogin.get('usr_clave')!;
+	get Password() {
+		return this.formLogin.get('Password')!;
 	}
 
 	create() {
 		if (this.formLogin.invalid) return;
 
 		const loginUserDto: LoginUserDto = {
-			usr_cuenta: this.usr_cuenta.value,
-			usr_clave: this.usr_clave.value
+			Email: this.Email.value,
+			Password: this.Password.value
 		};
 
 		console.log(loginUserDto);

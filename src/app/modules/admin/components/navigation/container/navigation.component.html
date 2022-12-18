@@ -4,7 +4,7 @@
 			<li>
 				<div class="logo-wrapper waves-light">
 					<a href="#">
-						<img src="assets/brand/logo.jpg" class="img-fluid flex-center" />
+						<img src="assets/brand/logo.png" class="img-fluid flex-center" />
 					</a>
 				</div>
 			</li>
@@ -16,6 +16,7 @@
 					<mdb-squeezebox [multiple]="false" aria-multiselectable="false">
 						<mdb-item *ngFor="let path of zPaths" [ngClass]="{ 'no-collase': !path.collase }">
 							<mdb-item-head mdbWavesEffect>
+								<!-- <mat-icon fontIcon="{{ path.icon }}"></mat-icon> -->
 								<mdb-icon fas icon="{{ path.icon }}" class="mr-1"></mdb-icon>
 								{{ path.name }}
 							</mdb-item-head>
@@ -55,7 +56,7 @@
 		</navlinks>
 		<logo>
 			<div class="breadcrumbs breadcrumb-dn mr-auto">
-				<p>Empresa Metalúrgica Vinto</p>
+				<p>Asamblea Legislativa Departamental de Oruro</p>
 			</div>
 		</logo>
 		<navlinks>
@@ -70,16 +71,9 @@
 							<h4>David MV</h4>
 							<h6>moralesvegadavid@gmail.com</h6>
 						</div>
-						<button mat-menu-item>
-							<mat-icon>dialpad</mat-icon>
-							<span>Redial</span>
-						</button>
-						<button mat-menu-item disabled>
-							<mat-icon>voicemail</mat-icon>
-							<span>Check voice mail</span>
-						</button>
+
 						<button (click)="logout()" mat-menu-item>
-							<mat-icon>notifications_off</mat-icon>
+							<mat-icon>close</mat-icon>
 							<span>Salir</span>
 						</button>
 					</mat-menu>

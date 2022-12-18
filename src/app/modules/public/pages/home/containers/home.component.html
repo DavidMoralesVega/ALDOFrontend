@@ -1,46 +1,189 @@
-<section class="z-home container-fluid">
-	<div class="z-row row">
-		<div class="z-col col-md-6">
-			<div class="z-card-left">
-				<div class="z-card">
-					<img src="assets/brand/home.jpg" class="img-fluid" alt="smaple image" />
-					<div class="z-absolute">
-						<h1>Bienvenido</h1>
-						<p>Empresa Metalúrgica Vinto</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="z-col z-card-right col-md-6">
-			<div routerLink="/auth/user" class="z-col-container col-md-12">
-				<div class="z-card">
-					<div class="cws-card__asset">
-						<img src="assets/brand/user.jpg" alt="User Admin" />
-					</div>
-
-					<div class="cws-card__content">
-						<div class="cws-headline">Ingreso</div>
-						<div class="cws-body">
-							<p>Administrador <strong>ERP</strong></p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div routerLink="/auth/erp" class="z-col-container col-md-12">
-				<div class="z-card">
-					<div class="cws-card__asset">
-						<img src="assets/brand/erp.jpg" alt="User Admin" />
-					</div>
-
-					<div class="cws-card__content">
-						<div class="cws-headline">Ingreso</div>
-						<div class="cws-body">
-							<p>Usuario <strong>ERP</strong></p>
-						</div>
-					</div>
+<!--Section: Design Block-->
+<section>
+	<!-- Intro -->
+	<div
+		id="intro"
+		class="text-center bg-image"
+		style="background-image: url('assets/brand/back	.jpg'); height: 100vh"
+	>
+		<div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
+			<div class="d-flex justify-content-center align-items-center h-100 mt-4">
+				<div class="text-white">
+					<h1 class="display-1 font-weight-bold text-uppercase mb-0">A.L.D.O.</h1>
+					<h4 class="font-weight-light pt-1 mt-4 mb-5">
+						Asamblea Legislativa Departamental de Oruro
+					</h4>
+					<button class="btn btn-light btn-lg">Sobre nosotros</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- Intro -->
 </section>
+<!--Section: Design Block-->
+
+<!-- Container for demo purpose -->
+<div class="container my-5">
+	<!--Section: Design Block-->
+	<section class="mb-10">
+		<div class="row">
+			<div class="col-md-6 col-lg-5 d-flex align-items-center mb-5 pb-lg-5">
+				<div>
+					<h2 class="fw-bold mb-3">VALORES</h2>
+					<p class="text-muted mb-0">
+						Los principios que rigen al Gobierno Autónomo Departamental, en términos
+						establecidos de la Constitución Política del Estado, la Ley Marco de Autonomías y
+						Descentralización y el Estatuto Autonómico Departamental.
+					</p>
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-6 offset-lg-1 mb-5 pb-lg-5">
+				<img class="img-fluid rounded-5 shadow-4" src="assets/brand/galery/9.png" alt="" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<p class="mb-4">
+					<i class="fas fa-check-circle fa-3x" style="color: rgb(209, 209, 209)"></i>
+				</p>
+				<h6 class="mb-3"><a href="#!" class="text-reset">MISIÓN</a></h6>
+				<p class="text-muted mb-5 mb-md-3">
+					La Asamblea Legislativa Departamental de Oruro ejerce un mandato conferido por 16
+					provincias de Oruro para legislar, fiscalizar y deliberar con transparencia y
+					electividad para contribuir al desarrollo del Departamento de Oruro.
+				</p>
+			</div>
+			<div class="col-md-6">
+				<p class="mb-4">
+					<i class="fas fa-check-circle fa-3x" style="color: rgb(209, 209, 209)"></i>
+				</p>
+				<h6 class="mb-3"><a href="#!" class="text-reset">VISIÓN</a></h6>
+				<p class="text-muted mb-5 mb-md-3">
+					Ser un ente legislativo que pueda satisfacer las necesidades de las 16 provincias y
+					todos los municipios del Departamento de Oruro, respetando la Constitución Politica
+					del Estado con democracia por ser una institución incluyente,
+				</p>
+			</div>
+		</div>
+	</section>
+	<!--Section: Design Block-->
+</div>
+<!-- Container for demo purpose -->
+
+<!--Section: Design Block-->
+<section
+	class="d-flex align-items-center justify-content-center gradient-violet mb-8"
+	style="height: 500px"
+>
+	<style>
+		.gradient-violet {
+			background: #4776e6;
+			background: -webkit-linear-gradient(to right, #8e54e9, #4776e6);
+			background: linear-gradient(to right, #8e54e9, #4776e6);
+		}
+		@media only screen and (min-width: 768px) {
+			.gradient-violet {
+				height: 500px;
+			}
+		}
+		@media only screen and (max-width: 767px) {
+			.gradient-violet {
+				height: 600px;
+			}
+		}
+		.custom-underline {
+			position: relative;
+		}
+		.custom-underline::after {
+			content: '';
+			position: absolute;
+			bottom: -0.7rem;
+			left: -0.5rem;
+			right: -0.5rem;
+			height: 1.5rem;
+			background-image: url(https://mdbootstrap.com/img/svg/1421504817.svg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(25deg) brightness(118%)
+				contrast(119%);
+		}
+		@media (max-width: 767px) {
+			.custom-underline::after {
+				bottom: -0.2rem;
+				height: 0.95rem;
+			}
+		}
+		.custom-underline-2:after {
+			height: 0.6rem;
+		}
+	</style>
+	<div class="container py-5 text-center">
+		<div class="row">
+			<div class="col-xl-9 mx-auto">
+				<p class="display-3 fw-bold text-white mb-5">
+					Declaración
+					<br class="d-md-none" /><span class="custom-underline">Constitucional </span
+					><br class="d-md-none" />
+				</p>
+				<p class="lead fw-normal" style="color: rgba(255, 255, 255, 0.9)">
+					Art. 18 Deberes Generales de las y los Asambleistas inc. g) <br /><span
+						class="custom-underline custom-underline-2"
+						>(R.G. AL.D.O.)</span
+					>. "Informar sobre el desempeño de su mandato y actividades parlamentarias al pleno
+					de la Asamblea y a sus provincias y distritos a efecto de consignar estas actividades
+					en los informes o publicaciones. <br class="d-none d-md-block" />
+					<br class="d-none d-lg-block" />
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!--Section: Design Block-->
+<!-- Container for demo purpose -->
+<div class="container my-5">
+	<!--Section: Design Block-->
+	<section class="mb-10">
+		<div
+			class="d-flex justify-content-between align-items-center align-items-xl-end border-bottom pb-4 mb-5"
+			style="border-bottom: 2px solid #f5f5f5 !important"
+		>
+			<h2 class="fw-bold mb-0">Qué hay de nuevo</h2>
+			<h6 class="mb-0">
+				<a routerLink="/publicaciones"
+					>Ver todos los artículos <i class="fas fa-angle-right fa-xs ms-1"></i
+				></a>
+			</h6>
+		</div>
+		<div class="row gx-md-5">
+			<div class="col-md-12 col-lg-4" *ngFor="let post of dataPost">
+				<div class="mb-5">
+					<div
+						class="bg-image hover-overlay hover-zoom ripple rounded-5 mb-4"
+						data-mdb-ripple-color="light"
+					>
+						<img
+							class="w-100"
+							src="{{ post.post_fotografia | staticFile }}"
+							style="height: 225px; object-fit: cover"
+							alt="Image placeholder"
+						/>
+						<a href="#!">
+							<div class="mask" style="background-color: rgba(255, 255, 255, 0.1)"></div>
+						</a>
+					</div>
+					<h6 class="text-muted text-uppercase small pb-1">
+						<a href="#!" class="text-reset">{{ post.category.cat_nombre }}</a>
+						<p>Autor: {{ post.post_author }}</p>
+						<em>{{ post.post_creado | date : 'medium' }}</em>
+					</h6>
+					<h5 class="fw-bold mb-3">
+						<a href="#!" class="text-reset">{{ post.post_tittle }}</a>
+					</h5>
+					<p>{{ post.post_content }}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Section: Design Block-->
+</div>
+<!-- Container for demo purpose -->

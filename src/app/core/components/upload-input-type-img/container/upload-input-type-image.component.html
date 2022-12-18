@@ -1,0 +1,13 @@
+<div class="z-container-image-upload">
+	<img class="image-preview" [src]="imagePreview" *ngIf="imagePreview" />
+	<div class="upload-input-container">
+		<div class="input-container">
+			<input type="file" accept="image/*" (change)="onFileChange($event)" />
+		</div>
+
+		<button class="z-btn btn-upload" type="button">
+			<mat-icon fontIcon="add_a_photo"></mat-icon>
+			Añadir imagen
+		</button>
+	</div>
+</div>

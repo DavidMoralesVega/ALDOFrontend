@@ -2,16 +2,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatSnackBarService } from '../../../services/mat-snack-bar.service';
 
 @Component({
-	selector: 'z-upload-input-type-image',
+	selector: 'z-upload-input-type-document',
 	templateUrl: './upload-input-type-image.component.html',
 	styleUrls: ['./upload-input-type-image.component.scss']
 })
-export class UploadInputTypeImageComponent implements OnInit {
+export class UploadInputTypeDocumentComponent implements OnInit {
 	@Output()
 	public onUpload = new EventEmitter<any>();
 
-	public imagePreview: string | ArrayBuffer = 'assets/brand/placeholder-avatar.webp';
-	public imageName!: string;
+	public imagePreview: string = 'assets/brand/placeholder-avatar.webp';
+	public imageName: string = 'Archivo no seleccionado';
 	public isImage!: boolean;
 
 	private isValidImage: boolean = false;
@@ -25,7 +25,7 @@ export class UploadInputTypeImageComponent implements OnInit {
 			// Check file type
 			const file = event.target.files[0];
 			const fileType = file['type'];
-			const validImageTypes = ['image/jpeg', 'image/png'];
+			const validImageTypes = ['image/jpeg', 'image/png', 'application/pdf'];
 			const fileSize = file['size'];
 			const maxSize = 2 * 1024 * 1024;
 			this.isImage = validImageTypes.includes(fileType);
@@ -33,11 +33,11 @@ export class UploadInputTypeImageComponent implements OnInit {
 			if (!this.isImage) {
 				this.matSnackBarService.open('warning', 'Selecciona una imagen para subirla');
 				this.isValidImage = false;
-				this.imagePreview = 'assets/brand/placeholder-avatar.webp';
+				this.imageName = 'Archivo no seleccionado';
 			} else if (fileSize > maxSize) {
 				this.matSnackBarService.open('warning', 'La imagen no puede ser mayor a 2 MB');
 				this.isValidImage = false;
-				this.imagePreview = 'assets/brand/placeholder-avatar.webp';
+				this.imageName = 'Archivo no seleccionado';
 			} else {
 				// Show preview
 				const reader = new FileReader();

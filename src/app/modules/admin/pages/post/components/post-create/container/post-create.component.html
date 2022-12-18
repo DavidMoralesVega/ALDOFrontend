@@ -1,1 +1,108 @@
-<p>post-create works!</p>
+<div class="dialogContainer">
+	<div class="dialogContainer__header">
+		<h2 mat-dialog-title>Crear Post</h2>
+		<button mat-icon-button mat-dialog-close>
+			<mat-icon class="material-symbols-outlined">close</mat-icon>
+		</button>
+	</div>
+
+	<form [formGroup]="formCreate" (ngSubmit)="create()" novalidate="novalidate" autocomplete="off">
+		<div mat-dialog-content>
+			<div class="row">
+				<div class="col-lg-12">
+					<z-upload-input-type-image
+						(onUpload)="handleUpload($event)"
+					></z-upload-input-type-image>
+				</div>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Titulo</mat-label>
+					<input matInput maxlength="100" formControlName="post_tittle" placeholder="Código" />
+					<mat-hint align="start">El código debe tener como máximo 100 caracteres. </mat-hint>
+					<mat-hint align="end">{{ post_tittle.value.length }} / 100</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(post_tittle, null)">
+						<span *ngIf="post_tittle.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El Titulo es requerido.
+						</span>
+
+						<span *ngIf="post_tittle.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El Titulo debe tener como máximo 100 caracteres.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field appearance="fill" class="col-lg-12">
+					<mat-label>Contenido</mat-label>
+					<textarea
+						matInput
+						formControlName="post_content"
+						placeholder="Contenido"
+						rows="6"
+					></textarea>
+					<mat-error *ngIf="errorMatcher.isErrorState(post_content, null)">
+						<span *ngIf="post_content.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El contenido es requerido.
+						</span>
+
+						<span *ngIf="post_content.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El contenido es requerido.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Autor</mat-label>
+
+					<input matInput maxlength="50" formControlName="post_author" placeholder="Autor" />
+					<mat-hint align="start">El autor debe tener como máximo 50 caracteres. </mat-hint>
+					<mat-hint align="end">{{ post_author.value.length }} / 50</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(post_author, null)">
+						<span *ngIf="post_author.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El autor es requerido.
+						</span>
+
+						<span *ngIf="post_author.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El autor debe tener como máximo 50 caracteres.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-spinner *ngIf="categoryFindAllIsLoading$ | async"></mat-spinner>
+
+				<mat-form-field
+					*ngIf="!(categoryFindAllIsLoading$ | async)"
+					class="col-lg-12 mb-2"
+					appearance="outline"
+				>
+					<mat-label>Categoria</mat-label>
+					<mat-select formControlName="cat_post_id">
+						<mat-option
+							*ngFor="let category of (categoryFindAllResponse$ | async)!.data"
+							[value]="category | jsonData : 'cat_id'"
+						>
+							{{ category | jsonData : 'cat_nombre' }}
+						</mat-option>
+					</mat-select>
+
+					<mat-error *ngIf="errorMatcher.isErrorState(cat_post_id, null)">
+						<span *ngIf="cat_post_id.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							La Categoria es requerido.
+						</span>
+					</mat-error>
+				</mat-form-field>
+			</div>
+		</div>
+		<mat-dialog-actions align="end">
+			<button mat-button mat-dialog-close>Cancelar</button>
+			<button mat-button *ngIf="!(createIsLoading$ | async)">Guardar</button>
+			<button mat-button *ngIf="createIsLoading$ | async" disabled>Guardando...</button>
+		</mat-dialog-actions>
+	</form>
+</div>

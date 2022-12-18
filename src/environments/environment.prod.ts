@@ -13,8 +13,20 @@ export const point = {
 export const environment = {
 	production: true,
 	zephyrus: {
+		auth: `${point.server}/auth`,
 		// category
 		category: `${point.server}/category`,
-		post: `${point.server}/post`
+		call: `${point.server}/calls`,
+		post: `${point.server}/post`,
+
+		departamentLaw: `${point.server}/departament-Law`,
+		resolutions: `${point.server}/resolutions`,
+		requestWritten: `${point.server}/request-written`,
+		recognition: `${point.server}/recognition`,
+		contract: `${point.server}/contract`,
+		library: `${point.server}/library`,
+		user: `${point.server}/auth`,
+
+		requestReports: `${point.server}/request-reports`
 	}
 };

@@ -1,0 +1,45 @@
+<!-- Container for demo purpose -->
+<div class="container my-5 py-5">
+	<!-- Section: Design Block -->
+
+	<form class="form-inline my-2 my-lg-0">
+		<input
+			class="form-control mr-sm-2"
+			type="text"
+			placeholder="Buscar por titulo"
+			(keyup)="buscar(buscarTexto.value)"
+			#buscarTexto
+		/>
+		<button
+			(click)="buscar(buscarTexto.value)"
+			class="btn btn-outline-primary my-2 my-sm-0"
+			type="button"
+		>
+			Buscar
+		</button>
+	</form>
+
+	<section class="mb-10">
+		<h2 class="fw-bold mb-5 text-center">Reconocimientos</h2>
+		<div class="row">
+			<div
+				class="card col-lg-6 col-md-12 mb-4"
+				*ngFor="let data of dataManageReg | paginate : { itemsPerPage: 10, currentPage: page }"
+			>
+				<img src="assets/brand/back.jpg" class="card-img-top" alt="Fissure in Sandstone" />
+				<div class="card-body">
+					<h5 class="card-title">{{ data.RTitle }}</h5>
+					<p class="card-text">{{ data.RSummary }}</p>
+					<span>{{ data.RPublicationDate | date : 'medium' }}</span>
+					<!-- <a href="#!" class="btn btn-primary">Button</a> -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<pagination-controls
+		(pageChange)="page = $event"
+		previousLabel="Anterior"
+		nextLabel="Siguiente"
+	></pagination-controls>
+</div>
+<!-- Container for demo purpose -->

@@ -1,1 +1,118 @@
-<p>departament-law-create works!</p>
+<div class="dialogContainer">
+	<div class="dialogContainer__header">
+		<h2 mat-dialog-title>Crear ley departamental</h2>
+		<button mat-icon-button mat-dialog-close>
+			<mat-icon class="material-symbols-outlined">close</mat-icon>
+		</button>
+	</div>
+
+	<form [formGroup]="formCreate" (ngSubmit)="create()" novalidate="novalidate" autocomplete="off">
+		<div mat-dialog-content>
+			<div class="row">
+				<div class="col-12">
+					<z-upload-input-type-document
+						(onUpload)="handleUpload($event)"
+					></z-upload-input-type-document>
+				</div>
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Área</mat-label>
+					<mat-select formControlName="DTArea">
+						<mat-option *ngFor="let area of ZListArea" [value]="area.value">
+							{{ area.key }}
+						</mat-option>
+					</mat-select>
+
+					<mat-error *ngIf="errorMatcher.isErrorState(DTArea, null)">
+						<span *ngIf="DTArea.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El área es requerido.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Título</mat-label>
+
+					<input matInput maxlength="40" formControlName="DTTitle" placeholder="Título" />
+					<mat-hint align="start">Máximo 40 carácteres. </mat-hint>
+					<mat-hint align="end">{{ DTTitle.value.length }} / 40</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(DTTitle, null)">
+						<span *ngIf="DTTitle.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El título es requerida.
+						</span>
+
+						<span *ngIf="DTTitle.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							Máximo 40 carácteres.
+						</span>
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field class="example-full-width" appearance="outline">
+					<mat-label>Descripción</mat-label>
+					<textarea formControlName="DTSummary" rows="7" matInput></textarea>
+
+					<mat-error *ngIf="errorMatcher.isErrorState(DTSummary, null)">
+						<span *ngIf="DTSummary.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							La descripción es requerida.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Fecha de publicación</mat-label>
+					<input
+						matInput
+						[matDatepicker]="DTPublicationDate"
+						formControlName="DTPublicationDate"
+					/>
+					<mat-hint>MM/DD/YYYY</mat-hint>
+					<mat-datepicker-toggle matSuffix [for]="DTPublicationDate"></mat-datepicker-toggle>
+					<mat-datepicker touchUi #DTPublicationDate></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Fecha de emisión</mat-label>
+					<input matInput [matDatepicker]="DTIssueDate" formControlName="DTIssueDate" />
+					<mat-hint>MM/DD/YYYY</mat-hint>
+					<mat-datepicker-toggle matSuffix [for]="DTIssueDate"></mat-datepicker-toggle>
+					<mat-datepicker touchUi #DTIssueDate></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Número de documento</mat-label>
+					<input
+						matInput
+						formControlName="DTDocumentNumber"
+						placeholder="Número de documento"
+					/>
+					<mat-error *ngIf="errorMatcher.isErrorState(DTDocumentNumber, null)">
+						<span *ngIf="DTDocumentNumber.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El número de documento es requerido.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<div class="z-container-raddio-button">
+					<label class="z-label">Seleccionar la visibilidad</label>
+
+					<mat-radio-group formControlName="DTVisibility" class="z-radio-group">
+						<mat-radio-button class="z-radio-button" value="publico">
+							Público
+						</mat-radio-button>
+						<mat-radio-button class="z-radio-button" value="privado">
+							Privado
+						</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</div>
+		</div>
+		<mat-dialog-actions align="end">
+			<button mat-button mat-dialog-close>Cancelar</button>
+			<button mat-button *ngIf="!(createIsLoading$ | async)">Guardar</button>
+			<button mat-button *ngIf="createIsLoading$ | async" disabled>Guardando...</button>
+		</mat-dialog-actions>
+	</form>
+</div>

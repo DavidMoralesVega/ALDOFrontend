@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { RequestWrittenModule } from './pages/request-written/request-written.module';
 
 export const AdminRoutes: Routes = [
 	{
@@ -19,6 +18,13 @@ export const AdminRoutes: Routes = [
 		loadChildren: () =>
 			import('./pages/departament-law/departament-law.module').then(
 				(m) => m.DepartamentLawModule
+			)
+	},
+	{
+		path: 'departament-law-search',
+		loadChildren: () =>
+			import('./pages/departament-law-search/departament-law-search.module').then(
+				(m) => m.DepartamentLawsSearchModule
 			)
 	},
 	{
@@ -52,5 +58,14 @@ export const AdminRoutes: Routes = [
 	{
 		path: 'user',
 		loadChildren: () => import('./pages/user/user.module').then((m) => m.UserModule)
+	},
+	{
+		path: 'biblioteca',
+		loadChildren: () => import('./pages/library/library.module').then((m) => m.LibraryModule)
+	},
+	{
+		path: 'search-biblioteca',
+		loadChildren: () =>
+			import('./pages/library-search/library-search.module').then((m) => m.LibrarySearchModule)
 	}
 ];

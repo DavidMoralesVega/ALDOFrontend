@@ -1,0 +1,79 @@
+<section>
+	<div
+		style="
+			background-image: url('assets/brand/galery/5.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+		"
+	>
+		<div class="full-bg-img flex-center white-text rgba-stylish-strong">
+			<ul class="animated fadeIn col-md-12 list-unstyled">
+				<li class="mt-5 pt-5">
+					<h1 class="h1-responsive font-weight-bold mt-5 pt-5">
+						{{ zCommission.title }}
+					</h1>
+				</li>
+
+				<li>
+					<p>Asamblea Legislativa Departamental de Oruro</p>
+				</li>
+
+				<li class="pb-5">
+					<a
+						href="/inicio"
+						class="mb-5 btn btn-danger btn-rounded waves-effect waves-light"
+						rel="nofollow"
+						>Inicio</a
+					>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="container team-section mt-2 mb-5">
+	<div class="row mt-5 mb-4">
+		<div class="col-md-12">
+			<div class="divider-new">
+				<h3
+					class="text-center text-uppercase font-weight-bold mr-3 ml-3 wow fadeIn"
+					data-wow-delay="0.2s"
+					style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s"
+				>
+					Composición Legislatura
+				</h3>
+			</div>
+		</div>
+
+		<p
+			class="text-center grey-text w-responsive mx-auto mb-5 wow fadeIn"
+			data-wow-delay="0.2s"
+			style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s"
+		>
+			La Asamblea Legislativa Departamental de Oruro como Órgano Fiscalizadora y Deliberativa en
+			esta gestión asumió un compromiso con todas y todos los hermanos Orureños, manteniendo como
+			centro de atención su bienestar.
+		</p>
+
+		<div class="row text-center">
+			<div
+				*ngFor="let cChildren of zCommission.children"
+				class="col-md-4 mb-4 wow fadeIn"
+				data-wow-delay="0.4s"
+				style="visibility: visible; animation-name: fadeIn; animation-delay: 0.4s"
+			>
+				<div class="testimonial">
+					<div class="avatar mx-auto mb-4">
+						<img
+							src="assets/brand/galery/asambleistas/{{ cChildren.img }}"
+							class="rounded-circle img-fluid z-depth-1-half"
+						/>
+					</div>
+
+					<h4 class="font-weight-bold">{{ cChildren.name }}</h4>
+					<h5>{{ cChildren.role | uppercase }}</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
