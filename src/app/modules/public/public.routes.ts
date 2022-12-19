@@ -65,5 +65,14 @@ export const PublicRoutes: Routes = [
 	{
 		path: 'gaceta',
 		loadChildren: () => import('./pages/pussy/pussy.module').then((m) => m.PussyModule)
+	},
+	{
+		path: 'contacto',
+		loadChildren: () => import('./pages/contact/contact.module').then((m) => m.ContactModule)
+	},
+	{
+		path: 'marco-institucional',
+		loadChildren: () =>
+			import('./pages/institutional/institutional.module').then((m) => m.InstitutionalModule)
 	}
 ];
