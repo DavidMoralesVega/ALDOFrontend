@@ -27,6 +27,8 @@ import { RequestWrittenUpdateModule } from './components/request-written-update/
 import { RequestWrittenService } from './services/request-written.service';
 import { MatSnackBarService } from '../../../../core/services/mat-snack-bar.service';
 import { RequestWrittenFacade } from './facades/request-written.facade';
+import { LegislatureModule } from '../legislature/legislature.module';
+import { LegislatureFacade } from '../legislature/facades/legislature.facade';
 
 @NgModule({
 	declarations: [RequestWrittenComponent],
@@ -34,34 +36,28 @@ import { RequestWrittenFacade } from './facades/request-written.facade';
 		CommonModule,
 		RequestWrittenRoutingModule,
 		DatePipe,
-
 		StoreModule.forFeature(ZEffects.request_written, RequestWrittenReducer),
 		EffectsModule.forFeature([RequestWrittenEffects]),
 		MatSnackBarModule,
-
 		ReactiveFormsModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatIconModule,
-
 		MatProgressSpinnerModule,
-
 		// GET PIPE STATIC FILE
 		StaticFilePipeModule,
-
 		MatChipsModule,
 		MatButtonModule,
 		MatTooltipModule,
-
 		MatSortModule,
 		MatTableModule,
 		MatPaginatorModule,
 		MatDialogModule,
-
 		RequestWrittenCreateModule,
-		RequestWrittenUpdateModule
+		RequestWrittenUpdateModule,
+		LegislatureModule
 	],
-	providers: [RequestWrittenService, MatSnackBarService, RequestWrittenFacade],
+	providers: [RequestWrittenService, MatSnackBarService, RequestWrittenFacade, LegislatureFacade],
 	exports: [StoreModule, EffectsModule]
 })
 export class RequestWrittenModule {}

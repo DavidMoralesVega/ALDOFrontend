@@ -71,13 +71,6 @@ export class PostCreateComponent implements OnInit {
 	create() {
 		if (this.formCreate.invalid) return;
 
-		/* const createPostDto: CreatePostDto = {
-			post_author: this.post_author.value,
-			post_content: this.post_content.value,
-			post_tittle: this.post_tittle.value,
-			cat_post_id: this.cat_post_id.value
-		}; */
-
 		const createPostDto = new FormData();
 		createPostDto.append('post_author', this.post_author.value);
 		createPostDto.append('post_content', this.post_content.value);
