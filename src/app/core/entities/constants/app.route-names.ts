@@ -59,6 +59,19 @@ export const ZPaths: IZPath[] = [
 				path: `${ZPath_ADMIN}/biblioteca`,
 				name: 'Biblioteca',
 				icon: 'bell'
+
+			},
+			{
+				module: 'search-biblioteca',
+				path: `${ZPath_ADMIN}/search-biblioteca`,
+				name: 'Buscador Biblioteca',
+				icon: 'bell'
+			},
+			{
+				module: 'legislature',
+				path: `${ZPath_ADMIN}/legislature`,
+				name: 'Legislatura',
+				icon: 'bell'
 			}
 		]
 	},
@@ -214,9 +227,9 @@ export const ZListCalls: any = [
 
 // contrato
 export const ZListContract: any = [
-	{ value: '0', key: 'Contrato uno' },
-	{ value: '1', key: 'Contrato dos' },
-	{ value: '2', key: 'Contrato tres' }
+	{ value: '0', key: 'Menores Contratacion menor' },
+	{ value: '1', key: 'Mayor RPC licitacion Publica' },
+	{ value: '2', key: 'ANPE Apoyo Nacional a la Producion de Empleo' }
 ];
 
 // area
@@ -235,11 +248,12 @@ export const ZListCategory: any = [
 
 // role
 export const ZListRoles: any = [
-	{ value: '0', key: 'ENCARGADA DEL AREA DE PROCESOS LEGISLATIVOS' },
-	{ value: '1', key: 'PROFESIONAL ADMINISTRATIVO II - TRANSCRIPTOR' },
-	{ value: '2', key: 'ENCARGADO DE PROCESO JURIDICOS ADMINISTRATIVOS' },
-	{ value: '3', key: 'Oficilia mayor' },
-	{ value: '4', key: 'Responsable de archivos' }
+	{ value: '0', key: 'Encargada Del Area de Procesos Legislativos' },
+	{ value: '1', key: 'Profesional Administrativo II - Transcriptior' },
+	{ value: '2', key: 'Ecnargado de Proceso Juridicos Administrativos' },
+	{ value: '3', key: 'Encargado de Proceso Juridicos Administrativos' },
+	{ value: '4', key: 'Encargado Area de Contratacion' },
+	{ value: '4', key: 'Encargado de Procesos Legislativos' }
 ];
 
 // area
@@ -469,4 +483,24 @@ export const ZListCardCommissions: any = [
 			{ name: 'Roman Brito', role: 'Vocal', img: 'relaciones/4RomanBrito.jpeg' }
 		]
 	}
+];
+
+// area
+export const ZListLegislatura: any = [
+	{ value: '0', key: '2010-2011', state: false },
+	{ value: '1', key: '2011-2012', state: false },
+	{ value: '2', key: '2012-2013', state: false },
+	{ value: '3', key: '2013-2014', state: false },
+	{ value: '4', key: '2014-2015', state: false },
+	{ value: '5', key: '2015-2016', state: false },
+	{ value: '6', key: '2016-2017', state: false },
+	{ value: '7', key: '2017-2018', state: false },
+	{ value: '8', key: '2019-2020', state: false },
+	{ value: '9', key: '2020-2021', state: false },
+	{ value: '10', key: '2021-2022', state: false },
+	{ value: '11', key: '2022-2023', state: false },
+	{ value: '12', key: '2023-2024', state: false },
+	{ value: '13', key: '2024-2025', state: false },
+	{ value: '14', key: '2025-2026', state: false },
+	{ value: '15', key: '2026-2027', state: false }
 ];

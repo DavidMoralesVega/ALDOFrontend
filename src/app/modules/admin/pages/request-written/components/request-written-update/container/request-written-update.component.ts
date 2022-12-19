@@ -2,10 +2,17 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { Pagination } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
-import { RequestWrittenAdapter, UpdateRequestWrittenDto } from '../../../entities';
+import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
+import {
+	RequestWrittenAdapter,
+	RequestWrittenForeignAdapter,
+	UpdateRequestWrittenDto
+} from '../../../entities';
 import { RequestWrittenFacade } from '../../../facades/request-written.facade';
+import { Legislature } from '../../../../legislature/entities/models/legislature.model';
+import { Response } from 'src/app/core/entities';
+import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
 
 @Component({
 	selector: 'z-request-written-update',
@@ -17,18 +24,24 @@ export class RequestWrittenUpdateComponent implements OnInit {
 	public formUpdate: FormGroup = new FormGroup({});
 	public updateIsLoading$: Observable<boolean>;
 
+	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllIsLoading$: Observable<boolean>;
+
 	private pagination: Pagination = {
 		limit: 100,
 		offset: 0,
 		filter: 'ALL'
 	};
-
 	constructor(
 		@Inject(MAT_DIALOG_DATA)
-		private readonly requestWrittenAdapter: RequestWrittenAdapter,
-		private readonly requestWrittenFacade: RequestWrittenFacade
+		private readonly requestWrittenAdapter: RequestWrittenForeignAdapter,
+		private readonly requestWrittenFacade: RequestWrittenFacade,
+		private readonly legislatureFacade: LegislatureFacade
 	) {
+		this.legislatureFacade.findAll(this.pagination);
 		this.updateIsLoading$ = requestWrittenFacade.updateIsLoading$;
+		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
+		this.legislatureFindAllResponse$ = this.legislatureFacade.findAllResponse$;
 	}
 	ngOnInit(): void {
 		this.initFormUpdate();
@@ -49,10 +62,10 @@ export class RequestWrittenUpdateComponent implements OnInit {
 			RWIssueDate: new FormControl(this.requestWrittenAdapter.RWIssueDate, [
 				Validators.required
 			]),
-			RWDocumentNumber: new FormControl(this.requestWrittenAdapter.RWDocumentNumber, [
+			RWVisibility: new FormControl(this.requestWrittenAdapter.RWVisibility, [
 				Validators.required
 			]),
-			RWVisibility: new FormControl(this.requestWrittenAdapter.RWVisibility, [
+			IdreqWrLeg: new FormControl(this.requestWrittenAdapter.legislature.IdLegislatura, [
 				Validators.required
 			])
 		});
@@ -69,12 +82,13 @@ export class RequestWrittenUpdateComponent implements OnInit {
 	get RWIssueDate() {
 		return this.formUpdate.get('RWIssueDate')!;
 	}
-	get RWDocumentNumber() {
-		return this.formUpdate.get('RWDocumentNumber')!;
-	}
 	get RWVisibility() {
 		return this.formUpdate.get('RWVisibility')!;
 	}
+	get IdreqWrLeg() {
+		return this.formUpdate.get('IdreqWrLeg')!;
+	}
+
 	update() {
 		if (this.formUpdate.invalid) return;
 
@@ -83,10 +97,10 @@ export class RequestWrittenUpdateComponent implements OnInit {
 			RWSummary: this.RWSummary.value,
 			RWPublicationDate: this.RWPublicationDate.value,
 			RWIssueDate: this.RWIssueDate.value,
-			RWDocumentNumber: this.RWDocumentNumber.value,
-			RWVisibility: this.RWVisibility.value
+			RWVisibility: this.RWVisibility.value,
+			IdreqWrLeg: this.IdreqWrLeg.value
 		};
-		console.log(this.requestWrittenAdapter.IdRequestWritten);
+		// console.log(this.requestWrittenAdapter.IdRequestWritten);
 
 		this.requestWrittenFacade.update(
 			this.requestWrittenAdapter.IdRequestWritten,

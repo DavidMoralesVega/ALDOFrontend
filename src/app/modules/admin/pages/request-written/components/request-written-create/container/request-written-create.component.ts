@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Pagination, PayloadFile } from 'src/app/core/entities';
+import { PayloadFile, Response } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { RequestWrittenFacade } from '../../../facades/request-written.facade';
+import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
+import { Legislature } from '../../../../legislature/entities';
+import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
 
 @Component({
 	selector: 'z-request-written-create',
@@ -15,19 +18,27 @@ export class RequestWrittenCreateComponent implements OnInit {
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
 
-	//public ZListResolutions: any[] = ZListResolutions;
+	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllIsLoading$: Observable<boolean>;
+
+	// variables imagen
+	private file!: File;
+	private isValidImage: boolean = false;
+
 	private pagination: Pagination = {
 		limit: 100,
 		offset: 0,
 		filter: 'ALL'
 	};
 
-	// variables imagen
-	private file!: File;
-	private isValidImage: boolean = false;
-
-	constructor(private readonly requestWrittenFacade: RequestWrittenFacade) {
+	constructor(
+		private readonly requestWrittenFacade: RequestWrittenFacade,
+		private readonly legislatureFacade: LegislatureFacade
+	) {
+		this.legislatureFacade.findAll(this.pagination);
 		this.createIsLoading$ = requestWrittenFacade.createIsLoading$;
+		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
+		this.legislatureFindAllResponse$ = this.legislatureFacade.findAllResponse$;
 	}
 	ngOnInit(): void {
 		this.initFormCreate();
@@ -39,8 +50,8 @@ export class RequestWrittenCreateComponent implements OnInit {
 			RWSummary: new FormControl('', [Validators.required, Validators.maxLength(40)]),
 			RWPublicationDate: new FormControl('', [Validators.required]),
 			RWIssueDate: new FormControl('', [Validators.required]),
-			RWDocumentNumber: new FormControl('', [Validators.required]),
-			RWVisibility: new FormControl('Público', [Validators.required])
+			RWVisibility: new FormControl('Público', [Validators.required]),
+			IdreqWrLeg: new FormControl([Validators.required])
 		});
 	}
 	get RWTitle() {
@@ -55,34 +66,24 @@ export class RequestWrittenCreateComponent implements OnInit {
 	get RWIssueDate() {
 		return this.formCreate.get('RWIssueDate')!;
 	}
-	get RWDocumentNumber() {
-		return this.formCreate.get('RWDocumentNumber')!;
-	}
-
 	get RWVisibility() {
 		return this.formCreate.get('RWVisibility')!;
 	}
+	get IdreqWrLeg() {
+		return this.formCreate.get('IdreqWrLeg')!;
+	}
 
 	create() {
-		console.log('hola antes form');
-
 		if (this.formCreate.invalid) return;
-
-		// if (!this.isValidImage) return;
-		console.log('RWVisibility', this.RWVisibility.value);
-		console.log('RWFile', this.file);
 
 		let createResolutionDto = new FormData();
 		createResolutionDto.append('RWTitle', this.RWTitle.value);
 		createResolutionDto.append('RWSummary', this.RWSummary.value);
 		createResolutionDto.append('RWPublicationDate', this.RWPublicationDate.value);
 		createResolutionDto.append('RWIssueDate', this.RWIssueDate.value);
-		createResolutionDto.append('RWDocumentNumber', this.RWDocumentNumber.value);
-
 		createResolutionDto.append('RWVisibility', this.RWVisibility.value);
 		createResolutionDto.append('RWFile', this.file);
-
-		console.log(createResolutionDto);
+		createResolutionDto.append('IdreqWrLeg', this.IdreqWrLeg.value);
 
 		this.requestWrittenFacade.create(createResolutionDto);
 	}

@@ -43,8 +43,13 @@
 			</ng-container>
 
 			<ng-container matColumnDef="RWSummary">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header>Resumen</th>
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</th>
 				<td mat-cell *matCellDef="let row">{{ row.RWSummary }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="IdreqWrLeg">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Legislatura</th>
+				<td mat-cell *matCellDef="let row">{{ row.legislatura.LegDescripcion }}</td>
 			</ng-container>
 
 			<ng-container matColumnDef="RWPublicationDate">
@@ -55,11 +60,6 @@
 			<ng-container matColumnDef="RWIssueDate">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de emisión</th>
 				<td mat-cell *matCellDef="let row">{{ row.RWIssueDate | date : 'medium' }}</td>
-			</ng-container>
-
-			<ng-container matColumnDef="RWDocumentNumber"
-				><th mat-header-cell *matHeaderCellDef mat-sort-header>Número de documento</th>
-				<td mat-cell *matCellDef="let row">{{ row.RWDocumentNumber }}</td>
 			</ng-container>
 
 			<ng-container matColumnDef="RWDateRegister">

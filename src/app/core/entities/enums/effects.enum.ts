@@ -11,6 +11,7 @@ export enum ZEffects {
 	user = 'user',
 	/* dev */
 	category = 'category',
+	legislature = 'legislature',
 	call = 'call',
 	requestReports = 'request-reports',
 	post = 'post'

@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DefaultErrorMatcher } from '../../../../../../../core/shared/default.error-matcher';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import {
-	DepartamentLaw,
-	CreateDepartamentLawDto
-} from '../../../entities/models/departament-law.model';
+import { DepartamentLaw } from '../../../entities/models/departament-law.model';
 import { DepartamentLawFacade } from '../../../facades/departament-law.facade';
-import { Pagination, PayloadFile, ZListArea } from 'src/app/core/entities';
+import { PayloadFile, ZListArea } from 'src/app/core/entities';
 
 @Component({
 	selector: 'z-departament-law-create',
@@ -63,21 +60,7 @@ export class DepartamentLawCreateComponent implements OnInit {
 		return this.formCreate.get('DTVisibility')!;
 	}
 	create() {
-		// console.log('hola antes form');
-
 		if (this.formCreate.invalid) return;
-
-		// if (!this.isValidImage) return;
-		// console.log('DTVisibility', this.DTVisibility.value);
-		// console.log('DTFile', this.file);
-
-		/* console.log(this.DTTitle.value);
-		console.log(this.DTSummary.value);
-		console.log(this.DTPublicationDate.value);
-		console.log(this.DTIssueDate.value);
-		console.log(this.DTDocumentNumber.value);
-		console.log(this.DTArea.value);
-		console.log(this.DTVisibility.value); */
 
 		let createDepartamentLawDto = new FormData();
 		createDepartamentLawDto.append('dttitle', this.DTTitle.value);

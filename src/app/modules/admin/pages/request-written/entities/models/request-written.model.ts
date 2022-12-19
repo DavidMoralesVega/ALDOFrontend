@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Adapter } from 'src/app/core/entities/adapters/object.adapter';
+import { LegislatureAdapter } from '../../../legislature/entities';
 
 export class RequestWrittenAdapter {
 	constructor(
@@ -12,7 +13,8 @@ export class RequestWrittenAdapter {
 		public readonly RWFile: any,
 		public readonly RWVisibility: boolean,
 		public readonly RWState: boolean,
-		public readonly RWDateRegister: string
+		public readonly RWDateRegister: string,
+		public readonly IdreqWrLeg: string
 	) {}
 }
 
@@ -20,6 +22,10 @@ export type CreateRequestWrittenDto = Omit<
 	RequestWrittenAdapter,
 	'IdRequestWritten' | 'RWState' | 'RWDateRegister'
 >;
+
+export interface RequestWrittenForeignAdapter extends RequestWrittenAdapter {
+	readonly legislature: LegislatureAdapter;
+}
 
 export interface UpdateRequestWrittenDto extends Partial<RequestWrittenAdapter> {}
 
@@ -36,7 +42,8 @@ export class RequestWritten implements Adapter<RequestWrittenAdapter> {
 			requestWrittenAdapter.RWFile,
 			requestWrittenAdapter.RWVisibility,
 			requestWrittenAdapter.RWState,
-			requestWrittenAdapter.RWDateRegister
+			requestWrittenAdapter.RWDateRegister,
+			requestWrittenAdapter.IdreqWrLeg
 		);
 	}
 }
