@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Adapter } from 'src/app/core/entities/adapters/object.adapter';
+import { LegislatureAdapter } from '../../../legislature/entities';
 
 export class DepartamentLawAdapter {
 	constructor(
@@ -13,7 +14,8 @@ export class DepartamentLawAdapter {
 		public readonly DTFile: any,
 		public readonly dtvisibility: boolean,
 		public readonly dtstate: boolean,
-		public readonly DTDateRegister: string
+		public readonly DTDateRegister: string,
+		public readonly IddeparLwLeg: string
 	) {}
 }
 
@@ -21,6 +23,10 @@ export type CreateDepartamentLawDto = Omit<
 	DepartamentLawAdapter,
 	'IdDepartamentaLaw' | 'dtstate' | 'DTDateRegister'
 >;
+
+export interface RequestWrittenForeignAdapter extends DepartamentLawAdapter {
+	readonly legislature: LegislatureAdapter;
+}
 
 export interface UpdateDepartamentLawDto extends Partial<DepartamentLawAdapter> {}
 
@@ -38,7 +44,8 @@ export class DepartamentLaw implements Adapter<DepartamentLawAdapter> {
 			departamentLawAdapter.DTFile,
 			departamentLawAdapter.dtvisibility,
 			departamentLawAdapter.dtstate,
-			departamentLawAdapter.DTDateRegister
+			departamentLawAdapter.DTDateRegister,
+			departamentLawAdapter.IddeparLwLeg
 		);
 	}
 }

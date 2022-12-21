@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RequestWrittenUpdateComponent } from '../request-written-update.component';
+import { RequestWrittenCreateComponent } from './container/request-written-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,13 +9,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-
-import { MatNativeDateModule } from '@angular/material/core';
+import { UploadInputTypeDocumentModule } from 'src/app/core/components/upload-input-type-image/upload-input-type-image.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { JsonAsyncModule } from '../../../../../../../../core/pipes/json-async/json-async.module';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
+import { JsonAsyncModule } from '../../../../../../core/pipes/json-async/json-async.module';
 
 @NgModule({
-	declarations: [RequestWrittenUpdateComponent],
+	declarations: [RequestWrittenCreateComponent],
 	imports: [
 		CommonModule,
 		ReactiveFormsModule,
@@ -26,11 +26,12 @@ import { JsonAsyncModule } from '../../../../../../../../core/pipes/json-async/j
 		MatButtonModule,
 		MatSelectModule,
 		MatRadioModule,
-		//fecha
+		// upload file
+		UploadInputTypeDocumentModule,
 		MatDatepickerModule,
 		MatNativeDateModule,
-		JsonAsyncModule
-	],
-	exports: [RequestWrittenUpdateComponent]
+		JsonAsyncModule,
+		MatOptionModule
+	]
 })
-export class RequestWrittenUpdateModule {}
+export class RequestWrittenCreateModule {}

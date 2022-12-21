@@ -29,6 +29,8 @@ import { DepartamentLawFacade } from './facades/departament-law.facade';
 import { DepartamentLawCreateModule } from './components/departament-law-create/departament-law-create.module';
 import { DepartamentLawUpdateModule } from './components/departament-law-update/departament-law-update.module';
 import { StaticFilePipeModule } from '../../../../core/pipes/static-file/static-file.module';
+import { LegislatureFacade } from '../legislature/facades/legislature.facade';
+import { LegislatureModule } from '../legislature/legislature.module';
 
 @NgModule({
 	declarations: [DepartamentLawComponent],
@@ -36,34 +38,27 @@ import { StaticFilePipeModule } from '../../../../core/pipes/static-file/static-
 		CommonModule,
 		DepartamentLawRoutingModule,
 		DatePipe,
-
 		StoreModule.forFeature(ZEffects.departament_law, DepartamentLawReducer),
 		EffectsModule.forFeature([DepartamentLawEffects]),
 		MatSnackBarModule,
-
 		ReactiveFormsModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatIconModule,
-
 		MatProgressSpinnerModule,
-
-		// GET PIPE STATIC FILE
 		StaticFilePipeModule,
-
 		MatChipsModule,
 		MatButtonModule,
 		MatTooltipModule,
-
 		MatSortModule,
 		MatTableModule,
 		MatPaginatorModule,
 		MatDialogModule,
-
 		DepartamentLawCreateModule,
-		DepartamentLawUpdateModule
+		DepartamentLawUpdateModule,
+		LegislatureModule
 	],
-	providers: [DepartamentLawService, MatSnackBarService, DepartamentLawFacade],
+	providers: [DepartamentLawService, MatSnackBarService, DepartamentLawFacade, LegislatureFacade],
 	exports: [StoreModule, EffectsModule]
 })
 export class DepartamentLawModule {}
