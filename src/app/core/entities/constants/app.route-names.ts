@@ -59,7 +59,6 @@ export const ZPaths: IZPath[] = [
 				path: `${ZPath_ADMIN}/biblioteca`,
 				name: 'Biblioteca',
 				icon: 'bell'
-
 			},
 			{
 				module: 'search-biblioteca',
@@ -251,8 +250,7 @@ export const ZListRoles: any = [
 	{ value: '0', key: 'Encargada Del Area de Procesos Legislativos' },
 	{ value: '1', key: 'Profesional Administrativo II - Transcriptior' },
 	{ value: '2', key: 'Ecnargado de Proceso Juridicos Administrativos' },
-	{ value: '3', key: 'Encargado de Proceso Juridicos Administrativos' },
-	{ value: '4', key: 'Encargado Area de Contratacion' },
+	{ value: '3', key: 'Encargado Area de Contratacion' },
 	{ value: '4', key: 'Encargado de Procesos Legislativos' }
 ];
 
