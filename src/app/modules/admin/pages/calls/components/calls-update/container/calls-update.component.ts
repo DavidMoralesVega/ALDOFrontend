@@ -34,7 +34,7 @@ export class CallsUpdateComponent implements OnInit {
 				Validators.required,
 				Validators.pattern('[a-zA-Z]{1,100}')
 			]),
-			call_management: new FormControl(this.callAdapter.call_management, [Validators.required]),
+			call_hours: new FormControl(this.callAdapter.call_hours, [Validators.required]),
 			call_modality: new FormControl(this.callAdapter.call_modality, [
 				Validators.required,
 				Validators.pattern('[a-zA-Z]{1,100}')
@@ -47,8 +47,8 @@ export class CallsUpdateComponent implements OnInit {
 	get call_title() {
 		return this.formUpdate.get('call_title')!;
 	}
-	get call_management() {
-		return this.formUpdate.get('call_management')!;
+	get call_hours() {
+		return this.formUpdate.get('call_hours')!;
 	}
 	get call_modality() {
 		return this.formUpdate.get('call_modality')!;
@@ -65,7 +65,7 @@ export class CallsUpdateComponent implements OnInit {
 
 		const updateCallDto: UpdateCallDto = {
 			call_title: this.call_title.value,
-			call_management: this.call_management.value.toString(),
+			call_hours: this.call_hours.value,
 			call_modality: this.call_modality.value,
 			call_dateUpdate: this.call_dateUpdate.value,
 			CallVisibility: this.CallVisibility.value

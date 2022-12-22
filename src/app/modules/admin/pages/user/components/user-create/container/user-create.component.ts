@@ -30,6 +30,7 @@ export class UserCreateComponent implements OnInit {
 			Email: new FormControl('', []),
 			Password: new FormControl('', []),
 			FullName: new FormControl('', []),
+			celCorp: new FormControl('', []),
 			Roles: new FormControl('', [])
 		});
 	}
@@ -43,6 +44,9 @@ export class UserCreateComponent implements OnInit {
 	get FullName() {
 		return this.formCreate.get('FullName')!;
 	}
+	get celCorp() {
+		return this.formCreate.get('celCorp')!;
+	}
 	get Roles() {
 		return this.formCreate.get('Roles')!;
 	}
@@ -54,6 +58,7 @@ export class UserCreateComponent implements OnInit {
 			Email: this.Email.value,
 			FullName: this.FullName.value,
 			Password: this.Password.value,
+			celCorp: this.celCorp.value.toString(),
 			Roles: [this.Roles.value]
 		};
 

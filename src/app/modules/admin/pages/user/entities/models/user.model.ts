@@ -8,6 +8,7 @@ export class UserAdapter {
 		public readonly Password: string,
 		public readonly FullName: string,
 		public readonly IsActive: boolean,
+		public readonly celCorp: string,
 		public readonly Roles: string[]
 	) {}
 }
@@ -25,6 +26,7 @@ export class User implements Adapter<UserAdapter> {
 			userAdapter.Password,
 			userAdapter.FullName,
 			userAdapter.IsActive,
+			userAdapter.celCorp,
 			userAdapter.Roles
 		);
 	}

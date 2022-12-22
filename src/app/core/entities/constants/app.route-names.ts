@@ -251,7 +251,7 @@ export const ZListRoles: any = [
 	{ value: '1', key: 'Profesional Administrativo II - Transcriptior' },
 	{ value: '2', key: 'Ecnargado de Proceso Juridicos Administrativos' },
 	{ value: '3', key: 'Encargado Area de Contratacion' },
-	{ value: '4', key: 'Encargado de Procesos Legislativos' }
+	{ value: '4', key: 'Encargado de Procesos Legislativos Administrativos' }
 ];
 
 // area
@@ -483,22 +483,131 @@ export const ZListCardCommissions: any = [
 	}
 ];
 
-// area
-export const ZListLegislatura: any = [
-	{ value: '0', key: '2010-2011', state: false },
-	{ value: '1', key: '2011-2012', state: false },
-	{ value: '2', key: '2012-2013', state: false },
-	{ value: '3', key: '2013-2014', state: false },
-	{ value: '4', key: '2014-2015', state: false },
-	{ value: '5', key: '2015-2016', state: false },
-	{ value: '6', key: '2016-2017', state: false },
-	{ value: '7', key: '2017-2018', state: false },
-	{ value: '8', key: '2019-2020', state: false },
-	{ value: '9', key: '2020-2021', state: false },
-	{ value: '10', key: '2021-2022', state: false },
-	{ value: '11', key: '2022-2023', state: false },
-	{ value: '12', key: '2023-2024', state: false },
-	{ value: '13', key: '2024-2025', state: false },
-	{ value: '14', key: '2025-2026', state: false },
-	{ value: '15', key: '2026-2027', state: false }
+// MODALIDAD
+export const ZListModalidad: any = [
+	{ value: '0', key: 'Ordinaria (60 Sesiones)' },
+	{ value: '1', key: 'Extraordinaria (50 Sesiones)' },
+	{ value: '2', key: 'Sesiones de Honor (20 Sesiones)' }
 ];
+
+// SESIONES
+export const ZListSesiones: any = [
+	{ value: '0', key: 'PRIMERA SESION' },
+	{ value: '1', key: 'SEGUNDA SESION)' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'CUARTA SESION' },
+	{ value: '2', key: 'QUINTA SESION' },
+	{ value: '2', key: 'SEXTA SESION' },
+	{ value: '2', key: 'SEPTIMA SESION' },
+	{ value: '2', key: 'OCTAVA SESION' },
+	{ value: '2', key: 'NOVENA SESION' },
+	{ value: '2', key: 'DECIMA SESION' },
+	{ value: '2', key: 'UNDECIMA SESION' },
+	{ value: '2', key: 'DUODECIMA SESION' },
+	{ value: '2', key: 'DECIMA TERCERA SESION' },
+	{ value: '2', key: 'DECIMA CUARTA SESION' },
+	{ value: '2', key: 'DECIMA QUINTA SESION' },
+	{ value: '2', key: 'DECIMA SEXTA SESION' },
+	{ value: '2', key: 'DECIMA SEPTIMA SESION' },
+	{ value: '2', key: 'DECIMA OCTAVA SESION' },
+	{ value: '2', key: 'DECIMA NOVENA SESION' },
+	{ value: '2', key: 'VIGESIMA SESION' },
+	{ value: '2', key: 'VIGESIMA PRIMERA SESION' },
+	{ value: '2', key: 'VIGESIMA SEGUNDA SESION' },
+	{ value: '2', key: 'VIGESIMA TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' },
+	{ value: '2', key: 'TERCERA SESION' }
+];
+
+/* 
+
+trigésimo
+trigésimo primero
+trigésimo segundo
+trigésimo tercero
+trigésimo cuarto
+trigésimo quinto
+trigésimo sexto
+trigésimo séptimo
+
+cuadragésimo
+quincuagésimo
+sexagésimo
+septuagésimo
+octogésimo
+nonagésimo
+*/
