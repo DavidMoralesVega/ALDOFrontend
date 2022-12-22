@@ -28,6 +28,7 @@ export class UserComponent implements OnInit {
 		'Email',
 		'FullName',
 		'IsActive',
+		'celCorp',
 		'Roles'
 	];
 

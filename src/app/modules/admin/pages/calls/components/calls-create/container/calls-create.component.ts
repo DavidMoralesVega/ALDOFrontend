@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { PayloadFile } from 'src/app/core/entities';
+import { PayloadFile, ZListModalidad } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from '../../../../../../../core/shared/default.error-matcher';
 import { CreateCallDto } from '../../../entities';
 import { CallFacade } from '../../../facades/call.facade';
@@ -15,6 +15,8 @@ export class CallsCreateComponent implements OnInit {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
+
+	public ZListsModalidad: any[] = ZListModalidad;
 
 	// variables imagen
 	private file!: File;
@@ -34,7 +36,7 @@ export class CallsCreateComponent implements OnInit {
 				Validators.required,
 				Validators.pattern('[a-zA-Z]{1,100}')
 			]),
-			call_management: new FormControl('', [Validators.required]),
+			call_hours: new FormControl('', [Validators.required]),
 			call_modality: new FormControl('', [
 				Validators.required,
 				Validators.pattern('[a-zA-Z]{1,100}')
@@ -47,8 +49,8 @@ export class CallsCreateComponent implements OnInit {
 	get call_title() {
 		return this.formCreate.get('call_title')!;
 	}
-	get call_management() {
-		return this.formCreate.get('call_management')!;
+	get call_hours() {
+		return this.formCreate.get('call_hours')!;
 	}
 	get call_modality() {
 		return this.formCreate.get('call_modality')!;
@@ -65,7 +67,7 @@ export class CallsCreateComponent implements OnInit {
 
 		let createCallDto = new FormData();
 		createCallDto.append('call_title', this.call_title.value);
-		createCallDto.append('call_management', this.call_management.value);
+		createCallDto.append('call_hours', this.call_hours.value);
 		createCallDto.append('call_modality', this.call_modality.value);
 		createCallDto.append('call_dateUpdate', this.call_dateUpdate.value);
 		createCallDto.append('CallVisibility', this.CallVisibility.value);

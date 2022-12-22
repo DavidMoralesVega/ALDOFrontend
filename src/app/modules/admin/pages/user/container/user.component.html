@@ -47,6 +47,11 @@
 				<td mat-cell *matCellDef="let row">{{ row.FullName }}</td>
 			</ng-container>
 
+			<ng-container matColumnDef="celCorp">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Celular Corporativo</th>
+				<td mat-cell *matCellDef="let row">{{ row.celCorp }}</td>
+			</ng-container>
+
 			<ng-container matColumnDef="Roles">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Rol</th>
 				<td mat-cell *matCellDef="let row">{{ row.Roles[0] }}</td>

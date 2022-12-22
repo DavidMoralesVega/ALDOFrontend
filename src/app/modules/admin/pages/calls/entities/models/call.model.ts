@@ -5,7 +5,7 @@ export class CallAdapter {
 	constructor(
 		public readonly call_id: string,
 		public readonly call_title: string,
-		public readonly call_management: number,
+		public readonly call_hours: string,
 		public readonly call_modality: string,
 		public readonly call_dateUpdate: Date,
 		public readonly call_pdfList: string,
@@ -25,7 +25,7 @@ export class Call implements Adapter<CallAdapter> {
 		return new CallAdapter(
 			callAdapter.call_id,
 			callAdapter.call_title,
-			callAdapter.call_management,
+			callAdapter.call_hours,
 			callAdapter.call_modality,
 			callAdapter.call_dateUpdate,
 			callAdapter.call_pdfList,
