@@ -273,24 +273,53 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Esperanza Mamani Ajhuacho',
 				role: 'Presidente',
-				img: 'directiva/1EsperanzaMamaniAjhuacho.jpg'
+				img: 'directiva/1EsperanzaMamaniAjhuacho.jpg',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '290',
+				width: '200'
 			},
 			{
 				name: 'Erwin Vargas Chacon',
 				role: 'Vicepresidente',
-				img: 'directiva/2ErwinVargasChacon.jpeg'
+				img: 'directiva/2ErwinVargasChacon.jpeg',
+				col: '3',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Anabel Bernarda Chambi Laura',
 				role: 'Secretario',
-				img: 'directiva/3AnabelBernardaChambiLaura.jpeg'
+				img: 'directiva/3AnabelBernardaChambiLaura.jpeg',
+				col: '3',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Miguel Mauricio Choque',
 				role: 'Vocal 1',
-				img: 'directiva/4MiguelMauricioChoque.jpeg'
+				img: 'directiva/4MiguelMauricioChoque.jpeg',
+				col: '3',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
-			{ name: 'Ana Tarqui Adrian', role: 'Vocal 2', img: 'directiva/5AnaTarquiAdrian.jpeg' }
+			{
+				name: 'Ana Tarqui Adrian',
+				role: 'Vocal 2',
+				img: 'directiva/5AnaTarquiAdrian.jpeg',
+				col: '3',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			}
 		]
 	},
 	{
@@ -301,17 +330,32 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Zulma Arellano Choquetopa',
 				role: 'Presidente',
-				img: 'autonomia/1ZulmaArellanoChoquetopa.jpeg'
+				img: 'autonomia/1ZulmaArellanoChoquetopa.jpeg',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Nicolas Choque Colque',
 				role: 'Vicepresidente',
-				img: 'autonomia/2NicolasChoqueColque.jpeg'
+				img: 'autonomia/2NicolasChoqueColque.jpeg',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Delia Gongora Veliz',
 				role: 'Secretario',
-				img: 'autonomia/3DeliaGongoraVeliz.jpeg'
+				img: 'autonomia/3DeliaGongoraVeliz.jpeg',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			}
 		]
 	},
@@ -323,22 +367,42 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Ronmie Villca Altamirano',
 				role: 'Presidente',
-				img: 'constitucion/1RonmieVillcaAltamirano.jpeg'
+				img: 'constitucion/1RonmieVillcaAltamirano.jpeg',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Marina Quispe Choque',
 				role: 'Vicepresidente',
-				img: 'constitucion/2MarinaQuispeChoque.jpeg'
+				img: 'constitucion/2MarinaQuispeChoque.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Francisca Luisa Rufino Calizaya',
 				role: 'Secretario',
-				img: 'constitucion/3FranciscaLuisaRufinoCalizaya.jpeg'
+				img: 'constitucion/3FranciscaLuisaRufinoCalizaya.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Natividad Cruz Acurana',
 				role: 'Vocal',
-				img: 'constitucion/4NatividadCruzAcurana.jpeg'
+				img: 'constitucion/4NatividadCruzAcurana.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			}
 		]
 	},
@@ -347,16 +411,35 @@ export const ZListCardCommissions: any = [
 		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
 		title: 'Educación, Salud, Derechos Humanos y Política Social',
 		children: [
-			{ name: 'Maxima Apaza Luna', role: 'Presidente', img: 'educacion/1MaximaApazaLuna.jpeg' },
+			{
+				name: 'Maxima Apaza Luna',
+				role: 'Presidente',
+				img: 'educacion/1MaximaApazaLuna.jpeg',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
 			{
 				name: 'Juana Gabriela Escarzo Mamani',
 				role: 'Vicepresidente',
-				img: 'educacion/2JuanaGabrielaEscarzoMamani.jpeg'
+				img: 'educacion/2JuanaGabrielaEscarzoMamani.jpeg',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Alfredo Acapa Colque',
 				role: 'Secretario',
-				img: 'educacion/3AlfredoAcapaColque.jpeg'
+				img: 'educacion/3AlfredoAcapaColque.jpeg',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			}
 		]
 	},
@@ -368,22 +451,42 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Jhoselin Anconi Chambi',
 				role: 'Presidente',
-				img: 'infraestructura/1JhoselinAnconiChambi.jpeg'
+				img: 'infraestructura/1JhoselinAnconiChambi.jpeg',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Armando Barrera Choqueticlla',
 				role: 'Vicepresidente',
-				img: 'infraestructura/2ArmandoBarreraChoqueticlla.jpeg'
+				img: 'infraestructura/2ArmandoBarreraChoqueticlla.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'David Dante Choque Zegarra',
 				role: 'Secretario',
-				img: 'infraestructura/3DavidDanteChoqueZegarra.jpeg'
+				img: 'infraestructura/3DavidDanteChoqueZegarra.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Teodoro Calizaya Choquerive',
 				role: 'Vocal',
-				img: 'infraestructura/4TeodoroCalizayaChoquerive.jpeg'
+				img: 'infraestructura/4TeodoroCalizayaChoquerive.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			}
 		]
 	},
@@ -395,17 +498,32 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Jose Luis Aranibar Araviri',
 				role: 'Presidente',
-				img: 'ambiente/1JoseLuisAranibarAraviri.webp'
+				img: 'ambiente/1JoseLuisAranibarAraviri.webp',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Freddy Raul Ramos Quispe',
 				role: 'Vicepresidente',
-				img: 'ambiente/2FreddyRaulRamosQuispe.jpeg'
+				img: 'ambiente/2FreddyRaulRamosQuispe.jpeg',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Ausberto Condori Choque',
 				role: 'Vocal',
-				img: 'ambiente/3AusbertoCondoriChoque.jpeg'
+				img: 'ambiente/3AusbertoCondoriChoque.jpeg',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			}
 		]
 	},
@@ -417,17 +535,32 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Edwin Fuentes Camacho',
 				role: 'Presidente',
-				img: 'mineria/1EdwinFuentesCamacho.jpeg'
+				img: 'mineria/1EdwinFuentesCamacho.jpeg',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Freddy Castillo Chavez',
 				role: 'Vicepresidente',
-				img: 'mineria/2FreddyCastilloChavez.jpeg'
+				img: 'mineria/2FreddyCastilloChavez.jpeg',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Ramon Raul Caro Santos',
 				role: 'Secretario',
-				img: 'mineria/3RamonRaulCaroSantos.jpeg'
+				img: 'mineria/3RamonRaulCaroSantos.jpeg',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			}
 		]
 	},
@@ -439,22 +572,42 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Maria Carolina Lino Condori',
 				role: 'Presidente',
-				img: 'planificacion/1MariaCarolinaLinoCondori.jpeg'
+				img: 'planificacion/1MariaCarolinaLinoCondori.jpeg',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Hugo Huanca Choque',
 				role: 'Vicepresidente',
-				img: 'planificacion/2HugoHuancaChoque.jpeg'
+				img: 'planificacion/2HugoHuancaChoque.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Maria Mamani Molina',
 				role: 'Secretario',
-				img: 'planificacion/3MariaMamaniMolina.jpeg'
+				img: 'planificacion/3MariaMamaniMolina.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Edgar Alex Huanca Guanay',
 				role: 'Vocal',
-				img: 'planificacion/4EdgarAlexHuancaGuanay.jpeg'
+				img: 'planificacion/4EdgarAlexHuancaGuanay.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			}
 		]
 	},
@@ -466,19 +619,43 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Franz Jhonny Ochoa Yucra',
 				role: 'Presidente',
-				img: 'relaciones/1FranzJhonnyOchoaYucra.jpeg'
+				img: 'relaciones/1FranzJhonnyOchoaYucra.jpeg',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Mirian Lucia Rocha Canaviri',
 				role: 'Vicepresidente',
-				img: 'relaciones/2MirianLuciaRochaCanaviri.jpeg'
+				img: 'relaciones/2MirianLuciaRochaCanaviri.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
 			{
 				name: 'Jhnony Fernandez Calani',
 				role: 'Secretario',
-				img: 'relaciones/3JhnonyFernandezCalani.jpeg'
+				img: 'relaciones/3JhnonyFernandezCalani.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
 			},
-			{ name: 'Roman Brito', role: 'Vocal', img: 'relaciones/4RomanBrito.jpeg' }
+			{
+				name: 'Roman Brito',
+				role: 'Vocal',
+				img: 'relaciones/4RomanBrito.jpeg',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			}
 		]
 	}
 ];
