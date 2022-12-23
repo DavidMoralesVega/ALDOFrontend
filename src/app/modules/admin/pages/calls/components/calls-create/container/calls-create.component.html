@@ -48,6 +48,15 @@
 					</mat-select>
 				</mat-form-field>
 
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Nro Sesion</mat-label>
+					<mat-select formControlName="call_numSession">
+						<mat-option *ngFor="let data of ZListsSesiones" [value]="data.value">
+							{{ data.key }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+
 				<mat-form-field appearance="outline" class="mt-2">
 					<mat-label>Hora</mat-label>
 					<input
