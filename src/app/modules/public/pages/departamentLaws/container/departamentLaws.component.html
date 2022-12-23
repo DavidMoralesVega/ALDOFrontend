@@ -1,3 +1,19 @@
+<header>
+	<div
+		id="intro"
+		class="bg-image shadow-1-strong"
+		style="background-image: url(https://mdbootstrap.com/img/new/slides/052.jpg); height: 400px"
+	>
+		<div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.6)">
+			<div class="container d-flex align-items-center justify-content-center text-center h-100">
+				<div class="text-white">
+					<h1 class="mb-3 mt-5 pt-4">Leyes Departamentales</h1>
+					<h4 class="mb-4">Asamblea Legislativa Departamental de Oruro</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
 <!-- Container for demo purpose -->
 <div class="container my-5 py-5">
 	<!-- Section: Design Block -->
@@ -21,21 +37,21 @@
 
 	<section class="mb-10">
 		<h2 class="fw-bold mb-5 text-center">
-			Leyes Departamentales<u class="text-primary"> 2022</u>
+			Leyes Departamentales <u class="text-primary"> 2022</u>
 		</h2>
 		<div class="row">
 			<div
 				class="card col-lg-6 col-md-12 mb-4"
 				*ngFor="
-					let departamentLey of dataSearchDepartament
+					let data of dataSearchDepartament
 						| paginate : { itemsPerPage: 10, currentPage: page }
 				"
 			>
 				<img src="assets/brand/back.jpg" class="card-img-top" alt="Fissure in Sandstone" />
 				<div class="card-body">
-					<h5 class="card-title">{{ departamentLey.DTTitle }}</h5>
-					<p class="card-text">{{ departamentLey.DTSummary }}</p>
-					<span>{{ departamentLey.DTIssueDate | date : 'medium' }}</span>
+					<h5 class="card-title">{{ data.dttitle }}</h5>
+					<p class="card-text">{{ data.dtsummary }}</p>
+					<span>{{ data.dtissueDate | date : 'medium' }}</span>
 					<!-- <a href="#!" class="btn btn-primary">Button</a> -->
 				</div>
 			</div>

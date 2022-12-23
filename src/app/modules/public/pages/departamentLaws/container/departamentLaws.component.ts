@@ -155,6 +155,7 @@ export class DepartamentLawsComponent implements OnInit {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
+					console.log(response);
 					this.dataSearchDepartament = response?.data.filter((data) => {
 						if (data.dtvisibility === 'publico' && data.dtstate === true) {
 							return data;

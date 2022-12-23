@@ -27,37 +27,35 @@ import { ResolutionEffects } from './store/resolutions.effects';
 import { ResolutionService } from './services/resolutions.service';
 import { ResolutionFacade } from './facades/resolutions.facade';
 import { StaticFilePipeModule } from '../../../../core/pipes/static-file/static-file.module';
+import { LegislatureModule } from '../legislature/legislature.module';
+import { LegislatureFacade } from '../legislature/facades/legislature.facade';
 @NgModule({
 	declarations: [ResolutionsComponent],
 	imports: [
 		CommonModule,
 		ResolutionsRoutingModule,
 		DatePipe,
-
 		StoreModule.forFeature(ZEffects.resolutions, ResolutionReducer),
 		EffectsModule.forFeature([ResolutionEffects]),
 		MatSnackBarModule,
-
 		ReactiveFormsModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatIconModule,
-
 		MatProgressSpinnerModule,
 		StaticFilePipeModule,
 		MatChipsModule,
 		MatButtonModule,
 		MatTooltipModule,
-
 		MatSortModule,
 		MatTableModule,
 		MatPaginatorModule,
 		MatDialogModule,
-
 		ResolutionsCreateModule,
-		ResolutionsUpdateModule
+		ResolutionsUpdateModule,
+		LegislatureModule
 	],
-	providers: [ResolutionService, MatSnackBarService, ResolutionFacade],
+	providers: [ResolutionService, MatSnackBarService, ResolutionFacade, LegislatureFacade],
 	exports: [StoreModule, EffectsModule]
 })
 export class ResolutionsModule {}
