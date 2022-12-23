@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Adapter } from 'src/app/core/entities/adapters/object.adapter';
+import { LegislatureAdapter } from '../../../legislature/entities';
 
 export class ResolutionAdapter {
 	constructor(
@@ -15,7 +16,8 @@ export class ResolutionAdapter {
 		public readonly REFile: any,
 		public readonly REVisibility: boolean,
 		public readonly REState: boolean,
-		public readonly REDateRegister: string
+		public readonly REDateRegister: string,
+		public readonly IdresolLeg: string
 	) {}
 }
 
@@ -23,6 +25,10 @@ export type CreateResolutionDto = Omit<
 	ResolutionAdapter,
 	'IdDepartamentaLaw' | 'REState' | 'REDateRegister'
 >;
+
+export interface ResolutionForeignAdapter extends ResolutionAdapter {
+	readonly legislature: LegislatureAdapter;
+}
 
 export interface UpdateResolutionDto extends Partial<ResolutionAdapter> {}
 
@@ -42,7 +48,8 @@ export class Resolution implements Adapter<ResolutionAdapter> {
 			resolutionAdapter.REFile,
 			resolutionAdapter.REVisibility,
 			resolutionAdapter.REState,
-			resolutionAdapter.REDateRegister
+			resolutionAdapter.REDateRegister,
+			resolutionAdapter.IdresolLeg
 		);
 	}
 }

@@ -3,9 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { PayloadFile, ZListModalidad, ZListSesiones } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from '../../../../../../../core/shared/default.error-matcher';
-import { CreateCallDto } from '../../../entities';
 import { CallFacade } from '../../../facades/call.facade';
-import { map, startWith } from 'rxjs/operators';
 
 @Component({
 	selector: 'z-calls-create',
@@ -75,6 +73,7 @@ export class CallsCreateComponent implements OnInit {
 	}
 
 	create() {
+		console.log(typeof this.call_hours.value);
 		if (this.formCreate.invalid) return;
 
 		let createCallDto = new FormData();
@@ -83,9 +82,10 @@ export class CallsCreateComponent implements OnInit {
 		createCallDto.append('call_modality', this.call_modality.value);
 		createCallDto.append('call_dateUpdate', this.call_dateUpdate.value);
 		createCallDto.append('CallVisibility', this.CallVisibility.value);
+		createCallDto.append('call_numSession', this.call_numSession.value);
 		createCallDto.append('CallFile', this.file);
 
-		console.log(createCallDto.forEach);
+		// console.log(createCallDto.forEach);
 		this.callFacade.create(createCallDto);
 	}
 

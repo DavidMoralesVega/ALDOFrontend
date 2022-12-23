@@ -2,15 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { DefaultErrorMatcher } from '../../../../../../../core/shared/default.error-matcher';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
-import {
-	Resolution,
-	CreateResolutionDto,
-	ResolutionAdapter
-} from '../../../entities/models/resolutions.model';
 import { ResolutionFacade } from '../../../facades/resolutions.facade';
-import { PayloadFile } from '../../../../../../../core/entities/adapters/object.adapter';
+import { PayloadFile, ZListArea, Response, Pagination } from 'src/app/core/entities';
 import { ZListResolutions } from 'src/app/core/entities';
+import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
+import { Legislature } from '../../../../legislature/entities';
 
 @Component({
 	selector: 'z-resolutions-create',
@@ -18,6 +14,9 @@ import { ZListResolutions } from 'src/app/core/entities';
 	styleUrls: ['./resolutions-create.component.scss']
 })
 export class ResolutionsCreateComponent implements OnInit {
+	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllIsLoading$: Observable<boolean>;
+
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
@@ -32,8 +31,14 @@ export class ResolutionsCreateComponent implements OnInit {
 	private file!: File;
 	private isValidImage: boolean = false;
 
-	constructor(private readonly resolutionFacade: ResolutionFacade) {
+	constructor(
+		private readonly resolutionFacade: ResolutionFacade,
+		private readonly legislatureFacade: LegislatureFacade
+	) {
+		this.legislatureFacade.findAll(this.pagination);
 		this.createIsLoading$ = resolutionFacade.createIsLoading$;
+		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
+		this.legislatureFindAllResponse$ = this.legislatureFacade.findAllResponse$;
 	}
 	ngOnInit(): void {
 		this.initFormCreate();
@@ -48,8 +53,8 @@ export class ResolutionsCreateComponent implements OnInit {
 			REStartYear: new FormControl('', [Validators.required]),
 			REEndYear: new FormControl('', [Validators.required]),
 			REType: new FormControl('', [Validators.required]),
-
-			REVisibility: new FormControl(true, [Validators.required])
+			REVisibility: new FormControl(true, [Validators.required]),
+			IdresolLeg: new FormControl([Validators.required])
 		});
 	}
 	get RETitle() {
@@ -79,6 +84,9 @@ export class ResolutionsCreateComponent implements OnInit {
 	get REVisibility() {
 		return this.formCreate.get('REVisibility')!;
 	}
+	get IdresolLeg() {
+		return this.formCreate.get('IdresolLeg')!;
+	}
 	create() {
 		console.log('hola antes form');
 
@@ -97,9 +105,9 @@ export class ResolutionsCreateComponent implements OnInit {
 		createResolutionDto.append('REStartYear', this.REStartYear.value);
 		createResolutionDto.append('REEndYear', this.REEndYear.value);
 		createResolutionDto.append('REType', this.REType.value);
-
 		createResolutionDto.append('REVisibility', this.REVisibility.value);
 		createResolutionDto.append('REFile', this.file);
+		createResolutionDto.append('IdresolLeg', this.IdresolLeg.value);
 
 		console.log(createResolutionDto);
 
