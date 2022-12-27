@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { PayloadFile, ZListModalidad, ZListSesiones } from 'src/app/core/entities';
+import { PayloadFile, ZListModalidad, ZListSesiones, Response } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from '../../../../../../../core/shared/default.error-matcher';
 import { CallFacade } from '../../../facades/call.facade';
+import { Legislature } from '../../../../legislature/entities/models/legislature.model';
+import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
+import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
 
 @Component({
 	selector: 'z-calls-create',
@@ -16,17 +19,31 @@ export class CallsCreateComponent implements OnInit {
 	public createIsLoading$: Observable<boolean>;
 
 	public ZListsModalidad: any[] = ZListModalidad;
-
 	public ZListsSesiones: any[] = ZListSesiones;
-
+	public NewListsSesiones: any[] = [];
 	public filteredOptions!: Observable<string>;
+
+	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllIsLoading$: Observable<boolean>;
 
 	// variables imagen
 	private file!: File;
 	private isValidImage: boolean = false;
 
-	constructor(private readonly callFacade: CallFacade) {
+	private pagination: Pagination = {
+		limit: 100,
+		offset: 0,
+		filter: 'ALL'
+	};
+
+	constructor(
+		private readonly callFacade: CallFacade,
+		private readonly legislatureFacade: LegislatureFacade
+	) {
+		this.legislatureFacade.findAll(this.pagination);
 		this.createIsLoading$ = callFacade.createIsLoading$;
+		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
+		this.legislatureFindAllResponse$ = this.legislatureFacade.findAllResponse$;
 	}
 
 	ngOnInit(): void {
@@ -35,7 +52,7 @@ export class CallsCreateComponent implements OnInit {
 		// this.filteredOptions = this.call_modality.valueChanges.pipe(map((value: any) => value));
 		// this.filteredOptions = this.call_modality.valueChanges.pipe(map())
 
-		console.log(this.filteredOptions);
+		// console.log(this.filteredOptions);
 	}
 
 	initFormCreate(): void {
@@ -45,7 +62,8 @@ export class CallsCreateComponent implements OnInit {
 			call_modality: new FormControl('', [Validators.required]),
 			call_numSession: new FormControl('', [Validators.required]),
 			call_dateUpdate: new FormControl('', [Validators.required]),
-			CallVisibility: new FormControl('', [Validators.required])
+			CallVisibility: new FormControl('', [Validators.required]),
+			IdcallLeg: new FormControl('', [Validators.required])
 		});
 	}
 
@@ -67,9 +85,8 @@ export class CallsCreateComponent implements OnInit {
 	get CallVisibility() {
 		return this.formCreate.get('CallVisibility')!;
 	}
-
-	private _filterLabels(label: string) {
-		return label;
+	get IdcallLeg() {
+		return this.formCreate.get('IdcallLeg')!;
 	}
 
 	create() {
@@ -84,6 +101,7 @@ export class CallsCreateComponent implements OnInit {
 		createCallDto.append('CallVisibility', this.CallVisibility.value);
 		createCallDto.append('call_numSession', this.call_numSession.value);
 		createCallDto.append('CallFile', this.file);
+		createCallDto.append('IdcallLeg', this.IdcallLeg.value);
 
 		// console.log(createCallDto.forEach);
 		this.callFacade.create(createCallDto);
@@ -95,5 +113,34 @@ export class CallsCreateComponent implements OnInit {
 		this.file = payloadFile.file;
 
 		// console.log(payloadFile);
+	}
+
+	onChange(data: string) {
+		let dataNew = parseInt(data);
+		if (dataNew === 60) {
+			this.init();
+			for (let index = 0; index < dataNew; index++) {
+				this.NewListsSesiones.push(this.ZListsSesiones[index]);
+			}
+		}
+		if (dataNew === 50) {
+			this.init();
+			for (let index = 0; index < dataNew; index++) {
+				this.NewListsSesiones.push(this.ZListsSesiones[index]);
+			}
+		}
+		if (dataNew === 20) {
+			this.init();
+			for (let index = 0; index < dataNew; index++) {
+				this.NewListsSesiones.push(this.ZListsSesiones[index]);
+			}
+		}
+		this.ZListsSesiones = this.NewListsSesiones;
+	}
+
+	init() {
+		this.ZListsSesiones = [];
+		this.NewListsSesiones = [];
+		this.ZListsSesiones = ZListSesiones;
 	}
 }

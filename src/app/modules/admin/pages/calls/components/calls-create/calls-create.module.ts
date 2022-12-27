@@ -12,6 +12,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UploadInputTypeDocumentModule } from 'src/app/core/components/upload-input-type-image/upload-input-type-image.module';
 import { MatRadioModule } from '@angular/material/radio';
+import { JsonAsyncModule } from '../../../../../../core/pipes/json-async/json-async.module';
 
 @NgModule({
 	declarations: [CallsCreateComponent],
@@ -27,7 +28,8 @@ import { MatRadioModule } from '@angular/material/radio';
 		MatDatepickerModule,
 		MatNativeDateModule,
 		UploadInputTypeDocumentModule,
-		MatRadioModule
+		MatRadioModule,
+		JsonAsyncModule
 	]
 })
 export class CallsCreateModule {}

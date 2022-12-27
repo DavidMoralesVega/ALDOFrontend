@@ -12,7 +12,8 @@ export class CallAdapter {
 		public readonly call_pdfList: string,
 		public readonly call_create: string,
 		public readonly call_estado: boolean,
-		public readonly CallVisibility: string
+		public readonly CallVisibility: string,
+		public readonly IdcallLeg: string
 	) {}
 }
 
@@ -33,7 +34,8 @@ export class Call implements Adapter<CallAdapter> {
 			callAdapter.call_pdfList,
 			callAdapter.call_create,
 			callAdapter.call_estado,
-			callAdapter.CallVisibility
+			callAdapter.CallVisibility,
+			callAdapter.IdcallLeg
 		);
 	}
 }
