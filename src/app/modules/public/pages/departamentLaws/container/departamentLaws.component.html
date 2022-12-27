@@ -18,7 +18,7 @@
 <div class="container my-5 py-5">
 	<!-- Section: Design Block -->
 
-	<form class="form-inline my-2 my-lg-0">
+	<form class="form-inline my-2 my-lg-0 mb-4">
 		<input
 			class="form-control mr-sm-2"
 			type="text"
@@ -36,9 +36,6 @@
 	</form>
 
 	<section class="mb-10">
-		<h2 class="fw-bold mb-5 text-center">
-			Leyes Departamentales <u class="text-primary"> 2022</u>
-		</h2>
 		<div class="row">
 			<div
 				class="card col-lg-6 col-md-12 mb-4"
@@ -57,10 +54,12 @@
 			</div>
 		</div>
 	</section>
-	<pagination-controls
-		(pageChange)="page = $event"
-		previousLabel="Anterior"
-		nextLabel="Siguiente"
-	></pagination-controls>
+	<div class="h-100 d-flex justify-content-center align-items-center">
+		<pagination-controls
+			(pageChange)="page = $event"
+			previousLabel="Anterior"
+			nextLabel="Siguiente"
+		></pagination-controls>
+	</div>
 </div>
 <!-- Container for demo purpose -->
