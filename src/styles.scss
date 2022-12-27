@@ -1418,3 +1418,15 @@ td.mat-column-position {
 .fixed-sn footer {
 	padding-left: 0 !important;
 }
+
+// commission comision
+.section-commision {
+	background: url('assets/brand/back2.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	.title,
+	.sub-title {
+		color: #ffffff !important;
+	}
+}
