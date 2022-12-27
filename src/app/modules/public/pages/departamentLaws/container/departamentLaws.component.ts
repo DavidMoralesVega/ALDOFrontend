@@ -7,6 +7,8 @@ import { DepartamentLaw } from 'src/app/modules/admin/pages/departament-law/enti
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DefaultErrorMatcher } from '../../../../../core/shared/default.error-matcher';
 import { search } from 'src/app/core/entities/interfaces/search.interface';
+import { Legislature } from 'src/app/modules/admin/pages/legislature/entities';
+import { LegislatureFacade } from 'src/app/modules/admin/pages/legislature/facades/legislature.facade';
 
 @Component({
 	selector: 'z-commission',
@@ -18,9 +20,10 @@ export class DepartamentLawsComponent implements OnInit {
 	public formCreate: FormGroup = new FormGroup({});
 	public findAllResponse$: Observable<Response<DepartamentLaw[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
-
 	public searchResponse$: Observable<Response<DepartamentLaw[]> | null>;
 	public searchIsLoading$: Observable<boolean>;
+	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllIsLoading$: Observable<boolean>;
 
 	public ZListArea: any[] = ZListArea;
 
@@ -38,12 +41,19 @@ export class DepartamentLawsComponent implements OnInit {
 
 	element: boolean = false;
 
-	constructor(private readonly departamentLawFacade: DepartamentLawFacade) {
+	constructor(
+		private readonly departamentLawFacade: DepartamentLawFacade,
+		private readonly legislatureFacade: LegislatureFacade
+	) {
+		this.legislatureFacade.findAll(this.pagination);
 		this.findAllResponse$ = this.departamentLawFacade.findAllResponse$;
 		this.findAllIsLoading$ = this.departamentLawFacade.findAllIsLoading$;
 
 		this.searchResponse$ = this.departamentLawFacade.searchResponse$;
 		this.searchIsLoading$ = this.departamentLawFacade.searchIsLoading$;
+
+		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
+		this.legislatureFindAllResponse$ = this.legislatureFacade.findAllResponse$;
 	}
 
 	ngOnInit(): void {
@@ -61,7 +71,9 @@ export class DepartamentLawsComponent implements OnInit {
 			departLawArea: new FormControl('', []),
 			dataQuery: new FormControl('', []),
 			daterangeInit: new FormControl('', []),
-			daterangeEnd: new FormControl('', [])
+			daterangeEnd: new FormControl('', []),
+			dataIdLegdepart: new FormControl('', []),
+			dataNumLey: new FormControl('', [])
 		});
 	}
 	get departLawArea() {
@@ -75,6 +87,12 @@ export class DepartamentLawsComponent implements OnInit {
 	}
 	get dataQuery() {
 		return this.formCreate.get('dataQuery')!;
+	}
+	get dataIdLegdepart() {
+		return this.formCreate.get('dataIdLegdepart')!;
+	}
+	get dataNumLey() {
+		return this.formCreate.get('dataNumLey')!;
 	}
 
 	showData($event: any) {
@@ -192,7 +210,7 @@ export class DepartamentLawsComponent implements OnInit {
 	}
 
 	create() {
-		console.log('hola antes form');
+		// console.log('hola antes form');
 
 		if (this.formCreate.invalid) return;
 	}
@@ -226,6 +244,8 @@ export class DepartamentLawsComponent implements OnInit {
 		import { MoreThan } from "typeorm";
 		import { Like } from "typeorm";
 		import { Between } from 'typeorm';
+import { Legislature } from '../../../../admin/pages/legislature/entities/models/legislature.model';
+import { LegislatureFacade } from '../../../../admin/pages/legislature/facades/legislature.facade';
 
 		this.productsRepository.find({
 		where: [

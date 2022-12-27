@@ -15,6 +15,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { JsonAsyncModule } from '../../../../core/pipes/json-async/json-async.module';
+import { LegislatureModule } from '../../../admin/pages/legislature/legislature.module';
+import { LegislatureFacade } from '../../../admin/pages/legislature/facades/legislature.facade';
 
 @NgModule({
 	declarations: [DepartamentLawsComponent],
@@ -31,8 +34,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 		MatSelectModule,
 		MatRadioModule,
 		MatDatepickerModule,
-		MatNativeDateModule
+		MatNativeDateModule,
+		JsonAsyncModule,
+		LegislatureModule
 	],
-	providers: [DepartamentLawFacade]
+	providers: [DepartamentLawFacade, LegislatureFacade]
 })
 export class DepartamentLawsModule {}

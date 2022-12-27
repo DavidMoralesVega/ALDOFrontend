@@ -662,9 +662,9 @@ export const ZListCardCommissions: any = [
 
 // MODALIDAD
 export const ZListModalidad: any = [
-	{ value: '0', key: 'Ordinaria (60 Sesiones)' },
-	{ value: '1', key: 'Extraordinaria (50 Sesiones)' },
-	{ value: '2', key: 'Sesiones de Honor (20 Sesiones)' }
+	{ value: '60', key: 'Ordinaria (60 Sesiones)' },
+	{ value: '50', key: 'Extraordinaria (50 Sesiones)' },
+	{ value: '20', key: 'Sesiones de Honor (20 Sesiones)' }
 ];
 
 // SESIONES

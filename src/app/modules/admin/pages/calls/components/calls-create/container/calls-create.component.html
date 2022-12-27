@@ -41,7 +41,7 @@
 
 				<mat-form-field class="col-lg-12" appearance="outline">
 					<mat-label>Modalidad</mat-label>
-					<mat-select formControlName="call_modality">
+					<mat-select formControlName="call_modality" (ngModelChange)="onChange($event)">
 						<mat-option *ngFor="let data of ZListsModalidad" [value]="data.value">
 							{{ data.key }}
 						</mat-option>
@@ -55,6 +55,29 @@
 							{{ data.key }}
 						</mat-option>
 					</mat-select>
+				</mat-form-field>
+
+				<mat-form-field
+					*ngIf="!(legislatureFindAllIsLoading$ | async)"
+					class="col-lg-12 mb-2"
+					appearance="outline"
+				>
+					<mat-label>Legislature</mat-label>
+					<mat-select formControlName="IdcallLeg">
+						<mat-option
+							*ngFor="let legislature of (legislatureFindAllResponse$ | async)!.data"
+							[value]="legislature | jsonData : 'IdLegislatura'"
+						>
+							{{ legislature | jsonData : 'LegDescripcion' }}
+						</mat-option>
+					</mat-select>
+
+					<mat-error *ngIf="errorMatcher.isErrorState(IdcallLeg, null)">
+						<span *ngIf="IdcallLeg.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							La legislatura es requerido.
+						</span>
+					</mat-error>
 				</mat-form-field>
 
 				<mat-form-field appearance="outline" class="mt-2">

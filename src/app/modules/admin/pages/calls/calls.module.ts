@@ -27,6 +27,8 @@ import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service'
 import { CallFacade } from './facades/call.facade';
 import { UploadInputTypeDocumentModule } from 'src/app/core/components/upload-input-type-image/upload-input-type-image.module';
 import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file.module';
+import { LegislatureModule } from '../legislature/legislature.module';
+import { LegislatureFacade } from '../legislature/facades/legislature.facade';
 
 @NgModule({
 	declarations: [CallsComponent],
@@ -49,9 +51,10 @@ import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file
 		MatDialogModule,
 		CallsCreateModule,
 		CallsUpdateModule,
-		StaticFilePipeModule
+		StaticFilePipeModule,
+		LegislatureModule
 	],
-	providers: [CallService, MatSnackBarService, CallFacade],
+	providers: [CallService, MatSnackBarService, CallFacade, LegislatureFacade],
 	exports: [StoreModule, EffectsModule]
 })
 export class CallsModule {}
