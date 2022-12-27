@@ -1366,7 +1366,7 @@ td.mat-column-position {
 // nvabar menu
 .z-nav-link-active {
 	font-weight: 600;
-	color: #4285f4 !important;
+	color: #d00129 !important;
 }
 
 // .team-section .avatar img.rounded-circle {
@@ -1417,4 +1417,16 @@ td.mat-column-position {
 
 .fixed-sn footer {
 	padding-left: 0 !important;
+}
+
+// commission comision
+.section-commision {
+	background: url('assets/brand/back2.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	.title,
+	.sub-title {
+		color: #ffffff !important;
+	}
 }

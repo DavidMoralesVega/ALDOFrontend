@@ -273,7 +273,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Esperanza Mamani Ajhuacho',
 				role: 'Presidente',
-				img: 'directiva/1EsperanzaMamaniAjhuacho.jpg',
+				img: 'directiva/1EsperanzaMamaniAjhuacho.png',
 				col: '12',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -283,7 +283,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Erwin Vargas Chacon',
 				role: 'Vicepresidente',
-				img: 'directiva/2ErwinVargasChacon.jpeg',
+				img: 'directiva/2ErwinVargasChacon.png',
 				col: '3',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -293,7 +293,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Anabel Bernarda Chambi Laura',
 				role: 'Secretario',
-				img: 'directiva/3AnabelBernardaChambiLaura.jpeg',
+				img: 'directiva/3AnabelBernardaChambiLaura.png',
 				col: '3',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -303,7 +303,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Miguel Mauricio Choque',
 				role: 'Vocal 1',
-				img: 'directiva/4MiguelMauricioChoque.jpeg',
+				img: 'directiva/4MiguelMauricioChoque.png',
 				col: '3',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -313,7 +313,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Ana Tarqui Adrian',
 				role: 'Vocal 2',
-				img: 'directiva/5AnaTarquiAdrian.jpeg',
+				img: 'directiva/5AnaTarquiAdrian.png',
 				col: '3',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -330,7 +330,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Zulma Arellano Choquetopa',
 				role: 'Presidente',
-				img: 'autonomia/1ZulmaArellanoChoquetopa.jpeg',
+				img: 'autonomia/1ZulmaArellanoChoquetopa.png',
 				col: '12',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -340,7 +340,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Nicolas Choque Colque',
 				role: 'Vicepresidente',
-				img: 'autonomia/2NicolasChoqueColque.jpeg',
+				img: 'autonomia/2NicolasChoqueColque.png',
 				col: '6',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -350,7 +350,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Delia Gongora Veliz',
 				role: 'Secretario',
-				img: 'autonomia/3DeliaGongoraVeliz.jpeg',
+				img: 'autonomia/3DeliaGongoraVeliz.png',
 				col: '6',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -367,7 +367,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Ronmie Villca Altamirano',
 				role: 'Presidente',
-				img: 'constitucion/1RonmieVillcaAltamirano.jpeg',
+				img: 'constitucion/1RonmieVillcaAltamirano.png',
 				col: '12',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -377,7 +377,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Marina Quispe Choque',
 				role: 'Vicepresidente',
-				img: 'constitucion/2MarinaQuispeChoque.jpeg',
+				img: 'constitucion/2MarinaQuispeChoque.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -387,7 +387,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Francisca Luisa Rufino Calizaya',
 				role: 'Secretario',
-				img: 'constitucion/3FranciscaLuisaRufinoCalizaya.jpeg',
+				img: 'constitucion/3FranciscaLuisaRufinoCalizaya.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -397,7 +397,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Natividad Cruz Acurana',
 				role: 'Vocal',
-				img: 'constitucion/4NatividadCruzAcurana.jpeg',
+				img: 'constitucion/4NatividadCruzAcurana.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -414,7 +414,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Maxima Apaza Luna',
 				role: 'Presidente',
-				img: 'educacion/1MaximaApazaLuna.jpeg',
+				img: 'educacion/1MaximaApazaLuna.png',
 				col: '12',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -424,7 +424,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Juana Gabriela Escarzo Mamani',
 				role: 'Vicepresidente',
-				img: 'educacion/2JuanaGabrielaEscarzoMamani.jpeg',
+				img: 'educacion/2JuanaGabrielaEscarzoMamani.png',
 				col: '6',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -434,7 +434,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Alfredo Acapa Colque',
 				role: 'Secretario',
-				img: 'educacion/3AlfredoAcapaColque.jpeg',
+				img: 'educacion/3AlfredoAcapaColque.png',
 				col: '6',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -451,7 +451,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Jhoselin Anconi Chambi',
 				role: 'Presidente',
-				img: 'infraestructura/1JhoselinAnconiChambi.jpeg',
+				img: 'infraestructura/1JhoselinAnconiChambi.png',
 				col: '12',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -461,7 +461,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Armando Barrera Choqueticlla',
 				role: 'Vicepresidente',
-				img: 'infraestructura/2ArmandoBarreraChoqueticlla.jpeg',
+				img: 'infraestructura/2ArmandoBarreraChoqueticlla.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -471,7 +471,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'David Dante Choque Zegarra',
 				role: 'Secretario',
-				img: 'infraestructura/3DavidDanteChoqueZegarra.jpeg',
+				img: 'infraestructura/3DavidDanteChoqueZegarra.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -481,7 +481,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Teodoro Calizaya Choquerive',
 				role: 'Vocal',
-				img: 'infraestructura/4TeodoroCalizayaChoquerive.jpeg',
+				img: 'infraestructura/4TeodoroCalizayaChoquerive.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -498,7 +498,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Jose Luis Aranibar Araviri',
 				role: 'Presidente',
-				img: 'ambiente/1JoseLuisAranibarAraviri.webp',
+				img: 'ambiente/1JoseLuisAranibarAraviri.png',
 				col: '12',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -508,7 +508,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Freddy Raul Ramos Quispe',
 				role: 'Vicepresidente',
-				img: 'ambiente/2FreddyRaulRamosQuispe.jpeg',
+				img: 'ambiente/2FreddyRaulRamosQuispe.png',
 				col: '6',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -518,7 +518,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Ausberto Condori Choque',
 				role: 'Vocal',
-				img: 'ambiente/3AusbertoCondoriChoque.jpeg',
+				img: 'ambiente/3AusbertoCondoriChoque.png',
 				col: '6',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -535,7 +535,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Edwin Fuentes Camacho',
 				role: 'Presidente',
-				img: 'mineria/1EdwinFuentesCamacho.jpeg',
+				img: 'mineria/1EdwinFuentesCamacho.png',
 				col: '12',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -545,7 +545,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Freddy Castillo Chavez',
 				role: 'Vicepresidente',
-				img: 'mineria/2FreddyCastilloChavez.jpeg',
+				img: 'mineria/2FreddyCastilloChavez.png',
 				col: '6',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -555,7 +555,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Ramon Raul Caro Santos',
 				role: 'Secretario',
-				img: 'mineria/3RamonRaulCaroSantos.jpeg',
+				img: 'mineria/3RamonRaulCaroSantos.png',
 				col: '6',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -572,7 +572,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Maria Carolina Lino Condori',
 				role: 'Presidente',
-				img: 'planificacion/1MariaCarolinaLinoCondori.jpeg',
+				img: 'planificacion/1MariaCarolinaLinoCondori.png',
 				col: '12',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -582,7 +582,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Hugo Huanca Choque',
 				role: 'Vicepresidente',
-				img: 'planificacion/2HugoHuancaChoque.jpeg',
+				img: 'planificacion/2HugoHuancaChoque.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -592,7 +592,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Maria Mamani Molina',
 				role: 'Secretario',
-				img: 'planificacion/3MariaMamaniMolina.jpeg',
+				img: 'planificacion/3MariaMamaniMolina.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -602,7 +602,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Edgar Alex Huanca Guanay',
 				role: 'Vocal',
-				img: 'planificacion/4EdgarAlexHuancaGuanay.jpeg',
+				img: 'planificacion/4EdgarAlexHuancaGuanay.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -619,7 +619,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Franz Jhonny Ochoa Yucra',
 				role: 'Presidente',
-				img: 'relaciones/1FranzJhonnyOchoaYucra.jpeg',
+				img: 'relaciones/1FranzJhonnyOchoaYucra.png',
 				col: '12',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -629,7 +629,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Mirian Lucia Rocha Canaviri',
 				role: 'Vicepresidente',
-				img: 'relaciones/2MirianLuciaRochaCanaviri.jpeg',
+				img: 'relaciones/2MirianLuciaRochaCanaviri.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -639,7 +639,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Jhnony Fernandez Calani',
 				role: 'Secretario',
-				img: 'relaciones/3JhnonyFernandezCalani.jpeg',
+				img: 'relaciones/3JhnonyFernandezCalani.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',
@@ -649,7 +649,7 @@ export const ZListCardCommissions: any = [
 			{
 				name: 'Roman Brito',
 				role: 'Vocal',
-				img: 'relaciones/4RomanBrito.jpeg',
+				img: 'relaciones/4RomanBrito.png',
 				col: '4',
 				whatsapp: '12345678',
 				linkedin: 'https',

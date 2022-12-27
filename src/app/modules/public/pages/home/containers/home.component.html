@@ -4,16 +4,23 @@
 	<div
 		id="intro"
 		class="text-center bg-image"
-		style="background-image: url('assets/brand/back	.jpg'); height: 100vh"
+		style="
+			background-image: url('assets/brand/galery/backhome.png');
+			height: 100vh;
+			background-attachment: fixed;
+		"
 	>
 		<div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
 			<div class="d-flex justify-content-center align-items-center h-100 mt-4">
 				<div class="text-white">
+					<img class="img-fluid mb-4" width="300" src="assets/brand/logo-escudo.png" alt="" />
 					<h1 class="display-1 font-weight-bold text-uppercase mb-0">A.L.D.O.</h1>
-					<h4 class="font-weight-light pt-1 mt-4 mb-5">
-						Asamblea Legislativa Departamental de Oruro
-					</h4>
-					<button class="btn btn-light btn-lg">Sobre nosotros</button>
+					<h3 class="font-weight-light pt-1 mt-4 mb-5">
+						Legislando, Fiscalizando y Deliberando
+					</h3>
+					<button routerLink="/marco-institucional" class="btn btn-light btn-lg">
+						Sobre nosotros
+					</button>
 				</div>
 			</div>
 		</div>
@@ -77,9 +84,9 @@
 >
 	<style>
 		.gradient-violet {
-			background: #4776e6;
-			background: -webkit-linear-gradient(to right, #8e54e9, #4776e6);
-			background: linear-gradient(to right, #8e54e9, #4776e6);
+			background: #5c0119;
+			background: -webkit-linear-gradient(to right, #d00129, #5c0119);
+			background: linear-gradient(to right, #d00129, #5c0119);
 		}
 		@media only screen and (min-width: 768px) {
 			.gradient-violet {
