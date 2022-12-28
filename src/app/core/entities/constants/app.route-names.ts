@@ -267,7 +267,7 @@ export const ZListModule: any = [
 export const ZListCardCommissions: any = [
 	{
 		path: 'directiva',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		img: 'comisiones/directiva.png',
 		title: 'Mesa Directiva',
 		children: [
 			{
@@ -322,46 +322,10 @@ export const ZListCardCommissions: any = [
 			}
 		]
 	},
-	{
-		path: 'autonomia-organizacion-territorial-limites',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Autonomía, Organización Territorial y Límites',
-		children: [
-			{
-				name: 'Zulma Arellano Choquetopa',
-				role: 'Presidente',
-				img: 'autonomia/1ZulmaArellanoChoquetopa.png',
-				col: '12',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			},
-			{
-				name: 'Nicolas Choque Colque',
-				role: 'Vicepresidente',
-				img: 'autonomia/2NicolasChoqueColque.png',
-				col: '6',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			},
-			{
-				name: 'Delia Gongora Veliz',
-				role: 'Secretario',
-				img: 'autonomia/3DeliaGongoraVeliz.png',
-				col: '6',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			}
-		]
-	},
+
 	{
 		path: 'constitucion-desarrollo-legislativo-sistema-electoral-justicia',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		img: 'comisiones/constitucion.png',
 		title: 'Constitución, Desarrollo Legislativo, Sistema Electoral y Justicia',
 		children: [
 			{
@@ -406,167 +370,10 @@ export const ZListCardCommissions: any = [
 			}
 		]
 	},
-	{
-		path: 'educacion-salud-derechos-humanos-politica-social',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Educación, Salud, Derechos Humanos y Política Social',
-		children: [
-			{
-				name: 'Maxima Apaza Luna',
-				role: 'Presidente',
-				img: 'educacion/1MaximaApazaLuna.png',
-				col: '12',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			},
-			{
-				name: 'Juana Gabriela Escarzo Mamani',
-				role: 'Vicepresidente',
-				img: 'educacion/2JuanaGabrielaEscarzoMamani.png',
-				col: '6',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			},
-			{
-				name: 'Alfredo Acapa Colque',
-				role: 'Secretario',
-				img: 'educacion/3AlfredoAcapaColque.png',
-				col: '6',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			}
-		]
-	},
-	{
-		path: 'infraestructura-obras-publicas-desarrollo',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Infraestructura y Obra Públicas de Desarrollo',
-		children: [
-			{
-				name: 'Jhoselin Anconi Chambi',
-				role: 'Presidente',
-				img: 'infraestructura/1JhoselinAnconiChambi.png',
-				col: '12',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			},
-			{
-				name: 'Armando Barrera Choqueticlla',
-				role: 'Vicepresidente',
-				img: 'infraestructura/2ArmandoBarreraChoqueticlla.png',
-				col: '4',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			},
-			{
-				name: 'David Dante Choque Zegarra',
-				role: 'Secretario',
-				img: 'infraestructura/3DavidDanteChoqueZegarra.png',
-				col: '4',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			},
-			{
-				name: 'Teodoro Calizaya Choquerive',
-				role: 'Vocal',
-				img: 'infraestructura/4TeodoroCalizayaChoquerive.png',
-				col: '4',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			}
-		]
-	},
-	{
-		path: 'medio-ambiente-desarrollo-rural-integral-sustentable-soberania-alimentaria',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Medio Ambiente, Desarrollo Rural Integral Sustentable y Soberanía Alimentaria',
-		children: [
-			{
-				name: 'Jose Luis Aranibar Araviri',
-				role: 'Presidente',
-				img: 'ambiente/1JoseLuisAranibarAraviri.png',
-				col: '12',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			},
-			{
-				name: 'Freddy Raul Ramos Quispe',
-				role: 'Vicepresidente',
-				img: 'ambiente/2FreddyRaulRamosQuispe.png',
-				col: '6',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			},
-			{
-				name: 'Ausberto Condori Choque',
-				role: 'Vocal',
-				img: 'ambiente/3AusbertoCondoriChoque.png',
-				col: '6',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			}
-		]
-	},
-	{
-		path: 'mineria-hidrocarburos-recursos-naturales-produccion-industria-comercio-servicios',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
-		title: 'Minería e Hidrocarburos, Recursos Naturales, Producción Industria, Comercio y Servicios',
-		children: [
-			{
-				name: 'Edwin Fuentes Camacho',
-				role: 'Presidente',
-				img: 'mineria/1EdwinFuentesCamacho.png',
-				col: '12',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			},
-			{
-				name: 'Freddy Castillo Chavez',
-				role: 'Vicepresidente',
-				img: 'mineria/2FreddyCastilloChavez.png',
-				col: '6',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			},
-			{
-				name: 'Ramon Raul Caro Santos',
-				role: 'Secretario',
-				img: 'mineria/3RamonRaulCaroSantos.png',
-				col: '6',
-				whatsapp: '12345678',
-				linkedin: 'https',
-				height: '220',
-				width: '200'
-			}
-		]
-	},
+
 	{
 		path: 'planificacion-politica-economica-finanzas-publicas',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		img: 'comisiones/planificacion.png',
 		title: 'Planificación, Política Económica y Finanzas Publicas',
 		children: [
 			{
@@ -612,8 +419,130 @@ export const ZListCardCommissions: any = [
 		]
 	},
 	{
+		path: 'infraestructura-obras-publicas-desarrollo',
+		img: 'comisiones/infraestructura.png',
+		title: 'Infraestructura y Obra Públicas de Desarrollo',
+		children: [
+			{
+				name: 'Jhoselin Anconi Chambi',
+				role: 'Presidente',
+				img: 'infraestructura/1JhoselinAnconiChambi.png',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
+			{
+				name: 'Armando Barrera Choqueticlla',
+				role: 'Vicepresidente',
+				img: 'infraestructura/2ArmandoBarreraChoqueticlla.png',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
+			{
+				name: 'David Dante Choque Zegarra',
+				role: 'Secretario',
+				img: 'infraestructura/3DavidDanteChoqueZegarra.png',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
+			{
+				name: 'Teodoro Calizaya Choquerive',
+				role: 'Vocal',
+				img: 'infraestructura/4TeodoroCalizayaChoquerive.png',
+				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			}
+		]
+	},
+	{
+		path: 'mineria-hidrocarburos-recursos-naturales-produccion-industria-comercio-servicios',
+		img: 'comisiones/mineria.png',
+		title: 'Minería e Hidrocarburos, Recursos Naturales, Producción Industria, Comercio y Servicios',
+		children: [
+			{
+				name: 'Edwin Fuentes Camacho',
+				role: 'Presidente',
+				img: 'mineria/1EdwinFuentesCamacho.png',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
+			{
+				name: 'Freddy Castillo Chavez',
+				role: 'Vicepresidente',
+				img: 'mineria/2FreddyCastilloChavez.png',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
+			{
+				name: 'Ramon Raul Caro Santos',
+				role: 'Secretario',
+				img: 'mineria/3RamonRaulCaroSantos.png',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			}
+		]
+	},
+	{
+		path: 'autonomia-organizacion-territorial-limites',
+		img: 'comisiones/autonomia.png',
+		title: 'Autonomía, Organización Territorial y Límites',
+		children: [
+			{
+				name: 'Zulma Arellano Choquetopa',
+				role: 'Presidente',
+				img: 'autonomia/1ZulmaArellanoChoquetopa.png',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
+			{
+				name: 'Nicolas Choque Colque',
+				role: 'Vicepresidente',
+				img: 'autonomia/2NicolasChoqueColque.png',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
+			{
+				name: 'Delia Gongora Veliz',
+				role: 'Secretario',
+				img: 'autonomia/3DeliaGongoraVeliz.png',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			}
+		]
+	},
+
+	{
 		path: 'relaciones-intergubernamentales-internacionales',
-		img: 'https://mdbootstrap.com/img/new/standard/city/041.jpg',
+		img: 'comisiones/internacional.png',
 		title: 'Relaciones Intergubernamentales e Internacionales',
 		children: [
 			{
@@ -651,6 +580,82 @@ export const ZListCardCommissions: any = [
 				role: 'Vocal',
 				img: 'relaciones/4RomanBrito.png',
 				col: '4',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			}
+		]
+	},
+
+	{
+		path: 'educacion-salud-derechos-humanos-politica-social',
+		img: 'comisiones/educacionsalud.png',
+		title: 'Educación, Salud, Derechos Humanos y Política Social',
+		children: [
+			{
+				name: 'Maxima Apaza Luna',
+				role: 'Presidente',
+				img: 'educacion/1MaximaApazaLuna.png',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
+			{
+				name: 'Juana Gabriela Escarzo Mamani',
+				role: 'Vicepresidente',
+				img: 'educacion/2JuanaGabrielaEscarzoMamani.png',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
+			{
+				name: 'Alfredo Acapa Colque',
+				role: 'Secretario',
+				img: 'educacion/3AlfredoAcapaColque.png',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			}
+		]
+	},
+
+	{
+		path: 'medio-ambiente-desarrollo-rural-integral-sustentable-soberania-alimentaria',
+		img: 'comisiones/medioambeinte.png',
+		title: 'Medio Ambiente, Desarrollo Rural Integral Sustentable y Soberanía Alimentaria',
+		children: [
+			{
+				name: 'Jose Luis Aranibar Araviri',
+				role: 'Presidente',
+				img: 'ambiente/1JoseLuisAranibarAraviri.png',
+				col: '12',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
+			{
+				name: 'Freddy Raul Ramos Quispe',
+				role: 'Vicepresidente',
+				img: 'ambiente/2FreddyRaulRamosQuispe.png',
+				col: '6',
+				whatsapp: '12345678',
+				linkedin: 'https',
+				height: '220',
+				width: '200'
+			},
+			{
+				name: 'Ausberto Condori Choque',
+				role: 'Vocal',
+				img: 'ambiente/3AusbertoCondoriChoque.png',
+				col: '6',
 				whatsapp: '12345678',
 				linkedin: 'https',
 				height: '220',

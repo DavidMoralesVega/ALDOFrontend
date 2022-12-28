@@ -7,7 +7,7 @@ import { ZListCardCommissions } from 'src/app/core/entities';
 	styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-	public ZListCardCommissions: any[] = ZListCardCommissions;
+	public ZListCardCommissions: any[] = ZListCardCommissions.slice(1);
 
 	constructor() {}
 
