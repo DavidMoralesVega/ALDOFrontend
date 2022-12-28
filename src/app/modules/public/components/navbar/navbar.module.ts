@@ -9,7 +9,14 @@ import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
 	declarations: [NavbarComponent],
-	imports: [CommonModule, RouterModule, MatButtonModule, MatIconModule, MatMenuModule],
+	imports: [
+		CommonModule,
+		RouterModule,
+		MatButtonModule,
+		MatIconModule,
+		MatMenuModule,
+		MDBBootstrapModulesPro.forRoot()
+	],
 	exports: [NavbarComponent]
 })
 export class NavbarModule {}

@@ -13,12 +13,27 @@
 		<div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
 			<div class="d-flex justify-content-center align-items-center h-100 mt-4">
 				<div class="text-white">
-					<img class="img-fluid mb-4" width="300" src="assets/brand/logo-escudo.png" alt="" />
-					<h1 class="display-1 font-weight-bold text-uppercase mb-0">A.L.D.O.</h1>
-					<h3 class="font-weight-light pt-1 mt-4 mb-5">
+					<img
+						style="max-width: 20% !important"
+						class="img-fluid mb-4 animate-reveal animate-first"
+						src="assets/brand/logo-escudo.png"
+						alt=""
+					/>
+
+					<h1
+						class="display-1 font-weight-bold text-uppercase mb-0 animate-reveal animate-second"
+					>
+						A.L.D.O.
+					</h1>
+					<h3
+						class="font-weight-light pt-1 mt-4 mb-5 title-cursive animate-reveal animate-third"
+					>
 						Legislando, Fiscalizando y Deliberando
 					</h3>
-					<button routerLink="/marco-institucional" class="btn btn-light btn-lg">
+					<button
+						routerLink="/marco-institucional"
+						class="btn btn-light btn-lg animate-reveal animate-third"
+					>
 						Sobre nosotros
 					</button>
 				</div>
@@ -36,7 +51,7 @@
 		<div class="row">
 			<div class="col-md-6 col-lg-5 d-flex align-items-center mb-5 pb-lg-5">
 				<div>
-					<h2 class="fw-bold mb-3">VALORES</h2>
+					<h2 class="fw-bold h1 mb-3"><span class="custom-underline">VALORES </span></h2>
 					<p class="text-muted mb-0">
 						Los principios que rigen al Gobierno Autónomo Departamental, en términos
 						establecidos de la Constitución Política del Estado, la Ley Marco de Autonomías y
@@ -51,9 +66,13 @@
 		<div class="row">
 			<div class="col-md-6">
 				<p class="mb-4">
-					<i class="fas fa-check-circle fa-3x" style="color: rgb(209, 209, 209)"></i>
+					<i class="fas fa-check-circle fa-3x" style="color: rgb(232, 34, 34)"></i>
 				</p>
-				<h6 class="mb-3"><a href="#!" class="text-reset">MISIÓN</a></h6>
+				<h6 class="mb-3">
+					<a href="#!" class="text-reset">
+						<span class="custom-underline custom-underline-2">MISIÓN</span>
+					</a>
+				</h6>
 				<p class="text-muted mb-5 mb-md-3">
 					La Asamblea Legislativa Departamental de Oruro ejerce un mandato conferido por 16
 					provincias de Oruro para legislar, fiscalizar y deliberar con transparencia y
@@ -62,9 +81,13 @@
 			</div>
 			<div class="col-md-6">
 				<p class="mb-4">
-					<i class="fas fa-check-circle fa-3x" style="color: rgb(209, 209, 209)"></i>
+					<i class="fas fa-check-circle fa-3x" style="color: rgb(232, 34, 34)"></i>
 				</p>
-				<h6 class="mb-3"><a href="#!" class="text-reset">VISIÓN</a></h6>
+				<h6 class="mb-3">
+					<a href="#!" class="text-reset">
+						<span class="custom-underline custom-underline-2">VISIÓN</span>
+					</a>
+				</h6>
 				<p class="text-muted mb-5 mb-md-3">
 					Ser un ente legislativo que pueda satisfacer las necesidades de las 16 provincias y
 					todos los municipios del Departamento de Oruro, respetando la Constitución Politica
@@ -82,55 +105,14 @@
 	class="d-flex align-items-center justify-content-center gradient-violet mb-8"
 	style="height: 500px"
 >
-	<style>
-		.gradient-violet {
-			background: #5c0119;
-			background: -webkit-linear-gradient(to right, #d00129, #5c0119);
-			background: linear-gradient(to right, #d00129, #5c0119);
-		}
-		@media only screen and (min-width: 768px) {
-			.gradient-violet {
-				height: 500px;
-			}
-		}
-		@media only screen and (max-width: 767px) {
-			.gradient-violet {
-				height: 600px;
-			}
-		}
-		.custom-underline {
-			position: relative;
-		}
-		.custom-underline::after {
-			content: '';
-			position: absolute;
-			bottom: -0.7rem;
-			left: -0.5rem;
-			right: -0.5rem;
-			height: 1.5rem;
-			background-image: url(https://mdbootstrap.com/img/svg/1421504817.svg);
-			background-repeat: no-repeat;
-			background-size: cover;
-			filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(25deg) brightness(118%)
-				contrast(119%);
-		}
-		@media (max-width: 767px) {
-			.custom-underline::after {
-				bottom: -0.2rem;
-				height: 0.95rem;
-			}
-		}
-		.custom-underline-2:after {
-			height: 0.6rem;
-		}
-	</style>
 	<div class="container py-5 text-center">
 		<div class="row">
 			<div class="col-xl-9 mx-auto">
 				<p class="display-3 fw-bold text-white mb-5">
 					Declaración
-					<br class="d-md-none" /><span class="custom-underline">Constitucional </span
-					><br class="d-md-none" />
+					<br class="d-md-none" />
+					<span class="custom-underline">Constitucional </span>
+					<br class="d-md-none" />
 				</p>
 				<p class="lead fw-normal" style="color: rgba(255, 255, 255, 0.9)">
 					Art. 18 Deberes Generales de las y los Asambleistas inc. g) <br /><span
