@@ -9,6 +9,7 @@ import { StaticFilePipeModule } from '../../../../core/pipes/static-file/static-
 import { PostFacade } from 'src/app/modules/admin/pages/post/facades/post.facade';
 import { PostService } from 'src/app/modules/admin/pages/post/services/post.service';
 import { PostModule } from '../../../admin/pages/post/post.module';
+import { LineZModule } from '../../../../core/components/line-z/line-z.module';
 
 @NgModule({
 	declarations: [HomeComponent],
@@ -20,7 +21,8 @@ import { PostModule } from '../../../admin/pages/post/post.module';
 		CardsModule,
 		ButtonsModule,
 		StaticFilePipeModule,
-		PostModule
+		PostModule,
+		LineZModule
 	],
 	providers: [PostFacade, PostService]
 })
