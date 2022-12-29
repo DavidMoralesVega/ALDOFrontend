@@ -7,6 +7,7 @@ import { CallsModule } from 'src/app/modules/admin/pages/calls/calls.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ResolutionFacade } from 'src/app/modules/admin/pages/resolutions/facades/resolutions.facade';
 import { ResolutionsModule } from 'src/app/modules/admin/pages/resolutions/resolutions.module';
+import { LineZModule } from '../../../../core/components/line-z/line-z.module';
 
 @NgModule({
 	declarations: [ResolutionComponent],
@@ -15,7 +16,8 @@ import { ResolutionsModule } from 'src/app/modules/admin/pages/resolutions/resol
 		ResolutionRoutingModule,
 		CallsModule,
 		NgxPaginationModule,
-		ResolutionsModule
+		ResolutionsModule,
+		LineZModule
 	],
 	providers: [ResolutionFacade]
 })

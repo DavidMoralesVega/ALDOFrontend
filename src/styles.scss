@@ -1433,7 +1433,7 @@ td.mat-column-position {
 
 .title-cursive {
 	font-family: 'Lobster', cursive !important;
-	font-size: 4rem;
+	font-size: 3rem;
 }
 
 // animate
@@ -1574,4 +1574,182 @@ td.mat-column-position {
 }
 .custom-underline-2:after {
 	height: 0.6rem;
+}
+
+.upper {
+	text-transform: uppercase;
+	opacity: 0.9;
+}
+
+// linea horizontal
+
+// .line-z {
+// 	width: 100%;
+// 	height: 4px;
+// 	margin: 0 auto;
+// 	overflow: hidden;
+// 	position: relative;
+// }
+
+// .line-z div {
+// 	float: left;
+// 	height: 100%;
+// 	width: calc(100% / 11);
+// }
+
+// .red {
+// 	background-color: red;
+// 	animation: line-z-animation 5s linear infinite;
+// }
+
+// .yellow {
+// 	background-color: yellow;
+// 	animation: line-z-animation 5s linear infinite;
+// 	animation-delay: 0.8s;
+// }
+
+// .green {
+// 	background-color: green;
+// 	animation: line-z-animation 5s linear infinite;
+// 	animation-delay: 1.7s;
+// }
+
+// .white {
+// 	background-color: white;
+// 	animation: line-z-animation 5s linear infinite;
+// 	animation-delay: 2.6s;
+// }
+
+// .orange {
+// 	background-color: orange;
+// 	animation: line-z-animation 5s linear infinite;
+// 	animation-delay: 3.5s;
+// }
+
+// .purple {
+// 	background-color: purple;
+// 	animation: line-z-animation 5s linear infinite;
+// 	animation-delay: 4.4s;
+// }
+
+// .blue {
+// 	background-color: blue;
+// 	animation: line-z-animation 5s linear infinite;
+// 	animation-delay: 5.3s;
+// }
+
+// .gray {
+// 	background-color: gray;
+// 	animation: line-z-animation 5s linear infinite;
+// 	animation-delay: 6.2s;
+// }
+
+// @keyframes line-z-animation {
+// 	0% {
+// 		transform: translateX(0);
+// 	}
+// 	10% {
+// 		transform: translateX(-10%);
+// 	}
+// 	20% {
+// 		transform: translateX(-20%);
+// 	}
+// 	30% {
+// 		transform: translateX(-30%);
+// 	}
+// 	40% {
+// 		transform: translateX(-40%);
+// 	}
+// 	50% {
+// 		transform: translateX(-50%);
+// 	}
+// 	60% {
+// 		transform: translateX(-60%);
+// 	}
+// 	70% {
+// 		transform: translateX(-70%);
+// 	}
+// 	80% {
+// 		transform: translateX(-80%);
+// 	}
+// 	90% {
+// 		transform: translateX(-90%);
+// 	}
+// 	100% {
+// 		transform: translateX(-100%);
+// 	}
+// }
+.line-z {
+	max-width: 100%;
+	width: 100%;
+	height: 4px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+	// animation: line-z-animation 5s linear infinite;
+	// transform: translateX(calc(100% - 100% / 11));
+}
+
+.line-z div {
+	float: left;
+	height: 100%;
+	width: calc(100% / 11);
+	// animation: line-z-animation 5s linear infinite;
+}
+
+.red {
+	background-color: red;
+	animation-delay: 0s;
+	transform: translateX(0);
+}
+
+.yellow {
+	background-color: yellow;
+	animation-delay: 0.8s;
+	transform: translateX(0);
+}
+
+.green {
+	background-color: green;
+	animation-delay: 1.7s;
+	transform: translateX(0);
+}
+
+.white {
+	background-color: white;
+	animation-delay: 2.6s;
+	transform: translateX(0);
+}
+
+.orange {
+	background-color: orange;
+	animation-delay: 3.5s;
+	transform: translateX(0);
+}
+
+.purple {
+	background-color: purple;
+	animation-delay: 4.4s;
+	transform: translateX(0);
+}
+
+.blue {
+	background-color: blue;
+	animation-delay: 5.3s;
+	transform: translateX(0);
+}
+
+.guindo {
+	background-color: #950033;
+	animation-delay: 6.2s;
+	transform: translateX(0);
+}
+
+@keyframes line-z-animation {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
 }
