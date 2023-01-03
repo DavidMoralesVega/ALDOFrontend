@@ -1433,7 +1433,7 @@ td.mat-column-position {
 
 .title-cursive {
 	font-family: 'Lobster', cursive !important;
-	font-size: 3rem;
+	font-size: 2rem;
 }
 
 // animate
@@ -1579,6 +1579,9 @@ td.mat-column-position {
 .upper {
 	text-transform: uppercase;
 	opacity: 0.9;
+}
+.text-uppercase {
+	text-transform: uppercase !important;
 }
 
 // linea horizontal
@@ -1752,4 +1755,8 @@ td.mat-column-position {
 	100% {
 		transform: translateX(-100%);
 	}
+}
+
+.card-document {
+	cursor: pointer !important;
 }
