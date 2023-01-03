@@ -62,7 +62,7 @@ export class CallsCreateComponent implements OnInit {
 			call_modality: new FormControl('', [Validators.required]),
 			call_numSession: new FormControl('', [Validators.required]),
 			call_dateUpdate: new FormControl('', [Validators.required]),
-			CallVisibility: new FormControl('', [Validators.required]),
+			CallVisibility: new FormControl('Público', [Validators.required]),
 			IdcallLeg: new FormControl('', [Validators.required])
 		});
 	}
@@ -116,7 +116,10 @@ export class CallsCreateComponent implements OnInit {
 	}
 
 	onChange(data: string) {
+		console.log('hola', data);
+
 		let dataNew = parseInt(data);
+
 		if (dataNew === 60) {
 			this.init();
 			for (let index = 0; index < dataNew; index++) {

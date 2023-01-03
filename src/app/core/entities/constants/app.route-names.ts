@@ -226,9 +226,9 @@ export const ZListCalls: any = [
 
 // contrato
 export const ZListContract: any = [
-	{ value: '0', key: 'Menores Contratacion menor' },
-	{ value: '1', key: 'Mayor RPC licitacion Publica' },
-	{ value: '2', key: 'ANPE Apoyo Nacional a la Producion de Empleo' }
+	{ value: '0', key: 'Menores - Contratación Menor' },
+	{ value: '1', key: 'Mayor RPC - Licitación Pública' },
+	{ value: '2', key: 'ANPE - Apoyo Nacional a la Produción de Empleo' }
 ];
 
 // area
@@ -766,9 +766,9 @@ export const ZListCardCommissions: any = [
 
 // MODALIDAD
 export const ZListModalidad: any = [
-	{ value: '60', key: 'Ordinaria (60 Sesiones)' },
-	{ value: '50', key: 'Extraordinaria (50 Sesiones)' },
-	{ value: '20', key: 'Sesiones de Honor (20 Sesiones)' }
+	{ value: '60', key: 'Ordinaria' },
+	{ value: '50', key: 'Extraordinaria' },
+	{ value: '20', key: 'Sesiones de honor' }
 ];
 
 // SESIONES
