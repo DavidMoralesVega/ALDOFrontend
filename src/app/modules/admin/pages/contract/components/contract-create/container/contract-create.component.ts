@@ -35,12 +35,9 @@ export class ContractCreateComponent implements OnInit {
 		this.formCreate = new FormGroup({
 			CTTitle: new FormControl('', [Validators.required, Validators.maxLength(40)]),
 			CTSummary: new FormControl('', [Validators.required, Validators.maxLength(40)]),
-			CTPublicationDate: new FormControl('', [Validators.required]),
 			CTIssueDate: new FormControl('', [Validators.required]),
 			CTDocumentNumber: new FormControl('', [Validators.required]),
-			CTType: new FormControl('', [Validators.required]),
-
-			CTVisibility: new FormControl(true, [Validators.required])
+			CTType: new FormControl('', [Validators.required])
 		});
 	}
 	get CTTitle() {
@@ -48,9 +45,6 @@ export class ContractCreateComponent implements OnInit {
 	}
 	get CTSummary() {
 		return this.formCreate.get('CTSummary')!;
-	}
-	get CTPublicationDate() {
-		return this.formCreate.get('CTPublicationDate')!;
 	}
 	get CTIssueDate() {
 		return this.formCreate.get('CTIssueDate')!;
@@ -61,27 +55,22 @@ export class ContractCreateComponent implements OnInit {
 	get CTType() {
 		return this.formCreate.get('CTType')!;
 	}
-	get CTVisibility() {
-		return this.formCreate.get('CTVisibility')!;
-	}
 	create() {
 		console.log('hola antes form');
 
 		if (this.formCreate.invalid) return;
 
 		// if (!this.isValidImage) return;
-		console.log('CTVisibility', this.CTVisibility.value);
 		console.log('CTFile', this.file);
 
 		let createResolutionDto = new FormData();
 		createResolutionDto.append('CTTitle', this.CTTitle.value);
 		createResolutionDto.append('CTSummary', this.CTSummary.value);
-		createResolutionDto.append('CTPublicationDate', this.CTPublicationDate.value);
 		createResolutionDto.append('CTIssueDate', this.CTIssueDate.value);
 		createResolutionDto.append('CTDocumentNumber', this.CTDocumentNumber.value);
 		createResolutionDto.append('CTType', this.CTType.value);
 
-		createResolutionDto.append('CTVisibility', this.CTVisibility.value);
+		createResolutionDto.append('CTVisibility', 'Privado');
 		createResolutionDto.append('CTFile', this.file);
 
 		console.log(createResolutionDto);
