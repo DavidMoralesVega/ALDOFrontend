@@ -226,9 +226,9 @@ export const ZListCalls: any = [
 
 // contrato
 export const ZListContract: any = [
-	{ value: '0', key: 'Menores Contratacion menor' },
-	{ value: '1', key: 'Mayor RPC licitacion Publica' },
-	{ value: '2', key: 'ANPE Apoyo Nacional a la Producion de Empleo' }
+	{ value: '0', key: 'Menores - Contratación Menor' },
+	{ value: '1', key: 'Mayor RPC - Licitación Pública' },
+	{ value: '2', key: 'ANPE - Apoyo Nacional a la Produción de Empleo' }
 ];
 
 // area
@@ -276,6 +276,9 @@ export const ZListCardCommissions: any = [
 				img: 'directiva/1EsperanzaMamaniAjhuacho.png',
 				col: '12',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '290',
 				width: '200'
@@ -286,6 +289,9 @@ export const ZListCardCommissions: any = [
 				img: 'directiva/2ErwinVargasChacon.png',
 				col: '3',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -296,6 +302,9 @@ export const ZListCardCommissions: any = [
 				img: 'directiva/3AnabelBernardaChambiLaura.png',
 				col: '3',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -306,6 +315,9 @@ export const ZListCardCommissions: any = [
 				img: 'directiva/4MiguelMauricioChoque.png',
 				col: '3',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -316,6 +328,9 @@ export const ZListCardCommissions: any = [
 				img: 'directiva/5AnaTarquiAdrian.png',
 				col: '3',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -334,6 +349,9 @@ export const ZListCardCommissions: any = [
 				img: 'constitucion/1RonmieVillcaAltamirano.png',
 				col: '12',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -344,6 +362,9 @@ export const ZListCardCommissions: any = [
 				img: 'constitucion/2MarinaQuispeChoque.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -354,6 +375,9 @@ export const ZListCardCommissions: any = [
 				img: 'constitucion/3FranciscaLuisaRufinoCalizaya.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -364,6 +388,9 @@ export const ZListCardCommissions: any = [
 				img: 'constitucion/4NatividadCruzAcurana.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -382,6 +409,9 @@ export const ZListCardCommissions: any = [
 				img: 'planificacion/1MariaCarolinaLinoCondori.png',
 				col: '12',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -392,6 +422,9 @@ export const ZListCardCommissions: any = [
 				img: 'planificacion/2HugoHuancaChoque.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -402,6 +435,9 @@ export const ZListCardCommissions: any = [
 				img: 'planificacion/3MariaMamaniMolina.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -412,6 +448,9 @@ export const ZListCardCommissions: any = [
 				img: 'planificacion/4EdgarAlexHuancaGuanay.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -429,6 +468,9 @@ export const ZListCardCommissions: any = [
 				img: 'infraestructura/1JhoselinAnconiChambi.png',
 				col: '12',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -439,6 +481,9 @@ export const ZListCardCommissions: any = [
 				img: 'infraestructura/2ArmandoBarreraChoqueticlla.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -449,6 +494,9 @@ export const ZListCardCommissions: any = [
 				img: 'infraestructura/3DavidDanteChoqueZegarra.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -459,6 +507,9 @@ export const ZListCardCommissions: any = [
 				img: 'infraestructura/4TeodoroCalizayaChoquerive.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -476,6 +527,9 @@ export const ZListCardCommissions: any = [
 				img: 'mineria/1EdwinFuentesCamacho.png',
 				col: '12',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -486,6 +540,9 @@ export const ZListCardCommissions: any = [
 				img: 'mineria/2FreddyCastilloChavez.png',
 				col: '6',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -496,6 +553,9 @@ export const ZListCardCommissions: any = [
 				img: 'mineria/3RamonRaulCaroSantos.png',
 				col: '6',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -513,6 +573,9 @@ export const ZListCardCommissions: any = [
 				img: 'autonomia/1ZulmaArellanoChoquetopa.png',
 				col: '12',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -523,6 +586,9 @@ export const ZListCardCommissions: any = [
 				img: 'autonomia/2NicolasChoqueColque.png',
 				col: '6',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -533,6 +599,9 @@ export const ZListCardCommissions: any = [
 				img: 'autonomia/3DeliaGongoraVeliz.png',
 				col: '6',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -551,6 +620,9 @@ export const ZListCardCommissions: any = [
 				img: 'relaciones/1FranzJhonnyOchoaYucra.png',
 				col: '12',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -561,6 +633,9 @@ export const ZListCardCommissions: any = [
 				img: 'relaciones/2MirianLuciaRochaCanaviri.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -571,6 +646,9 @@ export const ZListCardCommissions: any = [
 				img: 'relaciones/3JhnonyFernandezCalani.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -581,6 +659,9 @@ export const ZListCardCommissions: any = [
 				img: 'relaciones/4RomanBrito.png',
 				col: '4',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -599,6 +680,9 @@ export const ZListCardCommissions: any = [
 				img: 'educacion/1MaximaApazaLuna.png',
 				col: '12',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -609,6 +693,9 @@ export const ZListCardCommissions: any = [
 				img: 'educacion/2JuanaGabrielaEscarzoMamani.png',
 				col: '6',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -619,6 +706,9 @@ export const ZListCardCommissions: any = [
 				img: 'educacion/3AlfredoAcapaColque.png',
 				col: '6',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -637,6 +727,9 @@ export const ZListCardCommissions: any = [
 				img: 'ambiente/1JoseLuisAranibarAraviri.png',
 				col: '12',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -647,6 +740,9 @@ export const ZListCardCommissions: any = [
 				img: 'ambiente/2FreddyRaulRamosQuispe.png',
 				col: '6',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -657,6 +753,9 @@ export const ZListCardCommissions: any = [
 				img: 'ambiente/3AusbertoCondoriChoque.png',
 				col: '6',
 				whatsapp: '12345678',
+				dateBirth: '2 de noviembre de 2022',
+				placeBirth: 'Oruro - Cercado',
+				origin: 'Carangas',
 				linkedin: 'https',
 				height: '220',
 				width: '200'
@@ -667,9 +766,9 @@ export const ZListCardCommissions: any = [
 
 // MODALIDAD
 export const ZListModalidad: any = [
-	{ value: '60', key: 'Ordinaria (60 Sesiones)' },
-	{ value: '50', key: 'Extraordinaria (50 Sesiones)' },
-	{ value: '20', key: 'Sesiones de Honor (20 Sesiones)' }
+	{ value: '60', key: 'Ordinaria' },
+	{ value: '50', key: 'Extraordinaria' },
+	{ value: '20', key: 'Sesiones de honor' }
 ];
 
 // SESIONES
@@ -736,7 +835,7 @@ export const ZListSesiones: any = [
 	{ value: '60', key: 'SEXAGESIMA SESION' }
 ];
 
-/* 
+/*
 cuadragésimo
 quincuagésimo
 sexagésimo
