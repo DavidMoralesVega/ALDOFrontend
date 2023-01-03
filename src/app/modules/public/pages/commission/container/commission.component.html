@@ -81,12 +81,29 @@
 						<h5 class="sub-title">{{ cChildren.role | uppercase }}</h5>
 
 						<div class="mt-3 mb-3">
-							<button type="button" class="btn btn-outline-light btn-floating me-3">
+							<a
+								mdbPopover="
+                  Fecha de nacimiento: {{ cChildren.dateBirth }},
+                  Lugar de nacimiento: {{ cChildren.placeBirth }},
+                  Municipio o provincia: {{ cChildren.origin }}
+                "
+								placement="bottom"
+								popoverTitle="{{ cChildren.name }}"
+								triggers="focus"
+								mdbWavesEffect
+								type="button"
+								class="btn btn-outline-light btn-floating me-3"
+							>
 								<i class="fas fa-info"></i>
-							</button>
-							<button type="button" class="btn btn-success btn-floating me-3">
+							</a>
+
+							<a
+								href="https://api.whatsapp.com/send?phone=591{{ cChildren.whatsapp }}"
+								target="_blank"
+								class="btn btn-success btn-floating me-3"
+							>
 								<i class="fab fa-whatsapp"></i>
-							</button>
+							</a>
 							<button type="button" class="btn btn-primary btn-floating">
 								<i class="fab fa-linkedin-in"></i>
 							</button>
