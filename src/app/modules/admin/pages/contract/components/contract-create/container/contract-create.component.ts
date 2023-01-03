@@ -69,7 +69,6 @@ export class ContractCreateComponent implements OnInit {
 		createResolutionDto.append('CTIssueDate', this.CTIssueDate.value);
 		createResolutionDto.append('CTDocumentNumber', this.CTDocumentNumber.value);
 		createResolutionDto.append('CTType', this.CTType.value);
-
 		createResolutionDto.append('CTVisibility', 'Privado');
 		createResolutionDto.append('CTFile', this.file);
 
