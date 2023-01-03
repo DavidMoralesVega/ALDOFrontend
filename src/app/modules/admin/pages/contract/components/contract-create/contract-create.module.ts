@@ -25,9 +25,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 		MatButtonModule,
 		MatSelectModule,
 		MatRadioModule,
-		// upload file
 		UploadInputTypeDocumentModule,
-
 		MatDatepickerModule,
 		MatNativeDateModule
 	],
