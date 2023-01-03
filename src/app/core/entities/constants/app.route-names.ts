@@ -53,7 +53,7 @@ export const ZPaths: IZPath[] = [
 			{
 				module: 'request-written',
 				path: `${ZPath_ADMIN}/request-written`,
-				name: 'Petición de informe inscrito',
+				name: 'Petición de informe escrito',
 				icon: 'bell'
 			},
 			{
