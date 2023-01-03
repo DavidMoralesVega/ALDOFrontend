@@ -26,7 +26,6 @@ import { JsonAsyncModule } from 'src/app/core/pipes/json-async/json-async.module
 		MatButtonModule,
 		MatSelectModule,
 		MatRadioModule,
-		// upload file
 		UploadInputTypeDocumentModule,
 		MatDatepickerModule,
 		MatNativeDateModule,

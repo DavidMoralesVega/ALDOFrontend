@@ -47,11 +47,6 @@
 				<td mat-cell *matCellDef="let row">{{ row.dtsummary }}</td>
 			</ng-container>
 
-			<ng-container matColumnDef="DTPublicationDate">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de publicación</th>
-				<td mat-cell *matCellDef="let row">{{ row.dtpublicationDate | date : 'medium' }}</td>
-			</ng-container>
-
 			<ng-container matColumnDef="DTIssueDate">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de emisión</th>
 				<td mat-cell *matCellDef="let row">{{ row.dtissueDate | date : 'medium' }}</td>
