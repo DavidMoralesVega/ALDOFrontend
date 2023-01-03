@@ -6,9 +6,17 @@ export const ZPaths: IZPath[] = [
 	{
 		module: 'adsi',
 		collase: true,
-		name: 'Gaceta',
+		name: 'Configuración',
 		icon: 'cog',
-		children: [{ module: 'usuario', path: `${ZPath_ADMIN}/user`, name: 'Usuario', icon: 'bell' }]
+		children: [
+			{ module: 'usuario', path: `${ZPath_ADMIN}/user`, name: 'Usuario', icon: 'bell' },
+			{
+				module: 'legislature',
+				path: `${ZPath_ADMIN}/legislature`,
+				name: 'Legislatura',
+				icon: 'bell'
+			}
+		]
 	},
 	{
 		module: 'adsi',
@@ -64,12 +72,6 @@ export const ZPaths: IZPath[] = [
 				module: 'search-biblioteca',
 				path: `${ZPath_ADMIN}/search-biblioteca`,
 				name: 'Buscador Biblioteca',
-				icon: 'bell'
-			},
-			{
-				module: 'legislature',
-				path: `${ZPath_ADMIN}/legislature`,
-				name: 'Legislatura',
 				icon: 'bell'
 			}
 		]

@@ -47,19 +47,7 @@
 				</mat-form-field>
 
 				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Fecha de publicación</mat-label>
-					<input
-						matInput
-						[matDatepicker]="CTPublicationDate"
-						formControlName="CTPublicationDate"
-					/>
-					<mat-hint>MM/DD/YYYY</mat-hint>
-					<mat-datepicker-toggle matSuffix [for]="CTPublicationDate"></mat-datepicker-toggle>
-					<mat-datepicker touchUi #CTPublicationDate></mat-datepicker>
-				</mat-form-field>
-
-				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Fecha de emisión</mat-label>
+					<mat-label>Fecha de la firma</mat-label>
 					<input matInput [matDatepicker]="CTIssueDate" formControlName="CTIssueDate" />
 					<mat-hint>MM/DD/YYYY</mat-hint>
 					<mat-datepicker-toggle matSuffix [for]="CTIssueDate"></mat-datepicker-toggle>
@@ -89,18 +77,6 @@
 						</mat-option>
 					</mat-select>
 				</mat-form-field>
-				<div class="z-container-raddio-button">
-					<label class="z-label">Seleccionar la visibilidad</label>
-
-					<mat-radio-group formControlName="CTVisibility" class="z-radio-group">
-						<mat-radio-button class="z-radio-button" value="Público">
-							Público
-						</mat-radio-button>
-						<mat-radio-button class="z-radio-button" value="Privado">
-							Privado
-						</mat-radio-button>
-					</mat-radio-group>
-				</div>
 			</div>
 		</div>
 		<mat-dialog-actions align="end">
