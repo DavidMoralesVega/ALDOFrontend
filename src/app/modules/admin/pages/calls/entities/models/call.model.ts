@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Adapter } from 'src/app/core/entities/adapters/object.adapter';
+import { LegislatureAdapter } from '../../../legislature/entities/models/legislature.model';
 
 export class CallAdapter {
 	constructor(
@@ -18,6 +19,10 @@ export class CallAdapter {
 }
 
 export type CreateCallDto = Omit<CallAdapter, 'call_id' | 'call_create' | 'call_estado'>;
+
+export interface UpdateCallForeignAdapter extends CallAdapter {
+	readonly legislatura: LegislatureAdapter;
+}
 
 export interface UpdateCallDto extends Partial<CallAdapter> {}
 
