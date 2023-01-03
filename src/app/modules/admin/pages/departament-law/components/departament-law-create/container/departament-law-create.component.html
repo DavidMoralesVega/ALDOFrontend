@@ -77,20 +77,6 @@
 					</mat-error>
 				</mat-form-field>
 
-				<!-- <mat-form-field appearance="fill">
-					<mat-label>Legislatura</mat-label>
-					<select formControlName="IddeparLwLeg" matNativeControl>
-						<option value=""></option>
-						<option
-							*ngFor="let legislature of (legislatureFindAllResponse$ | async)!.data"
-							[value]="legislature | jsonData : 'IdLegislatura'"
-							[selected]="!(legislature | jsonData : 'LegEstado') === true"
-						>
-							{{ legislature | jsonData : 'LegDescripcion' }}
-						</option>
-					</select>
-				</mat-form-field> -->
-
 				<mat-form-field
 					*ngIf="!(legislatureFindAllIsLoading$ | async)"
 					class="col-lg-12 mb-2"

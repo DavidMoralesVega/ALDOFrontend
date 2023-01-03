@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DefaultErrorMatcher } from '../../../../../../../core/shared/default.error-matcher';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { DepartamentLaw } from '../../../entities/models/departament-law.model';
 import { DepartamentLawFacade } from '../../../facades/departament-law.facade';
 import { PayloadFile, ZListArea, Response, Pagination } from 'src/app/core/entities';
 import * as _moment from 'moment';
@@ -80,14 +79,6 @@ export class DepartamentLawCreateComponent implements OnInit {
 
 	create() {
 		if (this.formCreate.invalid) return;
-		/* console.log(this.DTTitle.value);
-		console.log(this.DTSummary.value);
-		console.log(this.DTPublicationDate.value);
-		console.log(this.DTIssueDate.value);
-		console.log(this.DTDocumentNumber.value);
-		console.log(this.DTArea.value);
-		console.log(this.DTVisibility.value);
-		console.log(this.IddeparLwLeg.value); */
 
 		let createDepartamentLawDto = new FormData();
 		createDepartamentLawDto.append('dttitle', this.DTTitle.value);

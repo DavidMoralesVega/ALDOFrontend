@@ -7,7 +7,7 @@ export class DepartamentLawAdapter {
 		public readonly IdDepartamentaLaw: string,
 		public readonly dttitle: string,
 		public readonly dtsummary: string,
-		public readonly dtpublicationDate: string,
+		public readonly dtpublicationdate: string,
 		public readonly dtissueDate: string,
 		public readonly DTDocumentNumber: string,
 		public readonly dtarea: string,
@@ -24,8 +24,8 @@ export type CreateDepartamentLawDto = Omit<
 	'IdDepartamentaLaw' | 'dtstate' | 'DTDateRegister'
 >;
 
-export interface RequestWrittenForeignAdapter extends DepartamentLawAdapter {
-	readonly legislature: LegislatureAdapter;
+export interface UpdateDepartamentLawForeignAdapter extends DepartamentLawAdapter {
+	readonly legislatura: LegislatureAdapter;
 }
 
 export interface UpdateDepartamentLawDto extends Partial<DepartamentLawAdapter> {}
@@ -37,7 +37,7 @@ export class DepartamentLaw implements Adapter<DepartamentLawAdapter> {
 			departamentLawAdapter.IdDepartamentaLaw,
 			departamentLawAdapter.dttitle,
 			departamentLawAdapter.dtsummary,
-			departamentLawAdapter.dtpublicationDate,
+			departamentLawAdapter.dtpublicationdate,
 			departamentLawAdapter.dtissueDate,
 			departamentLawAdapter.DTDocumentNumber,
 			departamentLawAdapter.dtarea,
