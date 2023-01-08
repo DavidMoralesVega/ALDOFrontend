@@ -4,11 +4,35 @@ import { Pagination } from '../../../../../core/entities/interfaces/pagination.i
 import { Observable, Subscription } from 'rxjs';
 import { Post } from '../../../../admin/pages/post/entities/models/post.model';
 import { Response } from 'src/app/core/entities';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
-	styleUrls: ['./home.component.scss']
+	styleUrls: ['./home.component.scss'],
+	animations: [
+		trigger('slide-in-down', [
+			transition(':enter', [
+				style({ transform: 'translateY(-100%)' }),
+				animate('500ms ease-in', style({ transform: 'translateY(0%)' }))
+			]),
+			transition(':leave', [animate('500ms ease-in', style({ transform: 'translateY(-100%)' }))])
+		]),
+		trigger('fade-in', [
+			transition(':enter', [
+				style({ opacity: 0 }),
+				animate('500ms ease-in', style({ opacity: 1 }))
+			]),
+			transition(':leave', [animate('500ms ease-in', style({ opacity: 0 }))])
+		]),
+		trigger('bounce-in', [
+			transition(':enter', [
+				style({ transform: 'translateY(-50%)' }),
+				animate('5000ms ease-in', style({ transform: 'translateY(0%)' }))
+			]),
+			transition(':leave', [animate('500ms ease-in', style({ transform: 'translateY(-50%)' }))])
+		])
+	]
 })
 export class HomeComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Post[]> | null>;
@@ -24,6 +48,12 @@ export class HomeComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
+
+	// @HostListener('window:scroll', ['$event'])
+	// onWindowScroll($event: any) {
+	//   const element = document.querySelector('.gradient-violet');
+	//   element!.style.animation = 'slide-in-down 500ms ease-in';
+	// }
 
 	constructor(private readonly postFacade: PostFacade) {
 		this.findAllResponse$ = this.postFacade.findAllResponse$;
