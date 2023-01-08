@@ -4,7 +4,13 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './containers/home.component';
 
-import { WavesModule, IconsModule, CardsModule, ButtonsModule } from 'ng-uikit-pro-standard';
+import {
+	WavesModule,
+	IconsModule,
+	CardsModule,
+	ButtonsModule,
+	MDBBootstrapModulesPro
+} from 'ng-uikit-pro-standard';
 import { StaticFilePipeModule } from '../../../../core/pipes/static-file/static-file.module';
 import { PostFacade } from 'src/app/modules/admin/pages/post/facades/post.facade';
 import { PostService } from 'src/app/modules/admin/pages/post/services/post.service';
@@ -22,7 +28,8 @@ import { LineZModule } from '../../../../core/components/line-z/line-z.module';
 		ButtonsModule,
 		StaticFilePipeModule,
 		PostModule,
-		LineZModule
+		LineZModule,
+		MDBBootstrapModulesPro.forRoot()
 	],
 	providers: [PostFacade, PostService]
 })

@@ -1681,80 +1681,318 @@ td.mat-column-position {
 // 	100% {
 // 		transform: translateX(-100%);
 // 	}
+// // }
+// .line-z {
+// 	max-width: 100%;
+// 	width: 100%;
+// 	height: 4px;
+// 	margin: 0 auto;
+// 	overflow: hidden;
+// 	position: relative;
+// 	// animation: line-z-animation 5s linear infinite;
+// 	// transform: translateX(calc(100% - 100% / 11));
 // }
+
+// .line-z div {
+// 	float: left;
+// 	height: 100%;
+// 	width: calc(100% / 11);
+// 	// animation: line-z-animation 5s linear infinite;
+// }
+
+// .red {
+// 	background-color: red;
+// 	animation-delay: 0s;
+// 	transform: translateX(0);
+// }
+
+// .yellow {
+// 	background-color: yellow;
+// 	animation-delay: 0.8s;
+// 	transform: translateX(0);
+// }
+
+// .green {
+// 	background-color: green;
+// 	animation-delay: 1.7s;
+// 	transform: translateX(0);
+// }
+
+// .white {
+// 	background-color: white;
+// 	animation-delay: 2.6s;
+// 	transform: translateX(0);
+// }
+
+// .orange {
+// 	background-color: orange;
+// 	animation-delay: 3.5s;
+// 	transform: translateX(0);
+// }
+
+// .purple {
+// 	background-color: purple;
+// 	animation-delay: 4.4s;
+// 	transform: translateX(0);
+// }
+
+// .blue {
+// 	background-color: blue;
+// 	animation-delay: 5.3s;
+// 	transform: translateX(0);
+// }
+
+// .guindo {
+// 	background-color: #950033;
+// 	animation-delay: 6.2s;
+// 	transform: translateX(0);
+// }
+
+// @keyframes line-z-animation {
+// 	0% {
+// 		transform: translateX(0);
+// 	}
+// 	100% {
+// 		transform: translateX(-100%);
+// 	}
+// }
+
+// .line-z {
+// 	max-width: 100%;
+// 	width: 100%;
+// 	height: 4px;
+// 	margin: 0 auto;
+// 	overflow: hidden;
+// 	position: relative;
+// 	// animation: line-z-animation 5s linear infinite;
+// 	// transform: translateX(calc(100% - 100% / 11));
+// }
+
 .line-z {
-	max-width: 100%;
 	width: 100%;
-	height: 4px;
-	margin: 0 auto;
-	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
 	position: relative;
-	// animation: line-z-animation 5s linear infinite;
-	// transform: translateX(calc(100% - 100% / 11));
+	margin: 0 auto;
+	height: 60px;
+	overflow: hidden;
 }
 
 .line-z div {
-	float: left;
-	height: 100%;
+	height: 5px;
 	width: calc(100% / 11);
-	// animation: line-z-animation 5s linear infinite;
+	background-color: #ccc;
+	margin: 0 0.9px;
+	top: 10px;
+	animation: moveBubble linear 3s infinite;
 }
 
-.red {
-	background-color: red;
-	animation-delay: 0s;
-	transform: translateX(0);
+.line-z .red {
+	background-color: #ff0000;
 }
 
-.yellow {
-	background-color: yellow;
-	animation-delay: 0.8s;
-	transform: translateX(0);
+.line-z .yellow {
+	background-color: #ffff00;
 }
 
-.green {
-	background-color: green;
-	animation-delay: 1.7s;
-	transform: translateX(0);
+.line-z .green {
+	background-color: #00ff00;
 }
 
-.white {
-	background-color: white;
-	animation-delay: 2.6s;
-	transform: translateX(0);
+.line-z .white {
+	background-color: #ffffff;
 }
 
-.orange {
-	background-color: orange;
-	animation-delay: 3.5s;
-	transform: translateX(0);
+.line-z .orange {
+	background-color: #ffa500;
 }
 
-.purple {
-	background-color: purple;
-	animation-delay: 4.4s;
-	transform: translateX(0);
+.line-z .purple {
+	background-color: #800080;
 }
 
-.blue {
-	background-color: blue;
-	animation-delay: 5.3s;
-	transform: translateX(0);
+.line-z .blue {
+	background-color: #0000ff;
 }
 
-.guindo {
-	background-color: #950033;
-	animation-delay: 6.2s;
-	transform: translateX(0);
+.line-z .guindo {
+	background-color: #b22222;
 }
 
-@keyframes line-z-animation {
-	0% {
-		transform: translateX(0);
+@keyframes moveBubble {
+	0%,
+	25% {
+		transform: translateY(0);
+	}
+	50%,
+	75% {
+		transform: translateY(-10px);
+		opacity: 1;
 	}
 	100% {
-		transform: translateX(-100%);
+		transform: translateY(0);
+		opacity: 0;
 	}
+}
+
+@keyframes moveBubbleRed {
+	0%,
+	25% {
+		transform: translateY(0);
+	}
+	50%,
+	75% {
+		transform: translateY(-10px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 0;
+	}
+}
+
+@keyframes moveBubbleYellow {
+	0%,
+	25% {
+		transform: translateY(0);
+	}
+	50%,
+	75% {
+		transform: translateY(-10px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 0;
+	}
+}
+
+@keyframes moveBubbleGreen {
+	0%,
+	25% {
+		transform: translateY(0);
+	}
+	50%,
+	75% {
+		transform: translateY(-10px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 0;
+	}
+}
+
+@keyframes moveBubbleWhite {
+	0%,
+	25% {
+		transform: translateY(0);
+	}
+	50%,
+	75% {
+		transform: translateY(-10px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 0;
+	}
+}
+
+@keyframes moveBubbleOrange {
+	0%,
+	25% {
+		transform: translateY(0);
+	}
+	50%,
+	75% {
+		transform: translateY(-10px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 0;
+	}
+}
+
+@keyframes moveBubblePurple {
+	0%,
+	25% {
+		transform: translateY(0);
+	}
+	50%,
+	75% {
+		transform: translateY(-10px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 0;
+	}
+}
+
+@keyframes moveBubbleBlue {
+	0%,
+	25% {
+		transform: translateY(0);
+	}
+	50%,
+	75% {
+		transform: translateY(-10px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 0;
+	}
+}
+
+@keyframes moveBubbleGuindo {
+	0%,
+	25% {
+		transform: translateY(0);
+	}
+	50%,
+	75% {
+		transform: translateY(-10px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 0;
+	}
+}
+
+.line-z .red {
+	animation: moveBubbleRed linear 3s infinite;
+}
+
+.line-z .yellow {
+	animation: moveBubbleYellow linear 3s infinite;
+}
+
+.line-z .green {
+	animation: moveBubbleGreen linear 3s infinite;
+}
+
+.line-z .white {
+	animation: moveBubbleWhite linear 3s infinite;
+}
+
+.line-z .orange {
+	animation: moveBubbleOrange linear 3s infinite;
+}
+
+.line-z .purple {
+	animation: moveBubblePurple linear 3s infinite;
+}
+
+.line-z .blue {
+	animation: moveBubbleBlue linear 3s infinite;
+}
+
+.line-z .guindo {
+	animation: moveBubbleGuindo linear 3s infinite;
 }
 
 .card-document {
