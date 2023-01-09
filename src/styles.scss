@@ -55,6 +55,7 @@ $frontend-theme: mat.define-light-theme(
 // @import 'ng-uikit-pro-standard/assets/scss/addons-pro/_steppers-pro.scss';
 // @import 'ng-uikit-pro-standard/assets/scss/addons-pro/_timeline-pro.scss';
 // @import 'ng-uikit-pro-standard/assets/scss/addons-pro/_timelines-pro.scss';
+@import '~animate.css/animate.min.css';
 
 :root {
 	--z-theme-color-white: #fff;
@@ -1782,7 +1783,7 @@ td.mat-column-position {
 	height: 5px;
 	width: calc(100% / 11);
 	background-color: #ccc;
-	margin: 0 0.9px;
+	margin: 0 0.5px;
 	top: 10px;
 	animation: moveBubble linear 3s infinite;
 }
@@ -1819,181 +1820,181 @@ td.mat-column-position {
 	background-color: #b22222;
 }
 
-@keyframes moveBubble {
-	0%,
-	25% {
-		transform: translateY(0);
-	}
-	50%,
-	75% {
-		transform: translateY(-10px);
-		opacity: 1;
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 0;
-	}
-}
+// @keyframes moveBubble {
+// 	0%,
+// 	25% {
+// 		transform: translateY(0);
+// 	}
+// 	50%,
+// 	75% {
+// 		transform: translateY(-10px);
+// 		opacity: 1;
+// 	}
+// 	100% {
+// 		transform: translateY(0);
+// 		opacity: 0;
+// 	}
+// }
 
-@keyframes moveBubbleRed {
-	0%,
-	25% {
-		transform: translateY(0);
-	}
-	50%,
-	75% {
-		transform: translateY(-10px);
-		opacity: 1;
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 0;
-	}
-}
+// @keyframes moveBubbleRed {
+// 	0%,
+// 	25% {
+// 		transform: translateY(0);
+// 	}
+// 	50%,
+// 	75% {
+// 		transform: translateY(-10px);
+// 		opacity: 1;
+// 	}
+// 	100% {
+// 		transform: translateY(0);
+// 		opacity: 0;
+// 	}
+// }
 
-@keyframes moveBubbleYellow {
-	0%,
-	25% {
-		transform: translateY(0);
-	}
-	50%,
-	75% {
-		transform: translateY(-10px);
-		opacity: 1;
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 0;
-	}
-}
+// @keyframes moveBubbleYellow {
+// 	0%,
+// 	25% {
+// 		transform: translateY(0);
+// 	}
+// 	50%,
+// 	75% {
+// 		transform: translateY(-10px);
+// 		opacity: 1;
+// 	}
+// 	100% {
+// 		transform: translateY(0);
+// 		opacity: 0;
+// 	}
+// }
 
-@keyframes moveBubbleGreen {
-	0%,
-	25% {
-		transform: translateY(0);
-	}
-	50%,
-	75% {
-		transform: translateY(-10px);
-		opacity: 1;
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 0;
-	}
-}
+// @keyframes moveBubbleGreen {
+// 	0%,
+// 	25% {
+// 		transform: translateY(0);
+// 	}
+// 	50%,
+// 	75% {
+// 		transform: translateY(-10px);
+// 		opacity: 1;
+// 	}
+// 	100% {
+// 		transform: translateY(0);
+// 		opacity: 0;
+// 	}
+// }
 
-@keyframes moveBubbleWhite {
-	0%,
-	25% {
-		transform: translateY(0);
-	}
-	50%,
-	75% {
-		transform: translateY(-10px);
-		opacity: 1;
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 0;
-	}
-}
+// @keyframes moveBubbleWhite {
+// 	0%,
+// 	25% {
+// 		transform: translateY(0);
+// 	}
+// 	50%,
+// 	75% {
+// 		transform: translateY(-10px);
+// 		opacity: 1;
+// 	}
+// 	100% {
+// 		transform: translateY(0);
+// 		opacity: 0;
+// 	}
+// }
 
-@keyframes moveBubbleOrange {
-	0%,
-	25% {
-		transform: translateY(0);
-	}
-	50%,
-	75% {
-		transform: translateY(-10px);
-		opacity: 1;
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 0;
-	}
-}
+// @keyframes moveBubbleOrange {
+// 	0%,
+// 	25% {
+// 		transform: translateY(0);
+// 	}
+// 	50%,
+// 	75% {
+// 		transform: translateY(-10px);
+// 		opacity: 1;
+// 	}
+// 	100% {
+// 		transform: translateY(0);
+// 		opacity: 0;
+// 	}
+// }
 
-@keyframes moveBubblePurple {
-	0%,
-	25% {
-		transform: translateY(0);
-	}
-	50%,
-	75% {
-		transform: translateY(-10px);
-		opacity: 1;
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 0;
-	}
-}
+// @keyframes moveBubblePurple {
+// 	0%,
+// 	25% {
+// 		transform: translateY(0);
+// 	}
+// 	50%,
+// 	75% {
+// 		transform: translateY(-10px);
+// 		opacity: 1;
+// 	}
+// 	100% {
+// 		transform: translateY(0);
+// 		opacity: 0;
+// 	}
+// }
 
-@keyframes moveBubbleBlue {
-	0%,
-	25% {
-		transform: translateY(0);
-	}
-	50%,
-	75% {
-		transform: translateY(-10px);
-		opacity: 1;
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 0;
-	}
-}
+// @keyframes moveBubbleBlue {
+// 	0%,
+// 	25% {
+// 		transform: translateY(0);
+// 	}
+// 	50%,
+// 	75% {
+// 		transform: translateY(-10px);
+// 		opacity: 1;
+// 	}
+// 	100% {
+// 		transform: translateY(0);
+// 		opacity: 0;
+// 	}
+// }
 
-@keyframes moveBubbleGuindo {
-	0%,
-	25% {
-		transform: translateY(0);
-	}
-	50%,
-	75% {
-		transform: translateY(-10px);
-		opacity: 1;
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 0;
-	}
-}
+// @keyframes moveBubbleGuindo {
+// 	0%,
+// 	25% {
+// 		transform: translateY(0);
+// 	}
+// 	50%,
+// 	75% {
+// 		transform: translateY(-10px);
+// 		opacity: 1;
+// 	}
+// 	100% {
+// 		transform: translateY(0);
+// 		opacity: 0;
+// 	}
+// }
 
-.line-z .red {
-	animation: moveBubbleRed linear 3s infinite;
-}
+// .line-z .red {
+// 	animation: moveBubbleRed linear 1.5s infinite;
+// }
 
-.line-z .yellow {
-	animation: moveBubbleYellow linear 3s infinite;
-}
+// .line-z .yellow {
+// 	animation: moveBubbleYellow linear 1.5s infinite;
+// }
 
-.line-z .green {
-	animation: moveBubbleGreen linear 3s infinite;
-}
+// .line-z .green {
+// 	animation: moveBubbleGreen linear 1.5s infinite;
+// }
 
-.line-z .white {
-	animation: moveBubbleWhite linear 3s infinite;
-}
+// .line-z .white {
+// 	animation: moveBubbleWhite linear 1.5s infinite;
+// }
 
-.line-z .orange {
-	animation: moveBubbleOrange linear 3s infinite;
-}
+// .line-z .orange {
+// 	animation: moveBubbleOrange linear 1.5s infinite;
+// }
 
-.line-z .purple {
-	animation: moveBubblePurple linear 3s infinite;
-}
+// .line-z .purple {
+// 	animation: moveBubblePurple linear 1.5s infinite;
+// }
 
-.line-z .blue {
-	animation: moveBubbleBlue linear 3s infinite;
-}
+// .line-z .blue {
+// 	animation: moveBubbleBlue linear 1.5s infinite;
+// }
 
-.line-z .guindo {
-	animation: moveBubbleGuindo linear 3s infinite;
-}
+// .line-z .guindo {
+// 	animation: moveBubbleGuindo linear 1.5s infinite;
+// }
 
 .card-document {
 	cursor: pointer !important;

@@ -25,12 +25,8 @@ export class RequestReportsComponent implements OnInit {
 
 	public readonly displayedColumns: string[] = [
 		'reqR_id',
-		'reqR_num',
-		'reqR_petitioner',
-		'reqR_addressee',
+		'reqR_title',
 		'reqR_abstract',
-		'reqR_management',
-		'reqR_Visibility',
 		'reqR_create',
 		'IdUser',
 		'reqR_state',
@@ -67,7 +63,6 @@ export class RequestReportsComponent implements OnInit {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<RequestReports[]> | null) => {
-					console.log(response);
 					setTimeout(() => {
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;

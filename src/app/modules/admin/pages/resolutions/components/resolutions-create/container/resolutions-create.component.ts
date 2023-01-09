@@ -81,13 +81,7 @@ export class ResolutionsCreateComponent implements OnInit {
 		return this.formCreate.get('IdresolLeg')!;
 	}
 	create() {
-		console.log('hola antes form');
-
 		if (this.formCreate.invalid) return;
-
-		// if (!this.isValidImage) return;
-		console.log('REVisibility', this.REVisibility.value);
-		console.log('REFile', this.file);
 
 		let createResolutionDto = new FormData();
 		createResolutionDto.append('RETitle', this.RETitle.value);
@@ -100,8 +94,6 @@ export class ResolutionsCreateComponent implements OnInit {
 		createResolutionDto.append('REFile', this.file);
 		createResolutionDto.append('IdresolLeg', this.IdresolLeg.value);
 
-		console.log(createResolutionDto);
-
 		this.resolutionFacade.create(createResolutionDto);
 	}
 
@@ -109,7 +101,5 @@ export class ResolutionsCreateComponent implements OnInit {
 	handleUpload(payloadFile: PayloadFile) {
 		this.isValidImage = payloadFile.isValid;
 		this.file = payloadFile.file;
-
-		console.log(payloadFile);
 	}
 }

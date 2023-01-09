@@ -56,12 +56,9 @@ export class ContractCreateComponent implements OnInit {
 		return this.formCreate.get('CTType')!;
 	}
 	create() {
-		console.log('hola antes form');
-
 		if (this.formCreate.invalid) return;
 
 		// if (!this.isValidImage) return;
-		console.log('CTFile', this.file);
 
 		let createResolutionDto = new FormData();
 		createResolutionDto.append('CTTitle', this.CTTitle.value);
@@ -72,8 +69,6 @@ export class ContractCreateComponent implements OnInit {
 		createResolutionDto.append('CTVisibility', 'Privado');
 		createResolutionDto.append('CTFile', this.file);
 
-		console.log(createResolutionDto);
-
 		this.contractFacade.create(createResolutionDto);
 	}
 
@@ -81,7 +76,5 @@ export class ContractCreateComponent implements OnInit {
 	handleUpload(payloadFile: PayloadFile) {
 		this.isValidImage = payloadFile.isValid;
 		this.file = payloadFile.file;
-
-		console.log(payloadFile);
 	}
 }

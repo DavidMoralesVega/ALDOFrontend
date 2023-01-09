@@ -165,15 +165,12 @@ export class DepartamentLawsComponent implements OnInit {
 				})
 			);
 		}
-
-		// console.log(this.dataSearchDepartament);
 	}
 
 	findAll() {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
-					console.log(response);
 					this.dataSearchDepartament = response?.data.filter((data) => {
 						if (data.dtvisibility === 'publico' && data.dtstate === true) {
 							return data;
@@ -205,17 +202,14 @@ export class DepartamentLawsComponent implements OnInit {
 		}
 
 		this.dataSearchDepartament = Arr;
-		// console.log(Arr);
 		return Arr;
 	}
 
 	create() {
-		// console.log('hola antes form');
-
 		if (this.formCreate.invalid) return;
 	}
 
-	/* 
+	/*
 		https://github.com/typeorm/typeorm/issues/2929
 		https://stackoverflow.com/questions/52814795/how-to-query-with-or-operation-in-where-object-using-find-options-api-in-typeo
 		https://stackoverflow.com/questions/71722950/typeorm-query-builder-filtering-multiple-columns-with-one-value

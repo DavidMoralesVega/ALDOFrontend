@@ -33,8 +33,6 @@ export class ContractUpdateComponent implements OnInit {
 		private readonly contractAdapter: ContractAdapter,
 		private readonly contractFacade: ContractFacade
 	) {
-		console.log(contractAdapter);
-
 		this.updateIsLoading$ = contractFacade.updateIsLoading$;
 	}
 	ngOnInit(): void {
@@ -81,18 +79,13 @@ export class ContractUpdateComponent implements OnInit {
 			CTType: this.CTType.value
 		};
 		// CTFile: this.file
-		// console.log(this.contractAdapter.IdContract);
 
 		this.contractFacade.update(this.contractAdapter.IdContract, updateContractDto);
-
-		// this.matDialogRef.close();
 	}
 
 	// Obtener imagen
 	handleUpload(payloadFile: PayloadFile) {
 		this.isValidImage = payloadFile.isValid;
 		this.file = payloadFile.file;
-
-		console.log(payloadFile);
 	}
 }

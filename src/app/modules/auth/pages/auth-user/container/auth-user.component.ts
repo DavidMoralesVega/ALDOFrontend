@@ -50,7 +50,6 @@ export class AuthUserComponent implements OnInit {
 			Password: this.Password.value
 		};
 
-		console.log(loginUserDto);
 		this.authFacade.login(loginUserDto, ETypeUser.user);
 
 		// this.formCreate.reset();

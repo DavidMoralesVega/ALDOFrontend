@@ -27,7 +27,7 @@ export class UploadInputTypeImageComponent implements OnInit {
 			const fileType = file['type'];
 			const validImageTypes = ['image/jpeg', 'image/png'];
 			const fileSize = file['size'];
-			const maxSize = 2 * 1024 * 1024;
+			const maxSize = 30 * 1024 * 1024;
 			this.isImage = validImageTypes.includes(fileType);
 
 			if (!this.isImage) {

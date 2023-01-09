@@ -69,7 +69,6 @@ export class RequestReportRegisterComponent implements OnInit {
 		}
 
 		this.dataReportReg = Arr;
-		// console.log(Arr);
 		return Arr;
 	}
 }

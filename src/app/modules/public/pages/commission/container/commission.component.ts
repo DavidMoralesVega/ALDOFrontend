@@ -15,12 +15,9 @@ export class CommissionComponent implements OnInit {
 	constructor(private readonly activatedRoute: ActivatedRoute) {
 		this.activatedRoute.params.subscribe({
 			next: (data: any) => {
-				console.warn('params', data);
 				this.zRoute = data.type;
 				const filter = ZListCardCommissions.filter((data: any) => data.path === this.zRoute);
 				this.zCommission = filter[0];
-				console.warn(this.zRoute);
-				console.log(this.zCommission);
 			}
 		});
 		// this.zRoute = this.activatedRoute.snapshot.paramMap.get('type')?.trim() || 'Not';

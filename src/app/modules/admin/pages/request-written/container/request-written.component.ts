@@ -67,7 +67,6 @@ export class RequestWrittenComponent implements OnInit, AfterViewInit, OnDestroy
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<RequestWritten[]> | null) => {
-					console.log(response);
 					setTimeout(() => {
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;

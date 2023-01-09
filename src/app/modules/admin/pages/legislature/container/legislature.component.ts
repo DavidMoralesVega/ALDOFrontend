@@ -61,7 +61,6 @@ export class LegislatureComponent implements OnInit {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<Legislature[]> | null) => {
-					// console.log(response);
 					setTimeout(() => {
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;
@@ -82,9 +81,6 @@ export class LegislatureComponent implements OnInit {
 		const updateLegislatureDto: UpdateLegislatureDto = {
 			LegEstado: !legislatureAdapter.LegEstado
 		};
-
-		console.log(updateLegislatureDto);
-		console.log(legislatureAdapter.IdLegislatura);
 
 		this.legislatureFacade.update(legislatureAdapter.IdLegislatura, updateLegislatureDto);
 

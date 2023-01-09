@@ -66,7 +66,6 @@ export class DepartamentLawComponent implements OnInit, AfterViewInit, OnDestroy
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<DepartamentLaw[]> | null) => {
-					console.log(response);
 					setTimeout(() => {
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;

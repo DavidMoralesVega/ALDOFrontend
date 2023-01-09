@@ -13,8 +13,6 @@ export class AdminComponent implements OnInit {
 	constructor(private readonly eventBusService: EventBusService) {}
 
 	ngOnInit(): void {
-		this.eventBusSub = this.eventBusService.on('logout', () => {
-			console.log('finalizar sesion');
-		});
+		this.eventBusSub = this.eventBusService.on('logout', () => {});
 	}
 }

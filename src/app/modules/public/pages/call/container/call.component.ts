@@ -74,7 +74,6 @@ export class CallPComponent implements OnInit {
 		}
 
 		this.dataCall = CallArr;
-		// console.log(CallArr);
 		return CallArr;
 	}
 }
