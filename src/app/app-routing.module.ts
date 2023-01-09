@@ -24,7 +24,8 @@ const routes: Routes = [
 		RouterModule.forRoot(routes, {
 			// preloadingStrategy: QuicklinkStrategy,
 			scrollPositionRestoration: 'enabled',
-			initialNavigation: 'enabledBlocking'
+			initialNavigation: 'enabledBlocking',
+			useHash: true
 		})
 	],
 	exports: [

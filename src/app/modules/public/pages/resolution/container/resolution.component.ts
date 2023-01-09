@@ -71,7 +71,6 @@ export class ResolutionComponent implements OnInit {
 		}
 
 		this.dataResolution = Arr;
-		// console.log(Arr);
 		return Arr;
 	}
 }

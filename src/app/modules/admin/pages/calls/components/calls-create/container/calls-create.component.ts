@@ -51,8 +51,6 @@ export class CallsCreateComponent implements OnInit {
 
 		// this.filteredOptions = this.call_modality.valueChanges.pipe(map((value: any) => value));
 		// this.filteredOptions = this.call_modality.valueChanges.pipe(map())
-
-		// console.log(this.filteredOptions);
 	}
 
 	initFormCreate(): void {
@@ -90,7 +88,6 @@ export class CallsCreateComponent implements OnInit {
 	}
 
 	create() {
-		console.log(typeof this.call_hours.value);
 		if (this.formCreate.invalid) return;
 
 		let createCallDto = new FormData();
@@ -103,7 +100,6 @@ export class CallsCreateComponent implements OnInit {
 		createCallDto.append('CallFile', this.file);
 		createCallDto.append('IdcallLeg', this.IdcallLeg.value);
 
-		// console.log(createCallDto.forEach);
 		this.callFacade.create(createCallDto);
 	}
 
@@ -111,13 +107,9 @@ export class CallsCreateComponent implements OnInit {
 	handleUpload(payloadFile: PayloadFile) {
 		this.isValidImage = payloadFile.isValid;
 		this.file = payloadFile.file;
-
-		// console.log(payloadFile);
 	}
 
 	onChange(data: string) {
-		console.log('hola', data);
-
 		let dataNew = parseInt(data);
 
 		if (dataNew === 60) {

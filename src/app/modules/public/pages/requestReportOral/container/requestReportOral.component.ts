@@ -67,7 +67,6 @@ export class RequestReportOralComponent implements OnInit {
 		}
 
 		this.dataRequestReOral = Arr;
-		// console.log(CallArr);
 		return Arr;
 	}
 }

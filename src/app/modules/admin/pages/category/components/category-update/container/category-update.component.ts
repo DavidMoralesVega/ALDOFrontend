@@ -50,7 +50,5 @@ export class CategoryUpdateComponent implements OnInit {
 		};
 
 		this.categoryFacade.update(this.categoryAdapter.cat_id, updateCategoryDto);
-
-		// this.matDialogRef.close();
 	}
 }

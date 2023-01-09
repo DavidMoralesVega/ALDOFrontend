@@ -51,7 +51,5 @@ export class LegislatureUpdateComponent implements OnInit {
 		};
 
 		this.LegislatureFacade.update(this.legislatureAdapter.IdLegislatura, updateLegislatureDto);
-
-		// this.matDialogRef.close();
 	}
 }

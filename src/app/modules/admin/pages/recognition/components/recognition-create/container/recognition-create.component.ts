@@ -63,13 +63,7 @@ export class RecognitionCreateComponent implements OnInit {
 	}
 
 	create() {
-		console.log('hola antes form');
-
 		if (this.formCreate.invalid) return;
-
-		// if (!this.isValidImage) return;
-		console.log('RVisibility', this.RVisibility.value);
-		console.log('RFile', this.file);
 
 		let createRecognitionDto = new FormData();
 		createRecognitionDto.append('RTitle', this.RTitle.value);
@@ -81,8 +75,6 @@ export class RecognitionCreateComponent implements OnInit {
 		createRecognitionDto.append('RVisibility', this.RVisibility.value);
 		createRecognitionDto.append('RFile', this.file);
 
-		console.log(createRecognitionDto);
-
 		this.recognitionFacade.create(createRecognitionDto);
 	}
 
@@ -90,7 +82,5 @@ export class RecognitionCreateComponent implements OnInit {
 	handleUpload(payloadFile: PayloadFile) {
 		this.isValidImage = payloadFile.isValid;
 		this.file = payloadFile.file;
-
-		console.log(payloadFile);
 	}
 }

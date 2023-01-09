@@ -100,13 +100,10 @@ export class RequestWrittenUpdateComponent implements OnInit {
 			RWVisibility: this.RWVisibility.value,
 			IdreqWrLeg: this.IdreqWrLeg.value
 		};
-		// console.log(this.requestWrittenAdapter.IdRequestWritten);
 
 		this.requestWrittenFacade.update(
 			this.requestWrittenAdapter.IdRequestWritten,
 			updateRequestWrittenDto
 		);
-
-		// this.matDialogRef.close();
 	}
 }

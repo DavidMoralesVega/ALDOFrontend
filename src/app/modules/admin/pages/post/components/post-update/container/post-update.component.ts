@@ -82,10 +82,7 @@ export class PostUpdateComponent implements OnInit {
 			post_tittle: this.post_tittle.value,
 			cat_post_id: this.cat_post_id.value
 		};
-		// console.log(this.admDepartamentoAdapter.dpt_id);
 
 		this.postFacade.update(this.postForeignAdapter.post_id, updatePostDto);
-
-		// this.matDialogRef.close();
 	}
 }

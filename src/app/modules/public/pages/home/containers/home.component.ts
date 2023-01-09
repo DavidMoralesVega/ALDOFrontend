@@ -73,15 +73,10 @@ export class HomeComponent implements OnInit {
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
 					this.dataPost = response?.data.filter((data) => {
-						console.log(data.post_estado);
 						if (data.post_estado) {
 							return data;
 						}
 					});
-
-					/* this.dataPost = response?.data;
-					console.log(this.dataPost); */
-					// console.log(this.dataPost);
 				}
 			})
 		);

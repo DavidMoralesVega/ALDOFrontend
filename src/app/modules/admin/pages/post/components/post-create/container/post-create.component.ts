@@ -84,7 +84,5 @@ export class PostCreateComponent implements OnInit {
 	handleUpload(payloadFile: PayloadFile) {
 		this.isValidImage = payloadFile.isValid;
 		this.post_fotografia = payloadFile.file;
-
-		// console.log(payloadFile.file);
 	}
 }

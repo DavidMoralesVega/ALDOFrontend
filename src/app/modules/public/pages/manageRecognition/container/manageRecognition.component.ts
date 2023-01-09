@@ -70,7 +70,6 @@ export class ManageRecognitionComponent implements OnInit {
 		}
 
 		this.dataManageReg = Arr;
-		// console.log(Arr);
 		return Arr;
 	}
 }

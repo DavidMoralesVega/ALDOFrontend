@@ -38,8 +38,6 @@ export class AuthService {
 	checkAuthStatus(
 		typeUser: ETypeUser | undefined
 	): Observable<Response<UserTokenDto | UserERPTokenDto>> {
-		console.log(typeUser);
-
 		if (typeUser === ETypeUser.erp) {
 			// return this.httpClient.get<Response<UserERPTokenDto>>(`${this.ZPAuthERP}/check-status`);
 		} else {

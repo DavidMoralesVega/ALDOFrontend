@@ -79,10 +79,7 @@ export class RecognitionUpdateComponent implements OnInit {
 			REventDate: this.REventDate.value,
 			RVisibility: this.RVisibility.value
 		};
-		console.log(this.recognitionAdapter.IdRecognition);
 
 		this.recognitionFacade.update(this.recognitionAdapter.IdRecognition, updateRecognitionDto);
-
-		// this.matDialogRef.close();
 	}
 }

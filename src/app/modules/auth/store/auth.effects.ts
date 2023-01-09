@@ -59,7 +59,6 @@ export class AuthEffects {
 						take(1),
 						map((response: Response<UserTokenDto | UserERPTokenDto>) => {
 							this.tokenStorageService.saveToken(response.data.token);
-							console.log('data', response);
 							return zActions.LOGIN_SUCCESS({ payload: response });
 
 							// redirect module home

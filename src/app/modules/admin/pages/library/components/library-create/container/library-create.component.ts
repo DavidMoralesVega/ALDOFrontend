@@ -63,13 +63,7 @@ export class LibraryCreateComponent implements OnInit {
 		return this.formCreate.get('LVisibility')!;
 	}
 	create() {
-		console.log('hola antes form');
-
 		if (this.formCreate.invalid) return;
-
-		// if (!this.isValidImage) return;
-		// console.log('LVisibility', this.LVisibility.value);
-		// console.log('LFile', this.file);
 
 		let createLibraryDto = new FormData();
 		createLibraryDto.append('ltitle', this.LTitle.value);
@@ -86,7 +80,5 @@ export class LibraryCreateComponent implements OnInit {
 	handleUpload(payloadFile: PayloadFile) {
 		this.isValidImage = payloadFile.isValid;
 		this.file = payloadFile.file;
-
-		console.log(payloadFile);
 	}
 }

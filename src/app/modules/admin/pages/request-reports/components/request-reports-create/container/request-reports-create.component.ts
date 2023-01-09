@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { RequestReportsFacade } from '../../../facades/request-reports.facade';
 import { CreateRequestReportsDto } from '../../../entities';
-import { PayloadFile } from 'src/app/core/entities';
+import { Pagination, PayloadFile, Response } from 'src/app/core/entities';
+import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
+import { Legislature } from '../../../../legislature/entities';
 
 @Component({
 	selector: 'z-request-reports-create',
@@ -18,10 +20,25 @@ export class RequestReportsCreateComponent implements OnInit {
 
 	// variables imagen
 	private file!: File;
+	private fileVideo!: File;
 	private isValidImage: boolean = false;
 
-	constructor(private readonly requestReportsFacade: RequestReportsFacade) {
+	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllIsLoading$: Observable<boolean>;
+	private pagination: Pagination = {
+		limit: 100,
+		offset: 0,
+		filter: 'ALL'
+	};
+
+	constructor(
+		private readonly requestReportsFacade: RequestReportsFacade,
+		private readonly legislatureFacade: LegislatureFacade
+	) {
 		this.createIsLoading$ = requestReportsFacade.createIsLoading$;
+		this.legislatureFacade.findAll(this.pagination);
+		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
+		this.legislatureFindAllResponse$ = this.legislatureFacade.findAllResponse$;
 	}
 
 	ngOnInit(): void {
@@ -30,65 +47,50 @@ export class RequestReportsCreateComponent implements OnInit {
 
 	initFormCreate(): void {
 		this.formCreate = new FormGroup({
-			reqR_num: new FormControl('', [Validators.required]),
-			reqR_petitioner: new FormControl('', [
-				Validators.required,
-				Validators.pattern('[a-zA-Z ]{1,100}')
-			]),
-			reqR_addressee: new FormControl('', [
-				Validators.required,
-				Validators.pattern('[a-zA-Z ]{1,100}')
-			]),
+			IdreqRLeg: new FormControl('', [Validators.required]),
+			reqR_title: new FormControl('', [Validators.required]),
 			reqR_abstract: new FormControl('', [
 				Validators.required,
 				Validators.pattern('[a-zA-Z0-9 ]{1,}')
-			]),
-			reqR_Visibility: new FormControl('', [Validators.required]),
-			reqR_management: new FormControl('', [Validators.required])
+			])
 		});
 	}
 
-	get reqR_num() {
-		return this.formCreate.get('reqR_num')!;
+	get IdreqRLeg() {
+		return this.formCreate.get('IdreqRLeg')!;
 	}
-	get reqR_petitioner() {
-		return this.formCreate.get('reqR_petitioner')!;
-	}
-	get reqR_addressee() {
-		return this.formCreate.get('reqR_addressee')!;
+
+	get reqR_title() {
+		return this.formCreate.get('reqR_title')!;
 	}
 	get reqR_abstract() {
 		return this.formCreate.get('reqR_abstract')!;
 	}
-	get reqR_Visibility() {
-		return this.formCreate.get('reqR_Visibility')!;
-	}
-	get reqR_management() {
-		return this.formCreate.get('reqR_management')!;
-	}
 
 	create() {
-		console.log(this.formCreate);
-
 		if (this.formCreate.invalid) return;
 
+		console.log(this.IdreqRLeg.value);
+
 		let createRequestReportsDto = new FormData();
-		createRequestReportsDto.append('reqR_num', this.reqR_num.value);
-		createRequestReportsDto.append('reqR_petitioner', this.reqR_petitioner.value);
-		createRequestReportsDto.append('reqR_addressee', this.reqR_addressee.value);
+		createRequestReportsDto.append('reqR_title', this.reqR_title.value);
 		createRequestReportsDto.append('reqR_abstract', this.reqR_abstract.value);
-		createRequestReportsDto.append('reqR_Visibility', this.reqR_Visibility.value);
-		createRequestReportsDto.append('reqR_management', this.reqR_management.value);
 		createRequestReportsDto.append('reqRFile', this.file);
+		createRequestReportsDto.append('reqRVideo', this.fileVideo);
+		createRequestReportsDto.append('IdreqRLeg', this.IdreqRLeg.value);
 
 		this.requestReportsFacade.create(createRequestReportsDto);
 	}
 
-	// Obtener imagen
+	// Obtener imagenx
 	handleUpload(payloadFile: PayloadFile) {
 		this.isValidImage = payloadFile.isValid;
 		this.file = payloadFile.file;
+	}
 
-		// console.log(payloadFile);
+	// Obtener video
+	handleUploadVideo(payloadFile: PayloadFile) {
+		this.isValidImage = payloadFile.isValid;
+		this.fileVideo = payloadFile.file;
 	}
 }

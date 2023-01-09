@@ -66,7 +66,6 @@ export class PostComponent implements OnInit {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<Post[]> | null) => {
-					// console.log(response);
 					setTimeout(() => {
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;
@@ -87,10 +86,6 @@ export class PostComponent implements OnInit {
 		const updatePostDto: UpdatePostDto = {
 			post_estado: !postAdapter.post_estado
 		};
-		// console.log(postAdapter.post_estado);
-
-		/* console.log(postAdapter.post_id);
-		console.log(updatePostDto); */
 
 		this.postFacade.update(postAdapter.post_id, updatePostDto);
 

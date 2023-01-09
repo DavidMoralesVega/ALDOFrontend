@@ -36,8 +36,6 @@ export class DepartamentLawUpdateComponent implements OnInit {
 		private readonly departamentLawFacade: DepartamentLawFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
-		console.log(this.UpdateDepartamentLawForeignAdapter);
-		// console.log(this.UpdateDepartamentLawForeignAdapter.legislatura);
 		this.legislatureFacade.findAll(this.pagination);
 		this.updateIsLoading$ = departamentLawFacade.updateIsLoading$;
 		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
@@ -102,7 +100,6 @@ export class DepartamentLawUpdateComponent implements OnInit {
 		return this.formUpdate.get('IddeparLwLeg')!;
 	}
 	update() {
-		// console.log(typeof this.DTDocumentNumber.value);
 		if (this.formUpdate.invalid) return;
 
 		const updateDepartamentLawDto: UpdateDepartamentLawDto = {
@@ -115,13 +112,10 @@ export class DepartamentLawUpdateComponent implements OnInit {
 			dtarea: this.dtarea.value,
 			IddeparLwLeg: this.IddeparLwLeg.value
 		};
-		// console.log(this.departamentLawAdapter.IdDepartamentaLaw);
 
 		this.departamentLawFacade.update(
 			this.UpdateDepartamentLawForeignAdapter.IdDepartamentaLaw,
 			updateDepartamentLawDto
 		);
-
-		// this.matDialogRef.close();
 	}
 }

@@ -93,10 +93,6 @@ export class ResolutionsUpdateComponent implements OnInit {
 	update() {
 		if (this.formUpdate.invalid) return;
 
-		// if (!this.isValidImage) return;
-		console.log('REVisibility', this.REVisibility.value);
-		console.log('REFile', this.file);
-
 		let updateResolutionDto = new FormData();
 		updateResolutionDto.append('RETitle', this.RETitle.value);
 		updateResolutionDto.append('RESummary', this.RESummary.value);
@@ -109,14 +105,11 @@ export class ResolutionsUpdateComponent implements OnInit {
 		updateResolutionDto.append('REVisibility', this.REVisibility.value);
 		updateResolutionDto.append('REFile', this.file);
 
-		console.log(updateResolutionDto);
 		this.resolutionFacade.update(this.resolutionAdapter.IdResolution, updateResolutionDto);
 	}
 	// Obtener imagen
 	handleUpload(payloadFile: PayloadFile) {
 		this.isValidImage = payloadFile.isValid;
 		this.file = payloadFile.file;
-
-		console.log(payloadFile);
 	}
 }

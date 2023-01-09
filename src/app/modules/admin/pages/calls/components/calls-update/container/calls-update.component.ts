@@ -38,7 +38,6 @@ export class CallsUpdateComponent implements OnInit {
 		private readonly callFacade: CallFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
-		console.log(UpdateCallForeignAdapter);
 		this.onChange(this.UpdateCallForeignAdapter.call_modality);
 		this.legislatureFacade.findAll(this.pagination);
 		this.updateIsLoading$ = callFacade.updateIsLoading$;
@@ -112,13 +111,9 @@ export class CallsUpdateComponent implements OnInit {
 		};
 
 		this.callFacade.update(this.UpdateCallForeignAdapter.call_id, updateCallDto);
-
-		// this.matDialogRef.close();
 	}
 
 	onChange(data: string) {
-		console.log('hola', data);
-
 		let dataNew = parseInt(data);
 
 		if (dataNew === 60) {

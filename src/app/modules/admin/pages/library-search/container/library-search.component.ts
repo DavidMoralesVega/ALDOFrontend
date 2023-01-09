@@ -162,13 +162,10 @@ export class LibrarySearchComponent implements OnInit {
 		}
 
 		this.dataSearchLibrary = Arr;
-		// console.log(Arr);
 		return Arr;
 	}
 
 	create() {
-		console.log('hola antes form');
-
 		if (this.formCreate.invalid) return;
 	}
 }

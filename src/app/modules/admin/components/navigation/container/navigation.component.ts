@@ -18,7 +18,6 @@ export class NavigationComponent implements OnInit {
 	}
 
 	logout() {
-		console.log('salir');
 		this.router.navigateByUrl('/auth/user');
 		// this.authFacade.logout();
 	}

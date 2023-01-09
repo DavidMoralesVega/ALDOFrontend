@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ZListRoles } from 'src/app/core/entities';
 import { UserFacade } from '../../../facades/user.facade';
@@ -61,8 +61,6 @@ export class UserCreateComponent implements OnInit {
 			celCorp: this.celCorp.value.toString(),
 			Roles: [this.Roles.value]
 		};
-
-		console.log(createUserDto);
 
 		this.userFacade.create(createUserDto);
 	}
