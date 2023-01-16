@@ -27,7 +27,7 @@ export type CreateResolutionDto = Omit<
 >;
 
 export interface ResolutionForeignAdapter extends ResolutionAdapter {
-	readonly legislature: LegislatureAdapter;
+	readonly legislatura: LegislatureAdapter;
 }
 
 export interface UpdateResolutionDto extends Partial<ResolutionAdapter> {}

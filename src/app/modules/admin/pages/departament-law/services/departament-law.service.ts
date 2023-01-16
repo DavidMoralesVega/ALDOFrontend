@@ -37,7 +37,7 @@ export class DepartamentLawService {
 
 	update(
 		id: string,
-		updateDepartamentLawDto: UpdateDepartamentLawDto
+		updateDepartamentLawDto: FormData | UpdateDepartamentLawDto
 	): Observable<Response<DepartamentLaw>> {
 		return this.httpClient.patch<Response<DepartamentLaw>>(
 			`${this.ZPDepartamentLaw}/${id}`,

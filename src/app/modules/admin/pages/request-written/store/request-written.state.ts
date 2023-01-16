@@ -22,7 +22,7 @@ export interface RequestWrittenState {
 		id: string | null;
 	};
 	update: {
-		updateRequestWrittenDto: UpdateRequestWrittenDto | null;
+		updateRequestWrittenDto: UpdateRequestWrittenDto | FormData | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

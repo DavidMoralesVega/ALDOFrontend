@@ -37,7 +37,7 @@ export class DepartamentLawFacade {
 	public findOneResponse$: Observable<Response<DepartamentLaw> | null>;
 
 	// update
-	public updateDto$: Observable<UpdateDepartamentLawDto | null>;
+	public updateDto$: Observable<FormData | null | UpdateDepartamentLawDto>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -114,7 +114,7 @@ export class DepartamentLawFacade {
 		this.store.dispatch(DEPARTAMENTLAW_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateDepartamentLawDto: UpdateDepartamentLawDto) {
+	update(id: string, updateDepartamentLawDto: FormData | UpdateDepartamentLawDto) {
 		this.store.dispatch(
 			DEPARTAMENTLAW_UPDATE_REQUESTED({
 				id,

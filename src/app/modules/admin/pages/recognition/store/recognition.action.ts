@@ -77,7 +77,7 @@ export const RECOGNITION_FIND_ONE_FAILED = createAction(
 // update
 export const RECOGNITION_UPDATE_REQUESTED = createAction(
 	RecognitionActionTypes.RECOGNITION_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateRecognitionDto, string>>()
+	props<PayloadUpdate<UpdateRecognitionDto | FormData, string>>()
 );
 
 export const RECOGNITION_UPDATE_LOADED = createAction(

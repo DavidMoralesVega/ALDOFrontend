@@ -8,7 +8,7 @@ import {
 	UpdateDepartamentLawDto,
 	UpdateDepartamentLawForeignAdapter
 } from '../../../entities/models/departament-law.model';
-import { ZListArea, Response, Pagination } from 'src/app/core/entities';
+import { PayloadFile, ZListArea, Response, Pagination } from 'src/app/core/entities';
 import { Legislature } from '../../../../legislature/entities/models/legislature.model';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
 
@@ -24,6 +24,10 @@ export class DepartamentLawUpdateComponent implements OnInit {
 	public formUpdate: FormGroup = new FormGroup({});
 	public updateIsLoading$: Observable<boolean>;
 	public ZListArea: any[] = ZListArea;
+
+	private file!: File;
+	private isValidImage: boolean = false;
+
 	private pagination: Pagination = {
 		limit: 100,
 		offset: 0,
@@ -102,20 +106,26 @@ export class DepartamentLawUpdateComponent implements OnInit {
 	update() {
 		if (this.formUpdate.invalid) return;
 
-		const updateDepartamentLawDto: UpdateDepartamentLawDto = {
-			dttitle: this.dttitle.value,
-			dtsummary: this.dtsummary.value,
-			dtpublicationdate: this.dtpublicationdate.value,
-			dtissueDate: this.dtissueDate.value,
-			DTDocumentNumber: this.DTDocumentNumber.value.toString(),
-			dtvisibility: this.dtvisibility.value,
-			dtarea: this.dtarea.value,
-			IddeparLwLeg: this.IddeparLwLeg.value
-		};
+		let updateDepartamentLawDto = new FormData();
+		updateDepartamentLawDto.append('dttitle', this.dttitle.value);
+		updateDepartamentLawDto.append('dtsummary', this.dtsummary.value);
+		updateDepartamentLawDto.append('dtpublicationdate', this.dtpublicationdate.value);
+		updateDepartamentLawDto.append('dtissueDate', this.dtissueDate.value);
+		updateDepartamentLawDto.append('DTDocumentNumber', this.DTDocumentNumber.value);
+		updateDepartamentLawDto.append('dtvisibility', this.dtvisibility.value);
+		updateDepartamentLawDto.append('dtarea', this.dtarea.value);
+		updateDepartamentLawDto.append('DTFile', this.file);
+		updateDepartamentLawDto.append('IddeparLwLeg', this.IddeparLwLeg.value);
 
 		this.departamentLawFacade.update(
 			this.UpdateDepartamentLawForeignAdapter.IdDepartamentaLaw,
 			updateDepartamentLawDto
 		);
+	}
+
+	// Obtener imagen
+	handleUpload(payloadFile: PayloadFile) {
+		this.isValidImage = payloadFile.isValid;
+		this.file = payloadFile.file;
 	}
 }

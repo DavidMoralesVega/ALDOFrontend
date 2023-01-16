@@ -9,6 +9,11 @@
 	<form [formGroup]="formUpdate" (ngSubmit)="update()" novalidate="novalidate" autocomplete="off">
 		<div mat-dialog-content>
 			<div class="row">
+				<div class="col-12">
+					<z-upload-input-type-document
+						(onUpload)="handleUpload($event)"
+					></z-upload-input-type-document>
+				</div>
 				<mat-form-field class="col-lg-12" appearance="outline">
 					<mat-label>Titulo</mat-label>
 

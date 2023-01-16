@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { UploadInputTypeDocumentModule } from '../../../../../../core/components/upload-input-type-image/upload-input-type-image.module';
 
 @NgModule({
 	declarations: [RecognitionUpdateComponent],
@@ -26,7 +27,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 		MatRadioModule,
 		//fecha
 		MatDatepickerModule,
-		MatNativeDateModule
+		MatNativeDateModule,
+		UploadInputTypeDocumentModule
 	]
 })
 export class RecognitionUpdateModule {}

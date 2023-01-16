@@ -13,6 +13,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { JsonAsyncModule } from '../../../../../../core/pipes/json-async/json-async.module';
+import { UploadInputTypeDocumentModule } from '../../../../../../core/components/upload-input-type-image/upload-input-type-image.module';
 
 @NgModule({
 	declarations: [RequestWrittenUpdateComponent],
@@ -29,7 +30,8 @@ import { JsonAsyncModule } from '../../../../../../core/pipes/json-async/json-as
 		//fecha
 		MatDatepickerModule,
 		MatNativeDateModule,
-		JsonAsyncModule
+		JsonAsyncModule,
+		UploadInputTypeDocumentModule
 	],
 	exports: [RequestWrittenUpdateComponent]
 })

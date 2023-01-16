@@ -6,6 +6,7 @@ import { Pagination } from 'src/app/core/entities';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RecognitionAdapter, UpdateRecognitionDto } from '../../../entities';
 import { RecognitionFacade } from '../../../facades/recognition.facade';
+import { PayloadFile } from '../../../../../../../core/entities/adapters/object.adapter';
 @Component({
 	selector: 'z-recognition-update',
 	templateUrl: './recognition-update.component.html',
@@ -16,11 +17,8 @@ export class RecognitionUpdateComponent implements OnInit {
 	public formUpdate: FormGroup = new FormGroup({});
 	public updateIsLoading$: Observable<boolean>;
 
-	private pagination: Pagination = {
-		limit: 100,
-		offset: 0,
-		filter: 'ALL'
-	};
+	private file!: File;
+	private isValidImage: boolean = false;
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA)
@@ -71,15 +69,21 @@ export class RecognitionUpdateComponent implements OnInit {
 	update() {
 		if (this.formUpdate.invalid) return;
 
-		const updateRecognitionDto: UpdateRecognitionDto = {
-			RTitle: this.RTitle.value,
-			RSummary: this.RSummary.value,
-			RPublicationDate: this.RPublicationDate.value,
-			RIssueDate: this.RIssueDate.value,
-			REventDate: this.REventDate.value,
-			RVisibility: this.RVisibility.value
-		};
+		let updateRecognitionDto = new FormData();
+		updateRecognitionDto.append('RTitle', this.RTitle.value);
+		updateRecognitionDto.append('RSummary', this.RSummary.value);
+		updateRecognitionDto.append('RPublicationDate', this.RPublicationDate.value);
+		updateRecognitionDto.append('RIssueDate', this.RIssueDate.value);
+		updateRecognitionDto.append('REventDate', this.REventDate.value);
+		updateRecognitionDto.append('RVisibility', this.RVisibility.value);
+		updateRecognitionDto.append('RFile', this.file);
 
 		this.recognitionFacade.update(this.recognitionAdapter.IdRecognition, updateRecognitionDto);
+	}
+
+	// Obtener imagen
+	handleUpload(payloadFile: PayloadFile) {
+		this.isValidImage = payloadFile.isValid;
+		this.file = payloadFile.file;
 	}
 }

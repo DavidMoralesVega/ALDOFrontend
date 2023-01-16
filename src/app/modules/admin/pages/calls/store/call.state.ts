@@ -21,7 +21,7 @@ export interface CallState {
 		id: string | null;
 	};
 	update: {
-		updateCallDto: UpdateCallDto | null;
+		updateCallDto: UpdateCallDto | FormData | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

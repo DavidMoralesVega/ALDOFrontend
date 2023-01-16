@@ -34,7 +34,7 @@ export class RecognitionFacade {
 	public findOneResponse$: Observable<Response<Recognition> | null>;
 
 	// update
-	public updateDto$: Observable<UpdateRecognitionDto | null>;
+	public updateDto$: Observable<UpdateRecognitionDto | FormData | null>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -79,7 +79,7 @@ export class RecognitionFacade {
 		this.store.dispatch(RECOGNITION_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateRecognitionDto: UpdateRecognitionDto) {
+	update(id: string, updateRecognitionDto: UpdateRecognitionDto | FormData) {
 		this.store.dispatch(
 			RECOGNITION_UPDATE_REQUESTED({
 				id,

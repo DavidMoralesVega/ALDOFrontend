@@ -27,7 +27,7 @@ export class CallService {
 		return this.httpClient.get<Response<Call>>(`${this.ZPCall}/${id}`);
 	}
 
-	update(id: string, updateCallDto: UpdateCallDto): Observable<Response<Call>> {
+	update(id: string, updateCallDto: UpdateCallDto | FormData): Observable<Response<Call>> {
 		return this.httpClient.patch<Response<Call>>(`${this.ZPCall}/${id}`, updateCallDto);
 	}
 }

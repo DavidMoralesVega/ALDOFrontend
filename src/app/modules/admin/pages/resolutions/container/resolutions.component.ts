@@ -35,8 +35,6 @@ export class ResolutionsComponent implements OnInit {
 		'REPublicationDate',
 		'REIssueDate',
 		'REDocumentNumber',
-		'REStartYear',
-		'REEndYear',
 		'REType',
 		'REDateRegister',
 		'REVisibility',
@@ -76,6 +74,8 @@ export class ResolutionsComponent implements OnInit {
 			this.findAllResponse$.subscribe({
 				next: (response: Response<Resolution[]> | null) => {
 					setTimeout(() => {
+						console.log(response);
+
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;
 						this.dataSource.sort = this.sort;
@@ -114,13 +114,13 @@ export class ResolutionsComponent implements OnInit {
 		dialogRef.afterClosed().subscribe(() => this.resolutionFacade.findAll(this.pagination));
 	}
 
-	openResolutionUpdate(departamentLaw: Resolution): void {
+	openResolutionUpdate(resolution: Resolution): void {
 		const dialogRef = this.matDialog.open(ResolutionsUpdateComponent, {
 			width: '500px',
 			// height: '400px',
 			maxWidth: '80%',
 			maxHeight: '100%',
-			data: departamentLaw
+			data: resolution
 		});
 		dialogRef.afterClosed().subscribe(() => this.resolutionFacade.findAll(this.pagination));
 	}

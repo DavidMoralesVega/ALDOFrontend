@@ -21,7 +21,7 @@ export interface RecognitionState {
 		id: string | null;
 	};
 	update: {
-		updateRecognitionDto: UpdateRecognitionDto | null;
+		updateRecognitionDto: UpdateRecognitionDto | FormData | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

@@ -33,7 +33,7 @@ export class RequestWrittenFacade {
 	public findOneResponse$: Observable<Response<RequestWritten> | null>;
 
 	// update
-	public updateDto$: Observable<UpdateRequestWrittenDto | null>;
+	public updateDto$: Observable<UpdateRequestWrittenDto | FormData | null>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -78,7 +78,7 @@ export class RequestWrittenFacade {
 		this.store.dispatch(REQUESTWRITTEN_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateRequestWrittenDto: UpdateRequestWrittenDto) {
+	update(id: string, updateRequestWrittenDto: UpdateRequestWrittenDto | FormData) {
 		this.store.dispatch(
 			REQUESTWRITTEN_UPDATE_REQUESTED({
 				id,

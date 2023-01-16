@@ -76,7 +76,7 @@ export const CALL_FIND_ONE_FAILED = createAction(
 // update
 export const CALL_UPDATE_REQUESTED = createAction(
 	CallActionTypes.CALL_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateCallDto, string>>()
+	props<PayloadUpdate<UpdateCallDto | FormData, string>>()
 );
 
 export const CALL_UPDATE_LOADED = createAction(

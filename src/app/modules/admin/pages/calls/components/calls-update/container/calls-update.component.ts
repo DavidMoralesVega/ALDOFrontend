@@ -10,6 +10,7 @@ import { ZListModalidad, ZListSesiones, Response } from 'src/app/core/entities';
 import { Legislature } from '../../../../legislature/entities/models/legislature.model';
 import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
+import { PayloadFile } from '../../../../../../../core/entities/adapters/object.adapter';
 
 @Component({
 	selector: 'z-calls-update',
@@ -32,6 +33,9 @@ export class CallsUpdateComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
+
+	private file!: File;
+	private isValidImage: boolean = false;
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) private readonly UpdateCallForeignAdapter: UpdateCallForeignAdapter,
@@ -100,7 +104,7 @@ export class CallsUpdateComponent implements OnInit {
 	update() {
 		if (this.formUpdate.invalid) return;
 
-		const updateCallDto: UpdateCallDto = {
+		/* const updateCallDto: UpdateCallDto = {
 			call_title: this.call_title.value,
 			call_hours: this.call_hours.value,
 			call_modality: this.call_modality.value,
@@ -108,7 +112,17 @@ export class CallsUpdateComponent implements OnInit {
 			call_dateUpdate: this.call_dateUpdate.value,
 			CallVisibility: this.CallVisibility.value,
 			IdcallLeg: this.IdcallLeg.value
-		};
+		}; */
+
+		let updateCallDto = new FormData();
+		updateCallDto.append('call_title', this.call_title.value);
+		updateCallDto.append('call_hours', this.call_hours.value);
+		updateCallDto.append('call_modality', this.call_modality.value);
+		updateCallDto.append('call_dateUpdate', this.call_dateUpdate.value);
+		updateCallDto.append('CallVisibility', this.CallVisibility.value);
+		updateCallDto.append('call_numSession', this.call_numSession.value);
+		updateCallDto.append('CallFile', this.file);
+		updateCallDto.append('IdcallLeg', this.IdcallLeg.value);
 
 		this.callFacade.update(this.UpdateCallForeignAdapter.call_id, updateCallDto);
 	}
@@ -141,5 +155,11 @@ export class CallsUpdateComponent implements OnInit {
 		this.ZListsSesiones = [];
 		this.NewListsSesiones = [];
 		this.ZListsSesiones = ZListSesiones;
+	}
+
+	// Obtener imagen
+	handleUpload(payloadFile: PayloadFile) {
+		this.isValidImage = payloadFile.isValid;
+		this.file = payloadFile.file;
 	}
 }

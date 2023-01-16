@@ -21,7 +21,7 @@ export interface ContractState {
 		id: string | null;
 	};
 	update: {
-		updateContractDto: UpdateContractDto | null;
+		updateContractDto: UpdateContractDto | FormData | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

@@ -13,6 +13,7 @@ import { RequestWrittenFacade } from '../../../facades/request-written.facade';
 import { Legislature } from '../../../../legislature/entities/models/legislature.model';
 import { Response } from 'src/app/core/entities';
 import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
+import { PayloadFile } from '../../../../../../../core/entities/adapters/object.adapter';
 
 @Component({
 	selector: 'z-request-written-update',
@@ -32,12 +33,17 @@ export class RequestWrittenUpdateComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
+	private file!: File;
+	private isValidImage: boolean = false;
+
 	constructor(
 		@Inject(MAT_DIALOG_DATA)
 		private readonly requestWrittenAdapter: RequestWrittenForeignAdapter,
 		private readonly requestWrittenFacade: RequestWrittenFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
+		console.log(requestWrittenAdapter);
+
 		this.legislatureFacade.findAll(this.pagination);
 		this.updateIsLoading$ = requestWrittenFacade.updateIsLoading$;
 		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
@@ -65,7 +71,7 @@ export class RequestWrittenUpdateComponent implements OnInit {
 			RWVisibility: new FormControl(this.requestWrittenAdapter.RWVisibility, [
 				Validators.required
 			]),
-			IdreqWrLeg: new FormControl(this.requestWrittenAdapter.legislature.IdLegislatura, [
+			IdreqWrLeg: new FormControl(this.requestWrittenAdapter.legislatura.IdLegislatura, [
 				Validators.required
 			])
 		});
@@ -92,18 +98,24 @@ export class RequestWrittenUpdateComponent implements OnInit {
 	update() {
 		if (this.formUpdate.invalid) return;
 
-		const updateRequestWrittenDto: UpdateRequestWrittenDto = {
-			RWTitle: this.RWTitle.value,
-			RWSummary: this.RWSummary.value,
-			RWPublicationDate: this.RWPublicationDate.value,
-			RWIssueDate: this.RWIssueDate.value,
-			RWVisibility: this.RWVisibility.value,
-			IdreqWrLeg: this.IdreqWrLeg.value
-		};
+		let updateRequestWrittenDto = new FormData();
+		updateRequestWrittenDto.append('RWTitle', this.RWTitle.value);
+		updateRequestWrittenDto.append('RWSummary', this.RWSummary.value);
+		updateRequestWrittenDto.append('RWPublicationDate', this.RWPublicationDate.value);
+		updateRequestWrittenDto.append('RWIssueDate', this.RWIssueDate.value);
+		updateRequestWrittenDto.append('RWVisibility', this.RWVisibility.value);
+		updateRequestWrittenDto.append('RWFile', this.file);
+		updateRequestWrittenDto.append('IdreqWrLeg', this.IdreqWrLeg.value);
 
 		this.requestWrittenFacade.update(
 			this.requestWrittenAdapter.IdRequestWritten,
 			updateRequestWrittenDto
 		);
+	}
+
+	// Obtener imagen
+	handleUpload(payloadFile: PayloadFile) {
+		this.isValidImage = payloadFile.isValid;
+		this.file = payloadFile.file;
 	}
 }

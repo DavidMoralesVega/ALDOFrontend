@@ -34,7 +34,7 @@ export class ContractFacade {
 	public findOneResponse$: Observable<Response<Contract> | null>;
 
 	// update
-	public updateDto$: Observable<UpdateContractDto | null>;
+	public updateDto$: Observable<UpdateContractDto | FormData | null>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -79,7 +79,7 @@ export class ContractFacade {
 		this.store.dispatch(CONTRACT_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateContractDto: UpdateContractDto) {
+	update(id: string, updateContractDto: UpdateContractDto | FormData) {
 		this.store.dispatch(
 			CONTRACT_UPDATE_REQUESTED({
 				id,

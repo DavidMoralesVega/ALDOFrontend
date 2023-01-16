@@ -18,11 +18,6 @@ export class ContractUpdateComponent implements OnInit {
 	public formUpdate: FormGroup = new FormGroup({});
 	public updateIsLoading$: Observable<boolean>;
 	public ZListContract: any[] = ZListContract;
-	private pagination: Pagination = {
-		limit: 100,
-		offset: 0,
-		filter: 'ALL'
-	};
 
 	// variables imagen
 	private file!: File;
@@ -71,14 +66,21 @@ export class ContractUpdateComponent implements OnInit {
 	update() {
 		if (this.formUpdate.invalid) return;
 
-		const updateContractDto: UpdateContractDto = {
+		/* const updateContractDto: UpdateContractDto = {
 			CTTitle: this.CTTitle.value,
 			CTSummary: this.CTSummary.value,
 			CTIssueDate: this.CTIssueDate.value,
 			CTDocumentNumber: this.CTDocumentNumber.value,
 			CTType: this.CTType.value
-		};
-		// CTFile: this.file
+		}; */
+
+		let updateContractDto = new FormData();
+		updateContractDto.append('CTTitle', this.CTTitle.value);
+		updateContractDto.append('CTSummary', this.CTSummary.value);
+		updateContractDto.append('CTIssueDate', this.CTIssueDate.value);
+		updateContractDto.append('CTDocumentNumber', this.CTDocumentNumber.value);
+		updateContractDto.append('CTType', this.CTType.value);
+		updateContractDto.append('CTFile', this.file);
 
 		this.contractFacade.update(this.contractAdapter.IdContract, updateContractDto);
 	}

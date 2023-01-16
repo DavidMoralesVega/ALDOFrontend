@@ -2,11 +2,13 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { Pagination, ZListResolutions } from 'src/app/core/entities';
+import { Pagination, ZListResolutions, Response } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
-import { ResolutionAdapter, UpdateResolutionDto } from '../../../entities';
 import { ResolutionFacade } from '../../../facades/resolutions.facade';
 import { PayloadFile } from '../../../../../../../core/entities/adapters/object.adapter';
+import { ResolutionForeignAdapter } from '../../../entities/models/resolutions.model';
+import { Legislature } from '../../../../legislature/entities/models/legislature.model';
+import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
 @Component({
 	selector: 'z-resolutions-update',
 	templateUrl: './resolutions-update.component.html',
@@ -14,6 +16,8 @@ import { PayloadFile } from '../../../../../../../core/entities/adapters/object.
 })
 export class ResolutionsUpdateComponent implements OnInit {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
+	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllIsLoading$: Observable<boolean>;
 	public formUpdate: FormGroup = new FormGroup({});
 	public updateIsLoading$: Observable<boolean>;
 	public ZListResolutions: any[] = ZListResolutions;
@@ -28,10 +32,14 @@ export class ResolutionsUpdateComponent implements OnInit {
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA)
-		private readonly resolutionAdapter: ResolutionAdapter,
-		private readonly resolutionFacade: ResolutionFacade
+		private readonly resolutionAdapter: ResolutionForeignAdapter,
+		private readonly resolutionFacade: ResolutionFacade,
+		private readonly legislatureFacade: LegislatureFacade
 	) {
+		this.legislatureFacade.findAll(this.pagination);
 		this.updateIsLoading$ = resolutionFacade.updateIsLoading$;
+		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
+		this.legislatureFindAllResponse$ = this.legislatureFacade.findAllResponse$;
 	}
 	ngOnInit(): void {
 		this.initFormUpdate();
@@ -49,17 +57,15 @@ export class ResolutionsUpdateComponent implements OnInit {
 			REPublicationDate: new FormControl(this.resolutionAdapter.REPublicationDate, [
 				Validators.required
 			]),
-
-			REStartYear: new FormControl(this.resolutionAdapter.REStartYear, [Validators.required]),
-			REEndYear: new FormControl(this.resolutionAdapter.REEndYear, [Validators.required]),
 			REIssueDate: new FormControl(this.resolutionAdapter.REIssueDate, [Validators.required]),
 			REDocumentNumber: new FormControl(this.resolutionAdapter.REDocumentNumber, [
 				Validators.required
 			]),
-
 			REType: new FormControl(this.resolutionAdapter.REType, [Validators.required]),
-
-			REVisibility: new FormControl(this.resolutionAdapter.REVisibility, [Validators.required])
+			REVisibility: new FormControl(this.resolutionAdapter.REVisibility, [Validators.required]),
+			IdresolLeg: new FormControl(this.resolutionAdapter.legislatura.IdLegislatura, [
+				Validators.required
+			])
 		});
 	}
 	get RETitle() {
@@ -74,13 +80,6 @@ export class ResolutionsUpdateComponent implements OnInit {
 	get REIssueDate() {
 		return this.formUpdate.get('REIssueDate')!;
 	}
-
-	get REStartYear() {
-		return this.formUpdate.get('REStartYear')!;
-	}
-	get REEndYear() {
-		return this.formUpdate.get('REEndYear')!;
-	}
 	get REDocumentNumber() {
 		return this.formUpdate.get('REDocumentNumber')!;
 	}
@@ -90,6 +89,10 @@ export class ResolutionsUpdateComponent implements OnInit {
 	get REVisibility() {
 		return this.formUpdate.get('REVisibility')!;
 	}
+	get IdresolLeg() {
+		return this.formUpdate.get('IdresolLeg')!;
+	}
+
 	update() {
 		if (this.formUpdate.invalid) return;
 
@@ -99,11 +102,10 @@ export class ResolutionsUpdateComponent implements OnInit {
 		updateResolutionDto.append('REPublicationDate', this.REPublicationDate.value);
 		updateResolutionDto.append('REIssueDate', this.REIssueDate.value);
 		updateResolutionDto.append('REDocumentNumber', this.REDocumentNumber.value);
-		updateResolutionDto.append('REStartYear', this.REStartYear.value);
-		updateResolutionDto.append('REEndYear', this.REEndYear.value);
 		updateResolutionDto.append('REType', this.REType.value);
 		updateResolutionDto.append('REVisibility', this.REVisibility.value);
 		updateResolutionDto.append('REFile', this.file);
+		updateResolutionDto.append('IdresolLeg', this.IdresolLeg.value);
 
 		this.resolutionFacade.update(this.resolutionAdapter.IdResolution, updateResolutionDto);
 	}

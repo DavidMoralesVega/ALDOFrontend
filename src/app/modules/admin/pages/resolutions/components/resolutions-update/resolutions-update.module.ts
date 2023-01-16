@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { UploadInputTypeDocumentModule } from 'src/app/core/components/upload-input-type-image/upload-input-type-image.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { JsonAsyncModule } from '../../../../../../core/pipes/json-async/json-async.module';
 
 @NgModule({
 	declarations: [ResolutionsUpdateComponent],
@@ -27,9 +28,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 		MatRadioModule,
 		// upload file
 		UploadInputTypeDocumentModule,
-
 		MatDatepickerModule,
-		MatNativeDateModule
+		MatNativeDateModule,
+		JsonAsyncModule
 	],
 
 	exports: [ResolutionsUpdateComponent]

@@ -97,7 +97,7 @@ export class DepartamentLawEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.DEPARTAMENTLAW_UPDATE_REQUESTED),
-				switchMap((action: PayloadUpdate<UpdateDepartamentLawDto, string>) => {
+				switchMap((action: PayloadUpdate<FormData | UpdateDepartamentLawDto, string>) => {
 					return this.departamentLawService.update(action.id || '', action.payload).pipe(
 						map((response: Response<DepartamentLaw>) => {
 							this.matSnackBarService.open('success', ZMessages.success);

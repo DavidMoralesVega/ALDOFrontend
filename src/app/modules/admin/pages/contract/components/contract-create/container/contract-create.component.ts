@@ -15,11 +15,6 @@ export class ContractCreateComponent implements OnInit {
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
 	public ZListContract: any[] = ZListContract;
-	private pagination: Pagination = {
-		limit: 100,
-		offset: 0,
-		filter: 'ALL'
-	};
 
 	// variables imagen
 	private file!: File;

@@ -92,7 +92,7 @@ export class RecognitionEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.RECOGNITION_UPDATE_REQUESTED),
-				switchMap((action: PayloadUpdate<UpdateRecognitionDto, string>) => {
+				switchMap((action: PayloadUpdate<UpdateRecognitionDto | FormData, string>) => {
 					return this.recognitionService.update(action.id || '', action.payload).pipe(
 						map((response: Response<Recognition>) => {
 							this.matSnackBarService.open('success', ZMessages.success);
