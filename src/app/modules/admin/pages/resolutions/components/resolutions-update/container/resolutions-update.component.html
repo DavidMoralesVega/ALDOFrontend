@@ -1,6 +1,6 @@
 <div class="dialogContainer">
 	<div class="dialogContainer__header">
-		<h2 mat-dialog-title>Actualizar P.I.E</h2>
+		<h2 mat-dialog-title>Actualizar Resoluciones</h2>
 		<button mat-icon-button mat-dialog-close>
 			<mat-icon class="material-symbols-outlined">close</mat-icon>
 		</button>
@@ -14,23 +14,50 @@
 						(onUpload)="handleUpload($event)"
 					></z-upload-input-type-document>
 				</div>
-				<mat-form-field class="col-lg-12" appearance="outline">
+
+				<mat-form-field class="col-lg-8" appearance="outline">
 					<mat-label>Título</mat-label>
 
 					<input matInput maxlength="40" formControlName="RETitle" placeholder="Título" />
-					<mat-hint align="start">El título debe tener como máximo 40 carácteres. </mat-hint>
+					<mat-hint align="start">Máximo 40 caracteres. </mat-hint>
 					<mat-hint align="end">{{ RETitle.value.length }} / 40</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(RETitle, null)">
 						<span *ngIf="RETitle.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El título es requerido.
-						</span>
-
-						<span *ngIf="RETitle.errors?.['maxlength']">
-							<i class="fas fa-exclamation-circle mr-1"></i>
-							Máximo 40 carácteres.
+							El título es requerida.
 						</span>
 					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-4" appearance="outline">
+					<mat-label>Nro documento</mat-label>
+					<input
+						matInput
+						formControlName="REDocumentNumber"
+						placeholder="Número de documento"
+					/>
+					<mat-error *ngIf="errorMatcher.isErrorState(REDocumentNumber, null)">
+						<span *ngIf="REDocumentNumber.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							Requerido.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field
+					*ngIf="!(legislatureFindAllIsLoading$ | async)"
+					class="col-lg-12 mb-2"
+					appearance="outline"
+				>
+					<mat-label>Legislatura</mat-label>
+					<mat-select formControlName="IdresolLeg">
+						<mat-option
+							*ngFor="let legislature of (legislatureFindAllResponse$ | async)!.data"
+							[value]="legislature | jsonData : 'IdLegislatura'"
+						>
+							{{ legislature | jsonData : 'LegDescripcion' }}
+						</mat-option>
+					</mat-select>
 				</mat-form-field>
 
 				<mat-form-field class="example-full-width" appearance="outline">
@@ -40,7 +67,7 @@
 					<mat-error *ngIf="errorMatcher.isErrorState(RESummary, null)">
 						<span *ngIf="RESummary.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El resumen es requerido.
+							La descripción es requerida.
 						</span>
 					</mat-error>
 				</mat-form-field>
@@ -63,48 +90,6 @@
 					<mat-hint>MM/DD/YYYY</mat-hint>
 					<mat-datepicker-toggle matSuffix [for]="REIssueDate"></mat-datepicker-toggle>
 					<mat-datepicker touchUi #REIssueDate></mat-datepicker>
-				</mat-form-field>
-
-				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Año de inicio</mat-label>
-					<input
-						type="number"
-						matInput
-						formControlName="REStartYear"
-						placeholder="Año de inicio"
-					/>
-					<mat-error *ngIf="errorMatcher.isErrorState(REStartYear, null)">
-						<span *ngIf="REStartYear.errors?.['required']">
-							<i class="fas fa-exclamation-circle mr-1"></i>
-							El año de inicio es requerido.
-						</span>
-					</mat-error>
-				</mat-form-field>
-
-				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Año fin</mat-label>
-					<input type="number" matInput formControlName="REEndYear" placeholder="Año fin" />
-					<mat-error *ngIf="errorMatcher.isErrorState(REEndYear, null)">
-						<span *ngIf="REEndYear.errors?.['required']">
-							<i class="fas fa-exclamation-circle mr-1"></i>
-							EL año final es requerido.
-						</span>
-					</mat-error>
-				</mat-form-field>
-
-				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Número de documento</mat-label>
-					<input
-						matInput
-						formControlName="REDocumentNumber"
-						placeholder="Número de documento"
-					/>
-					<mat-error *ngIf="errorMatcher.isErrorState(REDocumentNumber, null)">
-						<span *ngIf="REDocumentNumber.errors?.['required']">
-							<i class="fas fa-exclamation-circle mr-1"></i>
-							El número de documento es requerido.
-						</span>
-					</mat-error>
 				</mat-form-field>
 
 				<mat-form-field class="col-lg-12" appearance="outline">

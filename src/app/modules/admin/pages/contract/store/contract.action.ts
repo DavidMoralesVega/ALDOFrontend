@@ -77,7 +77,7 @@ export const CONTRACT_FIND_ONE_FAILED = createAction(
 // update
 export const CONTRACT_UPDATE_REQUESTED = createAction(
 	ContractActionTypes.CONTRACT_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateContractDto, string>>()
+	props<PayloadUpdate<UpdateContractDto | FormData, string>>()
 );
 
 export const CONTRACT_UPDATE_LOADED = createAction(

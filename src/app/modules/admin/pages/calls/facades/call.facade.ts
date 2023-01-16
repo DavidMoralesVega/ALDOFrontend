@@ -33,7 +33,7 @@ export class CallFacade {
 	public findOneResponse$: Observable<Response<Call> | null>;
 
 	// update
-	public updateDto$: Observable<UpdateCallDto | null>;
+	public updateDto$: Observable<UpdateCallDto | FormData | null>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -78,7 +78,7 @@ export class CallFacade {
 		this.store.dispatch(CALL_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateCallDto: UpdateCallDto) {
+	update(id: string, updateCallDto: UpdateCallDto | FormData) {
 		this.store.dispatch(
 			CALL_UPDATE_REQUESTED({
 				id,

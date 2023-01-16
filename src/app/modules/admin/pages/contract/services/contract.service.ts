@@ -27,7 +27,10 @@ export class ContractService {
 		return this.httpClient.get<Response<Contract>>(`${this.ZPContract}/${id}`);
 	}
 
-	update(id: string, updateContractDto: UpdateContractDto): Observable<Response<Contract>> {
+	update(
+		id: string,
+		updateContractDto: UpdateContractDto | FormData
+	): Observable<Response<Contract>> {
 		return this.httpClient.patch<Response<Contract>>(
 			`${this.ZPContract}/${id}`,
 			updateContractDto

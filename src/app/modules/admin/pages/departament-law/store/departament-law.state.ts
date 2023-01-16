@@ -26,7 +26,7 @@ export interface DepartamentLawState {
 		id: string | null;
 	};
 	update: {
-		updateDepartamentLawDto: UpdateDepartamentLawDto | null;
+		updateDepartamentLawDto: FormData | null | UpdateDepartamentLawDto;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

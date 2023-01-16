@@ -24,7 +24,7 @@ export type CreateRequestWrittenDto = Omit<
 >;
 
 export interface RequestWrittenForeignAdapter extends RequestWrittenAdapter {
-	readonly legislature: LegislatureAdapter;
+	readonly legislatura: LegislatureAdapter;
 }
 
 export interface UpdateRequestWrittenDto extends Partial<RequestWrittenAdapter> {}

@@ -89,7 +89,7 @@ export const DEPARTAMENTLAW_FIND_ONE_FAILED = createAction(
 // update
 export const DEPARTAMENTLAW_UPDATE_REQUESTED = createAction(
 	DepartamentLawActionTypes.DEPARTAMENTLAW_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateDepartamentLawDto, string>>()
+	props<PayloadUpdate<FormData | UpdateDepartamentLawDto, string>>()
 );
 
 export const DEPARTAMENTLAW_UPDATE_LOADED = createAction(

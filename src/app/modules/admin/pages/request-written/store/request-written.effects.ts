@@ -92,7 +92,7 @@ export class RequestWrittenEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.REQUESTWRITTEN_UPDATE_REQUESTED),
-				switchMap((action: PayloadUpdate<UpdateRequestWrittenDto, string>) => {
+				switchMap((action: PayloadUpdate<UpdateRequestWrittenDto | FormData, string>) => {
 					return this.requestWrittenService.update(action.id || '', action.payload).pipe(
 						map((response: Response<RequestWritten>) => {
 							this.matSnackBarService.open('success', ZMessages.success);

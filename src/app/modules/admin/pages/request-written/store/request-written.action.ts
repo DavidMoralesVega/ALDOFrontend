@@ -77,7 +77,7 @@ export const REQUESTWRITTEN_FIND_ONE_FAILED = createAction(
 // update
 export const REQUESTWRITTEN_UPDATE_REQUESTED = createAction(
 	RequestWrittenActionTypes.REQUESTWRITTEN_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateRequestWrittenDto, string>>()
+	props<PayloadUpdate<UpdateRequestWrittenDto | FormData, string>>()
 );
 
 export const REQUESTWRITTEN_UPDATE_LOADED = createAction(

@@ -71,7 +71,6 @@ export class RecognitionCreateComponent implements OnInit {
 		createRecognitionDto.append('RPublicationDate', this.RPublicationDate.value);
 		createRecognitionDto.append('RIssueDate', this.RIssueDate.value);
 		createRecognitionDto.append('REventDate', this.REventDate.value);
-
 		createRecognitionDto.append('RVisibility', this.RVisibility.value);
 		createRecognitionDto.append('RFile', this.file);
 

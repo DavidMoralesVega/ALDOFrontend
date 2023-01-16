@@ -83,7 +83,7 @@ export class DepartamentLawComponent implements OnInit, AfterViewInit, OnDestroy
 	}
 
 	changeState(departamentLawAdapter: DepartamentLawAdapter) {
-		const updateDepartamentLawDto: UpdateDepartamentLawDto = {
+		const updateDepartamentLawDto = {
 			dtstate: !departamentLawAdapter.dtstate
 		};
 

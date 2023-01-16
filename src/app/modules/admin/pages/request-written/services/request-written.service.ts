@@ -33,7 +33,7 @@ export class RequestWrittenService {
 
 	update(
 		id: string,
-		updateRequestWrittenDto: UpdateRequestWrittenDto
+		updateRequestWrittenDto: UpdateRequestWrittenDto | FormData
 	): Observable<Response<RequestWritten>> {
 		return this.httpClient.patch<Response<RequestWritten>>(
 			`${this.ZPRequestWritten}/${id}`,

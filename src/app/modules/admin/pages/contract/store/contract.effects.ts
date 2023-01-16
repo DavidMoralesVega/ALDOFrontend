@@ -92,7 +92,7 @@ export class ContractEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.CONTRACT_UPDATE_REQUESTED),
-				switchMap((action: PayloadUpdate<UpdateContractDto, string>) => {
+				switchMap((action: PayloadUpdate<UpdateContractDto | FormData, string>) => {
 					return this.contractService.update(action.id || '', action.payload).pipe(
 						map((response: Response<Contract>) => {
 							this.matSnackBarService.open('success', ZMessages.success);

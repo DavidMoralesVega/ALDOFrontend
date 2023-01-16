@@ -29,7 +29,7 @@ export class RecognitionService {
 
 	update(
 		id: string,
-		updateRecognitionDto: UpdateRecognitionDto
+		updateRecognitionDto: UpdateRecognitionDto | FormData
 	): Observable<Response<Recognition>> {
 		return this.httpClient.patch<Response<Recognition>>(
 			`${this.ZPRecognition}/${id}`,
