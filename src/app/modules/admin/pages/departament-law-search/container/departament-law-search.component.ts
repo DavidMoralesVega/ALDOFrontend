@@ -7,6 +7,8 @@ import { DepartamentLaw } from 'src/app/modules/admin/pages/departament-law/enti
 import { FormControl, FormGroup } from '@angular/forms';
 import { DefaultErrorMatcher } from '../../../../../core/shared/default.error-matcher';
 import { search } from 'src/app/core/entities/interfaces/search.interface';
+import { LegislatureFacade } from '../../legislature/facades/legislature.facade';
+import { Legislature } from '../../legislature/entities/models/legislature.model';
 
 @Component({
 	selector: 'z-commission',
@@ -18,9 +20,10 @@ export class DepartamentLawsSearchComponent implements OnInit {
 	public formCreate: FormGroup = new FormGroup({});
 	public findAllResponse$: Observable<Response<DepartamentLaw[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
-
 	public searchResponse$: Observable<Response<DepartamentLaw[]> | null>;
 	public searchIsLoading$: Observable<boolean>;
+	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllIsLoading$: Observable<boolean>;
 
 	public ZListArea: any[] = ZListArea;
 
@@ -38,12 +41,19 @@ export class DepartamentLawsSearchComponent implements OnInit {
 
 	element: boolean = false;
 
-	constructor(private readonly departamentLawFacade: DepartamentLawFacade) {
+	constructor(
+		private readonly departamentLawFacade: DepartamentLawFacade,
+		private readonly legislatureFacade: LegislatureFacade
+	) {
+		this.legislatureFacade.findAll(this.pagination);
 		this.findAllResponse$ = this.departamentLawFacade.findAllResponse$;
 		this.findAllIsLoading$ = this.departamentLawFacade.findAllIsLoading$;
 
 		this.searchResponse$ = this.departamentLawFacade.searchResponse$;
 		this.searchIsLoading$ = this.departamentLawFacade.searchIsLoading$;
+
+		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
+		this.legislatureFindAllResponse$ = this.legislatureFacade.findAllResponse$;
 	}
 
 	ngOnInit(): void {
@@ -61,7 +71,9 @@ export class DepartamentLawsSearchComponent implements OnInit {
 			departLawArea: new FormControl('', []),
 			dataQuery: new FormControl('', []),
 			daterangeInit: new FormControl('', []),
-			daterangeEnd: new FormControl('', [])
+			daterangeEnd: new FormControl('', []),
+			dataIdLegdepart: new FormControl('', []),
+			dataNumLey: new FormControl('', [])
 		});
 	}
 	get departLawArea() {
@@ -75,6 +87,12 @@ export class DepartamentLawsSearchComponent implements OnInit {
 	}
 	get dataQuery() {
 		return this.formCreate.get('dataQuery')!;
+	}
+	get dataIdLegdepart() {
+		return this.formCreate.get('dataIdLegdepart')!;
+	}
+	get dataNumLey() {
+		return this.formCreate.get('dataNumLey')!;
 	}
 
 	showData($event: any) {
@@ -102,6 +120,8 @@ export class DepartamentLawsSearchComponent implements OnInit {
 
 			const dataSearch: search = {
 				data: this.dataQuery.value,
+				visibility: 'all',
+				state: true,
 				area: this.departLawArea.value,
 				dateStart: dateInit,
 				dateEnd: dateEnd
@@ -125,7 +145,8 @@ export class DepartamentLawsSearchComponent implements OnInit {
 		} else {
 			const dataSearch: search = {
 				data: this.dataQuery.value,
-				visibility: 'all'
+				visibility: 'all',
+				state: true
 			};
 
 			this.departamentLawFacade.search(dataSearch);
@@ -151,7 +172,9 @@ export class DepartamentLawsSearchComponent implements OnInit {
 			this.findAllResponse$.subscribe({
 				next: (response: Response<any[]> | null) => {
 					this.dataSearchDepartament = response?.data.filter((data) => {
-						return data;
+						if (data.dtvisibility === 'publico' && data.dtstate === true) {
+							return data;
+						}
 					});
 				}
 			})
@@ -185,57 +208,4 @@ export class DepartamentLawsSearchComponent implements OnInit {
 	create() {
 		if (this.formCreate.invalid) return;
 	}
-
-	/*
-		https://github.com/typeorm/typeorm/issues/2929
-		https://stackoverflow.com/questions/52814795/how-to-query-with-or-operation-in-where-object-using-find-options-api-in-typeo
-		https://stackoverflow.com/questions/71722950/typeorm-query-builder-filtering-multiple-columns-with-one-value
-		https://stackoverflow.com/questions/64260584/how-to-select-only-single-multiple-fields-from-joined-entity-in-typeorm
-		http://www.silep.gob.bo/
-
-		data privada true
-		data publica false
-		data privada false
-		data publica true
-		data all(privada,publica) all(false,true)
-
-		data privada true area
-		data publica false area
-		data privada false area
-		data publica true area
-		data all(privada,publica) all(false,true) area
-
-		data privada true area (between fechaInicio  fechaFin)
-		data publica false area (between fechaInicio  fechaFin)
-		data privada false area (between fechaInicio  fechaFin)
-		data publica true area (between fechaInicio  fechaFin)
-		data all(privada,publica) all(false,true) area (between fechaInicio  fechaFin)
-
-
-		import { MoreThan } from "typeorm";
-		import { Like } from "typeorm";
-		import { Between } from 'typeorm';
-
-		this.productsRepository.find({
-		where: [
-			{ name: "Silla" },
-			{ stock: 1 },
-			{ name: "caja", description: "Caja de madera" },
-		],
-		});
-
-
-		this.productsRepository.find({
-		name: Like('%silla%'),
-		description: Like('%silla%')
-		});
-
-
-		this.productsRepository.find({
-		where: {
-			stock: Between(3,8)
-		}
-		});
-
-	*/
 }

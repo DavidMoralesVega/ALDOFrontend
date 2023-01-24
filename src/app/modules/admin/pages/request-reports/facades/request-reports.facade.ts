@@ -33,7 +33,7 @@ export class RequestReportsFacade {
 	public findOneResponse$: Observable<Response<RequestReports> | null>;
 
 	// update
-	public updateDto$: Observable<UpdateRequestReportsDto | null>;
+	public updateDto$: Observable<UpdateRequestReportsDto | FormData | null>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -78,7 +78,7 @@ export class RequestReportsFacade {
 		this.store.dispatch(REQUESTREPORTS_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateRequestReportsDto: UpdateRequestReportsDto) {
+	update(id: string, updateRequestReportsDto: FormData | UpdateRequestReportsDto) {
 		this.store.dispatch(
 			REQUESTREPORTS_UPDATE_REQUESTED({
 				id,

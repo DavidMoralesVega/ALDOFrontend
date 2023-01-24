@@ -9,13 +9,43 @@
 	<form [formGroup]="formUpdate" (ngSubmit)="update()" novalidate="novalidate" autocomplete="off">
 		<div mat-dialog-content>
 			<div class="row">
+				<z-upload-input-type-document
+					(onUpload)="handleUpload($event)"
+				></z-upload-input-type-document>
+				<z-upload-input-type-document
+					(onUpload)="handleUploadVideo($event)"
+				></z-upload-input-type-document>
+
+				<mat-form-field
+					*ngIf="!(legislatureFindAllIsLoading$ | async)"
+					class="col-lg-12 mb-2"
+					appearance="outline"
+				>
+					<mat-label>Legislatura</mat-label>
+					<mat-select formControlName="IdreqRLeg">
+						<mat-option
+							*ngFor="let legislature of (legislatureFindAllResponse$ | async)!.data"
+							[value]="legislature | jsonData : 'IdLegislatura'"
+						>
+							{{ legislature | jsonData : 'LegDescripcion' }}
+						</mat-option>
+					</mat-select>
+
+					<mat-error *ngIf="errorMatcher.isErrorState(IdreqRLeg, null)">
+						<span *ngIf="IdreqRLeg.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							La legislatura es requerido.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
 				<mat-form-field class="col-lg-12" appearance="outline">
 					<mat-label>Título</mat-label>
 
 					<input
 						matInput
 						maxlength="100"
-						formControlName="reqR_num"
+						formControlName="reqR_title"
 						placeholder="Numero Reporte"
 					/>
 					<mat-hint align="start">El campo debe tener como máximo 100 caracteres. </mat-hint>
@@ -31,7 +61,6 @@
 						</span>
 					</mat-error>
 				</mat-form-field>
-
 				<mat-form-field class="col-lg-12" appearance="outline">
 					<mat-label>Descripcion</mat-label>
 

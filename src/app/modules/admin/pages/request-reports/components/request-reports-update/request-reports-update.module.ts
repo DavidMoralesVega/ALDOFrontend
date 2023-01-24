@@ -11,6 +11,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
+import { UploadInputTypeDocumentModule } from '../../../../../../core/components/upload-input-type-image/upload-input-type-image.module';
+import { JsonAsyncModule } from '../../../../../../core/pipes/json-async/json-async.module';
 
 @NgModule({
 	declarations: [RequestReportsUpdateComponent],
@@ -25,7 +27,9 @@ import { MatRadioModule } from '@angular/material/radio';
 		MatSelectModule,
 		MatDatepickerModule,
 		MatNativeDateModule,
-		MatRadioModule
+		MatRadioModule,
+		UploadInputTypeDocumentModule,
+		JsonAsyncModule
 	]
 })
 export class RequestReportsUpdateModule {}

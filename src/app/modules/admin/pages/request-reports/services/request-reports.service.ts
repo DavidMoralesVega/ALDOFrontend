@@ -32,7 +32,7 @@ export class RequestReportsService {
 
 	update(
 		id: string,
-		updateRequestReportsDto: UpdateRequestReportsDto
+		updateRequestReportsDto: FormData | UpdateRequestReportsDto
 	): Observable<Response<RequestReports>> {
 		return this.httpClient.patch<Response<RequestReports>>(
 			`${this.ZPRequestReports}/${id}`,

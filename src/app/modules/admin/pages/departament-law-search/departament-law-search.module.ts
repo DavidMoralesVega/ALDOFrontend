@@ -15,6 +15,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { LineZModule } from '../../../../core/components/line-z/line-z.module';
+import { JsonAsyncModule } from '../../../../core/pipes/json-async/json-async.module';
 
 @NgModule({
 	declarations: [DepartamentLawsSearchComponent],
@@ -31,7 +33,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 		MatSelectModule,
 		MatRadioModule,
 		MatDatepickerModule,
-		MatNativeDateModule
+		MatNativeDateModule,
+		LineZModule,
+		JsonAsyncModule
 	],
 	providers: [DepartamentLawFacade]
 })

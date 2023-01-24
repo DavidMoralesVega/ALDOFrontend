@@ -21,7 +21,7 @@ export interface RequestReportsState {
 		id: string | null;
 	};
 	update: {
-		updateRequestReportsDto: UpdateRequestReportsDto | null;
+		updateRequestReportsDto: FormData | UpdateRequestReportsDto | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;
