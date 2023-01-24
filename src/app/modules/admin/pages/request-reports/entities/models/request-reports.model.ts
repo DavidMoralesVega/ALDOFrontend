@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Adapter } from 'src/app/core/entities/adapters/object.adapter';
+import { LegislatureAdapter } from '../../../legislature/entities/models/legislature.model';
 
 export class RequestReportsAdapter {
 	constructor(
@@ -17,6 +18,11 @@ export interface CreateRequestReportsDto
 	extends Omit<RequestReportsAdapter, 'reqR_id' | 'reqR_create' | 'reqR_state'> {
 	readonly IdreqRLeg: string;
 }
+
+export interface UpdateRequestReportsForeignAdapter extends RequestReportsAdapter {
+	readonly legislatura: LegislatureAdapter;
+}
+
 export interface UpdateRequestReportsDto extends Partial<RequestReportsAdapter> {}
 
 @Injectable()

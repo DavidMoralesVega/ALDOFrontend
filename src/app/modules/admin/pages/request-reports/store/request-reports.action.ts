@@ -76,7 +76,7 @@ export const REQUESTREPORTS_FIND_ONE_FAILED = createAction(
 // update
 export const REQUESTREPORTS_UPDATE_REQUESTED = createAction(
 	RequestReportsActionTypes.REQUESTREPORTS_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateRequestReportsDto, string>>()
+	props<PayloadUpdate<FormData | UpdateRequestReportsDto, string>>()
 );
 
 export const REQUESTREPORTS_UPDATE_LOADED = createAction(

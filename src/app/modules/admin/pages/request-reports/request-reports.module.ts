@@ -26,6 +26,8 @@ import { RequestReportsFacade } from './facades/request-reports.facade';
 import { RequestReportsCreateModule } from './components/request-reports-create/request-reports-create.module';
 import { RequestReportsUpdateModule } from './components/request-reports-update/request-reports-update.module';
 import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file.module';
+import { LegislatureModule } from '../legislature/legislature.module';
+import { LegislatureFacade } from '../legislature/facades/legislature.facade';
 
 @NgModule({
 	declarations: [RequestReportsComponent],
@@ -48,9 +50,10 @@ import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file
 		MatDialogModule,
 		RequestReportsCreateModule,
 		RequestReportsUpdateModule,
-		StaticFilePipeModule
+		StaticFilePipeModule,
+		LegislatureModule
 	],
-	providers: [RequestReportsService, MatSnackBarService, RequestReportsFacade],
+	providers: [RequestReportsService, MatSnackBarService, RequestReportsFacade, LegislatureFacade],
 	exports: [StoreModule, EffectsModule]
 })
 export class RequestReportsModule {}

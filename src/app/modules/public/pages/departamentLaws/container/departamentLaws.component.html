@@ -2,42 +2,40 @@
 	<div
 		id="intro"
 		class="bg-image shadow-1-strong"
-		style="background-image: url(assets/brand/fotos/gaceta/leyes.JPG); height: 800px"
+		style="background-image: url(assets/brand/fotos/gaceta/leyes.JPG); height: 600px"
 	>
-		<div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.6)">
+		<div class="mask text-white" style="background-color: rgba(68, 19, 32, 0.037)">
 			<div class="container d-flex align-items-center justify-content-center text-center h-100">
 				<div class="text-white animate__animated animate__zoomInDown">
-					<h1 class="mb-3 mt-5 pt-4">Leyes Departamentales</h1>
-					<div class="mt-4 mb-4 container w-100">
-						<z-line></z-line>
-					</div>
-					<h4 class="mb-4 text-uppercase">Asamblea Legislativa Departamental de Oruro</h4>
+					<h1
+						class="mb-3 mt-5 pt-4"
+						style="color: black; text-transform: uppercase; font-weight: bold"
+					>
+						Buscar Leyes Departamentales
+					</h1>
 					<form
 						[formGroup]="formCreate"
 						class="form-inline my-2 my-lg-0"
 						(ngSubmit)="create()"
 					>
-						<div class="row">
-							<div class="col-12">
+						<div class="row justify-content-center w-100">
+							<div class="col-12 justify-content-center">
 								<input
 									class="form-control mr-sm-2"
 									type="text"
 									placeholder="Buscar por titulo"
 									#buscarTexto
 								/>
-								<!-- (keyup)="buscarConvocatoria(buscarTexto.value)" -->
 								<button
 									(click)="buscarConvocatoria(buscarTexto.value)"
-									class="btn btn-outline-white my-2 my-sm-0"
+									class="btn my-2 my-sm-0"
 									type="button"
 								>
 									Buscar
 								</button>
 							</div>
 							<div class="col-12 mt-4">
-								<a href="" class="btn text-light" (click)="showData($event)"
-									>Busqueda Avanzada</a
-								>
+								<a href="" class="btn" (click)="showData($event)">Busqueda Avanzada</a>
 							</div>
 							<div
 								class="col-12 row block__search"
@@ -45,10 +43,7 @@
 								*ngIf="element == true"
 							>
 								<div class="col-6 mt-5">
-									<mat-form-field
-										class="col-lg-12 text-light"
-										style="background: #fafafa; padding: 10px"
-									>
+									<mat-form-field class="col-lg-12" style="padding: 10px">
 										<mat-label>Área</mat-label>
 										<mat-select formControlName="departLawArea">
 											<mat-option *ngFor="let area of ZListArea" [value]="area.value">
@@ -62,7 +57,7 @@
 									<mat-form-field
 										appearance="fill"
 										class="example-form-field"
-										style="background: #fafafa; color: #0080ff"
+										style="color: #0080ff"
 									>
 										<mat-label>Enter a date range</mat-label>
 										<mat-date-range-input [rangePicker]="rangePicker">
@@ -94,7 +89,7 @@
 											*ngIf="!(legislatureFindAllIsLoading$ | async)"
 											class="col-lg-12 mb-2"
 											appearance="outline"
-											style="background: #fafafa; padding: 10px"
+											style="padding: 10px"
 										>
 											<mat-label>Legislature</mat-label>
 											<mat-select formControlName="dataIdLegdepart">
@@ -111,10 +106,7 @@
 										</mat-form-field>
 									</div>
 									<div class="col-6">
-										<mat-form-field
-											appearance="outline"
-											style="background: #fafafa; padding: 10px"
-										>
+										<mat-form-field appearance="outline" style="padding: 10px">
 											<mat-label>Nro de ley</mat-label>
 											<input
 												matInput
@@ -134,7 +126,7 @@
 	</div>
 </header>
 <!-- Container for demo purpose -->
-<div class="container my-5 py-5">
+<div class="container" style="margin-top: 100px">
 	<section class="mb-10">
 		<div class="row">
 			<div
@@ -143,6 +135,7 @@
 					let data of dataSearchDepartament
 						| paginate : { itemsPerPage: 10, currentPage: page }
 				"
+				data-aos="flip-down"
 			>
 				<img src="assets/brand/back.jpg" class="card-img-top" alt="Fissure in Sandstone" />
 				<div class="card-body">
@@ -162,4 +155,3 @@
 		></pagination-controls>
 	</div>
 </div>
-<!-- Container for demo purpose -->
