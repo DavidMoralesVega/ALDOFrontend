@@ -1,3 +1,27 @@
 .block__search {
 	transition: all 0.2s ease-in-out;
 }
+.bg-lw {
+	width: 65%;
+	height: 100%;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+}
+.bg-lw::before {
+	content: '';
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0; /* 
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+	filter: blur(5px); */
+	background: rgb(243, 246, 252);
+	margin: -20px;
+}
