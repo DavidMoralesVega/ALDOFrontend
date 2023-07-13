@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { PayloadFile, Response } from 'src/app/core/entities';
@@ -7,13 +7,15 @@ import { RequestWrittenFacade } from '../../../facades/request-written.facade';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
 import { Legislature } from '../../../../legislature/entities';
 import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
+import { ZBaseService } from 'src/app/core/services/base.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-request-written-create',
 	templateUrl: './request-written-create.component.html',
 	styleUrls: ['./request-written-create.component.scss']
 })
-export class RequestWrittenCreateComponent implements OnInit {
+export class RequestWrittenCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
@@ -30,11 +32,14 @@ export class RequestWrittenCreateComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
+	private readonly dialogRef = inject(MatDialogRef<RequestWrittenCreateComponent>);
 
 	constructor(
 		private readonly requestWrittenFacade: RequestWrittenFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
+		super();
+
 		this.legislatureFacade.findAll(this.pagination);
 		this.createIsLoading$ = requestWrittenFacade.createIsLoading$;
 		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
@@ -86,6 +91,7 @@ export class RequestWrittenCreateComponent implements OnInit {
 		createResolutionDto.append('IdreqWrLeg', this.IdreqWrLeg.value);
 
 		this.requestWrittenFacade.create(createResolutionDto);
+		this.closeDialog(this.requestWrittenFacade.createResponse$, this.dialogRef);
 	}
 
 	// Obtener imagen

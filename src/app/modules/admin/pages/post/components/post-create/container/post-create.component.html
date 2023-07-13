@@ -1,6 +1,6 @@
 <div class="dialogContainer">
 	<div class="dialogContainer__header">
-		<h2 mat-dialog-title>Crear Post</h2>
+		<h2 mat-dialog-title>Crear publicación</h2>
 		<button mat-icon-button mat-dialog-close>
 			<mat-icon class="material-symbols-outlined">close</mat-icon>
 		</button>
@@ -16,19 +16,19 @@
 				</div>
 
 				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Titulo</mat-label>
+					<mat-label>Título</mat-label>
 					<input matInput maxlength="100" formControlName="post_tittle" placeholder="Código" />
-					<mat-hint align="start">El código debe tener como máximo 100 caracteres. </mat-hint>
+					<mat-hint align="start">El título debe tener como máximo 100 caracteres. </mat-hint>
 					<mat-hint align="end">{{ post_tittle.value.length }} / 100</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(post_tittle, null)">
 						<span *ngIf="post_tittle.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El Titulo es requerido.
+							El título es requerido.
 						</span>
 
 						<span *ngIf="post_tittle.errors?.['maxlength']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El Titulo debe tener como máximo 100 caracteres.
+							El título debe tener como máximo 100 caracteres.
 						</span>
 					</mat-error>
 				</mat-form-field>
@@ -80,7 +80,7 @@
 					class="col-lg-12 mb-2"
 					appearance="outline"
 				>
-					<mat-label>Categoria</mat-label>
+					<mat-label>Categoría</mat-label>
 					<mat-select formControlName="cat_post_id">
 						<mat-option
 							*ngFor="let category of (categoryFindAllResponse$ | async)!.data"
@@ -93,7 +93,7 @@
 					<mat-error *ngIf="errorMatcher.isErrorState(cat_post_id, null)">
 						<span *ngIf="cat_post_id.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							La Categoria es requerido.
+							La categoría es requerido.
 						</span>
 					</mat-error>
 				</mat-form-field>

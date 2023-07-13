@@ -29,6 +29,7 @@ import { UploadInputTypeDocumentModule } from 'src/app/core/components/upload-in
 import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file.module';
 import { LegislatureModule } from '../legislature/legislature.module';
 import { LegislatureFacade } from '../legislature/facades/legislature.facade';
+import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
 
 @NgModule({
 	declarations: [CallsComponent],
@@ -52,7 +53,8 @@ import { LegislatureFacade } from '../legislature/facades/legislature.facade';
 		CallsCreateModule,
 		CallsUpdateModule,
 		StaticFilePipeModule,
-		LegislatureModule
+		LegislatureModule,
+		DataSetPipeModule
 	],
 	providers: [CallService, MatSnackBarService, CallFacade, LegislatureFacade],
 	exports: [StoreModule, EffectsModule]

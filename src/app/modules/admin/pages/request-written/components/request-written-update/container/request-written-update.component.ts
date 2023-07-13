@@ -1,26 +1,23 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
-import {
-	RequestWrittenAdapter,
-	RequestWrittenForeignAdapter,
-	UpdateRequestWrittenDto
-} from '../../../entities';
+import { RequestWrittenForeignAdapter } from '../../../entities';
 import { RequestWrittenFacade } from '../../../facades/request-written.facade';
 import { Legislature } from '../../../../legislature/entities/models/legislature.model';
 import { Response } from 'src/app/core/entities';
 import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
 import { PayloadFile } from '../../../../../../../core/entities/adapters/object.adapter';
+import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-request-written-update',
 	templateUrl: './request-written-update.component.html',
 	styleUrls: ['./request-written-update.component.scss']
 })
-export class RequestWrittenUpdateComponent implements OnInit {
+export class RequestWrittenUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formUpdate: FormGroup = new FormGroup({});
 	public updateIsLoading$: Observable<boolean>;
@@ -35,6 +32,7 @@ export class RequestWrittenUpdateComponent implements OnInit {
 	};
 	private file!: File;
 	private isValidImage: boolean = false;
+	private readonly dialogRef = inject(MatDialogRef<RequestWrittenUpdateComponent>);
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA)
@@ -42,7 +40,7 @@ export class RequestWrittenUpdateComponent implements OnInit {
 		private readonly requestWrittenFacade: RequestWrittenFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
-		console.log(requestWrittenAdapter);
+		super();
 
 		this.legislatureFacade.findAll(this.pagination);
 		this.updateIsLoading$ = requestWrittenFacade.updateIsLoading$;
@@ -111,6 +109,7 @@ export class RequestWrittenUpdateComponent implements OnInit {
 			this.requestWrittenAdapter.IdRequestWritten,
 			updateRequestWrittenDto
 		);
+		this.closeDialog(this.requestWrittenFacade.updateResponse$, this.dialogRef);
 	}
 
 	// Obtener imagen

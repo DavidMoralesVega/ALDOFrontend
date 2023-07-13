@@ -1,24 +1,21 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
-import {
-	RequestReportsAdapter,
-	UpdateRequestReportsDto
-} from '../../../entities/models/request-reports.model';
 import { RequestReportsFacade } from '../../../facades/request-reports.facade';
 import { Legislature } from '../../../../legislature/entities/models/legislature.model';
-import { PayloadFile, ZListArea, Response, Pagination } from 'src/app/core/entities';
+import { PayloadFile, Response, Pagination } from 'src/app/core/entities';
 import { UpdateRequestReportsForeignAdapter } from '../../../entities/models/request-reports.model';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
+import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-request-reports-update',
 	templateUrl: './request-reports-update.component.html',
 	styleUrls: ['./request-reports-update.component.scss']
 })
-export class RequestReportsUpdateComponent implements OnInit {
+export class RequestReportsUpdateComponent extends ZBaseService {
 	public formUpdate: FormGroup = new FormGroup({});
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
@@ -34,6 +31,7 @@ export class RequestReportsUpdateComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
+	private readonly dialogRef = inject(MatDialogRef<RequestReportsUpdateComponent>);
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA)
@@ -41,7 +39,7 @@ export class RequestReportsUpdateComponent implements OnInit {
 		private readonly requestReportsFacade: RequestReportsFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
-		console.log(UpdateRequestReportsForeignAdapter);
+		super();
 
 		this.legislatureFacade.findAll(this.pagination);
 		this.updateIsLoading$ = requestReportsFacade.updateIsLoading$;
@@ -92,6 +90,7 @@ export class RequestReportsUpdateComponent implements OnInit {
 			this.UpdateRequestReportsForeignAdapter.reqR_id,
 			updateRequestReportsDto
 		);
+		this.closeDialog(this.requestReportsFacade.updateResponse$, this.dialogRef);
 	}
 
 	// Obtener imagen

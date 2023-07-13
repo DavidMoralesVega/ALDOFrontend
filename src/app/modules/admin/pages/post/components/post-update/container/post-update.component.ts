@@ -1,20 +1,21 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { Observable } from 'rxjs';
 import { Post, PostForeignAdapter, UpdatePostDto } from '../../../entities';
 import { Pagination, Response } from 'src/app/core/entities';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { PostFacade } from '../../../facades/post.facade';
 import { CategoryFacade } from '../../../../category/facades/category.facade';
 import { Category } from '../../../../category/entities';
+import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-post-update',
 	templateUrl: './post-update.component.html',
 	styleUrls: ['./post-update.component.scss']
 })
-export class PostUpdateComponent implements OnInit {
+export class PostUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formUpdate: FormGroup = new FormGroup({});
 
@@ -28,15 +29,19 @@ export class PostUpdateComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
+
+	private readonly dialogRef = inject(MatDialogRef<PostUpdateComponent>);
+
 	constructor(
 		@Inject(MAT_DIALOG_DATA)
 		private readonly postForeignAdapter: PostForeignAdapter,
 		private readonly postFacade: PostFacade,
 		private readonly categoryFacade: CategoryFacade
 	) {
+		super();
+
 		this.updateIsLoading$ = postFacade.updateIsLoading$;
 		this.categoryFacade.findAll(this.pagination);
-
 		this.categoryFindAllIsLoading$ = this.categoryFacade.findAllIsLoading$;
 		this.categoryFindAllResponse$ = this.categoryFacade.findAllResponse$;
 	}
@@ -84,5 +89,6 @@ export class PostUpdateComponent implements OnInit {
 		};
 
 		this.postFacade.update(this.postForeignAdapter.post_id, updatePostDto);
+		this.closeDialog(this.postFacade.updateResponse$, this.dialogRef);
 	}
 }

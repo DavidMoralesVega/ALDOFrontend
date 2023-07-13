@@ -1,6 +1,6 @@
 // Interfaces
 
 // Models
-export * from './models/resolutions.model';
+export * from './models/user.model';
 
 // Adapters

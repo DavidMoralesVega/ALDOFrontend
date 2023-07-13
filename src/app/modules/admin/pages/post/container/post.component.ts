@@ -27,9 +27,9 @@ export class PostComponent implements OnInit {
 	public readonly displayedColumns: string[] = [
 		'post_id',
 		'post_author',
-		'post_content',
 		'post_tittle',
 		'cat_post_id',
+		'post_content',
 		'post_creado',
 		'post_estado',
 		'z-actions'

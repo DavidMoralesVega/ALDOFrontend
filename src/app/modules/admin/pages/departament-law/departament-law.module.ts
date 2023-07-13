@@ -31,6 +31,7 @@ import { DepartamentLawUpdateModule } from './components/departament-law-update/
 import { StaticFilePipeModule } from '../../../../core/pipes/static-file/static-file.module';
 import { LegislatureFacade } from '../legislature/facades/legislature.facade';
 import { LegislatureModule } from '../legislature/legislature.module';
+import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
 
 @NgModule({
 	declarations: [DepartamentLawComponent],
@@ -56,7 +57,8 @@ import { LegislatureModule } from '../legislature/legislature.module';
 		MatDialogModule,
 		DepartamentLawCreateModule,
 		DepartamentLawUpdateModule,
-		LegislatureModule
+		LegislatureModule,
+		DataSetPipeModule
 	],
 	providers: [DepartamentLawService, MatSnackBarService, DepartamentLawFacade, LegislatureFacade],
 	exports: [StoreModule, EffectsModule]

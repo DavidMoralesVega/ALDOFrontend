@@ -47,6 +47,11 @@
 				<td mat-cell *matCellDef="let row">{{ row.RESummary }}</td>
 			</ng-container>
 
+			<ng-container matColumnDef="IdresolLeg">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Legislatura</th>
+				<td mat-cell *matCellDef="let row">{{ row.legislatura.LegDescripcion }}</td>
+			</ng-container>
+
 			<ng-container matColumnDef="REPublicationDate">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de publicación</th>
 				<td mat-cell *matCellDef="let row">{{ row.REPublicationDate | date : 'medium' }}</td>
@@ -62,9 +67,11 @@
 				<td mat-cell *matCellDef="let row">{{ row.REDocumentNumber }}</td>
 			</ng-container>
 
-			<ng-container matColumnDef="REType"
-				><th mat-header-cell *matHeaderCellDef mat-sort-header>Número de documento</th>
-				<td mat-cell *matCellDef="let row">{{ row.REType }}</td>
+			<ng-container matColumnDef="REType">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+				<td mat-cell *matCellDef="let row">
+					{{ row.REType | zDataSet : 'listResolutions' }}
+				</td>
 			</ng-container>
 
 			<ng-container matColumnDef="REDateRegister">

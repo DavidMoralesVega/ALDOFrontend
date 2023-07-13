@@ -26,6 +26,7 @@ export class RequestReportsComponent implements OnInit {
 	public readonly displayedColumns: string[] = [
 		'reqR_id',
 		'reqR_title',
+		'IdreqRLeg',
 		'reqR_abstract',
 		'reqR_create',
 		'IdUser',
