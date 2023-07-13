@@ -18,7 +18,7 @@ export class LegislatureFacade {
 	public createDto$: Observable<CreateLegislatureDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
-	public createResponse$: Observable<Response<Legislature> | null>;
+	public createResponse$: Observable<Response<any> | null>;
 
 	// findAll
 	public findAllPagination$: Observable<Pagination | null>;

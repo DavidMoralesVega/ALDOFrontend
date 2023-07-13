@@ -16,6 +16,7 @@ import { AuthService } from '../auth/services/auth.service';
 	providers: [
 		AuthService,
 		AuthFacade
+
 		// authInterceptorProviders
 	]
 })

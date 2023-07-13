@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-
 import { ContractRoutingModule } from './contract-routing.module';
 import { ContractComponent } from './container/contract.component';
 import { StoreModule } from '@ngrx/store';
 import { ZEffects } from 'src/app/core/entities';
 import { EffectsModule } from '@ngrx/effects';
-import { ResolutionReducer } from '../resolutions/store/resolutions.reducer';
-import { ResolutionEffects } from '../resolutions/store/resolutions.effects';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,13 +21,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ContractUpdateModule } from './components/contract-update/contract-update.module';
 import { ContractCreateModule } from './components/contract-create/contract-create.module';
-
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
-
 import { ContractFacade } from './facades/contract.facade';
 import { ContractService } from './services/contract.service';
 import { ContractEffects } from './store/contract.effects';
 import { ContractReducer } from './store/contract.reducer';
+import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
 
 @NgModule({
 	declarations: [ContractComponent],
@@ -38,29 +34,25 @@ import { ContractReducer } from './store/contract.reducer';
 		CommonModule,
 		ContractRoutingModule,
 		DatePipe,
-
 		StoreModule.forFeature(ZEffects.contract, ContractReducer),
 		EffectsModule.forFeature([ContractEffects]),
 		MatSnackBarModule,
-
 		ReactiveFormsModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatIconModule,
-
 		MatProgressSpinnerModule,
 		StaticFilePipeModule,
 		MatChipsModule,
 		MatButtonModule,
 		MatTooltipModule,
-
 		MatSortModule,
 		MatTableModule,
 		MatPaginatorModule,
 		MatDialogModule,
-
 		ContractCreateModule,
-		ContractUpdateModule
+		ContractUpdateModule,
+		DataSetPipeModule
 	],
 	providers: [ContractService, MatSnackBarService, ContractFacade],
 	exports: [StoreModule, EffectsModule]

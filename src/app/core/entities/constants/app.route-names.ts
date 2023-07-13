@@ -1,5 +1,11 @@
 import { IZPath } from '../interfaces/path.interface';
 
+export interface ZC_Preload {
+	value: number;
+	key: string;
+	children?: ZC_Preload[];
+}
+
 const ZPath_ADMIN = '/admin';
 
 export const ZPaths: IZPath[] = [
