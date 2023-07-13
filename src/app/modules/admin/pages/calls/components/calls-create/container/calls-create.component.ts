@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { PayloadFile, ZListModalidad, ZListSesiones, Response } from 'src/app/core/entities';
@@ -7,13 +7,15 @@ import { CallFacade } from '../../../facades/call.facade';
 import { Legislature } from '../../../../legislature/entities/models/legislature.model';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
 import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
+import { ZBaseService } from 'src/app/core/services/base.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-calls-create',
 	templateUrl: './calls-create.component.html',
 	styleUrls: ['./calls-create.component.scss']
 })
-export class CallsCreateComponent implements OnInit {
+export class CallsCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
@@ -36,10 +38,13 @@ export class CallsCreateComponent implements OnInit {
 		filter: 'ALL'
 	};
 
+	private readonly dialogRef = inject(MatDialogRef<CallsCreateComponent>);
+
 	constructor(
 		private readonly callFacade: CallFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
+		super();
 		this.legislatureFacade.findAll(this.pagination);
 		this.createIsLoading$ = callFacade.createIsLoading$;
 		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
@@ -101,6 +106,7 @@ export class CallsCreateComponent implements OnInit {
 		createCallDto.append('IdcallLeg', this.IdcallLeg.value);
 
 		this.callFacade.create(createCallDto);
+		this.closeDialog(this.callFacade.createResponse$, this.dialogRef);
 	}
 
 	// Obtener imagen

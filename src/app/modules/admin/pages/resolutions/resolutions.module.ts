@@ -29,6 +29,7 @@ import { ResolutionFacade } from './facades/resolutions.facade';
 import { StaticFilePipeModule } from '../../../../core/pipes/static-file/static-file.module';
 import { LegislatureModule } from '../legislature/legislature.module';
 import { LegislatureFacade } from '../legislature/facades/legislature.facade';
+import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
 @NgModule({
 	declarations: [ResolutionsComponent],
 	imports: [
@@ -53,7 +54,8 @@ import { LegislatureFacade } from '../legislature/facades/legislature.facade';
 		MatDialogModule,
 		ResolutionsCreateModule,
 		ResolutionsUpdateModule,
-		LegislatureModule
+		LegislatureModule,
+		DataSetPipeModule
 	],
 	providers: [ResolutionService, MatSnackBarService, ResolutionFacade, LegislatureFacade],
 	exports: [StoreModule, EffectsModule]

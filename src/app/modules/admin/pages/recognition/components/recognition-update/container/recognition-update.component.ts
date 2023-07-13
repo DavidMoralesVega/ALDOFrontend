@@ -1,30 +1,33 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { Observable } from 'rxjs';
 import { Pagination } from 'src/app/core/entities';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { RecognitionAdapter, UpdateRecognitionDto } from '../../../entities';
 import { RecognitionFacade } from '../../../facades/recognition.facade';
 import { PayloadFile } from '../../../../../../../core/entities/adapters/object.adapter';
+import { ZBaseService } from 'src/app/core/services/base.service';
 @Component({
 	selector: 'z-recognition-update',
 	templateUrl: './recognition-update.component.html',
 	styleUrls: ['./recognition-update.component.scss']
 })
-export class RecognitionUpdateComponent implements OnInit {
+export class RecognitionUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formUpdate: FormGroup = new FormGroup({});
 	public updateIsLoading$: Observable<boolean>;
 
 	private file!: File;
 	private isValidImage: boolean = false;
+	private readonly dialogRef = inject(MatDialogRef<RecognitionUpdateComponent>);
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA)
 		private readonly recognitionAdapter: RecognitionAdapter,
 		private readonly recognitionFacade: RecognitionFacade
 	) {
+		super();
 		this.updateIsLoading$ = recognitionFacade.updateIsLoading$;
 	}
 	ngOnInit(): void {
@@ -79,6 +82,7 @@ export class RecognitionUpdateComponent implements OnInit {
 		updateRecognitionDto.append('RFile', this.file);
 
 		this.recognitionFacade.update(this.recognitionAdapter.IdRecognition, updateRecognitionDto);
+		this.closeDialog(this.recognitionFacade.updateResponse$, this.dialogRef);
 	}
 
 	// Obtener imagen

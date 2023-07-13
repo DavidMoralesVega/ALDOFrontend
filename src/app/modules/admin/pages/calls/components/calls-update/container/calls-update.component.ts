@@ -1,9 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
-import { UpdateCallDto } from '../../../entities';
 import { CallFacade } from '../../../facades/call.facade';
 import { UpdateCallForeignAdapter } from '../../../entities/models/call.model';
 import { ZListModalidad, ZListSesiones, Response } from 'src/app/core/entities';
@@ -11,13 +10,14 @@ import { Legislature } from '../../../../legislature/entities/models/legislature
 import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
 import { PayloadFile } from '../../../../../../../core/entities/adapters/object.adapter';
+import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-calls-update',
 	templateUrl: './calls-update.component.html',
 	styleUrls: ['./calls-update.component.scss']
 })
-export class CallsUpdateComponent implements OnInit {
+export class CallsUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formUpdate: FormGroup = new FormGroup({});
 
@@ -36,12 +36,14 @@ export class CallsUpdateComponent implements OnInit {
 
 	private file!: File;
 	private isValidImage: boolean = false;
+	private readonly dialogRef = inject(MatDialogRef<CallsUpdateComponent>);
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) private readonly UpdateCallForeignAdapter: UpdateCallForeignAdapter,
 		private readonly callFacade: CallFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
+		super();
 		this.onChange(this.UpdateCallForeignAdapter.call_modality);
 		this.legislatureFacade.findAll(this.pagination);
 		this.updateIsLoading$ = callFacade.updateIsLoading$;
@@ -125,6 +127,7 @@ export class CallsUpdateComponent implements OnInit {
 		updateCallDto.append('IdcallLeg', this.IdcallLeg.value);
 
 		this.callFacade.update(this.UpdateCallForeignAdapter.call_id, updateCallDto);
+		this.closeDialog(this.callFacade.updateResponse$, this.dialogRef);
 	}
 
 	onChange(data: string) {

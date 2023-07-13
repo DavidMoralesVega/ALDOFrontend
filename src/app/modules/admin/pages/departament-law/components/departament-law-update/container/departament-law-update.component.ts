@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, inject } from '@angular/core';
 import { DefaultErrorMatcher } from '../../../../../../../core/shared/default.error-matcher';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DepartamentLawFacade } from '../../../facades/departament-law.facade';
 import {
 	UpdateDepartamentLawDto,
@@ -11,13 +11,14 @@ import {
 import { PayloadFile, ZListArea, Response, Pagination } from 'src/app/core/entities';
 import { Legislature } from '../../../../legislature/entities/models/legislature.model';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
+import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-departament-law-update',
 	templateUrl: './departament-law-update.component.html',
 	styleUrls: ['./departament-law-update.component.scss']
 })
-export class DepartamentLawUpdateComponent implements OnInit {
+export class DepartamentLawUpdateComponent extends ZBaseService {
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
@@ -33,6 +34,7 @@ export class DepartamentLawUpdateComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
+	private readonly dialogRef = inject(MatDialogRef<DepartamentLawUpdateComponent>);
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA)
@@ -40,6 +42,7 @@ export class DepartamentLawUpdateComponent implements OnInit {
 		private readonly departamentLawFacade: DepartamentLawFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
+		super();
 		this.legislatureFacade.findAll(this.pagination);
 		this.updateIsLoading$ = departamentLawFacade.updateIsLoading$;
 		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
@@ -121,6 +124,7 @@ export class DepartamentLawUpdateComponent implements OnInit {
 			this.UpdateDepartamentLawForeignAdapter.IdDepartamentaLaw,
 			updateDepartamentLawDto
 		);
+		this.closeDialog(this.departamentLawFacade.updateResponse$, this.dialogRef);
 	}
 
 	// Obtener imagen

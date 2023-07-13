@@ -26,6 +26,7 @@ export class DepartamentLawComponent implements OnInit, AfterViewInit, OnDestroy
 
 	public readonly displayedColumns: string[] = [
 		'IdDepartamentaLaw',
+		'dtarea',
 		'DTTitle',
 		'DTSummary',
 		'DTIssueDate',

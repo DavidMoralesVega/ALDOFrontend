@@ -27,6 +27,8 @@ export class CallsComponent implements OnInit {
 		'call_id',
 		'call_title',
 		'call_modality',
+		'call_numSession',
+		'IdcallLeg',
 		'call_dateUpdate',
 		'call_create',
 		'CallVisibility',

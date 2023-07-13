@@ -32,6 +32,7 @@ export class ResolutionsComponent implements OnInit {
 		'IdResolution',
 		'RETitle',
 		'RESummary',
+		'IdresolLeg',
 		'REPublicationDate',
 		'REIssueDate',
 		'REDocumentNumber',

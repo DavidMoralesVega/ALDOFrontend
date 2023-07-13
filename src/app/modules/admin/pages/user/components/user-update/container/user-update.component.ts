@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'z-user-update',
-  templateUrl: './user-update.component.html',
-  styleUrls: ['./user-update.component.scss']
+	selector: 'z-user-update',
+	templateUrl: './user-update.component.html',
+	styleUrls: ['./user-update.component.scss']
 })
 export class UserUpdateComponent implements OnInit {
+	constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+	ngOnInit(): void {}
 }

@@ -67,8 +67,8 @@ export const ZPaths: IZPath[] = [
 				path: `${ZPath_ADMIN}/resolutions`,
 				name: 'Resoluciones',
 				icon: 'bell'
-			},
-			{
+			}
+			/* {
 				module: 'biblioteca',
 				path: `${ZPath_ADMIN}/biblioteca`,
 				name: 'Biblioteca',
@@ -79,7 +79,7 @@ export const ZPaths: IZPath[] = [
 				path: `${ZPath_ADMIN}/search-biblioteca`,
 				name: 'Buscador Biblioteca',
 				icon: 'bell'
-			}
+			} */
 		]
 	},
 	{
@@ -91,8 +91,8 @@ export const ZPaths: IZPath[] = [
 			{ module: 'category', path: `${ZPath_ADMIN}/category`, name: 'Categorias', icon: 'bell' },
 			{ module: 'post', path: `${ZPath_ADMIN}/post`, name: 'Publicaciones', icon: 'bell' }
 		]
-	},
-	{
+	}
+	/* {
 		module: 'adsi',
 		collase: true,
 		name: 'Biblioteca',
@@ -105,7 +105,7 @@ export const ZPaths: IZPath[] = [
 				icon: 'bell'
 			}
 		]
-	}
+	} */
 	// {
 	// 	module: 'sareh',
 	// 	collase: true,
@@ -241,32 +241,32 @@ export const ZListContract: any = [
 
 // area
 export const ZListArea: any = [
-	{ value: '0', key: 'Area uno' },
-	{ value: '1', key: 'Area dos' },
-	{ value: '2', key: 'Area tres' }
+	{ value: '0', key: 'Área uno' },
+	{ value: '1', key: 'Área dos' },
+	{ value: '2', key: 'Área tres' }
 ];
 
 // categoria
 export const ZListCategory: any = [
-	{ value: '0', key: 'Categoria uno' },
-	{ value: '1', key: 'Categoria dos' },
-	{ value: '2', key: 'Categoria tres' }
+	{ value: '0', key: 'Categoría uno' },
+	{ value: '1', key: 'Categoría dos' },
+	{ value: '2', key: 'Categoría tres' }
 ];
 
 // role
 export const ZListRoles: any = [
-	{ value: '0', key: 'Encargada Del Area de Procesos Legislativos' },
+	{ value: '0', key: 'Encargada Del Área de Procesos Legislativos' },
 	{ value: '1', key: 'Profesional Administrativo II - Transcriptior' },
 	{ value: '2', key: 'Encargado de Proceso Juridicos Administrativos' },
-	{ value: '3', key: 'Encargado Area de Contratación' },
+	{ value: '3', key: 'Encargado Área de Contratación' },
 	{ value: '4', key: 'Encargado de Procesos Legislativos Administrativos' }
 ];
 
 // area
 export const ZListModule: any = [
-	{ value: '0', key: 'Modulo uno' },
-	{ value: '1', key: 'Modulo dos' },
-	{ value: '2', key: 'Modulo tres' }
+	{ value: '0', key: 'Módulo uno' },
+	{ value: '1', key: 'Módulo dos' },
+	{ value: '2', key: 'Módulo tres' }
 ];
 
 // Comisiones
@@ -779,68 +779,68 @@ export const ZListModalidad: any = [
 	{ value: '20', key: 'Sesiones de honor' }
 ];
 
-// SESIONES
+// SESIÓNES
 export const ZListSesiones: any = [
-	{ value: '1', key: 'PRIMERA SESION' },
-	{ value: '2', key: 'SEGUNDA SESION)' },
-	{ value: '3', key: 'TERCERA SESION' },
-	{ value: '4', key: 'CUARTA SESION' },
-	{ value: '5', key: 'QUINTA SESION' },
-	{ value: '6', key: 'SEXTA SESION' },
-	{ value: '7', key: 'SEPTIMA SESION' },
-	{ value: '8', key: 'OCTAVA SESION' },
-	{ value: '9', key: 'NOVENA SESION' },
-	{ value: '10', key: 'DECIMA SESION' },
-	{ value: '11', key: 'UNDECIMA SESION' },
-	{ value: '12', key: 'DUODECIMA SESION' },
-	{ value: '13', key: 'DECIMA TERCERA SESION' },
-	{ value: '14', key: 'DECIMA CUARTA SESION' },
-	{ value: '15', key: 'DECIMA QUINTA SESION' },
-	{ value: '16', key: 'DECIMA SEXTA SESION' },
-	{ value: '17', key: 'DECIMA SEPTIMA SESION' },
-	{ value: '18', key: 'DECIMA OCTAVA SESION' },
-	{ value: '19', key: 'DECIMA NOVENA SESION' },
-	{ value: '20', key: 'VIGESIMA SESION' },
-	{ value: '21', key: 'VIGESIMA PRIMERA SESION' },
-	{ value: '22', key: 'VIGESIMA SEGUNDA SESION' },
-	{ value: '23', key: 'VIGESIMA TERCERA SESION' },
-	{ value: '24', key: 'VIGESIMA CUARTA SESION' },
-	{ value: '25', key: 'VIGESIMA QUINTA SESION' },
-	{ value: '26', key: 'VIGESIMA SEXTA SESION' },
-	{ value: '27', key: 'VIGESIMA SEPTIMA SESION' },
-	{ value: '28', key: 'VIGESIMA OCTAVA SESION' },
-	{ value: '29', key: 'VIGESIMA NOVENA SESION' },
-	{ value: '30', key: 'TRIGESIMA SESION' },
-	{ value: '31', key: 'TRIGESIMA PRIMERA SESION' },
-	{ value: '32', key: 'TRIGESIMA SEGUNDA SESION' },
-	{ value: '33', key: 'TRIGESIMA TERCERA SESION' },
-	{ value: '34', key: 'TRIGESIMA CUARTA SESION' },
-	{ value: '35', key: 'TRIGESIMA QUINTA SESION' },
-	{ value: '36', key: 'TRIGESIMA SEXTA SESION' },
-	{ value: '37', key: 'TRIGESIMA SEPTIMA SESION' },
-	{ value: '38', key: 'TRIGESIMA OCTAVA SESION' },
-	{ value: '39', key: 'TRIGESIMA NOVENA SESION' },
-	{ value: '40', key: 'CUADRAGESIMA SESION' },
-	{ value: '41', key: 'CUADRAGESIMA PRIMERA SESION' },
-	{ value: '42', key: 'CUADRAGESIMA SEGUNDA SESION' },
-	{ value: '43', key: 'CUADRAGESIMA TERCERA SESION' },
-	{ value: '44', key: 'CUADRAGESIMA CUARTA SESION' },
-	{ value: '45', key: 'CUADRAGESIMA QUINTA SESION' },
-	{ value: '46', key: 'CUADRAGESIMA SEXTA SESION' },
-	{ value: '47', key: 'CUADRAGESIMA SEPTIMA SESION' },
-	{ value: '48', key: 'CUADRAGESIMA OCTAVA SESION' },
-	{ value: '49', key: 'CUADRAGESIMA NOVENA SESION' },
-	{ value: '50', key: 'QUINCUAGESIMA SESION' },
-	{ value: '51', key: 'QUINCUAGESIMA PRIMERA SESION' },
-	{ value: '52', key: 'QUINCUAGESIMA SEGUNDA SESION' },
-	{ value: '53', key: 'QUINCUAGESIMA TERCERA SESION' },
-	{ value: '54', key: 'QUINCUAGESIMA CUARTA SESION' },
-	{ value: '55', key: 'QUINCUAGESIMA QUINTA SESION' },
-	{ value: '56', key: 'QUINCUAGESIMA SEXTA SESION' },
-	{ value: '57', key: 'QUINCUAGESIMA SEPTIMA SESION' },
-	{ value: '58', key: 'QUINCUAGESIMA OCTAVA SESION' },
-	{ value: '59', key: 'QUINCUAGESIMA NOVENA SESION' },
-	{ value: '60', key: 'SEXAGESIMA SESION' }
+	{ value: '1', key: 'PRIMERA SESIÓN' },
+	{ value: '2', key: 'SEGUNDA SESIÓN' },
+	{ value: '3', key: 'TERCERA SESIÓN' },
+	{ value: '4', key: 'CUARTA SESIÓN' },
+	{ value: '5', key: 'QUINTA SESIÓN' },
+	{ value: '6', key: 'SEXTA SESIÓN' },
+	{ value: '7', key: 'SEPTIMA SESIÓN' },
+	{ value: '8', key: 'OCTAVA SESIÓN' },
+	{ value: '9', key: 'NOVENA SESIÓN' },
+	{ value: '10', key: 'DECIMA SESIÓN' },
+	{ value: '11', key: 'UNDECIMA SESIÓN' },
+	{ value: '12', key: 'DUODECIMA SESIÓN' },
+	{ value: '13', key: 'DECIMA TERCERA SESIÓN' },
+	{ value: '14', key: 'DECIMA CUARTA SESIÓN' },
+	{ value: '15', key: 'DECIMA QUINTA SESIÓN' },
+	{ value: '16', key: 'DECIMA SEXTA SESIÓN' },
+	{ value: '17', key: 'DECIMA SEPTIMA SESIÓN' },
+	{ value: '18', key: 'DECIMA OCTAVA SESIÓN' },
+	{ value: '19', key: 'DECIMA NOVENA SESIÓN' },
+	{ value: '20', key: 'VIGESIMA SESIÓN' },
+	{ value: '21', key: 'VIGESIMA PRIMERA SESIÓN' },
+	{ value: '22', key: 'VIGESIMA SEGUNDA SESIÓN' },
+	{ value: '23', key: 'VIGESIMA TERCERA SESIÓN' },
+	{ value: '24', key: 'VIGESIMA CUARTA SESIÓN' },
+	{ value: '25', key: 'VIGESIMA QUINTA SESIÓN' },
+	{ value: '26', key: 'VIGESIMA SEXTA SESIÓN' },
+	{ value: '27', key: 'VIGESIMA SEPTIMA SESIÓN' },
+	{ value: '28', key: 'VIGESIMA OCTAVA SESIÓN' },
+	{ value: '29', key: 'VIGESIMA NOVENA SESIÓN' },
+	{ value: '30', key: 'TRIGESIMA SESIÓN' },
+	{ value: '31', key: 'TRIGESIMA PRIMERA SESIÓN' },
+	{ value: '32', key: 'TRIGESIMA SEGUNDA SESIÓN' },
+	{ value: '33', key: 'TRIGESIMA TERCERA SESIÓN' },
+	{ value: '34', key: 'TRIGESIMA CUARTA SESIÓN' },
+	{ value: '35', key: 'TRIGESIMA QUINTA SESIÓN' },
+	{ value: '36', key: 'TRIGESIMA SEXTA SESIÓN' },
+	{ value: '37', key: 'TRIGESIMA SEPTIMA SESIÓN' },
+	{ value: '38', key: 'TRIGESIMA OCTAVA SESIÓN' },
+	{ value: '39', key: 'TRIGESIMA NOVENA SESIÓN' },
+	{ value: '40', key: 'CUADRAGESIMA SESIÓN' },
+	{ value: '41', key: 'CUADRAGESIMA PRIMERA SESIÓN' },
+	{ value: '42', key: 'CUADRAGESIMA SEGUNDA SESIÓN' },
+	{ value: '43', key: 'CUADRAGESIMA TERCERA SESIÓN' },
+	{ value: '44', key: 'CUADRAGESIMA CUARTA SESIÓN' },
+	{ value: '45', key: 'CUADRAGESIMA QUINTA SESIÓN' },
+	{ value: '46', key: 'CUADRAGESIMA SEXTA SESIÓN' },
+	{ value: '47', key: 'CUADRAGESIMA SEPTIMA SESIÓN' },
+	{ value: '48', key: 'CUADRAGESIMA OCTAVA SESIÓN' },
+	{ value: '49', key: 'CUADRAGESIMA NOVENA SESIÓN' },
+	{ value: '50', key: 'QUINCUAGESIMA SESIÓN' },
+	{ value: '51', key: 'QUINCUAGESIMA PRIMERA SESIÓN' },
+	{ value: '52', key: 'QUINCUAGESIMA SEGUNDA SESIÓN' },
+	{ value: '53', key: 'QUINCUAGESIMA TERCERA SESIÓN' },
+	{ value: '54', key: 'QUINCUAGESIMA CUARTA SESIÓN' },
+	{ value: '55', key: 'QUINCUAGESIMA QUINTA SESIÓN' },
+	{ value: '56', key: 'QUINCUAGESIMA SEXTA SESIÓN' },
+	{ value: '57', key: 'QUINCUAGESIMA SEPTIMA SESIÓN' },
+	{ value: '58', key: 'QUINCUAGESIMA OCTAVA SESIÓN' },
+	{ value: '59', key: 'QUINCUAGESIMA NOVENA SESIÓN' },
+	{ value: '60', key: 'SEXAGESIMA SESIÓN' }
 ];
 
 /*

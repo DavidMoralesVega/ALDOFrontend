@@ -57,7 +57,7 @@
 					<mat-label>Título</mat-label>
 
 					<input matInput maxlength="40" formControlName="RWTitle" placeholder="Título" />
-					<mat-hint align="start">Máximo 40 carácteres. </mat-hint>
+					<mat-hint align="start">Máximo 40 caracteres. </mat-hint>
 					<mat-hint align="end">{{ RWTitle.value.length }} / 40</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(RWTitle, null)">
 						<span *ngIf="RWTitle.errors?.['required']">
@@ -67,7 +67,7 @@
 
 						<span *ngIf="RWTitle.errors?.['maxlength']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							Máximo 40 carácteres.
+							Máximo 40 caracteres.
 						</span>
 					</mat-error>
 				</mat-form-field>

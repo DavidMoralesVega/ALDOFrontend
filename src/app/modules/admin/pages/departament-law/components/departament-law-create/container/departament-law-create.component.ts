@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DefaultErrorMatcher } from '../../../../../../../core/shared/default.error-matcher';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -7,13 +7,15 @@ import { PayloadFile, ZListArea, Response, Pagination } from 'src/app/core/entit
 import * as _moment from 'moment';
 import { Legislature } from '../../../../legislature/entities';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
+import { ZBaseService } from 'src/app/core/services/base.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-departament-law-create',
 	templateUrl: './departament-law-create.component.html',
 	styleUrls: ['./departament-law-create.component.scss']
 })
-export class DepartamentLawCreateComponent implements OnInit {
+export class DepartamentLawCreateComponent extends ZBaseService {
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
@@ -28,10 +30,13 @@ export class DepartamentLawCreateComponent implements OnInit {
 		filter: 'ALL'
 	};
 
+	private readonly dialogRef = inject(MatDialogRef<DepartamentLawCreateComponent>);
+
 	constructor(
 		private readonly departamentLawFacade: DepartamentLawFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
+		super();
 		this.legislatureFacade.findAll(this.pagination);
 		this.createIsLoading$ = departamentLawFacade.createIsLoading$;
 		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
@@ -92,6 +97,7 @@ export class DepartamentLawCreateComponent implements OnInit {
 		createDepartamentLawDto.append('IddeparLwLeg', this.IddeparLwLeg.value);
 
 		this.departamentLawFacade.create(createDepartamentLawDto);
+		this.closeDialog(this.departamentLawFacade.createResponse$, this.dialogRef);
 	}
 
 	// Obtener imagen

@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { Observable } from 'rxjs';
 import { Pagination, PayloadFile } from 'src/app/core/entities';
 import { RecognitionFacade } from '../../../facades/recognition.facade';
+import { ZBaseService } from 'src/app/core/services/base.service';
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
 	selector: 'z-recognition-create',
 	templateUrl: './recognition-create.component.html',
 	styleUrls: ['./recognition-create.component.scss']
 })
-export class RecognitionCreateComponent implements OnInit {
+export class RecognitionCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
@@ -24,8 +26,10 @@ export class RecognitionCreateComponent implements OnInit {
 	// variables imagen
 	private file!: File;
 	private isValidImage: boolean = false;
+	private readonly dialogRef = inject(MatDialogRef<RecognitionCreateComponent>);
 
 	constructor(private readonly recognitionFacade: RecognitionFacade) {
+		super();
 		this.createIsLoading$ = recognitionFacade.createIsLoading$;
 	}
 	ngOnInit(): void {
@@ -75,6 +79,7 @@ export class RecognitionCreateComponent implements OnInit {
 		createRecognitionDto.append('RFile', this.file);
 
 		this.recognitionFacade.create(createRecognitionDto);
+		this.closeDialog(this.recognitionFacade.createResponse$, this.dialogRef);
 	}
 
 	// Obtener imagen

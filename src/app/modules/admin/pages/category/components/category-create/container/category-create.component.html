@@ -10,14 +10,9 @@
 		<div mat-dialog-content>
 			<div class="row">
 				<mat-form-field class="col-lg-12" appearance="outline">
-					<mat-label>Nombre Categoria</mat-label>
+					<mat-label>Nombre de la Categoría</mat-label>
 
-					<input
-						matInput
-						maxlength="50"
-						formControlName="cat_nombre"
-						placeholder="Nombre Categoria"
-					/>
+					<input matInput maxlength="50" formControlName="cat_nombre" />
 					<mat-hint align="start"
 						>La abreviación debe tener como máximo 50 caracteres.
 					</mat-hint>
@@ -25,17 +20,17 @@
 					<mat-error *ngIf="errorMatcher.isErrorState(cat_nombre, null)">
 						<span *ngIf="cat_nombre.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El nombre de la categoria es requerida.
+							El nombre de la categoría es requerida.
 						</span>
 
 						<span *ngIf="cat_nombre.errors?.['maxlength']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El nombre de la categoria debe tener como máximo 50 caracteres.
+							El nombre de la categoría debe tener como máximo 50 caracteres.
 						</span>
 
 						<span *ngIf="cat_nombre.errors?.['pattern']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El nombre de la categoria solo debe de tener cadenas de texto.
+							El nombre de la categoría solo debe de tener cadenas de texto.
 						</span>
 					</mat-error>
 				</mat-form-field>

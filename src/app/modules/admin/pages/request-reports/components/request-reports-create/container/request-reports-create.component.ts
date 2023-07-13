@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { RequestReportsFacade } from '../../../facades/request-reports.facade';
-import { CreateRequestReportsDto } from '../../../entities';
 import { Pagination, PayloadFile, Response } from 'src/app/core/entities';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
 import { Legislature } from '../../../../legislature/entities';
+import { ZBaseService } from 'src/app/core/services/base.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-request-reports-create',
 	templateUrl: './request-reports-create.component.html',
 	styleUrls: ['./request-reports-create.component.scss']
 })
-export class RequestReportsCreateComponent implements OnInit {
+export class RequestReportsCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
@@ -30,11 +31,14 @@ export class RequestReportsCreateComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
+	private readonly dialogRef = inject(MatDialogRef<RequestReportsCreateComponent>);
 
 	constructor(
 		private readonly requestReportsFacade: RequestReportsFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
+		super();
+
 		this.createIsLoading$ = requestReportsFacade.createIsLoading$;
 		this.legislatureFacade.findAll(this.pagination);
 		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
@@ -80,6 +84,7 @@ export class RequestReportsCreateComponent implements OnInit {
 		createRequestReportsDto.append('IdreqRLeg', this.IdreqRLeg.value);
 
 		this.requestReportsFacade.create(createRequestReportsDto);
+		this.closeDialog(this.requestReportsFacade.createResponse$, this.dialogRef);
 	}
 
 	// Obtener imagenx

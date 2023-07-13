@@ -27,6 +27,7 @@ import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service'
 import { UserFacade } from './facades/user.facade';
 import { UserCreateModule } from './components/user-create/user-create.module';
 import { UserUpdateModule } from './components/user-update/user-update.module';
+import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
 
 @NgModule({
 	declarations: [UserComponent],
@@ -50,7 +51,8 @@ import { UserUpdateModule } from './components/user-update/user-update.module';
 		MatPaginatorModule,
 		MatDialogModule,
 		UserCreateModule,
-		UserUpdateModule
+		UserUpdateModule,
+		DataSetPipeModule
 	],
 	providers: [UserService, MatSnackBarService, UserFacade],
 	exports: [StoreModule, EffectsModule]

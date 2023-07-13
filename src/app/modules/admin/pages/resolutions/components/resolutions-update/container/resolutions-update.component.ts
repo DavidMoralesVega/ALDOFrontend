@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Pagination, ZListResolutions, Response } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
@@ -9,12 +9,13 @@ import { PayloadFile } from '../../../../../../../core/entities/adapters/object.
 import { ResolutionForeignAdapter } from '../../../entities/models/resolutions.model';
 import { Legislature } from '../../../../legislature/entities/models/legislature.model';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
+import { ZBaseService } from 'src/app/core/services/base.service';
 @Component({
 	selector: 'z-resolutions-update',
 	templateUrl: './resolutions-update.component.html',
 	styleUrls: ['./resolutions-update.component.scss']
 })
-export class ResolutionsUpdateComponent implements OnInit {
+export class ResolutionsUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
@@ -29,6 +30,7 @@ export class ResolutionsUpdateComponent implements OnInit {
 	// variables imagen
 	private file!: File;
 	private isValidImage: boolean = false;
+	private readonly dialogRef = inject(MatDialogRef<ResolutionsUpdateComponent>);
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA)
@@ -36,6 +38,8 @@ export class ResolutionsUpdateComponent implements OnInit {
 		private readonly resolutionFacade: ResolutionFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
+		super();
+
 		this.legislatureFacade.findAll(this.pagination);
 		this.updateIsLoading$ = resolutionFacade.updateIsLoading$;
 		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
@@ -108,6 +112,7 @@ export class ResolutionsUpdateComponent implements OnInit {
 		updateResolutionDto.append('IdresolLeg', this.IdresolLeg.value);
 
 		this.resolutionFacade.update(this.resolutionAdapter.IdResolution, updateResolutionDto);
+		this.closeDialog(this.resolutionFacade.updateResponse$, this.dialogRef);
 	}
 	// Obtener imagen
 	handleUpload(payloadFile: PayloadFile) {

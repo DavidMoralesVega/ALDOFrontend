@@ -37,13 +37,18 @@
 				<td mat-cell *matCellDef="let row; let i = index">{{ i + 1 }}</td>
 			</ng-container>
 
+			<ng-container matColumnDef="IdreqRLeg">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Legislatura</th>
+				<td mat-cell *matCellDef="let row">{{ row.legislatura.LegDescripcion }}</td>
+			</ng-container>
+
 			<ng-container matColumnDef="reqR_title">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Titulo</th>
 				<td mat-cell *matCellDef="let row">{{ row.reqR_title }}</td>
 			</ng-container>
 
 			<ng-container matColumnDef="reqR_abstract">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</th>
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</th>
 				<td mat-cell *matCellDef="let row">{{ row.reqR_abstract }}</td>
 			</ng-container>
 

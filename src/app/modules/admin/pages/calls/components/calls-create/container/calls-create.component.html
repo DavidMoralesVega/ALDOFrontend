@@ -19,22 +19,22 @@
 					<mat-label>Titulo</mat-label>
 
 					<input matInput maxlength="100" formControlName="call_title" placeholder="Titulo" />
-					<mat-hint align="start">El titulo debe tener como máximo 100 caracteres. </mat-hint>
+					<mat-hint align="start">El título debe tener como máximo 100 caracteres. </mat-hint>
 					<mat-hint align="end">{{ call_title.value.length }} / 100</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(call_title, null)">
 						<span *ngIf="call_title.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El titulo es requerida.
+							El título es requerida.
 						</span>
 
 						<span *ngIf="call_title.errors?.['maxlength']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El titulo debe tener como máximo 100 caracteres.
+							El título debe tener como máximo 100 caracteres.
 						</span>
 
 						<span *ngIf="call_title.errors?.['pattern']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El titulo solo debe de tener cadenas de texto.
+							El título solo debe de tener cadenas de texto.
 						</span>
 					</mat-error>
 				</mat-form-field>

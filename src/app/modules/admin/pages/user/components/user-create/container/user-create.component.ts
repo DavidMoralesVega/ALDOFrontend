@@ -1,23 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ZListRoles } from 'src/app/core/entities';
 import { UserFacade } from '../../../facades/user.facade';
 import { CreateUserDto } from '../../../entities/models/user.model';
+import { ZBaseService } from 'src/app/core/services/base.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-user-create',
 	templateUrl: './user-create.component.html',
 	styleUrls: ['./user-create.component.scss']
 })
-export class UserCreateComponent implements OnInit {
+export class UserCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
 	public ZListRoles: any[] = ZListRoles;
+	private readonly dialogRef = inject(MatDialogRef<UserCreateComponent>);
 
 	constructor(private readonly userFacade: UserFacade) {
+		super();
+
 		this.createIsLoading$ = userFacade.createIsLoading$;
 	}
 
@@ -63,5 +68,6 @@ export class UserCreateComponent implements OnInit {
 		};
 
 		this.userFacade.create(createUserDto);
+		this.closeDialog(this.userFacade.createResponse$, this.dialogRef);
 	}
 }

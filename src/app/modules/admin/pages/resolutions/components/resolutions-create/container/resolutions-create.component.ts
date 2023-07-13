@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DefaultErrorMatcher } from '../../../../../../../core/shared/default.error-matcher';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -7,13 +7,15 @@ import { PayloadFile, Response, Pagination } from 'src/app/core/entities';
 import { ZListResolutions } from 'src/app/core/entities';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
 import { Legislature } from '../../../../legislature/entities';
+import { ZBaseService } from 'src/app/core/services/base.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-resolutions-create',
 	templateUrl: './resolutions-create.component.html',
 	styleUrls: ['./resolutions-create.component.scss']
 })
-export class ResolutionsCreateComponent implements OnInit {
+export class ResolutionsCreateComponent extends ZBaseService {
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
 
@@ -30,11 +32,14 @@ export class ResolutionsCreateComponent implements OnInit {
 	// variables imagen
 	private file!: File;
 	private isValidImage: boolean = false;
+	private readonly dialogRef = inject(MatDialogRef<ResolutionsCreateComponent>);
 
 	constructor(
 		private readonly resolutionFacade: ResolutionFacade,
 		private readonly legislatureFacade: LegislatureFacade
 	) {
+		super();
+
 		this.legislatureFacade.findAll(this.pagination);
 		this.createIsLoading$ = resolutionFacade.createIsLoading$;
 		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
@@ -95,6 +100,7 @@ export class ResolutionsCreateComponent implements OnInit {
 		createResolutionDto.append('IdresolLeg', this.IdresolLeg.value);
 
 		this.resolutionFacade.create(createResolutionDto);
+		this.closeDialog(this.resolutionFacade.createResponse$, this.dialogRef);
 	}
 
 	// Obtener imagen

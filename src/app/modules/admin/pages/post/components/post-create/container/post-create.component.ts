@@ -1,20 +1,21 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Pagination, Response } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { Category } from '../../../../category/entities/';
 import { CategoryFacade } from '../../../../category/facades/category.facade';
-import { CreatePostDto } from '../../../entities';
 import { PostFacade } from '../../../facades/post.facade';
 import { PayloadFile } from 'src/app/core/entities';
+import { ZBaseService } from 'src/app/core/services/base.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-post-create',
 	templateUrl: './post-create.component.html',
 	styleUrls: ['./post-create.component.scss']
 })
-export class PostCreateComponent implements OnInit {
+export class PostCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 
@@ -31,16 +32,16 @@ export class PostCreateComponent implements OnInit {
 
 	private post_fotografia!: File;
 	private isValidImage: boolean = false;
+	private readonly dialogRef = inject(MatDialogRef<PostCreateComponent>);
 
 	constructor(
 		private readonly postFacade: PostFacade,
 		private readonly categoryFacade: CategoryFacade
 	) {
+		super();
 		this.categoryFacade.findAll(this.pagination);
-
 		this.categoryFindAllIsLoading$ = this.categoryFacade.findAllIsLoading$;
 		this.categoryFindAllResponse$ = this.categoryFacade.findAllResponse$;
-
 		this.createIsLoading$ = postFacade.createIsLoading$;
 	}
 
@@ -79,6 +80,7 @@ export class PostCreateComponent implements OnInit {
 		createPostDto.append('post_fotografia', this.post_fotografia);
 
 		this.postFacade.create(createPostDto);
+		this.closeDialog(this.postFacade.createResponse$, this.dialogRef);
 	}
 
 	handleUpload(payloadFile: PayloadFile) {
