@@ -67,7 +67,20 @@ export const ZPaths: IZPath[] = [
 				path: `${ZPath_ADMIN}/resolutions`,
 				name: 'Resoluciones',
 				icon: 'bell'
+			},
+			{
+				module: 'archivos',
+				path: `${ZPath_ADMIN}/archivos`,
+				name: 'Archivos',
+				icon: 'bell'
+			},
+			{
+				module: 'actas',
+				path: `${ZPath_ADMIN}/actas`,
+				name: 'Actas',
+				icon: 'bell'
 			}
+
 			/* {
 				module: 'biblioteca',
 				path: `${ZPath_ADMIN}/biblioteca`,
