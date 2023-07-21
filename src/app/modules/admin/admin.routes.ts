@@ -72,5 +72,15 @@ export const AdminRoutes: Routes = [
 		path: 'legislature',
 		loadChildren: () =>
 			import('./pages/legislature/legislature.module').then((m) => m.LegislatureModule)
+	},
+	{
+		path: 'archivos',
+		loadChildren: () =>
+			import('./pages/file-archive/file-archive.module').then((m) => m.FileArchiveModule)
+	},
+	{
+		path: 'actas',
+		loadChildren: () =>
+			import('./pages/proceedings/proceedings.module').then((m) => m.ProceedingsModule)
 	}
 ];

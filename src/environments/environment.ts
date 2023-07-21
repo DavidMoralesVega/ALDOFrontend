@@ -22,6 +22,7 @@ export const environment = {
 		requestWritten: `${point.server}/request-written`,
 		recognition: `${point.server}/recognition`,
 		contract: `${point.server}/contract`,
-		library: `${point.server}/library`
+		library: `${point.server}/library`,
+		fileArchive: `${point.server}/fileArchive`
 	}
 };
