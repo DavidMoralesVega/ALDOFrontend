@@ -49,10 +49,11 @@ export class DepartamentLawCreateComponent extends ZBaseService {
 		this.formCreate = new FormGroup({
 			DTTitle: new FormControl('', [Validators.required, Validators.maxLength(40)]),
 			DTSummary: new FormControl('', [Validators.required, Validators.maxLength(40)]),
+			DTArea: new FormControl('', [Validators.required, Validators.maxLength(40)]),
 			DTPublicationDate: new FormControl(new Date(), [Validators.required]),
 			DTIssueDate: new FormControl('', [Validators.required]),
 			DTDocumentNumber: new FormControl('', [Validators.required]),
-			DTArea: new FormControl('', [Validators.required]),
+			//	DTArea: new FormControl('', [Validators.required]),
 			DTVisibility: new FormControl(true, [Validators.required]),
 			IddeparLwLeg: new FormControl([Validators.required])
 		});

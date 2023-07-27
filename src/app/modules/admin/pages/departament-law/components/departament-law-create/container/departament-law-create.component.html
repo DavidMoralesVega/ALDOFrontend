@@ -14,7 +14,8 @@
 						(onUpload)="handleUpload($event)"
 					></z-upload-input-type-document>
 				</div>
-				<mat-form-field class="col-lg-12" appearance="outline">
+				<!-- <mat-form-field class="col-lg-12" appearance="outline">
+					
 					<mat-label>Área</mat-label>
 					<mat-select formControlName="DTArea">
 						<mat-option *ngFor="let area of ZListArea" [value]="area.value">
@@ -26,6 +27,25 @@
 						<span *ngIf="DTArea.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
 							El área es requerido.
+						</span>
+					</mat-error>
+				</mat-form-field> -->
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Área</mat-label>
+
+					<input matInput maxlength="40" formControlName="DTArea" />
+					<mat-hint align="start">Máximo 40 carácteres. </mat-hint>
+					<mat-hint align="end">{{ DTArea.value.length }} / 40</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(DTArea, null)">
+						<span *ngIf="DTArea.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El área es requerido.
+						</span>
+
+						<span *ngIf="DTArea.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							Máximo 40 carácteres.
 						</span>
 					</mat-error>
 				</mat-form-field>

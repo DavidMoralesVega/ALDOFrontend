@@ -252,6 +252,12 @@ export const ZListContract: any = [
 	{ value: '2', key: 'ANPE - Apoyo Nacional a la Produción de Empleo' }
 ];
 
+export const ZListCategorys: any = [
+	{ value: 'Sesión Ordinaria', key: 'Sesión ordinaria' },
+	{ value: 'Sesión extraordinaria', key: 'Sesión extraordinaria' },
+	{ value: 'Sesión de honor', key: 'Sesión de honor' }
+];
+
 // area
 export const ZListArea: any = [
 	{ value: '0', key: 'Área uno' },
@@ -272,7 +278,9 @@ export const ZListRoles: any = [
 	{ value: '1', key: 'Profesional Administrativo II - Transcriptior' },
 	{ value: '2', key: 'Encargado de Proceso Juridicos Administrativos' },
 	{ value: '3', key: 'Encargado Área de Contratación' },
-	{ value: '4', key: 'Encargado de Procesos Legislativos Administrativos' }
+	{ value: '4', key: 'Técnico superior 2' },
+	{ value: '5', key: 'Administrador' },
+	{ value: '6', key: 'Administrador de blog' }
 ];
 
 // area

@@ -13,6 +13,7 @@ export enum ZEffects {
 	category = 'category',
 	legislature = 'legislature',
 	fileArchive = 'fileArchive',
+	proceeding = 'proceeding',
 	call = 'call',
 	requestReports = 'request-reports',
 	post = 'post'

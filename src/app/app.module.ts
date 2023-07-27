@@ -15,7 +15,6 @@ import { DefaultErrorMatcher } from './core/shared/default.error-matcher';
 import { AuthService } from './modules/auth/services/auth.service';
 import { authInterceptorProviders } from './core/interceptors/http.interceptor';
 import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
-import { ZBaseService } from './core/services/base.service';
 
 @NgModule({
 	declarations: [AppComponent],
