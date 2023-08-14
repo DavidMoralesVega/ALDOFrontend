@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Pagination, PayloadFile, ZListContract } from 'src/app/core/entities';
+import {
+	Pagination,
+	PayloadFile,
+	ZListContract,
+	ZListContractAdministrativo
+} from 'src/app/core/entities';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { ContractFacade } from '../../../facades/contract.facade';
+import { AuthFacade } from 'src/app/modules/auth/facades/auth.facade';
 
 @Component({
 	selector: 'z-contract-create',
@@ -14,14 +20,27 @@ export class ContractCreateComponent implements OnInit {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
-	public ZListContract: any[] = ZListContract;
+	public ZListContract: any[] = [];
 
 	// variables imagen
 	private file!: File;
 	private isValidImage: boolean = false;
+	public rolValue: string | undefined = '';
 
-	constructor(private readonly contractFacade: ContractFacade) {
+	constructor(
+		private readonly contractFacade: ContractFacade,
+		private readonly authFacade: AuthFacade
+	) {
+		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
+		this.authFacade.loginResponse$.subscribe((data) => (this.rolValue = data?.data.Roles));
+		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
 		this.createIsLoading$ = contractFacade.createIsLoading$;
+
+		if (this.rolValue !== 'juridicos_administrativos') {
+			this.ZListContract = ZListContract;
+		} else {
+			this.ZListContract = ZListContractAdministrativo;
+		}
 	}
 	ngOnInit(): void {
 		this.initFormCreate();

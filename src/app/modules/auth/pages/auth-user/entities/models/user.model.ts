@@ -9,7 +9,7 @@ export class UserAdapter {
 		public readonly Password: string,
 		public readonly FullName: string,
 		public readonly IsActive: boolean,
-		public readonly Roles: string[]
+		public readonly Roles: string
 	) {}
 }
 

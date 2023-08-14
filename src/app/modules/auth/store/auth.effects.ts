@@ -28,18 +28,37 @@ export class AuthEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.LOGIN_REQUESTED),
-				switchMap((action: PayloadLogin<LoginUserDto | LoginUserERPDto, ETypeUser>) =>
+				switchMap((action: PayloadLogin<LoginUserDto, ETypeUser>) =>
 					this.authService.login(action.payload, action.t).pipe(
-						map((response: Response<UserTokenDto | UserERPTokenDto>) => {
+						map((response: Response<UserTokenDto>) => {
 							this.matSnackBarService.open('success', 'Bienvenido');
-
 							this.tokenStorageService.saveToken(response.data.token);
+							// this.router.navigateByUrl('/admin');
 
-							this.router.navigateByUrl('/admin');
+							if (response.data.Roles === 'administrador') {
+								this.router.navigateByUrl('/administrador');
+							}
+							if (response.data.Roles === 'administrador_blog') {
+								this.router.navigateByUrl('/administrador-blog');
+							}
+							if (response.data.Roles === 'encargado_area_concentracion') {
+								this.router.navigateByUrl('/encargado-area-concentracion');
+							}
+							if (response.data.Roles === 'juridicos_administrativos') {
+								this.router.navigateByUrl('/juridicos-administrativos');
+							}
+							if (response.data.Roles === 'encargado_area_proceso') {
+								this.router.navigateByUrl('/encargado-area-proceso');
+							}
+							if (response.data.Roles === 'tecnico_supervisor') {
+								this.router.navigateByUrl('/tecnico-supervisor');
+							}
+							if (response.data.Roles === 'transcriptor') {
+								this.router.navigateByUrl('/transcriptor');
+							}
 
+							// this.router.navigateByUrl('/administrador-blog');
 							return zActions.LOGIN_SUCCESS({ payload: response });
-
-							// redirect module home
 						}),
 						catchError((exception: Exception) => {
 							this.matSnackBarService.open('success', exception.message);
@@ -57,7 +76,7 @@ export class AuthEffects {
 				switchMap((action: Payload<ETypeUser>) =>
 					this.authService.checkAuthStatus(action.payload).pipe(
 						take(1),
-						map((response: Response<UserTokenDto | UserERPTokenDto>) => {
+						map((response: Response<UserTokenDto>) => {
 							this.tokenStorageService.saveToken(response.data.token);
 							return zActions.LOGIN_SUCCESS({ payload: response });
 

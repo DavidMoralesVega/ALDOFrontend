@@ -49,7 +49,7 @@ export class AuthErpComponent implements OnInit {
 			erp_clave: this.formLogin.value.erp_clave
 		};
 
-		this.authFacade.login(loginUserERPDto, ETypeUser.erp);
+		// this.authFacade.login(loginUserERPDto, ETypeUser.erp);
 
 		// this.formLogin.reset();
 	}

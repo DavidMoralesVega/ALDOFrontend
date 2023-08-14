@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
 	selector: 'z-navigation',
-	templateUrl: './navigation.component.html',
-	styleUrls: ['./navigation.component.scss']
+	templateUrl: './navigation.component.html'
 })
 export class NavigationComponent implements OnInit {
 	public readonly zPaths: IZPath[] = ZPaths;

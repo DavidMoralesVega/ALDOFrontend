@@ -1,0 +1,8 @@
+<mat-dialog-actions align="end">
+	<button class="zBtn zBtnLight zBtnMd" mat-dialog-close>Cancelar</button>
+	<button class="zBtn zBtnPrimary zBtnMd ms-2" *ngIf="!isLoading" [disabled]="isDisabled">
+		<mat-icon fontIcon="check" />
+		<span *ngIf="!isLoading">{{ textButton }}</span>
+		<span *ngIf="isLoading">Guardando...</span>
+	</button>
+</mat-dialog-actions>

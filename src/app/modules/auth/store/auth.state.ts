@@ -10,7 +10,7 @@ export interface AuthState {
 		isLoggedIn: boolean;
 		loginDto: LoginUserDto | LoginUserERPDto | null;
 		type: ETypeUser | null;
-		response: Response<UserTokenDto | UserERPTokenDto> | null;
+		response: Response<UserTokenDto> | null;
 	};
 }
 

@@ -249,7 +249,11 @@ export const ZListCalls: any = [
 export const ZListContract: any = [
 	{ value: '0', key: 'Menores - Contratación Menor' },
 	{ value: '1', key: 'Mayor RPC - Licitación Pública' },
-	{ value: '2', key: 'ANPE - Apoyo Nacional a la Produción de Empleo' }
+	{ value: '2', key: 'ANPE - Apoyo Nacional a la Produción de Empleo' },
+	{ value: '3', key: 'Documentacion de procesos juridicos administrativos' } //TODO: CONTRATOS OJO REVIEW
+];
+export const ZListContractAdministrativo: any = [
+	{ value: '3', key: 'Documentacion de procesos juridicos administrativos' } //TODO: CONTRATOS OJO REVIEW
 ];
 
 // area
