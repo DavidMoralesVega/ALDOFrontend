@@ -16,7 +16,7 @@ export class AuthFacade {
 	public loginException$: Observable<Exception | null>;
 	public loginIsLoading$: Observable<boolean>;
 	public loginIsLoggedIn$: Observable<boolean>;
-	public loginResponse$: Observable<Response<UserTokenDto | UserERPTokenDto> | null>;
+	public loginResponse$: Observable<Response<UserTokenDto> | null>;
 
 	constructor(private readonly store: Store<AuthState>) {
 		// login
@@ -27,7 +27,7 @@ export class AuthFacade {
 		this.loginResponse$ = this.store.select(zSelector.getAuthLoginResponse);
 	}
 
-	login(loginDto: LoginUserDto | LoginUserERPDto, typeUser: ETypeUser) {
+	login(loginDto: LoginUserDto, typeUser: ETypeUser) {
 		this.store.dispatch(LOGIN_REQUESTED({ payload: loginDto, t: typeUser }));
 	}
 

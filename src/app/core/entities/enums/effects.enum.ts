@@ -1,4 +1,7 @@
 export enum ZEffects {
+	fileupload = 'zephyrus-file-upload',
+	btnaction = 'zephyrus-btn-action',
+
 	z_auth = 'z-auth',
 	z_auth_user = 'z-auth-user',
 

@@ -1,0 +1,90 @@
+<div class="zDialogContainer z-container-upload" cdkScrollable>
+	<z-dialog-header title="Subir archivos" />
+
+	<div mat-dialog-content class="z-container-dialog">
+		<div [class.d-none]="!isWebCam" [class.show]="isWebCam" class="z-container-webcam">
+			<div class="z-video-container" *ngIf="!error">
+				<video
+					[class.show]="!isCaptured"
+					[class.d-none]="isCaptured"
+					#video
+					id="video"
+					[width]="WIDTH"
+					[height]="HEIGHT"
+					autoplay
+				></video>
+				<canvas
+					[class.show]="isCaptured"
+					[class.d-none]="!isCaptured"
+					#canvas
+					id="canvas"
+					[width]="WIDTH"
+					[height]="HEIGHT"
+				></canvas>
+			</div>
+
+			<div class="z-video-options">
+				<button
+					(click)="capture()"
+					*ngIf="!isCaptured"
+					class="zBtn zBtnPrimary zBtnMd z-btn-photo me-3"
+				>
+					<mat-icon class="material-symbols-outlined" fontIcon="add_a_photo"></mat-icon>
+					<span>Capturar</span>
+				</button>
+
+				<button
+					(click)="removeCurrent()"
+					*ngIf="isCaptured"
+					class="zBtn zBtnPrimary zBtnMd z-btn-photo me-3"
+				>
+					<mat-icon class="material-symbols-outlined" fontIcon="reset_image"></mat-icon>
+					<span>Captura nueva</span>
+				</button>
+
+				<button
+					(click)="confirmSendPhoto()"
+					*ngIf="isCaptured"
+					class="zBtn zBtnSecondary zBtnMd z-btn-photo me-3"
+				>
+					<mat-icon class="material-symbols-outlined" fontIcon="upload" />
+					<span>Confirmar</span>
+				</button>
+
+				<button (click)="enabledWebCam(false)" class="zBtn zBtnLight zBtnMd z-btn-photo">
+					<mat-icon class="material-symbols-outlined" fontIcon="video_camera_front_off" />
+					<span>Cancelar</span>
+				</button>
+			</div>
+		</div>
+		<div
+			*ngIf="!isFiles && !isWebCam"
+			zephyrusDnd
+			class="z-container-dnd"
+			(fileDropped)="onFileDropped($event)"
+		>
+			<input
+				type="file"
+				#fileDropRef
+				id="fileDropRef"
+				[accept]="createFileUploadDto.acceptedExtensions"
+				[multiple]="createFileUploadDto.multiple"
+				(change)="fileBrowseHandler($event)"
+			/>
+
+			<mat-icon class="icon-upload material-symbols-outlined" fontIcon="upload"></mat-icon>
+
+			<h3>Arrastra y suelta el archivo aquí</h3>
+			<h4 class="mb-4">-- o --</h4>
+
+			<button (click)="enabledWebCam(true)" class="zBtn zBtnPrimary zBtnMd z-btn-photo">
+				<mat-icon class="material-symbols-outlined" fontIcon="photo_camera" />
+				<span>Hacer una foto</span>
+			</button>
+		</div>
+
+		<div *ngIf="isFiles">
+			<z-file-list [files]="files" [isProgress]="true" [isBtnRemove]="false"></z-file-list>
+		</div>
+	</div>
+</div>

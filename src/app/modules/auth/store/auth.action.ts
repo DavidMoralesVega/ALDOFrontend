@@ -1,6 +1,5 @@
 import { createAction, props } from '@ngrx/store';
 import { Exception, Payload, Response } from 'src/app/core/entities';
-import { LoginUserERPDto } from '../pages/auth-erp/entities';
 import { LoginUserDto, UserTokenDto, User } from '../pages/auth-user/entities/models/user.model';
 import { UserERPTokenDto, UserERP } from '../pages/auth-erp/entities/models/user-erp.model';
 import { PayloadLogin } from '../../../core/entities/adapters/object.adapter';
@@ -24,12 +23,12 @@ export enum AuthActionTypes {
 // login
 export const LOGIN_REQUESTED = createAction(
 	AuthActionTypes.LOGIN_REQUESTED,
-	props<PayloadLogin<LoginUserDto | LoginUserERPDto, ETypeUser>>()
+	props<PayloadLogin<LoginUserDto, ETypeUser>>()
 );
 
 export const LOGIN_SUCCESS = createAction(
 	AuthActionTypes.LOGIN_SUCCESS,
-	props<Payload<Response<UserTokenDto | UserERPTokenDto>>>()
+	props<Payload<Response<UserTokenDto>>>()
 );
 
 export const LOGIN_FAILED = createAction(AuthActionTypes.LOGIN_FAILED, props<Payload<Exception>>());

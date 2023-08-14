@@ -29,7 +29,7 @@ export class AuthUserComponent implements OnInit {
 
 	initFormCreate(): void {
 		this.formLogin = new FormGroup({
-			Email: new FormControl('ronaldzurrita@gmail.com', [Validators.required]),
+			Email: new FormControl('prueba@gmail.com', [Validators.required]),
 			Password: new FormControl('R2oberts$', [Validators.required])
 		});
 	}
