@@ -10,9 +10,18 @@
 		<div mat-dialog-content>
 			<div class="row">
 				<div class="col-lg-12">
-					<z-upload-input-type-image
-						(onUpload)="handleUpload($event)"
-					></z-upload-input-type-image>
+					<div class="col-12 mb-3">
+						<z-file-list
+							[files]="paths"
+							[type]="'image'"
+							[isProgress]="false"
+							[isBtnRemove]="true"
+						></z-file-list>
+						<button type="button" class="zBtn zBtnPrimary zBtnMd" (click)="openFileUpload()">
+							<mat-icon fontIcon="upload"></mat-icon>
+							<span>Subir</span>
+						</button>
+					</div>
 				</div>
 
 				<mat-form-field class="col-lg-12" appearance="outline">

@@ -1,0 +1,37 @@
+/* ZEPHYRUS Z CARD CREATE KAM PERSONA START */
+
+.z-container-create {
+	.z-card {
+		background: var(--mio-theme-color-white);
+		border-radius: 18px;
+		padding: 3px 24px;
+		margin-bottom: 1rem;
+		.z-title {
+			margin-bottom: 1rem;
+			font-weight: bold;
+			font-size: var(--mio-theme-v2-body-l-font-size);
+		}
+	}
+
+	.z-btn-primary {
+		background: var(--mio-theme-color-secondary);
+		color: var(--mio-theme-color-white);
+	}
+
+	.z-btn-primary:disabled,
+	.z-btn-primary[disabled] {
+		background-color: var(--mio-theme-color-ref-neutral-200);
+		color: var(--mio-theme-color-on-surface-variant);
+	}
+	button {
+		border-radius: 40px;
+		padding: 10px 24px;
+		box-shadow: none;
+		line-height: var(--mio-theme-v2-body-s-line-height);
+		font-size: var(--mio-theme-v2-body-s-font-size);
+		font-weight: var(--mio-theme-v2-body-l-font-weight);
+		letter-spacing: var(--mio-theme-v2-body-s-letter-spacing);
+	}
+}
+
+/* ZEPHYRUS Z CARD CREATE KAM PERSONA END */

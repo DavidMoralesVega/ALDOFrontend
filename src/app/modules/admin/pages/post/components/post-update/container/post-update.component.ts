@@ -4,11 +4,12 @@ import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { Observable } from 'rxjs';
 import { Post, PostForeignAdapter, UpdatePostDto } from '../../../entities';
 import { Pagination, Response } from 'src/app/core/entities';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { PostFacade } from '../../../facades/post.facade';
 import { CategoryFacade } from '../../../../category/facades/category.facade';
 import { Category } from '../../../../category/entities';
 import { ZBaseService } from 'src/app/core/services/base.service';
+import { CreateFileUploadDto, FileUploadComponent } from 'src/app/core/components/file-upload/z';
 
 @Component({
 	selector: 'z-post-update',
@@ -20,7 +21,7 @@ export class PostUpdateComponent extends ZBaseService {
 	public formUpdate: FormGroup = new FormGroup({});
 
 	public updateIsLoading$: Observable<boolean>;
-
+	public paths: any[] = [];
 	public categoryFindAllResponse$: Observable<Response<Category[]> | null>;
 	public categoryFindAllIsLoading$: Observable<boolean>;
 
@@ -31,7 +32,7 @@ export class PostUpdateComponent extends ZBaseService {
 	};
 
 	private readonly dialogRef = inject(MatDialogRef<PostUpdateComponent>);
-
+	private readonly matDialog = inject(MatDialog);
 	constructor(
 		@Inject(MAT_DIALOG_DATA)
 		private readonly postForeignAdapter: PostForeignAdapter,
@@ -85,10 +86,32 @@ export class PostUpdateComponent extends ZBaseService {
 			post_author: this.post_author.value,
 			post_content: this.post_content.value,
 			post_tittle: this.post_tittle.value,
-			cat_post_id: this.cat_post_id.value
+			cat_post_id: this.cat_post_id.value,
+			post_fotografia: this.paths[0]
 		};
 
 		this.postFacade.update(this.postForeignAdapter.post_id, updatePostDto);
 		this.closeDialog(this.postFacade.updateResponse$, this.dialogRef);
+	}
+
+	openFileUpload(): void {
+		const createFileUploadDto: CreateFileUploadDto = {
+			directory: 'post',
+			maxSize: '2',
+			acceptedExtensions: 'application/img',
+			multiple: false
+		};
+		this.matDialog
+			.open(FileUploadComponent, {
+				width: '840px',
+				height: '756px',
+				data: createFileUploadDto
+			})
+			.afterClosed()
+			.subscribe({
+				next: (files: any) => {
+					this.paths = files.data.paths;
+				}
+			});
 	}
 }

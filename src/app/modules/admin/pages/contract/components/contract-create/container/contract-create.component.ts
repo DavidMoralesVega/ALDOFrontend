@@ -31,9 +31,9 @@ export class ContractCreateComponent implements OnInit {
 		private readonly contractFacade: ContractFacade,
 		private readonly authFacade: AuthFacade
 	) {
-		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
+		/* console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
 		this.authFacade.loginResponse$.subscribe((data) => (this.rolValue = data?.data.Roles));
-		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
+		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px'); */
 		this.createIsLoading$ = contractFacade.createIsLoading$;
 
 		if (this.rolValue !== 'juridicos_administrativos') {

@@ -1,0 +1,7 @@
+@each $color, $value in $theme-colors {
+	.#{$prefix}bg-#{$color} {
+		background-color: $value;
+	}
+}
+
+// zph-bg-primary

@@ -9,7 +9,7 @@ export class StaticFilePipe implements PipeTransform {
 
 	transform(resource: string): string {
 		// return `${this.ZPServerPoint}/files/static/${resource}`;
-
-		return `${this.ZPServerPoint}/${resource}`;
+		console.log(`${this.ZPServerPoint}/${resource}`);
+		return `${this.ZPServerPoint}/zephyrus-file-upload/${resource}`;
 	}
 }

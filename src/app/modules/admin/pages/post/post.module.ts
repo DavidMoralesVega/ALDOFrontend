@@ -27,6 +27,7 @@ import { PostCreateModule } from './components/post-create/post-create.module';
 import { PostUpdateModule } from './components/post-update/post-update.module';
 import { CategoryModule } from '../category/category.module';
 import { CategoryFacade } from '../category/facades/category.facade';
+import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file.module';
 
 @NgModule({
 	declarations: [PostComponent],
@@ -49,7 +50,8 @@ import { CategoryFacade } from '../category/facades/category.facade';
 		MatDialogModule,
 		PostCreateModule,
 		PostUpdateModule,
-		CategoryModule
+		CategoryModule,
+		StaticFilePipeModule
 	],
 	providers: [PostService, MatSnackBarService, PostFacade, CategoryFacade],
 	exports: [StoreModule, EffectsModule]

@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { JsonAsyncModule } from 'src/app/core/pipes/json-async/json-async.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UploadInputTypeImageModule } from 'src/app/core/components/upload-input-type-img/upload-input-type-image.module';
+import { FileListModule, FileUploadModule } from 'src/app/core/components/file-upload/z';
 
 @NgModule({
 	declarations: [PostCreateComponent],
@@ -25,7 +26,9 @@ import { UploadInputTypeImageModule } from 'src/app/core/components/upload-input
 		MatSelectModule,
 		JsonAsyncModule,
 		MatProgressSpinnerModule,
-		UploadInputTypeImageModule
+		UploadInputTypeImageModule,
+		FileListModule,
+		FileUploadModule
 	]
 })
 export class PostCreateModule {}

@@ -1,0 +1,100 @@
+.zContainerTabs {
+	font-family: var(--zephyrus-font-family);
+	.row > * {
+		padding-right: calc(var(--mdb-gutter-x) * 0.5);
+		padding-left: calc(var(--mdb-gutter-x) * 0.5);
+	}
+
+	padding-left: 1rem;
+	.zBlockTab {
+		nav {
+			a {
+				.mdc-tab__text-label {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+				}
+			}
+		}
+
+		mat-icon {
+			// width: 24px;
+			// height: 24px;
+			// height: 100%;
+			// color: var(--mio-theme-color-primary);
+		}
+
+		.mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab__text-label,
+		.mat-mdc-tab-link:not(.mat-mdc-tab-disabled) .mdc-tab__text-label {
+			color: var(--zephyrus-color-on-surface-variant) !important;
+		}
+
+		.mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
+			color: var(--zephyrus-color-primary) !important;
+		}
+
+		.mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline {
+			border-color: var(--zephyrus-color-primary) !important;
+		}
+
+		.mdc-tab-indicator .mdc-tab-indicator__content--underline {
+			border-top-width: 4px !important;
+			border-top-left-radius: 4px;
+			border-top-right-radius: 4px;
+			width: 30%;
+			border-color: var(--zephyrus-color-primary);
+		}
+
+		.mat-mdc-tab .mdc-tab__text-label {
+			flex-direction: column;
+		}
+
+		h6 {
+			line-height: var(--zephyrus-v2-body-m-line-height) !important;
+			font-size: var(--zephyrus-v2-body-m-font-size) !important;
+			font-weight: var(--zephyrus-v2-label-l-font-weight) !important;
+			margin: 0.2rem 0 0 0 !important;
+		}
+		.mat-mdc-tab-link.mdc-tab {
+			height: 70px !important;
+		}
+
+		.mat-mdc-tab.mdc-tab {
+			height: 70px !important;
+			background: transparent;
+			// border-radius: 18px;
+		}
+
+		.mat-mdc-tab-group {
+			// content
+		}
+
+		.mat-mdc-tab-header {
+			border-radius: 18px;
+			background: var(--zephyrus-color-background);
+			// border: 1px solid var(--zephyrus-color-outline-variant);
+		}
+
+		.zContentTab {
+			margin-top: 1rem;
+			background: transparent !important;
+		}
+	}
+
+	.mat-mdc-tab-body-content {
+		overflow-x: hidden !important;
+	}
+}
+
+// .zPLeft {
+// 	padding-left: calc(var(--mdb-gutter-x) * 0.5) !important;
+// }
+
+// .zPRight {
+// 	padding-right: calc(var(--mdb-gutter-x) * 0.5) !important;
+// }
+
+.zContainerTabTop {
+	display: flex;
+}

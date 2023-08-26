@@ -1,0 +1,52 @@
+// ZEPHYRUS RADIO BUTTON START
+.z-container-raddio-button {
+	// padding-right: 15px;
+	// padding-left: 15px;
+	margin-bottom: 2px !important;
+
+	.z-label {
+		margin-top: 0.5rem;
+		font-weight: 500;
+		font-size: var(--mio-theme-v2-body-l-font-size);
+		color: var(--mio-theme-color-neutral-10);
+	}
+	.z-radio-group {
+		display: flex;
+		flex-direction: column;
+		margin: 15px 0;
+		align-items: flex-start;
+	}
+
+	.z-radio-button {
+		width: 100%;
+		margin: 0.3rem 0;
+	}
+
+	.mat-mdc-radio-button .mdc-form-field {
+		color: var(--zephyrus-color-on-surface);
+		font-family: var(--zephyrus-v2-body-l-font-family);
+		font-size: var(--zephyrus-v2-body-l-font-size);
+		font-weight: var(--zephyrus-v2-body-l-font-weight);
+		letter-spacing: var(--zephyrus-v2-body-l-letter-spacing);
+		line-height: var(--zephyrus-v2-body-l-line-height);
+		font-variation-settings: 'GRAD' var(--zephyrus-v2-body-l-font-variation-GRAD),
+			'opsz' var(--mio-theme-v2-body-l-font-variation-opsz);
+		max-width: 640px;
+	}
+
+	.mat-mdc-radio-button
+		.mdc-radio
+		.mdc-radio__native-control:enabled:checked
+		+ .mdc-radio__background
+		.mdc-radio__outer-circle {
+		border-color: var(--zephyrus-color-secondary) !important ;
+	}
+	.mat-mdc-radio-button
+		.mdc-radio
+		.mdc-radio__native-control:enabled
+		+ .mdc-radio__background
+		.mdc-radio__inner-circle {
+		border-color: var(--zephyrus-color-primary) !important ;
+	}
+}
+// ZEPHYRUS RADIO BUTTON END

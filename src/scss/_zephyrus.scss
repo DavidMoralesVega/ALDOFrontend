@@ -1,0 +1,169 @@
+// @import 'material';
+
+@import 'zephyrus/theme/colors.module.scss';
+@import 'zephyrus/theme/tokens.scss';
+@import 'zephyrus/theme/typography.module.scss';
+
+@import 'zephyrus/theme/theme.light.scss';
+@import 'zephyrus/theme/theme.dark.scss';
+
+@import 'variables';
+// components
+@import 'zephyrus/components/badge';
+@import 'zephyrus/components/breadcrumb';
+@import 'zephyrus/components/button';
+@import 'zephyrus/components/card';
+@import 'zephyrus/components/dialog';
+@import 'zephyrus/components/file-list';
+@import 'zephyrus/components/forms';
+@import 'zephyrus/components/icon';
+@import 'zephyrus/components/image';
+@import 'zephyrus/components/nav-left';
+@import 'zephyrus/components/radio-button';
+@import 'zephyrus/components/scroll';
+@import 'zephyrus/components/search';
+@import 'zephyrus/components/select';
+@import 'zephyrus/components/snackbar';
+@import 'zephyrus/components/spinner';
+@import 'zephyrus/components/tab';
+@import 'zephyrus/components/table';
+@import 'zephyrus/components/toolbar';
+@import 'zephyrus/components/tooltip';
+@import 'zephyrus/components/upload';
+
+// pages
+@import 'zephyrus/pages/adm-usuario';
+@import 'zephyrus/pages/home';
+@import 'zephyrus/pages/kam-persona-create';
+@import 'zephyrus/pages/kam-persona-find-one';
+@import 'zephyrus/pages/cat-rol-turno';
+@import 'zephyrus/pages/dom-orgnivel';
+@import 'zephyrus/pages/sct-documento';
+@import 'zephyrus/pages/sct-emision';
+
+/* SYSTEM DESIGN */
+/* configuracion */
+@import 'zephyrus/systemDesign/variables';
+
+/* layout */
+@import 'zephyrus/systemDesign/root';
+
+/* helpers */
+@import 'zephyrus/systemDesign/helpers';
+
+* {
+	box-sizing: border-box;
+}
+
+body,
+html {
+	height: 100%;
+	margin: 0;
+	background: #f3f6fc !important;
+
+	// TODO: CHANGE VARIABLE
+	// background: var(--zephyrus-color-surface-variant);
+}
+
+.container-fluid {
+	padding-top: var(--mdb-gutter-x, 0.75rem);
+}
+
+a:hover {
+	color: unset !important;
+}
+
+.zDivider {
+	padding: 0 24px 0 24px;
+}
+
+.zTextDisplayS {
+	font-family: var(--zephyrus-v2-display-s-font-family);
+	font-size: var(--zephyrus-v2-display-s-font-size);
+	font-weight: var(--zephyrus-v2-display-s-font-weight);
+	letter-spacing: var(--zephyrus-v2-display-s-letter-spacing);
+	line-height: var(--zephyrus-v2-display-s-line-height);
+	font-variation-settings: 'GRAD' var(--zephyrus-v2-display-s-font-variation-GRAD),
+		'opsz' var(--mio-theme-v2-display-s-font-variation-opsz);
+}
+.zTextDisplayM {
+	font-family: var(--zephyrus-v2-display-m-font-family);
+	font-size: var(--zephyrus-v2-display-m-font-size);
+	font-weight: var(--zephyrus-v2-display-m-font-weight);
+	letter-spacing: var(--zephyrus-v2-display-m-letter-spacing);
+	line-height: var(--zephyrus-v2-display-m-line-height);
+	font-variation-settings: 'GRAD' var(--zephyrus-v2-display-m-font-variation-GRAD),
+		'opsz' var(--mio-theme-v2-display-m-font-variation-opsz);
+}
+
+.zTextDisplayL {
+	font-family: var(--zephyrus-v2-display-l-font-family);
+	font-size: var(--zephyrus-v2-display-l-font-size);
+	font-weight: var(--zephyrus-v2-display-l-font-weight);
+	letter-spacing: var(--zephyrus-v2-display-l-letter-spacing);
+	line-height: var(--zephyrus-v2-display-l-line-height);
+	font-variation-settings: 'GRAD' var(--zephyrus-v2-display-l-font-variation-GRAD),
+		'opsz' var(--zephyrus-v2-display-l-font-variation-opsz);
+}
+
+.zTextHeadlineS {
+	font-family: var(--zephyrus-v2-headline-s-font-family);
+	font-size: var(--zephyrus-v2-headline-s-font-size);
+	font-weight: var(--zephyrus-v2-headline-s-font-weight);
+	letter-spacing: var(--zephyrus-v2-headline-s-letter-spacing);
+	line-height: var(--zephyrus-v2-headline-s-line-height);
+	font-variation-settings: 'GRAD' var(--zephyrus-v2-headline-s-font-variation-GRAD),
+		'opsz' var(--zephyrus-v2-headline-m-font-variation-opsz);
+}
+
+.zTextHeadlineM {
+	font-family: var(--zephyrus-v2-headline-m-font-family);
+	font-size: var(--zephyrus-v2-headline-m-font-size);
+	font-weight: var(--zephyrus-v2-headline-m-font-weight);
+	letter-spacing: var(--zephyrus-v2-headline-m-letter-spacing);
+	line-height: var(--zephyrus-v2-headline-m-line-height);
+	font-variation-settings: 'GRAD' var(--zephyrus-v2-headline-m-font-variation-GRAD),
+		'opsz' var(--zephyrus-v2-headline-m-font-variation-opsz);
+}
+
+.zTextHeadlineL {
+	font-family: var(--zephyrus-v2-headline-l-font-family);
+	font-size: var(--zephyrus-v2-headline-l-font-size);
+	font-weight: var(--zephyrus-v2-headline-l-font-weight);
+	letter-spacing: var(--zephyrus-v2-headline-l-letter-spacing);
+	line-height: var(--zephyrus-v2-headline-l-line-height);
+	font-variation-settings: 'GRAD' var(--zephyrus-v2-headline-l-font-variation-GRAD),
+		'opsz' var(--zephyrus-v2-headline-m-font-variation-opsz);
+}
+
+// BODY
+
+.zTextBodyS {
+	font-family: var(--zephyrus-v2-body-s-font-family);
+	font-size: var(--zephyrus-v2-body-s-font-size);
+	font-weight: var(--zephyrus-v2-body-s-font-weight);
+	letter-spacing: var(--zephyrus-v2-body-s-letter-spacing);
+	line-height: var(--zephyrus-v2-body-s-line-height);
+	font-variation-settings: 'GRAD' var(--zephyrus-v2-body-s-font-variation-GRAD),
+		'opsz' var(--zephyrus-v2-body-m-font-variation-opsz);
+}
+
+.zTextBodyM {
+	font-family: var(--zephyrus-v2-body-m-font-family);
+	font-size: var(--zephyrus-v2-body-m-font-size);
+	font-weight: var(--zephyrus-v2-body-m-font-weight);
+	letter-spacing: var(--zephyrus-v2-body-m-letter-spacing);
+	line-height: var(--zephyrus-v2-body-m-line-height);
+	font-variation-settings: 'GRAD' var(--zephyrus-v2-body-m-font-variation-GRAD),
+		'opsz' var(--zephyrus-v2-body-m-font-variation-opsz);
+}
+
+.zTextBodyL {
+	font-family: var(--zephyrus-v2-body-l-font-family);
+	font-size: var(--zephyrus-v2-body-l-font-size);
+	font-weight: var(--zephyrus-v2-body-l-font-weight);
+	letter-spacing: var(--zephyrus-v2-body-l-letter-spacing);
+	line-height: var(--zephyrus-v2-body-l-line-height);
+	font-variation-settings: 'GRAD' var(--zephyrus-v2-body-l-font-variation-GRAD),
+		'opsz' var(--zephyrus-v2-body-m-font-variation-opsz);
+}

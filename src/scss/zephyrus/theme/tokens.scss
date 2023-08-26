@@ -1,0 +1,318 @@
+:root {
+	--md-source: #1967d2;
+	/* primary */
+	--md-ref-palette-primary0: #000000;
+	--md-ref-palette-primary10: #001a41;
+	--md-ref-palette-primary20: #002e69;
+	--md-ref-palette-primary25: #00397e;
+	--md-ref-palette-primary30: #004494;
+	--md-ref-palette-primary35: #004faa;
+	--md-ref-palette-primary40: #005ac1;
+	--md-ref-palette-primary50: #2f74df;
+	--md-ref-palette-primary60: #508efb;
+	--md-ref-palette-primary70: #80aaff;
+	--md-ref-palette-primary80: #adc6ff;
+	--md-ref-palette-primary90: #d8e2ff;
+	--md-ref-palette-primary95: #edf0ff;
+	--md-ref-palette-primary98: #f9f9ff;
+	--md-ref-palette-primary99: #fefbff;
+	--md-ref-palette-primary100: #ffffff;
+	/* secondary */
+	--md-ref-palette-secondary0: #000000;
+	--md-ref-palette-secondary10: #001a41;
+	--md-ref-palette-secondary20: #002e68;
+	--md-ref-palette-secondary25: #00397d;
+	--md-ref-palette-secondary30: #004493;
+	--md-ref-palette-secondary35: #004fa9;
+	--md-ref-palette-secondary40: #005bc0;
+	--md-ref-palette-secondary50: #1b73e8;
+	--md-ref-palette-secondary60: #4a8eff;
+	--md-ref-palette-secondary70: #7fabff;
+	--md-ref-palette-secondary80: #adc7ff;
+	--md-ref-palette-secondary90: #d8e2ff;
+	--md-ref-palette-secondary95: #edf0ff;
+	--md-ref-palette-secondary98: #f9f9ff;
+	--md-ref-palette-secondary99: #fefbff;
+	--md-ref-palette-secondary100: #ffffff;
+	/* tertiary */
+	--md-ref-palette-tertiary0: #000000;
+	--md-ref-palette-tertiary10: #221b00;
+	--md-ref-palette-tertiary20: #3b2f00;
+	--md-ref-palette-tertiary25: #473a00;
+	--md-ref-palette-tertiary30: #554500;
+	--md-ref-palette-tertiary35: #625100;
+	--md-ref-palette-tertiary40: #705d00;
+	--md-ref-palette-tertiary50: #8d7500;
+	--md-ref-palette-tertiary60: #aa8f12;
+	--md-ref-palette-tertiary70: #c7a930;
+	--md-ref-palette-tertiary80: #e4c54a;
+	--md-ref-palette-tertiary90: #ffe173;
+	--md-ref-palette-tertiary95: #fff0c4;
+	--md-ref-palette-tertiary98: #fff8ef;
+	--md-ref-palette-tertiary99: #fffbff;
+	--md-ref-palette-tertiary100: #ffffff;
+	/* neutral */
+	--md-ref-palette-neutral0: #000000;
+	--md-ref-palette-neutral10: #001e2e;
+	--md-ref-palette-neutral20: #00344c;
+	--md-ref-palette-neutral25: #00405c;
+	--md-ref-palette-neutral30: #004c6d;
+	--md-ref-palette-neutral35: #00587e;
+	--md-ref-palette-neutral40: #00658f;
+	--md-ref-palette-neutral50: #007fb3;
+	--md-ref-palette-neutral60: #3199d0;
+	--md-ref-palette-neutral70: #54b4ed;
+	--md-ref-palette-neutral80: #86cfff;
+	--md-ref-palette-neutral90: #c7e7ff;
+	--md-ref-palette-neutral95: #e5f2ff;
+	--md-ref-palette-neutral98: #f6faff;
+	--md-ref-palette-neutral99: #fbfcff;
+	--md-ref-palette-neutral100: #ffffff;
+	/* neutral-variant */
+	--md-ref-palette-neutral-variant0: #000000;
+	--md-ref-palette-neutral-variant10: #191b22;
+	--md-ref-palette-neutral-variant20: #2e3038;
+	--md-ref-palette-neutral-variant25: #393b43;
+	--md-ref-palette-neutral-variant30: #44474f;
+	--md-ref-palette-neutral-variant35: #50525a;
+	--md-ref-palette-neutral-variant40: #5c5e66;
+	--md-ref-palette-neutral-variant50: #75777f;
+	--md-ref-palette-neutral-variant60: #8e9099;
+	--md-ref-palette-neutral-variant70: #a9abb4;
+	--md-ref-palette-neutral-variant80: #c4c6d0;
+	--md-ref-palette-neutral-variant90: #e1e2ec;
+	--md-ref-palette-neutral-variant95: #eff0fa;
+	--md-ref-palette-neutral-variant98: #f9f9ff;
+	--md-ref-palette-neutral-variant99: #fefbff;
+	--md-ref-palette-neutral-variant100: #ffffff;
+	/* error */
+	--md-ref-palette-error0: #000000;
+	--md-ref-palette-error10: #410002;
+	--md-ref-palette-error20: #690005;
+	--md-ref-palette-error25: #7e0007;
+	--md-ref-palette-error30: #93000a;
+	--md-ref-palette-error35: #a80710;
+	--md-ref-palette-error40: #ba1a1a;
+	--md-ref-palette-error50: #de3730;
+	--md-ref-palette-error60: #ff5449;
+	--md-ref-palette-error70: #ff897d;
+	--md-ref-palette-error80: #ffb4ab;
+	--md-ref-palette-error90: #ffdad6;
+	--md-ref-palette-error95: #ffedea;
+	--md-ref-palette-error98: #fff8f7;
+	--md-ref-palette-error99: #fffbff;
+	--md-ref-palette-error100: #ffffff;
+
+	/* zephyrus theme */
+	--zephyrus-theme-color-surface-2: #f3f6fc;
+	--zephyrus-white-primary: #ffffff;
+	--zephyrus-white-secondary: #f8f9fa;
+	--zephyrus-dark-primary: #121212;
+	--zephyrus-dark-secondary: #272727;
+	--zephyrus-dark-grey: #2e2e2e;
+	--zephyrus-base-primary: #d00129;
+	--zephyrus-color-danger: #f28b82;
+	--zephyrus-color-danger-opacity: rgba(242, 139, 130, 0.1);
+	--zephyrus-color-primary: #8ab4f8;
+	--zephyrus-color-primary-opacity: rgba(138, 180, 248, 0.24);
+	--zephyrus-color-warning: #fdd663;
+	--zephyrus-color-warning-opacity: rgba(253, 214, 99, 0.24);
+	--zephyrus-color-success: #81c995;
+	--zephyrus-color-success-opacity: rgba(129, 201, 149, 0.24);
+	--zephyrus-color-icon: #9aa0a6;
+	/* light */
+	// #0f99ff
+
+	// #1878e4
+
+	// #1967d2
+	// #232F34
+	// #F9AA33
+
+	--zephyrus-color-primary-light: #0b57d0;
+	--zephyrus-color-on-primary-light: #ffffff;
+	--zephyrus-color-primary-container-light: #d8e2ff;
+	--zephyrus-color-on-primary-container-light: #001a41;
+	--zephyrus-color-secondary-light: #00639b;
+	--zephyrus-color-on-secondary-light: #fff;
+	--zephyrus-color-secondary-container-light: #c2e7ff;
+	--zephyrus-color-on-secondary-container-light: #001d35;
+	--zephyrus-color-tertiary-light: #426916;
+	--zephyrus-color-on-tertiary-light: #ffffff;
+	--zephyrus-color-tertiary-container-light: #c1f18e;
+	--zephyrus-color-on-tertiary-container-light: #0f2000;
+	--zephyrus-color-error-light: #ba1a1a;
+	--zephyrus-color-error-container-light: #ffdad6;
+	--zephyrus-color-on-error-light: #ffffff;
+	--zephyrus-color-on-error-container-light: #410002;
+
+	// --zephyrus-color-background-light: #fbfcff;
+	--zephyrus-color-background-light: #ffffff;
+	--zephyrus-color-on-background-light: #001e2e;
+	// --zephyrus-color-surface-light: #fbfcff;
+	--zephyrus-color-surface-light: #ffffff;
+	--zephyrus-color-on-surface-light: #001e2e;
+	--zephyrus-color-surface-variant-light: #e1e2ec;
+	--zephyrus-color-on-surface-variant-light: #44474f;
+	--zephyrus-color-outline-light: #75777f;
+	--zephyrus-color-inverse-on-surface-light: #e5f2ff;
+	--zephyrus-color-inverse-surface-light: #00344c;
+	--zephyrus-color-inverse-primary-light: #adc6ff;
+	--zephyrus-color-shadow-light: #000000;
+	--zephyrus-color-surface-tint-light: #005ac1;
+	--zephyrus-color-outline-variant-light: #c4c6d0;
+	--zephyrus-color-scrim-light: #000000;
+	/* dark */
+	--zephyrus-color-primary-dark: #adc6ff;
+	--zephyrus-color-on-primary-dark: #002e69;
+	--zephyrus-color-primary-container-dark: #004494;
+	--zephyrus-color-on-primary-container-dark: #d8e2ff;
+	--zephyrus-color-secondary-dark: #adc7ff;
+	--zephyrus-color-on-secondary-dark: #002e68;
+	--zephyrus-color-secondary-container-dark: #004493;
+	--zephyrus-color-on-secondary-container-dark: #d8e2ff;
+	--zephyrus-color-tertiary-dark: #e4c54a;
+	--zephyrus-color-on-tertiary-dark: #3b2f00;
+	--zephyrus-color-tertiary-container-dark: #554500;
+	--zephyrus-color-on-tertiary-container-dark: #ffe173;
+	--zephyrus-color-error-dark: #ffb4ab;
+	--zephyrus-color-error-container-dark: #93000a;
+	--zephyrus-color-on-error-dark: #690005;
+	--zephyrus-color-on-error-container-dark: #ffdad6;
+	--zephyrus-color-background-dark: #001e2e;
+	--zephyrus-color-on-background-dark: #c7e7ff;
+	--zephyrus-color-surface-dark: #001e2e;
+	--zephyrus-color-on-surface-dark: #c7e7ff;
+	--zephyrus-color-surface-variant-dark: #44474f;
+	--zephyrus-color-on-surface-variant-dark: #c4c6d0;
+	--zephyrus-color-outline-dark: #8e9099;
+	--zephyrus-color-inverse-on-surface-dark: #001e2e;
+	--zephyrus-color-inverse-surface-dark: #c7e7ff;
+	--zephyrus-color-inverse-primary-dark: #005ac1;
+	--zephyrus-color-shadow-dark: #000000;
+	--zephyrus-color-surface-tint-dark: #adc6ff;
+	--zephyrus-color-outline-variant-dark: #44474f;
+	--zephyrus-color-scrim-dark: #000000;
+
+	/* display - large xxxx */
+
+	--zephyrus-display-xxxxl-font-family: var(--zephyrus-display-font-family);
+	--zephyrus-display-xxxxl-font-size: 160px;
+	--zephyrus-display-xxxxl-line-height: 148px;
+	--zephyrus-display-xxxxl-font-weight: 500;
+	--zephyrus-display-xxxxl-letter-spacing: -6px;
+	--zephyrus-display-xxxl-font-family: var(--zephyrus-display-font-family);
+	--zephyrus-display-xxxl-font-size: 88px;
+	--zephyrus-display-xxxl-line-height: 96px;
+	--zephyrus-display-xxxl-font-weight: 500;
+	--zephyrus-display-xxl-font-family: var(--zephyrus-display-font-family);
+	--zephyrus-display-xxl-font-size: 64px;
+	--zephyrus-display-xxl-line-height: 72px;
+	--zephyrus-display-xxl-font-weight: 500;
+
+	/* display - large */
+	--zephyrus-typescale-display-large-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-display-large-font-family-style: Regular;
+	--zephyrus-typescale-display-large-font-weight: 400px;
+	--zephyrus-typescale-display-large-font-size: 57px;
+	--zephyrus-typescale-display-large-line-height: 64px;
+	--zephyrus-typescale-display-large-letter-spacing: -0.25px;
+	/* display - medium */
+	--zephyrus-typescale-display-medium-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-display-medium-font-family-style: Regular;
+	--zephyrus-typescale-display-medium-font-weight: 400px;
+	--zephyrus-typescale-display-medium-font-size: 45px;
+	--zephyrus-typescale-display-medium-line-height: 52px;
+	--zephyrus-typescale-display-medium-letter-spacing: 0px;
+	/* display - small */
+	--zephyrus-typescale-display-small-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-display-small-font-family-style: Regular;
+	--zephyrus-typescale-display-small-font-weight: 400px;
+	--zephyrus-typescale-display-small-font-size: 36px;
+	--zephyrus-typescale-display-small-line-height: 44px;
+	--zephyrus-typescale-display-small-letter-spacing: 0px;
+	/* headline - large */
+	--zephyrus-typescale-headline-large-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-headline-large-font-family-style: Regular;
+	--zephyrus-typescale-headline-large-font-weight: 400px;
+	--zephyrus-typescale-headline-large-font-size: 32px;
+	--zephyrus-typescale-headline-large-line-height: 40px;
+	--zephyrus-typescale-headline-large-letter-spacing: 0px;
+	/* headline - medium */
+	--zephyrus-typescale-headline-medium-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-headline-medium-font-family-style: Regular;
+	--zephyrus-typescale-headline-medium-font-weight: 400px;
+	--zephyrus-typescale-headline-medium-font-size: 28px;
+	--zephyrus-typescale-headline-medium-line-height: 36px;
+	--zephyrus-typescale-headline-medium-letter-spacing: 0px;
+	/* headline - small */
+	--zephyrus-typescale-headline-small-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-headline-small-font-family-style: Regular;
+	--zephyrus-typescale-headline-small-font-weight: 400px;
+	--zephyrus-typescale-headline-small-font-size: 24px;
+	--zephyrus-typescale-headline-small-line-height: 32px;
+	--zephyrus-typescale-headline-small-letter-spacing: 0px;
+	/* body - large */
+	--zephyrus-typescale-body-large-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-body-large-font-family-style: Regular;
+	--zephyrus-typescale-body-large-font-weight: 400px;
+	--zephyrus-typescale-body-large-font-size: 16px;
+	--zephyrus-typescale-body-large-line-height: 24px;
+	--zephyrus-typescale-body-large-letter-spacing: 0.5px;
+	/* body - medium */
+	--zephyrus-typescale-body-medium-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-body-medium-font-family-style: Regular;
+	--zephyrus-typescale-body-medium-font-weight: 400px;
+	--zephyrus-typescale-body-medium-font-size: 14px;
+	--zephyrus-typescale-body-medium-line-height: 20px;
+	--zephyrus-typescale-body-medium-letter-spacing: 0.25px;
+	/* body - small */
+	--zephyrus-typescale-body-small-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-body-small-font-family-style: Regular;
+	--zephyrus-typescale-body-small-font-weight: 400px;
+	--zephyrus-typescale-body-small-font-size: 12px;
+	--zephyrus-typescale-body-small-line-height: 16px;
+	--zephyrus-typescale-body-small-letter-spacing: 0.4px;
+	/* label - large */
+	--zephyrus-typescale-label-large-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-label-large-font-family-style: Medium;
+	--zephyrus-typescale-label-large-font-weight: 500px;
+	--zephyrus-typescale-label-large-font-size: 14px;
+	--zephyrus-typescale-label-large-line-height: 20px;
+	--zephyrus-typescale-label-large-letter-spacing: 0.1px;
+	/* label - medium */
+	--zephyrus-typescale-label-medium-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-label-medium-font-family-style: Medium;
+	--zephyrus-typescale-label-medium-font-weight: 500px;
+	--zephyrus-typescale-label-medium-font-size: 12px;
+	--zephyrus-typescale-label-medium-line-height: 16px;
+	--zephyrus-typescale-label-medium-letter-spacing: 0.5px;
+	/* label - small */
+	--zephyrus-typescale-label-small-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-label-small-font-family-style: Medium;
+	--zephyrus-typescale-label-small-font-weight: 500px;
+	--zephyrus-typescale-label-small-font-size: 11px;
+	--zephyrus-typescale-label-small-line-height: 16px;
+	--zephyrus-typescale-label-small-letter-spacing: 0.5px;
+	/* title - large */
+	--zephyrus-typescale-title-large-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-title-large-font-family-style: Regular;
+	--zephyrus-typescale-title-large-font-weight: 400px;
+	--zephyrus-typescale-title-large-font-size: 22px;
+	--zephyrus-typescale-title-large-line-height: 28px;
+	--zephyrus-typescale-title-large-letter-spacing: 0px;
+	/* title - medium */
+	--zephyrus-typescale-title-medium-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-title-medium-font-family-style: Medium;
+	--zephyrus-typescale-title-medium-font-weight: 500px;
+	--zephyrus-typescale-title-medium-font-size: 16px;
+	--zephyrus-typescale-title-medium-line-height: 24px;
+	--zephyrus-typescale-title-medium-letter-spacing: 0.15px;
+	/* title - small */
+	--zephyrus-typescale-title-small-font-family-name: 'Readex Pro';
+	--zephyrus-typescale-title-small-font-family-style: Medium;
+	--zephyrus-typescale-title-small-font-weight: 500px;
+	--zephyrus-typescale-title-small-font-size: 14px;
+	--zephyrus-typescale-title-small-line-height: 20px;
+	--zephyrus-typescale-title-small-letter-spacing: 0.1px;
+}

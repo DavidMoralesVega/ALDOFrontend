@@ -1,0 +1,38 @@
+.zCreateCount {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	.zCreateContent {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		h6 {
+			font-family: var(--zephyrus-typescale-headline-small-font-family-name) !important;
+			font-style: var(--zephyrus-typescale-headline-small-font-family-style) !important;
+			font-weight: var(--zephyrus-typescale-headline-small-font-weight) !important;
+			font-size: var(--zephyrus-typescale-headline-small-font-size) !important;
+			letter-spacing: var(--zephyrus-typescale-headline-small-tracking) !important;
+			line-height: var(--zephyrus-typescale-headline-small-height) !important;
+			text-transform: var(--zephyrus-typescale-headline-small-text-transform) !important;
+			text-decoration: var(--zephyrus-typescale-headline-small-text-decoration) !important;
+		}
+		p {
+			font-family: var(--zephyrus-typescale-body-large-font-family-name) !important;
+			font-style: var(--zephyrus-typescale-body-large-font-family-style) !important;
+			font-weight: normal !important;
+			font-size: var(--zephyrus-typescale-body-large-font-size) !important;
+			letter-spacing: var(--zephyrus-typescale-body-large-tracking) !important;
+			line-height: var(--zephyrus-typescale-body-large-height) !important;
+			text-transform: var(--zephyrus-typescale-body-large-text-transform) !important;
+			text-decoration: var(--zephyrus-typescale-body-large-text-decoration) !important;
+			margin-bottom: 0 !important;
+			margin-top: 1rem;
+		}
+	}
+
+	img {
+		width: 190px;
+		height: 190px;
+		margin-bottom: 1rem;
+	}
+}

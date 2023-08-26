@@ -1,0 +1,44 @@
+.selected-flag {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+
+.mat-mdc-select-panel {
+	margin-top: -4px;
+}
+
+.select-country-panel {
+	& ~ .cdk-overlay-pane {
+		width: 300px !important;
+	}
+}
+
+.zSelectCountry {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	.countries {
+		margin-right: 1rem;
+		width: 20% !important;
+		max-width: 20% !important;
+	}
+	.number {
+		width: 80% !important;
+	}
+}
+
+// .select-country-panel & ~ .cdk-overlay-pane {
+// 	// max-height: 525px !important;
+// 	// left: 0px !important;
+// 	// top: 56px !important;
+// 	// min-width: 122px !important;
+// 	width: 300px !important;
+// 	background: red !important;
+// }
+
+// .select-country-panel {
+// 	width: 300px !important;
+// }
+
+// // .cdk-overlay-container .cdk-overlay-pane .testClass
