@@ -52,8 +52,8 @@ export class DepartamentLawCreateComponent extends ZBaseService {
 			DTPublicationDate: new FormControl(new Date(), [Validators.required]),
 			DTIssueDate: new FormControl('', [Validators.required]),
 			DTDocumentNumber: new FormControl('', [Validators.required]),
-			DTArea: new FormControl('', [Validators.required]),
-			DTVisibility: new FormControl(true, [Validators.required]),
+			dtarea: new FormControl('', [Validators.required]),
+			DTVisibility: new FormControl('Público', [Validators.required]),
 			IddeparLwLeg: new FormControl([Validators.required])
 		});
 	}
@@ -72,8 +72,8 @@ export class DepartamentLawCreateComponent extends ZBaseService {
 	get DTDocumentNumber() {
 		return this.formCreate.get('DTDocumentNumber')!;
 	}
-	get DTArea() {
-		return this.formCreate.get('DTArea')!;
+	get dtarea() {
+		return this.formCreate.get('dtarea')!;
 	}
 	get DTVisibility() {
 		return this.formCreate.get('DTVisibility')!;
@@ -91,7 +91,7 @@ export class DepartamentLawCreateComponent extends ZBaseService {
 		createDepartamentLawDto.append('dtpublicationdate', this.DTPublicationDate.value);
 		createDepartamentLawDto.append('dtissueDate', this.DTIssueDate.value);
 		createDepartamentLawDto.append('DTDocumentNumber', this.DTDocumentNumber.value);
-		createDepartamentLawDto.append('dtarea', this.DTArea.value);
+		createDepartamentLawDto.append('dtarea', this.dtarea.value);
 		createDepartamentLawDto.append('dtvisibility', this.DTVisibility.value);
 		createDepartamentLawDto.append('DTFile', this.file);
 		createDepartamentLawDto.append('IddeparLwLeg', this.IddeparLwLeg.value);

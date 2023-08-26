@@ -43,7 +43,7 @@ export class RecognitionCreateComponent extends ZBaseService {
 			RPublicationDate: new FormControl('', [Validators.required]),
 			RIssueDate: new FormControl('', [Validators.required]),
 			REventDate: new FormControl('', [Validators.required]),
-			RVisibility: new FormControl(true, [Validators.required])
+			RVisibility: new FormControl('Público', [Validators.required])
 		});
 	}
 	get RTitle() {

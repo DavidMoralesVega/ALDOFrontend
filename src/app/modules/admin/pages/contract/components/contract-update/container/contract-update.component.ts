@@ -1,24 +1,25 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Pagination, ZListContract } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { ContractAdapter, UpdateContractDto } from '../../../entities';
 import { ContractFacade } from '../../../facades/contract.facade';
 import { PayloadFile } from '../../../../../../../core/entities/adapters/object.adapter';
+import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-contract-update',
 	templateUrl: './contract-update.component.html',
 	styleUrls: ['./contract-update.component.scss']
 })
-export class ContractUpdateComponent implements OnInit {
+export class ContractUpdateComponent extends ZBaseService{
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formUpdate: FormGroup = new FormGroup({});
 	public updateIsLoading$: Observable<boolean>;
 	public ZListContract: any[] = ZListContract;
-
+	private readonly dialogRef = inject(MatDialogRef<ContractUpdateComponent>);
 	// variables imagen
 	private file!: File;
 	private isValidImage: boolean = false;
@@ -28,6 +29,7 @@ export class ContractUpdateComponent implements OnInit {
 		private readonly contractAdapter: ContractAdapter,
 		private readonly contractFacade: ContractFacade
 	) {
+		super();
 		this.updateIsLoading$ = contractFacade.updateIsLoading$;
 	}
 	ngOnInit(): void {
@@ -83,6 +85,7 @@ export class ContractUpdateComponent implements OnInit {
 		updateContractDto.append('CTFile', this.file);
 
 		this.contractFacade.update(this.contractAdapter.IdContract, updateContractDto);
+		this.closeDialog(this.contractFacade.createResponse$, this.dialogRef);
 	}
 
 	// Obtener imagen

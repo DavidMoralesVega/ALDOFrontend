@@ -276,7 +276,11 @@ export const ZListRoles: any = [
 	{ value: '1', key: 'Profesional Administrativo II - Transcriptior' },
 	{ value: '2', key: 'Encargado de Proceso Juridicos Administrativos' },
 	{ value: '3', key: 'Encargado Área de Contratación' },
-	{ value: '4', key: 'Encargado de Procesos Legislativos Administrativos' }
+	{ value: '4', key: 'Encargado de Procesos Legislativos Administrativos' },
+	{ value: '5', key: 'Administrador' },
+	{ value: '6', key: 'Administrador de Blog' },
+
+
 ];
 
 // area
