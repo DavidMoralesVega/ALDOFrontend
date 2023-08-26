@@ -8,7 +8,9 @@ import { CategoryFacade } from '../../../../category/facades/category.facade';
 import { PostFacade } from '../../../facades/post.facade';
 import { PayloadFile } from 'src/app/core/entities';
 import { ZBaseService } from 'src/app/core/services/base.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { CreateFileUploadDto, FileUploadComponent } from 'src/app/core/components/file-upload/z';
+import { CreatePostDto } from '../../../entities';
 
 @Component({
 	selector: 'z-post-create',
@@ -20,7 +22,7 @@ export class PostCreateComponent extends ZBaseService {
 	public formCreate: FormGroup = new FormGroup({});
 
 	public createIsLoading$: Observable<boolean>;
-
+	public paths: any[] = [];
 	public categoryFindAllResponse$: Observable<Response<Category[]> | null>;
 	public categoryFindAllIsLoading$: Observable<boolean>;
 
@@ -30,6 +32,7 @@ export class PostCreateComponent extends ZBaseService {
 		filter: 'ALL'
 	};
 
+	private readonly matDialog = inject(MatDialog);
 	private post_fotografia!: File;
 	private isValidImage: boolean = false;
 	private readonly dialogRef = inject(MatDialogRef<PostCreateComponent>);
@@ -72,12 +75,13 @@ export class PostCreateComponent extends ZBaseService {
 	create() {
 		if (this.formCreate.invalid) return;
 
-		const createPostDto = new FormData();
-		createPostDto.append('post_author', this.post_author.value);
-		createPostDto.append('post_content', this.post_content.value);
-		createPostDto.append('post_tittle', this.post_tittle.value);
-		createPostDto.append('cat_post_id', this.cat_post_id.value);
-		createPostDto.append('post_fotografia', this.post_fotografia);
+		const createPostDto: CreatePostDto = {
+			post_author: this.post_author.value,
+			post_content: this.post_content.value,
+			post_tittle: this.post_tittle.value,
+			cat_post_id: this.cat_post_id.value,
+			post_fotografia: this.paths[0]
+		};
 
 		this.postFacade.create(createPostDto);
 		this.closeDialog(this.postFacade.createResponse$, this.dialogRef);
@@ -86,5 +90,26 @@ export class PostCreateComponent extends ZBaseService {
 	handleUpload(payloadFile: PayloadFile) {
 		this.isValidImage = payloadFile.isValid;
 		this.post_fotografia = payloadFile.file;
+	}
+
+	openFileUpload(): void {
+		const createFileUploadDto: CreateFileUploadDto = {
+			directory: 'post',
+			maxSize: '2',
+			acceptedExtensions: 'application/img',
+			multiple: false
+		};
+		this.matDialog
+			.open(FileUploadComponent, {
+				width: '840px',
+				height: '756px',
+				data: createFileUploadDto
+			})
+			.afterClosed()
+			.subscribe({
+				next: (files: any) => {
+					this.paths = files.data.paths;
+				}
+			});
 	}
 }

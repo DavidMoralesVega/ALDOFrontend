@@ -53,12 +53,12 @@ export const ZPathsAdministrador: IZPath[] = [
 				name: 'Leyes departamentales',
 				icon: 'bell'
 			},
-			{
+			/* {
 				module: 'departament-law-search',
 				path: `${ZPath_ADMININISTRADOR}/departament-law-search`,
 				name: 'Busqueda leyes departamentales',
 				icon: 'bell'
-			},
+			}, */
 			{
 				module: 'recognition',
 				path: `${ZPath_ADMININISTRADOR}/recognition`,
@@ -179,12 +179,12 @@ export const ZPathsProceso: IZPath[] = [
 				name: 'Leyes departamentales',
 				icon: 'bell'
 			},
-			{
+			/* {
 				module: 'departament-law-search',
 				path: `${ZPath_PROCESO}/departament-law-search`,
 				name: 'Busqueda leyes departamentales',
 				icon: 'bell'
-			},
+			}, */
 			{
 				module: 'recognition',
 				path: `${ZPath_PROCESO}/recognition`,

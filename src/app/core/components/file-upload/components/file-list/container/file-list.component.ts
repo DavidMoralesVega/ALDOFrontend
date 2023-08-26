@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class FileListComponent {
 	@Input() public isProgress!: boolean;
-	@Input() public type!: 'image' | 'document';
+	@Input() public type!: 'image' | 'document' | 'mp4';
 	@Input() public isBtnRemove!: boolean;
 	@Input() public files: any[] = [];
 }

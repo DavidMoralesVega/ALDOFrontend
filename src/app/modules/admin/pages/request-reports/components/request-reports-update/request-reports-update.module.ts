@@ -13,6 +13,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { UploadInputTypeDocumentModule } from '../../../../../../core/components/upload-input-type-image/upload-input-type-image.module';
 import { JsonAsyncModule } from '../../../../../../core/pipes/json-async/json-async.module';
+import { FileListModule, FileUploadModule } from 'src/app/core/components/file-upload/z';
 
 @NgModule({
 	declarations: [RequestReportsUpdateComponent],
@@ -29,7 +30,9 @@ import { JsonAsyncModule } from '../../../../../../core/pipes/json-async/json-as
 		MatNativeDateModule,
 		MatRadioModule,
 		UploadInputTypeDocumentModule,
-		JsonAsyncModule
+		JsonAsyncModule,
+		FileListModule,
+		FileUploadModule
 	]
 })
 export class RequestReportsUpdateModule {}

@@ -8,6 +8,7 @@ import { PostModule } from 'src/app/modules/admin/pages/post/post.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { StaticFilePipeModule } from '../../../../core/pipes/static-file/static-file.module';
 import { LineZModule } from '../../../../core/components/line-z/line-z.module';
+import { StaticFileNewPipeModule } from 'src/app/core/pipes/static-file-new/static-file.module';
 
 @NgModule({
 	declarations: [PublicationComponent],
@@ -17,7 +18,8 @@ import { LineZModule } from '../../../../core/components/line-z/line-z.module';
 		PostModule,
 		NgxPaginationModule,
 		StaticFilePipeModule,
-		LineZModule
+		LineZModule,
+		StaticFileNewPipeModule
 	],
 	providers: [PostFacade]
 })

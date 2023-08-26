@@ -18,7 +18,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 	templateUrl: './contract-create.component.html',
 	styleUrls: ['./contract-create.component.scss']
 })
-export class ContractCreateComponent extends ZBaseService  {
+export class ContractCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
@@ -30,14 +30,14 @@ export class ContractCreateComponent extends ZBaseService  {
 	public rolValue: string | undefined = '';
 	private readonly dialogRef = inject(MatDialogRef<ContractCreateComponent>);
 	constructor(
-
 		private readonly contractFacade: ContractFacade,
 		private readonly authFacade: AuthFacade
 	) {
 		super();
+		/* console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
 		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
 		this.authFacade.loginResponse$.subscribe((data) => (this.rolValue = data?.data.Roles));
-		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
+		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px'); */
 		this.createIsLoading$ = contractFacade.createIsLoading$;
 
 		if (this.rolValue !== 'juridicos_administrativos') {

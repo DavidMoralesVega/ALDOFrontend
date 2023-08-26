@@ -12,7 +12,7 @@ export class RequestReportsService {
 
 	constructor(private readonly httpClient: HttpClient) {}
 
-	create(createRequestReportsDto: FormData): Observable<Response<RequestReports>> {
+	create(createRequestReportsDto: CreateRequestReportsDto): Observable<Response<RequestReports>> {
 		return this.httpClient.post<Response<RequestReports>>(
 			this.ZPRequestReports,
 			createRequestReportsDto

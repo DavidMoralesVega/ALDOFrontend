@@ -1,0 +1,30 @@
+.mat-mdc-icon-button.mat-mdc-button-base {
+	mat-icon {
+		height: 28px !important;
+		width: 24px !important;
+		color: #121212;
+	}
+	color: #121212;
+
+	// border: 1px solid transparent;
+
+	// &:hover {
+	// 	border: 1px solid var(--zephyrus-color-primary);
+	// 	color: var(--zephyrus-color-primary);
+	// 	background-color: #f8f8f8;
+	// 	box-shadow: none !important;
+	// }
+}
+
+.mdc-icon-button {
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+	padding: 12px !important;
+}
+
+/* scale icons */
+
+.icon-display {
+	transform: scale(3);
+}

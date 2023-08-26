@@ -15,7 +15,7 @@ import {
 @Injectable()
 export class RequestReportsFacade {
 	// create
-	public createDto$: Observable<FormData | null>;
+	public createDto$: Observable<CreateRequestReportsDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<RequestReports> | null>;
@@ -66,7 +66,7 @@ export class RequestReportsFacade {
 		this.updateResponse$ = this.store.select(zSelector.getRequestReportsUpdateResponse);
 	}
 
-	create(createCategoryDto: FormData) {
+	create(createCategoryDto: CreateRequestReportsDto) {
 		this.store.dispatch(REQUESTREPORTS_CREATE_REQUESTED({ payload: createCategoryDto }));
 	}
 

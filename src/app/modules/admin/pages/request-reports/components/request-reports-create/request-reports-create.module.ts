@@ -14,6 +14,7 @@ import { UploadInputTypeDocumentModule } from 'src/app/core/components/upload-in
 import { MatRadioModule } from '@angular/material/radio';
 import { JsonAsyncModule } from 'src/app/core/pipes/json-async/json-async.module';
 import { LegislatureModule } from '../../../legislature/legislature.module';
+import { FileListModule, FileUploadModule } from 'src/app/core/components/file-upload/z';
 
 @NgModule({
 	declarations: [RequestReportsCreateComponent],
@@ -31,7 +32,9 @@ import { LegislatureModule } from '../../../legislature/legislature.module';
 		UploadInputTypeDocumentModule,
 		MatRadioModule,
 		JsonAsyncModule,
-		LegislatureModule
+		LegislatureModule,
+		FileListModule,
+		FileUploadModule
 	]
 })
 export class RequestReportsCreateModule {}

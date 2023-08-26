@@ -16,6 +16,7 @@ import { PostFacade } from 'src/app/modules/admin/pages/post/facades/post.facade
 import { PostService } from 'src/app/modules/admin/pages/post/services/post.service';
 import { PostModule } from '../../../admin/pages/post/post.module';
 import { LineZModule } from '../../../../core/components/line-z/line-z.module';
+import { StaticFileNewPipeModule } from 'src/app/core/pipes/static-file-new/static-file.module';
 
 @NgModule({
 	declarations: [HomeComponent],
@@ -29,6 +30,7 @@ import { LineZModule } from '../../../../core/components/line-z/line-z.module';
 		StaticFilePipeModule,
 		PostModule,
 		LineZModule,
+		StaticFileNewPipeModule,
 		MDBBootstrapModulesPro.forRoot()
 	],
 	providers: [PostFacade, PostService]

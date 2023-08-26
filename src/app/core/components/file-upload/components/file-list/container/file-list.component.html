@@ -2,7 +2,7 @@
 	<section class="zContainerDocuments" *ngIf="type === 'document'">
 		<div class="zSingleFile" *ngFor="let file of files; let i = index">
 			<button mat-icon-button>
-				<img *ngIf="type === 'document'" src="assets/img/svg/files/default.svg" alt="" />
+				<img *ngIf="type === 'document'" src="assets/img/svg/files/pdf.svg" alt="" />
 			</button>
 
 			<div class="info">
@@ -39,6 +39,31 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
+	<section class="zContainerDocuments" *ngIf="type === 'mp4'">
+		<div class="zSingleFile" *ngFor="let file of files; let i = index">
+			<button mat-icon-button>
+				<img *ngIf="type === 'mp4'" src="assets/img/svg/files/default.svg" alt="" />
+			</button>
+
+			<div class="info">
+				<h4 class="name">
+					{{ file?.name }}
+				</h4>
+				<p class="size">1 MB</p>
+			</div>
+
+			<button class="ms-auto" mat-icon-button>
+				<mat-icon *ngIf="!isBtnRemove" class="material-symbols-outlined">check</mat-icon>
+				<mat-icon *ngIf="isBtnRemove" class="material-symbols-outlined">close</mat-icon>
+			</button>
+
+			<mat-progress-bar
+				*ngIf="isProgress"
+				mode="determinate"
+				[value]="file?.progress"
+			></mat-progress-bar>
 		</div>
 	</section>
 </div>

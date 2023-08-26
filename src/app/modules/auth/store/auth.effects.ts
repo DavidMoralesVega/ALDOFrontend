@@ -35,25 +35,32 @@ export class AuthEffects {
 							this.tokenStorageService.saveToken(response.data.token);
 							// this.router.navigateByUrl('/admin');
 
-							if (response.data.Roles === 'administrador') {
+							/* administrador */
+							if (response.data.Roles === '5') {
 								this.router.navigateByUrl('/administrador');
 							}
-							if (response.data.Roles === 'administrador_blog') {
+							/* administrador_blog */
+							if (response.data.Roles === '6') {
 								this.router.navigateByUrl('/administrador-blog');
 							}
-							if (response.data.Roles === 'encargado_area_concentracion') {
+							/* encargado_area_concentracion */
+							if (response.data.Roles === '3') {
 								this.router.navigateByUrl('/encargado-area-concentracion');
 							}
-							if (response.data.Roles === 'juridicos_administrativos') {
+							/* juridicos_administrativos */
+							if (response.data.Roles === '2') {
 								this.router.navigateByUrl('/juridicos-administrativos');
 							}
-							if (response.data.Roles === 'encargado_area_proceso') {
+							/* encargado_area_proceso */
+							if (response.data.Roles === '4') {
 								this.router.navigateByUrl('/encargado-area-proceso');
 							}
-							if (response.data.Roles === 'tecnico_supervisor') {
+							/* tecnico_supervisor */
+							if (response.data.Roles === '0') {
 								this.router.navigateByUrl('/tecnico-supervisor');
 							}
-							if (response.data.Roles === 'transcriptor') {
+							/* transcriptor */
+							if (response.data.Roles === '1') {
 								this.router.navigateByUrl('/transcriptor');
 							}
 

@@ -10,7 +10,8 @@ export class PostAdapter {
 		public readonly post_tittle: string,
 		public readonly post_estado: boolean,
 		public readonly post_creado: string,
-		public readonly cat_post_id: string
+		public readonly cat_post_id: string,
+		public readonly post_fotografia: string
 	) {}
 }
 
@@ -33,7 +34,8 @@ export class Post implements Adapter<PostAdapter> {
 			postAdapter.post_tittle,
 			postAdapter.post_estado,
 			postAdapter.post_creado,
-			postAdapter.cat_post_id
+			postAdapter.cat_post_id,
+			postAdapter.post_fotografia
 		);
 	}
 }

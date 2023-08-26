@@ -15,7 +15,7 @@ import {
 @Injectable()
 export class PostFacade {
 	// create
-	public createDto$: Observable<FormData | null>;
+	public createDto$: Observable<CreatePostDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<Post> | null>;
@@ -66,7 +66,7 @@ export class PostFacade {
 		this.updateResponse$ = this.store.select(zSelector.getPostUpdateResponse);
 	}
 
-	create(createPostDto: FormData) {
+	create(createPostDto: CreatePostDto) {
 		this.store.dispatch(POST_CREATE_REQUESTED({ payload: createPostDto }));
 	}
 

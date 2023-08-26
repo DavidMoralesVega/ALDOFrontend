@@ -1,0 +1,253 @@
+// organigrama.component.scss
+:root {
+	--level-1: #8dccad;
+	--level-2: #f5cc7f;
+	--level-3: #7b9fe0;
+	--level-4: #f27c8d;
+	--black: black;
+}
+.zOrganization {
+	.organization-chart-content {
+		text-align: center !important;
+	}
+	.chip {
+		text-transform: uppercase;
+		font-family: var(--zephyrus-font-family) !important;
+		padding: 2em !important;
+		margin-right: 1rem !important;
+		margin-left: 1rem !important;
+		font-size: 16px !important;
+		margin-bottom: 2rem;
+		font-weight: 500;
+		text-align: center;
+	}
+	.zTableStaff {
+		.chip {
+			padding: 1em 1.3rem !important;
+			font-size: 14px !important;
+		}
+	}
+	.zTableLevel {
+		.chip {
+			padding: 1em 1.3rem !important;
+			font-size: 14px !important;
+		}
+	}
+	.zLevel {
+		h3 {
+			margin-top: 1rem;
+			margin-left: 24px !important;
+			color: var(--zephyrus-color-on-secondary-container);
+		}
+		.zLevelBody {
+			// .zContainerCreate .zCardC:hover,
+			// .zContainerCreate .zCardC:focus {
+			// 	border-radius: 48px;
+			// 	color: var(--zephyrus-color-on-secondary-container);
+			// }
+			// display: flex;
+			// justify-items: center;
+			// align-items: center;
+			// justify-content: center;
+			// text-align: center;
+			background: var(--zephyrus-color-background);
+			border-radius: 24px;
+			padding: 30px 30px 30px 30px;
+			margin-bottom: 2rem;
+			transition: border-radius 300ms cubic-bezier(0.2, 0, 0, 1),
+				background-color 300ms cubic-bezier(0.2, 0, 0, 1);
+		}
+		.zLevelOne {
+			.chip {
+				background-color: var(--level-1) !important;
+			}
+			display: flex;
+			justify-items: center;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+		.zLevelStaff {
+			.chip {
+				background-color: var(--level-2) !important;
+			}
+			display: flex;
+			justify-items: center;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+		.zLevelSubcentro {
+			.chip {
+				background-color: var(--level-3) !important;
+				padding: 1.3rem !important;
+			}
+			display: flex;
+			justify-items: center;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+	}
+}
+
+.organigrama {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: var(--zephyrus-font-family);
+	.card {
+		align-items: center;
+		text-align: center;
+		border-radius: 16px !important;
+		.card-header:first-child {
+			border-radius: 16px 16px 0 0 !important;
+		}
+	}
+	.nivel {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+		margin-bottom: 60px;
+
+		.nivel-descripcion {
+			text-align: center;
+			font-weight: bold;
+		}
+
+		.detalles {
+			display: flex;
+			position: relative;
+			margin-top: 20px;
+			flex-wrap: wrap;
+			justify-content: center;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 50%;
+				width: 2px;
+				height: 20px;
+				background-color: #4285f4;
+				transform: translateX(-50%);
+			}
+
+			.detalle {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 0 20px;
+				position: relative;
+
+				.detalle-descripcion {
+					font-weight: bold;
+					padding: 8px 12px;
+					background-color: #34a853;
+					color: white;
+					border-radius: 15px;
+					margin-bottom: 20px;
+					position: relative;
+					z-index: 1;
+					box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+				}
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;
+
+					left: 50%;
+					width: 2px;
+					height: 20px;
+					background-color: #34a853;
+					transform: translateX(-50%);
+				}
+
+				.subcentros {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+
+					.subcentro {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						margin-bottom: 20px;
+
+						.subcentro-descripcion {
+							padding: 8px 12px;
+							background-color: #fbbc05;
+							color: white;
+							border-radius: 15px;
+							box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+						}
+					}
+				}
+
+				.dependencias {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+					position: relative;
+					margin-top: 20px;
+
+					&:before {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 50%;
+						width: 2px;
+						height: 20px;
+						background-color: #34a853;
+						transform: translateX(-50%);
+					}
+
+					.detalle {
+						&:before {
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 50%;
+							width: 2px;
+							height: 20px;
+							background-color: #34a853;
+							transform: translateX(-50%);
+						}
+
+						.detalle-descripcion {
+							&:after {
+								content: '';
+								position: absolute;
+								top: 50%;
+								left: 0;
+								width: 20px;
+								height: 2px;
+								background-color: #34a853;
+								transform: translateY(-50%);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// ORGNIVEL C
+.organization-chart-lines-top div {
+	background: #121212 !important;
+	// width: 2px !important;
+}
+.organization-chart-table {
+	font-family: var(--zephyrus-font-family) !important;
+}
+.organization-chart-line {
+	// border-right: 1px solid #121212 !important;
+	// border-top: 1px solid #121212 !important;
+}
+
+.mzt-9 {
+	margin-top: 9rem !important;
+}

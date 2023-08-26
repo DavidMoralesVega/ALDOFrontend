@@ -1,0 +1,75 @@
+/* ZEPHYRUS SEARCH TABLE START */
+.z-search {
+	width: 100%;
+	position: relative;
+	margin-bottom: 1rem;
+
+	input {
+		// color: ;
+		background: var(--zephyrus-color-background);
+		border-radius: 24px;
+		font-family: var(--zephyrus-font-family) !important;
+		color: var(--zephyrus-color-on-surface-variant, rgba(0, 0, 0, 0.38));
+		width: 100%;
+		position: relative;
+		margin-left: 0;
+		margin-right: 0;
+		height: 56px;
+		padding-left: 60px;
+		padding-right: 96px;
+		border: none !important;
+		// border: 1px solid var(--zephyrus-color-outline-variant);
+		// box-shadow: 0 0.5px 0.5px 0 rgba(60, 64, 67, 0.1), 0 1px 2px 0.5px rgba(60, 64, 67, 0.05);
+		transition: background 100ms ease-in, width 100ms ease-out;
+
+		&::placeholder {
+			font-family: var(--zephyrus-typescale-body-large-font-family-name);
+			font-style: var(--zephyrus-typescale-body-large-font-family-style);
+			font-weight: var(--zephyrus-typescale-body-large-font-weight);
+			font-size: var(--zephyrus-typescale-body-large-font-size);
+			letter-spacing: var(--zephyrus-typescale-body-large-tracking);
+			line-height: var(--zephyrus-typescale-body-large-height);
+			text-transform: var(--zephyrus-typescale-body-large-text-transform);
+			text-decoration: var(--zephyrus-typescale-body-large-text-decoration);
+			color: var(--zephyrus-color-on-surface-variant);
+			opacity: 0.8;
+		}
+
+		&:active {
+			border: none !important;
+		}
+
+		&:hover {
+			// background: var(--zephyrus-color-on-background);
+			// box-shadow: var(--zephyrus-elevation-1);
+			border: none !important;
+		}
+
+		&:focus-visible {
+			border: none !important;
+			outline: none !important;
+		}
+	}
+	.btn-search {
+		position: absolute;
+		top: 4px;
+		left: 9px;
+		mat-icon {
+			// margin: 3px;
+			color: var(--zephyrus-color-on-background);
+			border-radius: 50%;
+		}
+	}
+
+	.btn-clear {
+		position: absolute;
+		top: 4px;
+		right: 9px;
+		mat-icon {
+			// margin: 3px;
+			color: var(--zephyrus-color-on-background);
+			border-radius: 50%;
+		}
+	}
+}
+/* ZEPHYRUS SEARCH TABLE END  */
