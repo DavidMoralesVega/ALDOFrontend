@@ -7,7 +7,9 @@ import { Pagination, PayloadFile, Response } from 'src/app/core/entities';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
 import { Legislature } from '../../../../legislature/entities';
 import { ZBaseService } from 'src/app/core/services/base.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { CreateFileUploadDto, FileUploadComponent } from 'src/app/core/components/file-upload/z';
+import { CreateRequestReportsDto } from '../../../entities';
 
 @Component({
 	selector: 'z-request-reports-create',
@@ -20,10 +22,12 @@ export class RequestReportsCreateComponent extends ZBaseService {
 	public createIsLoading$: Observable<boolean>;
 
 	// variables imagen
+	public paths: any[] = [];
+	public paths1: any[] = [];
 	private file!: File;
 	private fileVideo!: File;
 	private isValidImage: boolean = false;
-
+	private readonly matDialog = inject(MatDialog);
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
 	private pagination: Pagination = {
@@ -74,14 +78,17 @@ export class RequestReportsCreateComponent extends ZBaseService {
 	create() {
 		if (this.formCreate.invalid) return;
 
-		console.log(this.IdreqRLeg.value);
+		if (this.formCreate.invalid) return;
 
-		let createRequestReportsDto = new FormData();
-		createRequestReportsDto.append('reqR_title', this.reqR_title.value);
-		createRequestReportsDto.append('reqR_abstract', this.reqR_abstract.value);
-		createRequestReportsDto.append('reqRFile', this.file);
-		createRequestReportsDto.append('reqRVideo', this.fileVideo);
-		createRequestReportsDto.append('IdreqRLeg', this.IdreqRLeg.value);
+		const createRequestReportsDto: CreateRequestReportsDto = {
+			reqR_title: this.reqR_title.value,
+			reqR_abstract: this.reqR_abstract.value,
+			reqRFile: this.paths[0],
+			reqRVideo: this.paths1[0],
+			IdreqRLeg: this.IdreqRLeg.value
+		};
+
+		console.log({ createRequestReportsDto });
 
 		this.requestReportsFacade.create(createRequestReportsDto);
 		this.closeDialog(this.requestReportsFacade.createResponse$, this.dialogRef);
@@ -97,5 +104,48 @@ export class RequestReportsCreateComponent extends ZBaseService {
 	handleUploadVideo(payloadFile: PayloadFile) {
 		this.isValidImage = payloadFile.isValid;
 		this.fileVideo = payloadFile.file;
+	}
+
+	openFileUpload(): void {
+		const createFileUploadDto: CreateFileUploadDto = {
+			directory: 'request-reports',
+			maxSize: '2',
+			acceptedExtensions: 'application/pdf',
+			multiple: false
+		};
+		this.matDialog
+			.open(FileUploadComponent, {
+				width: '840px',
+				height: '756px',
+				data: createFileUploadDto
+			})
+			.afterClosed()
+			.subscribe({
+				next: (files: any) => {
+					console.log(files);
+					this.paths = files.data.paths;
+				}
+			});
+	}
+	openFileMp4Upload(): void {
+		const createFileUploadDto: CreateFileUploadDto = {
+			directory: 'request-reports',
+			maxSize: '2',
+			acceptedExtensions: 'application/mp4',
+			multiple: false
+		};
+		this.matDialog
+			.open(FileUploadComponent, {
+				width: '840px',
+				height: '756px',
+				data: createFileUploadDto
+			})
+			.afterClosed()
+			.subscribe({
+				next: (files: any) => {
+					console.log(files);
+					this.paths1 = files.data.paths;
+				}
+			});
 	}
 }

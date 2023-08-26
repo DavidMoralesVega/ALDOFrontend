@@ -64,7 +64,7 @@ export class UserCreateComponent extends ZBaseService {
 			FullName: this.FullName.value,
 			Password: this.Password.value,
 			celCorp: this.celCorp.value.toString(),
-			Roles: [this.Roles.value]
+			Roles: this.Roles.value
 		};
 
 		this.userFacade.create(createUserDto);

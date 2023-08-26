@@ -55,11 +55,7 @@
 			<ng-container matColumnDef="Roles">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Rol del usuario</th>
 				<td mat-cell *matCellDef="let row">
-					<ol>
-						<li *ngFor="let rol of row.Roles">
-							{{ rol | zDataSet : 'listRoles' }}
-						</li>
-					</ol>
+					{{ row.Roles | zDataSet : 'listRoles' }}
 				</td>
 			</ng-container>
 

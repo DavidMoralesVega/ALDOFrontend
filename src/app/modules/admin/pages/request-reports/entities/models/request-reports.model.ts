@@ -23,7 +23,9 @@ export interface UpdateRequestReportsForeignAdapter extends RequestReportsAdapte
 	readonly legislatura: LegislatureAdapter;
 }
 
-export interface UpdateRequestReportsDto extends Partial<RequestReportsAdapter> {}
+export interface UpdateRequestReportsDto extends Partial<RequestReportsAdapter> {
+	readonly IdreqRLeg?: string;
+}
 
 @Injectable()
 export class RequestReports implements Adapter<RequestReportsAdapter> {

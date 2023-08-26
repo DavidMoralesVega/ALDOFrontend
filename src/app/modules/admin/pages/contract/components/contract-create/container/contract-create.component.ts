@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import {
@@ -10,13 +10,15 @@ import {
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { ContractFacade } from '../../../facades/contract.facade';
 import { AuthFacade } from 'src/app/modules/auth/facades/auth.facade';
+import { ZBaseService } from 'src/app/core/services/base.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-contract-create',
 	templateUrl: './contract-create.component.html',
 	styleUrls: ['./contract-create.component.scss']
 })
-export class ContractCreateComponent implements OnInit {
+export class ContractCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
 	public createIsLoading$: Observable<boolean>;
@@ -26,12 +28,14 @@ export class ContractCreateComponent implements OnInit {
 	private file!: File;
 	private isValidImage: boolean = false;
 	public rolValue: string | undefined = '';
-
+	private readonly dialogRef = inject(MatDialogRef<ContractCreateComponent>);
 	constructor(
 		private readonly contractFacade: ContractFacade,
 		private readonly authFacade: AuthFacade
 	) {
+		super();
 		/* console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
+		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
 		this.authFacade.loginResponse$.subscribe((data) => (this.rolValue = data?.data.Roles));
 		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px'); */
 		this.createIsLoading$ = contractFacade.createIsLoading$;
@@ -84,6 +88,7 @@ export class ContractCreateComponent implements OnInit {
 		createResolutionDto.append('CTFile', this.file);
 
 		this.contractFacade.create(createResolutionDto);
+		this.closeDialog(this.contractFacade.createResponse$, this.dialogRef);
 	}
 
 	// Obtener imagen
