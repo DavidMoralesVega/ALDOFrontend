@@ -14,25 +14,27 @@
 						(onUpload)="handleUpload($event)"
 					></z-upload-input-type-document>
 				</div>
+	
 				<mat-form-field class="col-lg-12" appearance="outline">
 					<mat-label>Área</mat-label>
-					<mat-select formControlName="DTArea">
-						<mat-option *ngFor="let area of ZListArea" [value]="area.value">
-							{{ area.key }}
-						</mat-option>
-					</mat-select>
-
-					<mat-error *ngIf="errorMatcher.isErrorState(DTArea, null)">
-						<span *ngIf="DTArea.errors?.['required']">
+					<input matInput maxlength="100" formControlName="dtarea" placeholder="Título" />
+					<mat-hint align="start">Máximo 100 carácteres. </mat-hint>
+					<mat-hint align="end">{{ dtarea.value.length }} / 100</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(dtarea, null)">
+						<span *ngIf="dtarea.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							El área es requerido.
+							El título es requerida.
+						</span>
+
+						<span *ngIf="dtarea.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							Máximo 100 carácteres.
 						</span>
 					</mat-error>
 				</mat-form-field>
 
 				<mat-form-field class="col-lg-8" appearance="outline">
 					<mat-label>Título</mat-label>
-
 					<input matInput maxlength="40" formControlName="DTTitle" placeholder="Título" />
 					<mat-hint align="start">Máximo 40 carácteres. </mat-hint>
 					<mat-hint align="end">{{ DTTitle.value.length }} / 40</mat-hint>
@@ -124,10 +126,10 @@
 					<label class="z-label">Seleccionar la visibilidad</label>
 
 					<mat-radio-group formControlName="DTVisibility" class="z-radio-group">
-						<mat-radio-button class="z-radio-button" value="publico">
+						<mat-radio-button class="z-radio-button" value="Público">
 							Público
 						</mat-radio-button>
-						<mat-radio-button class="z-radio-button" value="privado">
+						<mat-radio-button class="z-radio-button" value="Privado">
 							Privado
 						</mat-radio-button>
 					</mat-radio-group>
