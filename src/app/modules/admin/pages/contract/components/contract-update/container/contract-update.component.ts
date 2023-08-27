@@ -11,10 +11,9 @@ import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-contract-update',
-	templateUrl: './contract-update.component.html',
-	styleUrls: ['./contract-update.component.scss']
+	templateUrl: './contract-update.component.html'
 })
-export class ContractUpdateComponent extends ZBaseService{
+export class ContractUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formUpdate: FormGroup = new FormGroup({});
 	public updateIsLoading$: Observable<boolean>;

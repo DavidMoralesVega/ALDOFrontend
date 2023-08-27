@@ -12,8 +12,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-departament-law-create',
-	templateUrl: './departament-law-create.component.html',
-	styleUrls: ['./departament-law-create.component.scss']
+	templateUrl: './departament-law-create.component.html'
 })
 export class DepartamentLawCreateComponent extends ZBaseService {
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;

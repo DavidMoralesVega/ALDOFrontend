@@ -12,8 +12,7 @@ import { RequestReportsCreateComponent } from '../components/request-reports-cre
 
 @Component({
 	selector: 'z-request-reports',
-	templateUrl: './request-reports.component.html',
-	styleUrls: ['./request-reports.component.scss']
+	templateUrl: './request-reports.component.html'
 })
 export class RequestReportsComponent implements OnInit {
 	public findAllResponse$: Observable<Response<RequestReports[]> | null>;

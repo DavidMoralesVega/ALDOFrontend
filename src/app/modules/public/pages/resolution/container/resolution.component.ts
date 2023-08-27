@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Pagination, Response, ZListCardCommissions } from 'src/app/core/entities';
 import { Observable, Subscription } from 'rxjs';
 import { Call } from 'src/app/modules/admin/pages/calls/entities';
-import { CallFacade } from 'src/app/modules/admin/pages/calls/facades/call.facade';
 import { ResolutionFacade } from 'src/app/modules/admin/pages/resolutions/facades/resolutions.facade';
 import { Resolution } from 'src/app/modules/admin/pages/resolutions/entities';
 
 @Component({
 	selector: 'z-commission',
-	templateUrl: './resolution.component.html',
-	styleUrls: ['./resolution.component.scss']
+	templateUrl: './resolution.component.html'
 })
 export class ResolutionComponent implements OnInit {
 	public ZListCardCommissions: any[] = ZListCardCommissions;

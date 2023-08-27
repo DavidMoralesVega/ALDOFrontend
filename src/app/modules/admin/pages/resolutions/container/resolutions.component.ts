@@ -17,8 +17,7 @@ import { ResolutionsCreateComponent } from '../components/resolutions-create/con
 
 @Component({
 	selector: 'z-resolutions',
-	templateUrl: './resolutions.component.html',
-	styleUrls: ['./resolutions.component.scss']
+	templateUrl: './resolutions.component.html'
 })
 export class ResolutionsComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Resolution[]> | null>;

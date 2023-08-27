@@ -11,8 +11,7 @@ import { FilesArchiveFacade } from '../../../facades/file-archive.facade';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
 @Component({
 	selector: 'z-file-archive-update',
-	templateUrl: './file-archive-update.component.html',
-	styles: []
+	templateUrl: './file-archive-update.component.html'
 })
 export class FileArchiveUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

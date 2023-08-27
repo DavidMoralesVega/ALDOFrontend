@@ -12,8 +12,7 @@ import { CallsUpdateComponent } from '../components/calls-update/container/calls
 
 @Component({
 	selector: 'z-calls',
-	templateUrl: './calls.component.html',
-	styleUrls: ['./calls.component.scss']
+	templateUrl: './calls.component.html'
 })
 export class CallsComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Call[]> | null>;

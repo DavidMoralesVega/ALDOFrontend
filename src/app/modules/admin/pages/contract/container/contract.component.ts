@@ -12,8 +12,7 @@ import { ContractFacade } from '../facades/contract.facade';
 
 @Component({
 	selector: 'z-contract',
-	templateUrl: './contract.component.html',
-	styleUrls: ['./contract.component.scss']
+	templateUrl: './contract.component.html'
 })
 export class ContractComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Contract[]> | null>;

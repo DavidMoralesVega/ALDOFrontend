@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'z-pussy',
-  templateUrl: './pussy.component.html',
-  styleUrls: ['./pussy.component.scss']
+	selector: 'z-pussy',
+	templateUrl: './pussy.component.html'
 })
 export class PussyComponent implements OnInit {
+	constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+	ngOnInit(): void {}
 }

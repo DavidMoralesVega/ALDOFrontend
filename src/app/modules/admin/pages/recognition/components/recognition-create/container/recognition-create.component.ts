@@ -8,8 +8,7 @@ import { ZBaseService } from 'src/app/core/services/base.service';
 import { MatDialogRef } from '@angular/material/dialog';
 @Component({
 	selector: 'z-recognition-create',
-	templateUrl: './recognition-create.component.html',
-	styleUrls: ['./recognition-create.component.scss']
+	templateUrl: './recognition-create.component.html'
 })
 export class RecognitionCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

@@ -12,8 +12,7 @@ import {
 
 @Component({
 	selector: 'z-library-create',
-	templateUrl: './library-create.component.html',
-	styleUrls: ['./library-create.component.scss']
+	templateUrl: './library-create.component.html'
 })
 export class LibraryCreateComponent implements OnInit {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

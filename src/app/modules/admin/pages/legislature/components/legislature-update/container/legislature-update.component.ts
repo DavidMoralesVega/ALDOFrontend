@@ -12,8 +12,7 @@ import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-legislature-update',
-	templateUrl: './legislature-update.component.html',
-	styleUrls: ['./legislature-update.component.scss']
+	templateUrl: './legislature-update.component.html'
 })
 export class LegislatureUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

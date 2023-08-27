@@ -10,8 +10,7 @@ import { PayloadFile } from '../../../../../../../core/entities/adapters/object.
 import { ZBaseService } from 'src/app/core/services/base.service';
 @Component({
 	selector: 'z-recognition-update',
-	templateUrl: './recognition-update.component.html',
-	styleUrls: ['./recognition-update.component.scss']
+	templateUrl: './recognition-update.component.html'
 })
 export class RecognitionUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

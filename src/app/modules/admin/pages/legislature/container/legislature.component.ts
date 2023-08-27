@@ -12,8 +12,7 @@ import { LegislatureUpdateComponent } from '../components/legislature-update/con
 
 @Component({
 	selector: 'z-legislature',
-	templateUrl: './legislature.component.html',
-	styleUrls: ['./legislature.component.scss']
+	templateUrl: './legislature.component.html'
 })
 export class LegislatureComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Legislature[]> | null>;

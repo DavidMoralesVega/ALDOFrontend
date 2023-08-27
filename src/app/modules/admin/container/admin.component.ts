@@ -4,8 +4,7 @@ import { EventBusService } from 'src/app/core/shared/event/event-bus.service';
 
 @Component({
 	selector: 'app-admin',
-	templateUrl: './admin.component.html',
-	styleUrls: ['./admin.component.scss']
+	templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
 	private eventBusSub?: Subscription;

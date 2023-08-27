@@ -6,8 +6,7 @@ import { RequestReportsFacade } from 'src/app/modules/admin/pages/request-report
 
 @Component({
 	selector: 'z-commission',
-	templateUrl: './requestReportOral.component.html',
-	styleUrls: ['./requestReportOral.component.scss']
+	templateUrl: './requestReportOral.component.html'
 })
 export class RequestReportOralComponent implements OnInit {
 	public findAllResponse$: Observable<Response<RequestReports[]> | null>;

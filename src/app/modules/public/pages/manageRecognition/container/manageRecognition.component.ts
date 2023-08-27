@@ -7,8 +7,7 @@ import { Recognition } from 'src/app/modules/admin/pages/recognition/entities';
 
 @Component({
 	selector: 'z-commission',
-	templateUrl: './manageRecognition.component.html',
-	styleUrls: ['./manageRecognition.component.scss']
+	templateUrl: './manageRecognition.component.html'
 })
 export class ManageRecognitionComponent implements OnInit {
 	public ZListCardCommissions: any[] = ZListCardCommissions;

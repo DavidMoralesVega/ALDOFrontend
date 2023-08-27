@@ -7,8 +7,7 @@ import { CallFacade } from 'src/app/modules/admin/pages/calls/facades/call.facad
 
 @Component({
 	selector: 'z-commission',
-	templateUrl: './call.component.html',
-	styleUrls: ['./call.component.scss']
+	templateUrl: './call.component.html'
 })
 export class CallPComponent implements OnInit {
 	public ZListCardCommissions: any[] = ZListCardCommissions;

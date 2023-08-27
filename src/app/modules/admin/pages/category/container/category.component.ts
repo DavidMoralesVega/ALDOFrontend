@@ -12,8 +12,7 @@ import { CategoryUpdateComponent } from '../components/category-update/container
 
 @Component({
 	selector: 'z-category',
-	templateUrl: './category.component.html',
-	styleUrls: ['./category.component.scss']
+	templateUrl: './category.component.html'
 })
 export class CategoryComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Category[]> | null>;

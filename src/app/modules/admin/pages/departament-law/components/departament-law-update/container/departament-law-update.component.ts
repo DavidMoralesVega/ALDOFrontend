@@ -15,8 +15,7 @@ import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-departament-law-update',
-	templateUrl: './departament-law-update.component.html',
-	styleUrls: ['./departament-law-update.component.scss']
+	templateUrl: './departament-law-update.component.html'
 })
 export class DepartamentLawUpdateComponent extends ZBaseService {
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;

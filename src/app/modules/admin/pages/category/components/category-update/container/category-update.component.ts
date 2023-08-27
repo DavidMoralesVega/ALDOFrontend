@@ -9,8 +9,7 @@ import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-category-update',
-	templateUrl: './category-update.component.html',
-	styleUrls: ['./category-update.component.scss']
+	templateUrl: './category-update.component.html'
 })
 export class CategoryUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

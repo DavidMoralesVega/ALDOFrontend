@@ -14,8 +14,7 @@ import { LibraryCreateComponent } from '../components/library-create/container/l
 
 @Component({
 	selector: 'z-library',
-	templateUrl: './library.component.html',
-	styleUrls: ['./library.component.scss']
+	templateUrl: './library.component.html'
 })
 export class LibraryComponent implements OnInit, AfterViewInit, OnDestroy {
 	public findAllResponse$: Observable<Response<Library[]> | null>;

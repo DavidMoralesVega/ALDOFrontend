@@ -7,8 +7,7 @@ import { Contract } from 'src/app/modules/admin/pages/contract/entities';
 
 @Component({
 	selector: 'z-commission',
-	templateUrl: './Contracts.component.html',
-	styleUrls: ['./Contracts.component.scss']
+	templateUrl: './Contracts.component.html'
 })
 export class ContractsComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Contract[]> | null>;

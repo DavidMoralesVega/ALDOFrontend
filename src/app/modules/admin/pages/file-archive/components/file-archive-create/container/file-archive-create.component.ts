@@ -10,8 +10,7 @@ import { LegislatureFacade } from '../../../../legislature/facades/legislature.f
 import { ZBaseService } from 'src/app/core/services/base.service';
 @Component({
 	selector: 'z-file-archive-create',
-	templateUrl: './file-archive-create.component.html',
-	styles: []
+	templateUrl: './file-archive-create.component.html'
 })
 export class FileArchiveCreateComponent extends ZBaseService {
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;

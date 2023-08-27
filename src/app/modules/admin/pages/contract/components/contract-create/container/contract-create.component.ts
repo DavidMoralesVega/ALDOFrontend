@@ -15,8 +15,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-contract-create',
-	templateUrl: './contract-create.component.html',
-	styleUrls: ['./contract-create.component.scss']
+	templateUrl: './contract-create.component.html'
 })
 export class ContractCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
