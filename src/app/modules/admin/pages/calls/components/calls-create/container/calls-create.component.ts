@@ -12,8 +12,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-calls-create',
-	templateUrl: './calls-create.component.html',
-	styleUrls: ['./calls-create.component.scss']
+	templateUrl: './calls-create.component.html'
 })
 export class CallsCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

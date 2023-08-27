@@ -11,8 +11,7 @@ import { Recognition, RecognitionAdapter, UpdateRecognitionDto } from '../entiti
 import { RecognitionFacade } from '../facades/recognition.facade';
 @Component({
 	selector: 'z-recognition',
-	templateUrl: './recognition.component.html',
-	styleUrls: ['./recognition.component.scss']
+	templateUrl: './recognition.component.html'
 })
 export class RecognitionComponent implements OnInit, AfterViewInit, OnDestroy {
 	public findAllResponse$: Observable<Response<Recognition[]> | null>;

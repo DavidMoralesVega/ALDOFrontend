@@ -6,8 +6,7 @@ import { PostFacade } from 'src/app/modules/admin/pages/post/facades/post.facade
 
 @Component({
 	selector: 'z-publication',
-	templateUrl: './publication.component.html',
-	styleUrls: ['./publication.component.scss']
+	templateUrl: './publication.component.html'
 })
 export class PublicationComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Post[]> | null>;

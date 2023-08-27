@@ -8,8 +8,7 @@ import { ETypeUser } from '../../../entities';
 
 @Component({
 	selector: 'z-auth-user',
-	templateUrl: './auth-user.component.html',
-	styleUrls: ['./auth-user.component.scss']
+	templateUrl: './auth-user.component.html'
 })
 export class AuthUserComponent implements OnInit {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

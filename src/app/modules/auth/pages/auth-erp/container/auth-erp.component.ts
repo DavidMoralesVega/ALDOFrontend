@@ -8,8 +8,7 @@ import { ETypeUser } from '../../../entities';
 
 @Component({
 	selector: 'z-auth-erp',
-	templateUrl: './auth-erp.component.html',
-	styleUrls: ['./auth-erp.component.scss']
+	templateUrl: './auth-erp.component.html'
 })
 export class AuthErpComponent implements OnInit {
 	public formLogin: FormGroup = new FormGroup({});

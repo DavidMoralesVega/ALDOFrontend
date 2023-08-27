@@ -12,8 +12,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-request-written-create',
-	templateUrl: './request-written-create.component.html',
-	styleUrls: ['./request-written-create.component.scss']
+	templateUrl: './request-written-create.component.html'
 })
 export class RequestWrittenCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

@@ -9,8 +9,7 @@ import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-legislature-create',
-	templateUrl: './legislature-create.component.html',
-	styleUrls: ['./legislature-create.component.scss']
+	templateUrl: './legislature-create.component.html'
 })
 export class LegislatureCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

@@ -13,8 +13,7 @@ import { PostUpdateComponent } from '../components/post-update/container/post-up
 
 @Component({
 	selector: 'z-post',
-	templateUrl: './post.component.html',
-	styleUrls: ['./post.component.scss']
+	templateUrl: './post.component.html'
 })
 export class PostComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Post[]> | null>;

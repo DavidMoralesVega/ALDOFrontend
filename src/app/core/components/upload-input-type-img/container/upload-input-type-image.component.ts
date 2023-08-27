@@ -3,8 +3,7 @@ import { MatSnackBarService } from '../../../services/mat-snack-bar.service';
 
 @Component({
 	selector: 'z-upload-input-type-image',
-	templateUrl: './upload-input-type-image.component.html',
-	styleUrls: ['./upload-input-type-image.component.scss']
+	templateUrl: './upload-input-type-image.component.html'
 })
 export class UploadInputTypeImageComponent implements OnInit {
 	@Output()

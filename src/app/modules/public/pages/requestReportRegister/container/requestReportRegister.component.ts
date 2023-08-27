@@ -8,8 +8,7 @@ import { RequestWrittenFacade } from 'src/app/modules/admin/pages/request-writte
 
 @Component({
 	selector: 'z-commission',
-	templateUrl: './requestReportRegister.component.html',
-	styleUrls: ['./requestReportRegister.component.scss']
+	templateUrl: './requestReportRegister.component.html'
 })
 export class RequestReportRegisterComponent implements OnInit {
 	public findAllResponse$: Observable<Response<RequestWritten[]> | null>;

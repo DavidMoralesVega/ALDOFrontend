@@ -9,8 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-category-create',
-	templateUrl: './category-create.component.html',
-	styleUrls: ['./category-create.component.scss']
+	templateUrl: './category-create.component.html'
 })
 export class CategoryCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

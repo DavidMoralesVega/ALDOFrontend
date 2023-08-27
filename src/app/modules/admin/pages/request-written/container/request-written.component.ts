@@ -13,8 +13,7 @@ import { RequestWrittenUpdateComponent } from '../components/request-written-upd
 
 @Component({
 	selector: 'z-request-written',
-	templateUrl: './request-written.component.html',
-	styleUrls: ['./request-written.component.scss']
+	templateUrl: './request-written.component.html'
 })
 export class RequestWrittenComponent implements OnInit, AfterViewInit, OnDestroy {
 	public findAllResponse$: Observable<Response<RequestWritten[]> | null>;

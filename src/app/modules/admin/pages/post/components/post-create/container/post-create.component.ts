@@ -14,8 +14,7 @@ import { CreatePostDto } from '../../../entities';
 
 @Component({
 	selector: 'z-post-create',
-	templateUrl: './post-create.component.html',
-	styleUrls: ['./post-create.component.scss']
+	templateUrl: './post-create.component.html'
 })
 export class PostCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

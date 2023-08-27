@@ -12,8 +12,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-resolutions-create',
-	templateUrl: './resolutions-create.component.html',
-	styleUrls: ['./resolutions-create.component.scss']
+	templateUrl: './resolutions-create.component.html'
 })
 export class ResolutionsCreateComponent extends ZBaseService {
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;

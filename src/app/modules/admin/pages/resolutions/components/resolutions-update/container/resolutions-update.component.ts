@@ -12,8 +12,7 @@ import { LegislatureFacade } from '../../../../legislature/facades/legislature.f
 import { ZBaseService } from 'src/app/core/services/base.service';
 @Component({
 	selector: 'z-resolutions-update',
-	templateUrl: './resolutions-update.component.html',
-	styleUrls: ['./resolutions-update.component.scss']
+	templateUrl: './resolutions-update.component.html'
 })
 export class ResolutionsUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

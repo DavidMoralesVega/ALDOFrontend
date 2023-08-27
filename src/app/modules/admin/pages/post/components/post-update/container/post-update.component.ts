@@ -13,8 +13,7 @@ import { CreateFileUploadDto, FileUploadComponent } from 'src/app/core/component
 
 @Component({
 	selector: 'z-post-update',
-	templateUrl: './post-update.component.html',
-	styleUrls: ['./post-update.component.scss']
+	templateUrl: './post-update.component.html'
 })
 export class PostUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

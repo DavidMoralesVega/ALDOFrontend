@@ -10,8 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'z-user-create',
-	templateUrl: './user-create.component.html',
-	styleUrls: ['./user-create.component.scss']
+	templateUrl: './user-create.component.html'
 })
 export class UserCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

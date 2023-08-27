@@ -14,8 +14,7 @@ import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-calls-update',
-	templateUrl: './calls-update.component.html',
-	styleUrls: ['./calls-update.component.scss']
+	templateUrl: './calls-update.component.html'
 })
 export class CallsUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

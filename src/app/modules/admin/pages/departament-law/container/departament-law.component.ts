@@ -13,8 +13,7 @@ import { DepartamentLawUpdateComponent } from '../components/departament-law-upd
 
 @Component({
 	selector: 'z-departament-law',
-	templateUrl: './departament-law.component.html',
-	styleUrls: ['./departament-law.component.scss']
+	templateUrl: './departament-law.component.html'
 })
 export class DepartamentLawComponent implements OnInit, AfterViewInit, OnDestroy {
 	public findAllResponse$: Observable<Response<DepartamentLaw[]> | null>;

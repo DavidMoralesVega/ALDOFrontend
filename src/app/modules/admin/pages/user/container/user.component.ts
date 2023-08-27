@@ -12,8 +12,7 @@ import { UserFacade } from '../facades/user.facade';
 
 @Component({
 	selector: 'z-user',
-	templateUrl: './user.component.html',
-	styleUrls: ['./user.component.scss']
+	templateUrl: './user.component.html'
 })
 export class UserComponent implements OnInit {
 	public findAllResponse$: Observable<Response<User[]> | null>;

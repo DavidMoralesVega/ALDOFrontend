@@ -14,8 +14,7 @@ import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-request-written-update',
-	templateUrl: './request-written-update.component.html',
-	styleUrls: ['./request-written-update.component.scss']
+	templateUrl: './request-written-update.component.html'
 })
 export class RequestWrittenUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

@@ -13,8 +13,7 @@ import { FileArchiveUpdateComponent } from '../components/file-archive-update/co
 
 @Component({
 	selector: 'z-file-archive',
-	templateUrl: './file-archive.component.html',
-	styles: []
+	templateUrl: './file-archive.component.html'
 })
 export class FileArchiveComponent {
 	public findAllResponse$: Observable<Response<FilesArchive[]> | null>;
