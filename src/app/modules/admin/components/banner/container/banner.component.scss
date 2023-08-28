@@ -1,0 +1,21 @@
+.banner {
+	position: relative;
+	height: 300px;
+	color: white;
+	text-align: center;
+	background-size: cover;
+	background-position: center;
+	background-size: 100% auto;
+	border-radius: 10px;
+}
+
+.overlay {
+	background-color: rgba(0, 0, 0, 0.666);
+	padding: 16px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 10px;
+}

@@ -13,12 +13,9 @@ export class NavigationBlogComponent implements OnInit {
 
 	constructor(private readonly authFacade: AuthFacade, private readonly router: Router) {}
 
-	ngOnInit(): void {
-		// this.authFacade.getUser();
-	}
+	ngOnInit(): void {}
 
 	logout() {
 		this.router.navigateByUrl('/auth/user');
-		// this.authFacade.logout();
 	}
 }

@@ -8,6 +8,7 @@ import { search } from '../../../../../core/entities/interfaces/search.interface
 import {
 	CreateDepartamentLawDto,
 	DepartamentLaw,
+	DepartamentLawAdapter,
 	UpdateDepartamentLawDto
 } from '../entities/models/departament-law.model';
 
@@ -24,9 +25,9 @@ export class DepartamentLawService {
 		);
 	}
 
-	findAll(pagination: Pagination): Observable<Response<DepartamentLaw[]>> {
+	findAll(pagination: Pagination): Observable<Response<DepartamentLawAdapter[]>> {
 		const { limit, offset, filter } = pagination;
-		return this.httpClient.get<Response<DepartamentLaw[]>>(
+		return this.httpClient.get<Response<DepartamentLawAdapter[]>>(
 			`${this.ZPDepartamentLaw}?limit=${limit}&offset=${offset}&filter=${filter}`
 		);
 	}

@@ -19,6 +19,7 @@ import { JsonAsyncModule } from '../../../../core/pipes/json-async/json-async.mo
 import { LegislatureModule } from '../../../admin/pages/legislature/legislature.module';
 import { LegislatureFacade } from '../../../admin/pages/legislature/facades/legislature.facade';
 import { LineZModule } from '../../../../core/components/line-z/line-z.module';
+import { ZBannerModule } from 'src/app/modules/admin/components/banner/banner.module';
 
 @NgModule({
 	declarations: [DepartamentLawsComponent],
@@ -38,7 +39,8 @@ import { LineZModule } from '../../../../core/components/line-z/line-z.module';
 		MatNativeDateModule,
 		JsonAsyncModule,
 		LegislatureModule,
-		LineZModule
+		LineZModule,
+		ZBannerModule
 	],
 	providers: [DepartamentLawFacade, LegislatureFacade]
 })

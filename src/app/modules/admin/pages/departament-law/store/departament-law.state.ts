@@ -3,6 +3,7 @@ import { search } from 'src/app/core/entities/interfaces/search.interface';
 import { DepartamentLaw } from '../entities';
 import {
 	CreateDepartamentLawDto,
+	DepartamentLawAdapter,
 	UpdateDepartamentLawDto
 } from '../entities/models/departament-law.model';
 
@@ -14,7 +15,7 @@ export interface DepartamentLawState {
 		response: Response<DepartamentLaw> | null;
 	};
 	findAll: {
-		response: Response<DepartamentLaw[]> | null;
+		response: Response<DepartamentLawAdapter[]> | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		pagination: Pagination | null;

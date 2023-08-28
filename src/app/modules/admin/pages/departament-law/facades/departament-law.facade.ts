@@ -12,7 +12,7 @@ import {
 	DEPARTAMENTLAW_SEARCH_REQUESTED,
 	DEPARTAMENTLAW_SEARCHADVANCED_REQUESTED
 } from '../store/departament-law.action';
-import { DepartamentLaw, UpdateDepartamentLawDto } from '../entities';
+import { DepartamentLaw, DepartamentLawAdapter, UpdateDepartamentLawDto } from '../entities';
 import { DepartamentLawState } from '../store/departament-law.state';
 import { search } from '../../../../../core/entities/interfaces/search.interface';
 
@@ -28,7 +28,7 @@ export class DepartamentLawFacade {
 	public findAllPagination$: Observable<Pagination | null>;
 	public findAllException$: Observable<Exception | null>;
 	public findAllIsLoading$: Observable<boolean>;
-	public findAllResponse$: Observable<Response<DepartamentLaw[]> | null>;
+	public findAllResponse$: Observable<Response<DepartamentLawAdapter[]> | null>;
 
 	// findOne
 	public findOneId$: Observable<string | null>;
