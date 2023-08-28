@@ -278,9 +278,12 @@ export const ZListRoles: any = [
 	{ value: '3', key: 'Encargado Área de Contratación' },
 	{ value: '4', key: 'Encargado de Procesos Legislativos Administrativos' },
 	{ value: '5', key: 'Administrador' },
-	{ value: '6', key: 'Administrador de Blog' },
-
-
+	{ value: '6', key: 'Administrador de Blog' }
+];
+export const ZListCategorys: any = [
+	{ value: 'Sesión Ordinaria', key: 'Sesión ordinaria' },
+	{ value: 'Sesión extraordinaria', key: 'Sesión extraordinaria' },
+	{ value: 'Sesión de honor', key: 'Sesión de honor' }
 ];
 
 // area

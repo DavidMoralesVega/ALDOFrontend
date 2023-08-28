@@ -18,5 +18,6 @@ export enum ZEffects {
 	fileArchive = 'fileArchive',
 	call = 'call',
 	requestReports = 'request-reports',
+	proceeding = 'proceeding',
 	post = 'post'
 }

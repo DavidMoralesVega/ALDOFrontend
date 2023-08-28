@@ -85,6 +85,6 @@ export const AdministradorRoutes: Routes = [
 	{
 		path: 'actas',
 		loadChildren: () =>
-			import('../../pages/proceedings/proceedings.module').then((m) => m.ProceedingsModule)
+			import('../../pages/procceding/procceding.module').then((m) => m.ProccedingModule)
 	}
 ];
