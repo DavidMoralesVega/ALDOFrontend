@@ -12,7 +12,7 @@ export class CallService {
 
 	constructor(private readonly httpClient: HttpClient) {}
 
-	create(createCallDto: FormData): Observable<Response<Call>> {
+	create(createCallDto: CreateCallDto): Observable<Response<Call>> {
 		return this.httpClient.post<Response<Call>>(this.ZPCall, createCallDto);
 	}
 

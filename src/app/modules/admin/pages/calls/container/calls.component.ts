@@ -27,7 +27,6 @@ export class CallsComponent implements OnInit {
 		'call_title',
 		'call_modality',
 		'call_numSession',
-		'IdcallLeg',
 		'call_dateUpdate',
 		'call_create',
 		'CallVisibility',
@@ -64,6 +63,15 @@ export class CallsComponent implements OnInit {
 			this.findAllResponse$.subscribe({
 				next: (response: Response<Call[]> | null) => {
 					setTimeout(() => {
+						console.log(
+							'%c Result<==============================>! ',
+							'color: red; font-size: 40px'
+						);
+						console.log({ response });
+						console.log(
+							'%c Result<==============================>! ',
+							'color: red; font-size: 40px'
+						);
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;
 						this.dataSource.sort = this.sort;

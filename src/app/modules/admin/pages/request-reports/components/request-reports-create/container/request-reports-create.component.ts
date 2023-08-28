@@ -13,7 +13,8 @@ import { CreateRequestReportsDto } from '../../../entities';
 
 @Component({
 	selector: 'z-request-reports-create',
-	templateUrl: './request-reports-create.component.html'
+	templateUrl: './request-reports-create.component.html',
+	styleUrls: ['./request-reports-create.component.scss']
 })
 export class RequestReportsCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();

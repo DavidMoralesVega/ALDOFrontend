@@ -16,7 +16,8 @@ import { CreateFileUploadDto, FileUploadComponent } from 'src/app/core/component
 
 @Component({
 	selector: 'z-request-reports-update',
-	templateUrl: './request-reports-update.component.html'
+	templateUrl: './request-reports-update.component.html',
+	styleUrls: ['./request-reports-update.component.scss']
 })
 export class RequestReportsUpdateComponent extends ZBaseService {
 	public formUpdate: FormGroup = new FormGroup({});

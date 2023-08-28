@@ -3,7 +3,7 @@ import { Call, CreateCallDto, UpdateCallDto } from '../entities';
 
 export interface CallState {
 	create: {
-		createCallDto: FormData | null;
+		createCallDto: CreateCallDto | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		response: Response<Call> | null;
@@ -21,7 +21,7 @@ export interface CallState {
 		id: string | null;
 	};
 	update: {
-		updateCallDto: UpdateCallDto | FormData | null;
+		updateCallDto: UpdateCallDto | CreateCallDto | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

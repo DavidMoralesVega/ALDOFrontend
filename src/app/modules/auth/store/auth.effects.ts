@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, catchError, switchMap, take } from 'rxjs/operators';
-import { Observable, of, defer, tap } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Exception, Response } from 'src/app/core/entities';
 import * as zActions from './auth.action';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { PayloadLogin } from '../../../core/entities/adapters/object.adapter';
 import { LoginUserDto, UserTokenDto } from '../pages/auth-user/entities/models/user.model';
-import { LoginUserERPDto, UserERPTokenDto } from '../pages/auth-erp/entities/models/user-erp.model';
 import { ETypeUser } from '../entities/enums/type-user';
 
 @Injectable()
