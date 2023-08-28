@@ -33,10 +33,7 @@ export class ContractCreateComponent extends ZBaseService {
 		private readonly authFacade: AuthFacade
 	) {
 		super();
-		/* console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
-		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
-		this.authFacade.loginResponse$.subscribe((data) => (this.rolValue = data?.data.Roles));
-		console.log('%c Result<==============================>! ', 'color: red; font-size: 40px'); */
+
 		this.createIsLoading$ = contractFacade.createIsLoading$;
 
 		if (this.rolValue !== 'juridicos_administrativos') {

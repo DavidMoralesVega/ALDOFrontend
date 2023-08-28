@@ -8,12 +8,15 @@ import { Legislature } from '../../../../legislature/entities/models/legislature
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
 import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
 import { ZBaseService } from 'src/app/core/services/base.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ZE_Patterns } from 'src/app/core/constants/patterns.enum';
+import { CreateFileUploadDto, FileUploadComponent } from 'src/app/core/components/file-upload/z';
+import { CreateCallDto } from '../../../entities';
 
 @Component({
 	selector: 'z-calls-create',
-	templateUrl: './calls-create.component.html'
+	templateUrl: './calls-create.component.html',
+	styleUrls: ['./calls-create.component.scss']
 })
 export class CallsCreateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
@@ -24,6 +27,9 @@ export class CallsCreateComponent extends ZBaseService {
 	public ZListsSesiones: any[] = ZListSesiones;
 	public NewListsSesiones: any[] = [];
 	public filteredOptions!: Observable<string>;
+
+	public paths: any[] = [];
+	private readonly matDialog = inject(MatDialog);
 
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
@@ -96,15 +102,16 @@ export class CallsCreateComponent extends ZBaseService {
 	create() {
 		if (this.formCreate.invalid) return;
 
-		let createCallDto = new FormData();
-		createCallDto.append('call_title', this.call_title.value);
-		createCallDto.append('call_hours', this.call_hours.value);
-		createCallDto.append('call_modality', this.call_modality.value);
-		createCallDto.append('call_dateUpdate', this.call_dateUpdate.value);
-		createCallDto.append('CallVisibility', this.CallVisibility.value);
-		createCallDto.append('call_numSession', this.call_numSession.value);
-		createCallDto.append('CallFile', this.file);
-		createCallDto.append('IdcallLeg', this.IdcallLeg.value);
+		const createCallDto: CreateCallDto = {
+			call_title: this.call_title.value,
+			call_hours: this.call_hours.value,
+			call_modality: this.call_modality.value,
+			call_numSession: this.call_numSession.value,
+			call_dateUpdate: this.call_dateUpdate.value,
+			CallVisibility: this.CallVisibility.value,
+			IdcallLeg: this.IdcallLeg.value,
+			CallFile: this.paths[0]
+		};
 
 		this.callFacade.create(createCallDto);
 		this.closeDialog(this.callFacade.createResponse$, this.dialogRef);
@@ -144,5 +151,27 @@ export class CallsCreateComponent extends ZBaseService {
 		this.ZListsSesiones = [];
 		this.NewListsSesiones = [];
 		this.ZListsSesiones = ZListSesiones;
+	}
+
+	openFileUpload(): void {
+		const createFileUploadDto: CreateFileUploadDto = {
+			directory: 'call',
+			maxSize: '2',
+			acceptedExtensions: 'application/mp4',
+			multiple: false
+		};
+		this.matDialog
+			.open(FileUploadComponent, {
+				width: '840px',
+				height: '756px',
+				data: createFileUploadDto
+			})
+			.afterClosed()
+			.subscribe({
+				next: (files: any) => {
+					console.log(files);
+					this.paths = files.data.paths;
+				}
+			});
 	}
 }

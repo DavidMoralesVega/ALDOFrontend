@@ -28,7 +28,7 @@ export enum CallActionTypes {
 // create
 export const CALL_CREATE_REQUESTED = createAction(
 	CallActionTypes.CALL_CREATE_REQUESTED,
-	props<Payload<FormData>>()
+	props<Payload<CreateCallDto>>()
 );
 
 export const CALL_CREATE_LOADED = createAction(
@@ -76,7 +76,7 @@ export const CALL_FIND_ONE_FAILED = createAction(
 // update
 export const CALL_UPDATE_REQUESTED = createAction(
 	CallActionTypes.CALL_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateCallDto | FormData, string>>()
+	props<PayloadUpdate<UpdateCallDto | CreateCallDto, string>>()
 );
 
 export const CALL_UPDATE_LOADED = createAction(

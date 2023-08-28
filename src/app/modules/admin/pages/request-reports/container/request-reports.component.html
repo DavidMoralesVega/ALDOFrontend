@@ -101,16 +101,18 @@
 					>
 						<mat-icon class="material-symbols-outlined" fontIcon="picture_as_pdf"></mat-icon>
 					</a>
-					<a
-						href="{{ row.reqRVideo | staticFileNew }}"
-						target="_blank"
-						class="z-btn-action"
-						matTooltip="Visualizar multimedia"
-						mat-icon-button
-						matTooltipClass="z-tooltip"
-					>
-						<mat-icon class="material-symbols-outlined" fontIcon="movie"></mat-icon>
-					</a>
+					<span *ngIf="row.reqRVideo">
+						<a
+							href="{{ row.reqRVideo | staticFileNew }}"
+							target="_blank"
+							class="z-btn-action"
+							matTooltip="Visualizar multimedia"
+							mat-icon-button
+							matTooltipClass="z-tooltip"
+						>
+							<mat-icon class="material-symbols-outlined" fontIcon="movie"></mat-icon>
+						</a>
+					</span>
 				</td>
 			</ng-container>
 

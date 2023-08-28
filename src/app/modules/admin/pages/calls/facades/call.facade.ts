@@ -15,7 +15,7 @@ import {
 @Injectable()
 export class CallFacade {
 	// create
-	public createDto$: Observable<FormData | null>;
+	public createDto$: Observable<CreateCallDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<Call> | null>;
@@ -66,7 +66,7 @@ export class CallFacade {
 		this.updateResponse$ = this.store.select(zSelector.getCallUpdateResponse);
 	}
 
-	create(createCallDto: FormData) {
+	create(createCallDto: CreateCallDto) {
 		this.store.dispatch(CALL_CREATE_REQUESTED({ payload: createCallDto }));
 	}
 
@@ -78,7 +78,7 @@ export class CallFacade {
 		this.store.dispatch(CALL_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateCallDto: UpdateCallDto | FormData) {
+	update(id: string, updateCallDto: UpdateCallDto | CreateCallDto) {
 		this.store.dispatch(
 			CALL_UPDATE_REQUESTED({
 				id,

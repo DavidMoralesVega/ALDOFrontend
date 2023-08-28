@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { CallFacade } from '../../../facades/call.facade';
-import { UpdateCallForeignAdapter } from '../../../entities/models/call.model';
+import { UpdateCallDto, UpdateCallForeignAdapter } from '../../../entities/models/call.model';
 import { ZListModalidad, ZListSesiones, Response } from 'src/app/core/entities';
 import { Legislature } from '../../../../legislature/entities/models/legislature.model';
 import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
@@ -14,7 +14,8 @@ import { ZBaseService } from 'src/app/core/services/base.service';
 
 @Component({
 	selector: 'z-calls-update',
-	templateUrl: './calls-update.component.html'
+	templateUrl: './calls-update.component.html',
+	styleUrls: ['./calls-update.component.scss']
 })
 export class CallsUpdateComponent extends ZBaseService {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
@@ -105,7 +106,7 @@ export class CallsUpdateComponent extends ZBaseService {
 	update() {
 		if (this.formUpdate.invalid) return;
 
-		/* const updateCallDto: UpdateCallDto = {
+		const updateCallDto: UpdateCallDto = {
 			call_title: this.call_title.value,
 			call_hours: this.call_hours.value,
 			call_modality: this.call_modality.value,
@@ -113,17 +114,8 @@ export class CallsUpdateComponent extends ZBaseService {
 			call_dateUpdate: this.call_dateUpdate.value,
 			CallVisibility: this.CallVisibility.value,
 			IdcallLeg: this.IdcallLeg.value
-		}; */
-
-		let updateCallDto = new FormData();
-		updateCallDto.append('call_title', this.call_title.value);
-		updateCallDto.append('call_hours', this.call_hours.value);
-		updateCallDto.append('call_modality', this.call_modality.value);
-		updateCallDto.append('call_dateUpdate', this.call_dateUpdate.value);
-		updateCallDto.append('CallVisibility', this.CallVisibility.value);
-		updateCallDto.append('call_numSession', this.call_numSession.value);
-		updateCallDto.append('CallFile', this.file);
-		updateCallDto.append('IdcallLeg', this.IdcallLeg.value);
+			// CallFile: this.paths[0]
+		};
 
 		this.callFacade.update(this.UpdateCallForeignAdapter.call_id, updateCallDto);
 		this.closeDialog(this.callFacade.updateResponse$, this.dialogRef);

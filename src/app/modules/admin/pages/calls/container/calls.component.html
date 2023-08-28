@@ -30,6 +30,7 @@
 		</div>
 	</div>
 
+	<!-- <pre>{{ findAllResponse$ | async | json }}</pre> -->
 	<div class="z-table-container" *ngIf="(findAllResponse$ | async) !== null">
 		<table class="z-table" mat-table matSort [dataSource]="dataSource">
 			<ng-container matColumnDef="call_id">
@@ -54,16 +55,13 @@
 					{{ row.call_numSession | zDataSet : 'listSesiones' }}
 				</td>
 			</ng-container>
-
-			<ng-container matColumnDef="IdcallLeg">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header>Legislatura</th>
-				<td mat-cell *matCellDef="let row">{{ row.legislatura.LegDescripcion }}</td>
-			</ng-container>
-
 			<ng-container matColumnDef="call_dateUpdate">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de Actualizacion</th>
-				<td mat-cell *matCellDef="let row">{{ row.call_dateUpdate | date : 'medium' }}</td>
+				<td mat-cell *matCellDef="let row">
+					{{ row!.call_dateUpdate }}
+				</td>
 			</ng-container>
+
 			<ng-container matColumnDef="IdUser">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
 				<td mat-cell *matCellDef="let row">{{ row.user.FullName }}</td>
