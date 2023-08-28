@@ -3,7 +3,7 @@ import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entiti
 
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
 import { UpdateDepartamentLawDto } from '../entities';
-import { DepartamentLaw } from '../entities/models/departament-law.model';
+import { DepartamentLaw, DepartamentLawAdapter } from '../entities/models/departament-law.model';
 import { search } from '../../../../../core/entities/interfaces/search.interface';
 
 export enum DepartamentLawActionTypes {
@@ -62,7 +62,7 @@ export const DEPARTAMENTLAW_FIND_ALL_REQUESTED = createAction(
 
 export const DEPARTAMENTLAW_FIND_ALL_LOADED = createAction(
 	DepartamentLawActionTypes.DEPARTAMENTLAW_FIND_ALL_LOADED,
-	props<Payload<Response<DepartamentLaw[]>>>()
+	props<Payload<Response<DepartamentLawAdapter[]>>>()
 );
 
 export const DEPARTAMENTLAW_FIND_ALL_FAILED = createAction(

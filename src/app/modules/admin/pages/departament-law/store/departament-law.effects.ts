@@ -11,7 +11,8 @@ import { search } from '../../../../../core/entities/interfaces/search.interface
 import {
 	DepartamentLaw,
 	CreateDepartamentLawDto,
-	UpdateDepartamentLawDto
+	UpdateDepartamentLawDto,
+	DepartamentLawAdapter
 } from '../entities/models/departament-law.model';
 
 @Injectable()
@@ -53,7 +54,7 @@ export class DepartamentLawEffects {
 				ofType(zActions.DEPARTAMENTLAW_FIND_ALL_REQUESTED),
 				mergeMap((action: Payload<Pagination>) =>
 					this.departamentLawService.findAll(action.payload).pipe(
-						map((response: Response<DepartamentLaw[]>) => {
+						map((response: Response<DepartamentLawAdapter[]>) => {
 							return zActions.DEPARTAMENTLAW_FIND_ALL_LOADED({
 								payload: response
 							});

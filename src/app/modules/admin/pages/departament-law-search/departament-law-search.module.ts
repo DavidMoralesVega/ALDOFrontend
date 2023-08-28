@@ -6,7 +6,7 @@ import { DepartamentLawsSearchComponent } from './container/departament-law-sear
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DepartamentLawModule } from 'src/app/modules/admin/pages/departament-law/departament-law.module';
 import { DepartamentLawFacade } from 'src/app/modules/admin/pages/departament-law/facades/departament-law.facade';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,6 +17,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { LineZModule } from '../../../../core/components/line-z/line-z.module';
 import { JsonAsyncModule } from '../../../../core/pipes/json-async/json-async.module';
+import { ZBannerModule } from '../../components/banner/banner.module';
 
 @NgModule({
 	declarations: [DepartamentLawsSearchComponent],
@@ -35,7 +36,8 @@ import { JsonAsyncModule } from '../../../../core/pipes/json-async/json-async.mo
 		MatDatepickerModule,
 		MatNativeDateModule,
 		LineZModule,
-		JsonAsyncModule
+		JsonAsyncModule,
+		ZBannerModule
 	],
 	providers: [DepartamentLawFacade]
 })

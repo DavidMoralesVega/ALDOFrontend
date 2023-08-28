@@ -1,3 +1,15 @@
 .block__search {
 	transition: all 0.2s ease-in-out;
 }
+
+.banner_search {
+	position: relative;
+	height: 80px;
+	color: white;
+	text-align: center;
+	border-radius: 10px;
+	background: #f3f6fc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

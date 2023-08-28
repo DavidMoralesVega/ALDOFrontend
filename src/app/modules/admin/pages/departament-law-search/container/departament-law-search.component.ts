@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ZListArea } from 'src/app/core/entities';
 import { Pagination, Response } from 'src/app/core/entities';
-import { Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, map, take } from 'rxjs';
 import { DepartamentLawFacade } from 'src/app/modules/admin/pages/departament-law/facades/departament-law.facade';
-import { DepartamentLaw } from 'src/app/modules/admin/pages/departament-law/entities';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+	DepartamentLaw,
+	DepartamentLawAdapter
+} from 'src/app/modules/admin/pages/departament-law/entities';
+import { FormControl, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
 import { DefaultErrorMatcher } from '../../../../../core/shared/default.error-matcher';
 import { search } from 'src/app/core/entities/interfaces/search.interface';
 import { LegislatureFacade } from '../../legislature/facades/legislature.facade';
@@ -16,20 +19,25 @@ import { Legislature } from '../../legislature/entities/models/legislature.model
 	styleUrls: ['./departament-law-search.component.scss']
 })
 export class DepartamentLawsSearchComponent implements OnInit {
-	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
-	public findAllResponse$: Observable<Response<DepartamentLaw[]> | null>;
+
+	public findAllResponse$: Observable<Response<DepartamentLawAdapter[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
+
 	public searchResponse$: Observable<Response<DepartamentLaw[]> | null>;
 	public searchIsLoading$: Observable<boolean>;
+
 	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
 
-	public ZListArea: any[] = ZListArea;
+	@ViewChild('buscarTexto', { static: true }) buscarTexto!: ElementRef<HTMLInputElement>;
 
-	private subscriptors: Subscription[] = [];
+	public ZListArea: any[] = ZListArea;
 	private subscriptorsSearch: Subscription[] = [];
-	public dataSearchDepartament: any = [];
+	public dataDepartament: Observable<Legislature[]> = new Observable<Legislature[]>();
+	public dataDepartamentLaw$: BehaviorSubject<DepartamentLawAdapter[]> = new BehaviorSubject<
+		DepartamentLawAdapter[]
+	>([]);
 
 	public page!: number;
 
@@ -63,7 +71,6 @@ export class DepartamentLawsSearchComponent implements OnInit {
 
 	ngAfterViewInit(): void {
 		this.findAll();
-		// this.findSearch();
 	}
 
 	initFormCreate(): void {
@@ -137,7 +144,7 @@ export class DepartamentLawsSearchComponent implements OnInit {
 							response?.data.forEach((element) => {
 								dataResponse.push(element);
 							});
-							this.dataSearchDepartament = dataResponse;
+							// this.dataSearchDepartament = dataResponse;
 						}
 					}
 				})
@@ -159,7 +166,7 @@ export class DepartamentLawsSearchComponent implements OnInit {
 							response?.data.forEach((element) => {
 								dataResponse.push(element);
 							});
-							this.dataSearchDepartament = dataResponse;
+							// this.dataSearchDepartament = dataResponse;
 						}
 					}
 				})
@@ -168,41 +175,37 @@ export class DepartamentLawsSearchComponent implements OnInit {
 	}
 
 	findAll() {
-		this.subscriptors.push(
-			this.findAllResponse$.subscribe({
-				next: (response: Response<any[]> | null) => {
-					this.dataSearchDepartament = response?.data.filter((data) => {
+		/* this.dataSearchDepartament = response?.data.filter((data) => {
 						if (data.dtvisibility === 'publico' && data.dtstate === true) {
 							return data;
 						}
-					});
-				}
-			})
-		);
+		}); */
+
+		this.findAllResponse$
+			.pipe(
+				map((response: Response<DepartamentLawAdapter[]> | null) => {
+					return response?.data || [];
+				})
+			)
+			.subscribe((data: DepartamentLawAdapter[]) => {
+				this.dataDepartamentLaw$.next(data);
+			});
 	}
 
-	reset() {
+	resetForm(): void {
 		this.findAll();
-		this.formCreate.reset();
+		this.buscarTexto.nativeElement.value = '';
 	}
-	buscarConvocatoria(termino: string): DepartamentLaw[] {
-		// this.findAll();
-
-		let Arr: DepartamentLaw[] = [];
+	buscarConvocatoria(termino: string) {
 		termino = termino.toLowerCase();
 
-		for (let i = 0; i < this.dataSearchDepartament.length; i++) {
-			let departamentLaws = this.dataSearchDepartament[i];
+		this.dataDepartamentLaw$.pipe(take(1)).subscribe((currentData) => {
+			const filteredData = currentData.filter((departamentLaws) =>
+				departamentLaws.dttitle.toLowerCase().includes(termino)
+			);
 
-			let nombre = departamentLaws.dttitle.toLowerCase();
-
-			if (nombre.indexOf(termino) >= 0) {
-				Arr.push(departamentLaws);
-			}
-		}
-
-		this.dataSearchDepartament = Arr;
-		return Arr;
+			this.dataDepartamentLaw$.next(filteredData);
+		});
 	}
 
 	create() {

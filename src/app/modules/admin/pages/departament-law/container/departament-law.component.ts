@@ -16,11 +16,11 @@ import { DepartamentLawUpdateComponent } from '../components/departament-law-upd
 	templateUrl: './departament-law.component.html'
 })
 export class DepartamentLawComponent implements OnInit, AfterViewInit, OnDestroy {
-	public findAllResponse$: Observable<Response<DepartamentLaw[]> | null>;
+	public findAllResponse$: Observable<Response<DepartamentLawAdapter[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public updateIsLoading$: Observable<boolean>;
 
-	public dataSource!: MatTableDataSource<DepartamentLaw>;
+	public dataSource!: MatTableDataSource<DepartamentLawAdapter>;
 	private subscriptors: Subscription[] = [];
 
 	public readonly displayedColumns: string[] = [
@@ -65,7 +65,7 @@ export class DepartamentLawComponent implements OnInit, AfterViewInit, OnDestroy
 	findAll() {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
-				next: (response: Response<DepartamentLaw[]> | null) => {
+				next: (response: Response<DepartamentLawAdapter[]> | null) => {
 					setTimeout(() => {
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;

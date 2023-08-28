@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ZListArea } from 'src/app/core/entities';
 import { Pagination, Response } from 'src/app/core/entities';
-import { Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, filter, map, tap, take } from 'rxjs';
 import { DepartamentLawFacade } from 'src/app/modules/admin/pages/departament-law/facades/departament-law.facade';
-import { DepartamentLaw } from 'src/app/modules/admin/pages/departament-law/entities';
+import {
+	DepartamentLaw,
+	DepartamentLawAdapter
+} from 'src/app/modules/admin/pages/departament-law/entities';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DefaultErrorMatcher } from '../../../../../core/shared/default.error-matcher';
 import { search } from 'src/app/core/entities/interfaces/search.interface';
@@ -18,7 +21,7 @@ import { LegislatureFacade } from 'src/app/modules/admin/pages/legislature/facad
 export class DepartamentLawsComponent implements OnInit {
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public formCreate: FormGroup = new FormGroup({});
-	public findAllResponse$: Observable<Response<DepartamentLaw[]> | null>;
+	public findAllResponse$: Observable<Response<DepartamentLawAdapter[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public searchResponse$: Observable<Response<DepartamentLaw[]> | null>;
 	public searchIsLoading$: Observable<boolean>;
@@ -27,9 +30,15 @@ export class DepartamentLawsComponent implements OnInit {
 
 	public ZListArea: any[] = ZListArea;
 
+	@ViewChild('buscarTexto', { static: true }) buscarTexto!: ElementRef<HTMLInputElement>;
+
 	private subscriptors: Subscription[] = [];
 	private subscriptorsSearch: Subscription[] = [];
 	public dataSearchDepartament: any = [];
+
+	public dataDepartamentLaw$: BehaviorSubject<DepartamentLawAdapter[]> = new BehaviorSubject<
+		DepartamentLawAdapter[]
+	>([]);
 
 	public page!: number;
 
@@ -168,45 +177,50 @@ export class DepartamentLawsComponent implements OnInit {
 	}
 
 	findAll() {
-		this.subscriptors.push(
-			this.findAllResponse$.subscribe({
-				next: (response: Response<any[]> | null) => {
-					this.dataSearchDepartament = response?.data.filter((data) => {
-						if (data.dtvisibility === 'publico' && data.dtstate === true) {
+		this.findAllResponse$
+			.pipe(
+				map((response: Response<DepartamentLawAdapter[]> | null) => {
+					const dataResponse = response?.data || [];
+					return dataResponse.filter((data: DepartamentLawAdapter | any) => {
+						if (data.dtvisibility === 'Público' && data.dtstate === true) {
 							return data;
 						}
 					});
-				}
-			})
-		);
+				})
+			)
+			.subscribe((data: DepartamentLawAdapter[]) => {
+				this.dataDepartamentLaw$.next(data);
+			});
 	}
 
 	reset() {
 		this.findAll();
 		this.formCreate.reset();
 	}
-	buscarConvocatoria(termino: string): DepartamentLaw[] {
-		// this.findAll();
 
-		let Arr: DepartamentLaw[] = [];
+	resetForm(): void {
+		this.findAll();
+		this.buscarTexto.nativeElement.value = '';
+	}
+
+	buscarConvocatoria(termino: string) {
 		termino = termino.toLowerCase();
 
-		for (let i = 0; i < this.dataSearchDepartament.length; i++) {
-			let departamentLaws = this.dataSearchDepartament[i];
+		this.dataDepartamentLaw$.pipe(take(1)).subscribe((currentData) => {
+			const filteredData = currentData.filter((departamentLaws) =>
+				departamentLaws.dttitle.toLowerCase().includes(termino)
+			);
 
-			let nombre = departamentLaws.dttitle.toLowerCase();
-
-			if (nombre.indexOf(termino) >= 0) {
-				Arr.push(departamentLaws);
-			}
-		}
-
-		this.dataSearchDepartament = Arr;
-		return Arr;
+			this.dataDepartamentLaw$.next(filteredData);
+		});
 	}
 
 	create() {
 		if (this.formCreate.invalid) return;
+	}
+
+	ngOnDestroy(): void {
+		this.subscriptors.forEach((subscription) => subscription.unsubscribe());
 	}
 
 	/*
