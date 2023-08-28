@@ -23,6 +23,7 @@ export const environment = {
 		recognition: `${point.server}/recognition`,
 		contract: `${point.server}/contract`,
 		library: `${point.server}/library`,
-		fileArchive: `${point.server}/fileArchive`
+		fileArchive: `${point.server}/fileArchive`,
+		proceeding: `${point.server}/proceeding`
 	}
 };

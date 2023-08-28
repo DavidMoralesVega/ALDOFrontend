@@ -29,7 +29,7 @@ export const environment = {
 		user: `${point.server}/auth`,
 		legislature: `${point.server}/legislatura`,
 		fileArchive: `${point.server}/fileArchive`,
-
+		proceeding: `${point.server}/proceeding`,
 		requestReports: `${point.server}/request-reports`
 	}
 };
