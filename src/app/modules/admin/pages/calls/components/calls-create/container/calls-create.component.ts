@@ -9,6 +9,7 @@ import { LegislatureFacade } from '../../../../legislature/facades/legislature.f
 import { Pagination } from '../../../../../../../core/entities/interfaces/pagination.interface';
 import { ZBaseService } from 'src/app/core/services/base.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ZE_Patterns } from 'src/app/core/constants/patterns.enum';
 
 @Component({
 	selector: 'z-calls-create',
@@ -52,14 +53,15 @@ export class CallsCreateComponent extends ZBaseService {
 
 	ngOnInit(): void {
 		this.initFormCreate();
-
-		// this.filteredOptions = this.call_modality.valueChanges.pipe(map((value: any) => value));
-		// this.filteredOptions = this.call_modality.valueChanges.pipe(map())
 	}
 
 	initFormCreate(): void {
 		this.formCreate = new FormGroup({
-			call_title: new FormControl('', [Validators.required]),
+			call_title: new FormControl('', [
+				Validators.required,
+				Validators.maxLength(100),
+				Validators.pattern(`${ZE_Patterns.letter_space}{1,100}`)
+			]),
 			call_hours: new FormControl('', [Validators.required]),
 			call_modality: new FormControl('', [Validators.required]),
 			call_numSession: new FormControl('', [Validators.required]),

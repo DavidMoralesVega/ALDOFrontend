@@ -14,10 +14,10 @@
 						(onUpload)="handleUpload($event)"
 					></z-upload-input-type-document>
 				</div>
-	
+
 				<mat-form-field class="col-lg-12" appearance="outline">
 					<mat-label>Área</mat-label>
-					<input matInput maxlength="100" formControlName="dtarea" placeholder="Título" />
+					<input matInput maxlength="100" formControlName="dtarea" placeholder="Área" />
 					<mat-hint align="start">Máximo 100 carácteres. </mat-hint>
 					<mat-hint align="end">{{ dtarea.value.length }} / 100</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(dtarea, null)">
