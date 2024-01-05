@@ -11,7 +11,10 @@ import { FormControl, FormGroup, FormGroupDirective, NgForm } from '@angular/for
 import { DefaultErrorMatcher } from '../../../../../core/shared/default.error-matcher';
 import { search } from 'src/app/core/entities/interfaces/search.interface';
 import { LegislatureFacade } from '../../legislature/facades/legislature.facade';
-import { Legislature } from '../../legislature/entities/models/legislature.model';
+import {
+	Legislature,
+	LegislatureAdapter
+} from '../../legislature/entities/models/legislature.model';
 
 @Component({
 	selector: 'z-commission',
@@ -27,7 +30,7 @@ export class DepartamentLawsSearchComponent implements OnInit {
 	public searchResponse$: Observable<Response<DepartamentLaw[]> | null>;
 	public searchIsLoading$: Observable<boolean>;
 
-	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllResponse$: Observable<Response<LegislatureAdapter[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
 
 	@ViewChild('buscarTexto', { static: true }) buscarTexto!: ElementRef<HTMLInputElement>;

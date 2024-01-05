@@ -1,15 +1,14 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { RequestWritten, RequestWrittenAdapter, UpdateRequestWrittenDto } from '../entities';
 import { Response } from '../../../../../core/entities/interfaces/response.interface';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { Pagination } from '../../../../../core/entities/interfaces/pagination.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { RequestWrittenFacade } from '../facades/request-written.facade';
 import { MatDialog } from '@angular/material/dialog';
-import { RequestWrittenCreateComponent } from '../components/request-written-create/container/request-written-create.component';
-import { RequestWrittenUpdateComponent } from '../components/request-written-update/container/request-written-update.component';
+import { RequestWrittenCreateUpdateComponent } from '../components/createUpdate/container/createUpdate.component';
 
 @Component({
 	selector: 'z-request-written',
@@ -19,6 +18,7 @@ export class RequestWrittenComponent implements OnInit, AfterViewInit, OnDestroy
 	public findAllResponse$: Observable<Response<RequestWritten[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public updateIsLoading$: Observable<boolean>;
+	private destroy$ = new Subject<void>();
 
 	public dataSource!: MatTableDataSource<RequestWritten>;
 	private subscriptors: Subscription[] = [];
@@ -98,26 +98,26 @@ export class RequestWrittenComponent implements OnInit, AfterViewInit, OnDestroy
 		}, 100);
 	}
 
-	openRequestWrittenCreate(): void {
-		const dialogRef = this.matDialog.open(RequestWrittenCreateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%'
-		});
-
-		dialogRef.afterClosed().subscribe(() => this.requestWrittenFacade.findAll(this.pagination));
-	}
-
-	openRequestWrittenUpdate(requestWritten: RequestWritten): void {
-		const dialogRef = this.matDialog.open(RequestWrittenUpdateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%',
-			data: requestWritten
-		});
-		dialogRef.afterClosed().subscribe(() => this.requestWrittenFacade.findAll(this.pagination));
+	openRequestWrittenCreateUpdate(
+		action: 'create' | 'update',
+		requestWrittenAdapter?: RequestWrittenAdapter
+	): void {
+		this.matDialog
+			.open(RequestWrittenCreateUpdateComponent, {
+				width: '500px',
+				maxWidth: '560px',
+				maxHeight: '100%',
+				backdropClass: 'zDialogRounded',
+				data: {
+					action,
+					z: requestWrittenAdapter
+				}
+			})
+			.afterClosed()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe({
+				next: () => this.requestWrittenFacade.findAll(this.pagination)
+			});
 	}
 
 	ngOnDestroy(): void {

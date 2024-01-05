@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { FilesArchive, UpdateFilesArchiveDto } from '../entities/models/file-archive.model';
+import {
+	CreateFilesArchiveDto,
+	FilesArchive,
+	UpdateFilesArchiveDto
+} from '../entities/models/file-archive.model';
 import { FilesArchiveState } from '../store/file-archive.state';
 import * as zSelector from '../store/file-archive.selectors';
 import {
@@ -15,7 +19,7 @@ import {
 @Injectable()
 export class FilesArchiveFacade {
 	// create
-	public createDto$: Observable<FormData | null>;
+	public createDto$: Observable<CreateFilesArchiveDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<FilesArchive> | null>;
@@ -66,7 +70,7 @@ export class FilesArchiveFacade {
 		this.updateResponse$ = this.store.select(zSelector.getFilesArchiveUpdateResponse);
 	}
 
-	create(createFilesArchiveDto: FormData) {
+	create(createFilesArchiveDto: CreateFilesArchiveDto) {
 		this.store.dispatch(FILESARCHIVE_CREATE_REQUESTED({ payload: createFilesArchiveDto }));
 	}
 
@@ -78,7 +82,7 @@ export class FilesArchiveFacade {
 		this.store.dispatch(FILESARCHIVE_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateFilesArchiveDto: UpdateFilesArchiveDto | FormData) {
+	update(id: string, updateFilesArchiveDto: UpdateFilesArchiveDto | CreateFilesArchiveDto) {
 		this.store.dispatch(
 			FILESARCHIVE_UPDATE_REQUESTED({
 				id,

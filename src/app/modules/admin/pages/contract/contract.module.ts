@@ -19,14 +19,13 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ContractUpdateModule } from './components/contract-update/contract-update.module';
-import { ContractCreateModule } from './components/contract-create/contract-create.module';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { ContractFacade } from './facades/contract.facade';
 import { ContractService } from './services/contract.service';
 import { ContractEffects } from './store/contract.effects';
 import { ContractReducer } from './store/contract.reducer';
 import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
+import { ContractCreateUpdateModule } from './components/createUpdate/createUpdate.module';
 
 @NgModule({
 	declarations: [ContractComponent],
@@ -50,8 +49,7 @@ import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
 		MatTableModule,
 		MatPaginatorModule,
 		MatDialogModule,
-		ContractCreateModule,
-		ContractUpdateModule,
+		ContractCreateUpdateModule,
 		DataSetPipeModule
 	],
 	providers: [ContractService, MatSnackBarService, ContractFacade],

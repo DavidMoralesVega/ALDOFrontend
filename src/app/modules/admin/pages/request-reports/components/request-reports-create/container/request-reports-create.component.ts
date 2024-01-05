@@ -5,7 +5,7 @@ import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { RequestReportsFacade } from '../../../facades/request-reports.facade';
 import { Pagination, PayloadFile, Response } from 'src/app/core/entities';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
-import { Legislature } from '../../../../legislature/entities';
+import { Legislature, LegislatureAdapter } from '../../../../legislature/entities';
 import { ZBaseService } from 'src/app/core/services/base.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CreateFileUploadDto, FileUploadComponent } from 'src/app/core/components/file-upload/z';
@@ -24,11 +24,8 @@ export class RequestReportsCreateComponent extends ZBaseService {
 	// variables imagen
 	public paths: any[] = [];
 	public paths1: any[] = [];
-	private file!: File;
-	private fileVideo!: File;
-	private isValidImage: boolean = false;
 	private readonly matDialog = inject(MatDialog);
-	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllResponse$: Observable<Response<LegislatureAdapter[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
 	private pagination: Pagination = {
 		limit: 100,
@@ -92,18 +89,6 @@ export class RequestReportsCreateComponent extends ZBaseService {
 
 		this.requestReportsFacade.create(createRequestReportsDto);
 		this.closeDialog(this.requestReportsFacade.createResponse$, this.dialogRef);
-	}
-
-	// Obtener imagenx
-	handleUpload(payloadFile: PayloadFile) {
-		this.isValidImage = payloadFile.isValid;
-		this.file = payloadFile.file;
-	}
-
-	// Obtener video
-	handleUploadVideo(payloadFile: PayloadFile) {
-		this.isValidImage = payloadFile.isValid;
-		this.fileVideo = payloadFile.file;
 	}
 
 	openFileUpload(): void {

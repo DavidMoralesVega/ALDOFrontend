@@ -18,7 +18,7 @@ export class DepartamentLawService {
 
 	constructor(private readonly httpClient: HttpClient) {}
 
-	create(createDepartamentLawDto: FormData): Observable<Response<DepartamentLaw>> {
+	create(createDepartamentLawDto: CreateDepartamentLawDto): Observable<Response<DepartamentLaw>> {
 		return this.httpClient.post<Response<DepartamentLaw>>(
 			this.ZPDepartamentLaw,
 			createDepartamentLawDto
@@ -38,7 +38,7 @@ export class DepartamentLawService {
 
 	update(
 		id: string,
-		updateDepartamentLawDto: FormData | UpdateDepartamentLawDto
+		updateDepartamentLawDto: CreateDepartamentLawDto | UpdateDepartamentLawDto
 	): Observable<Response<DepartamentLaw>> {
 		return this.httpClient.patch<Response<DepartamentLaw>>(
 			`${this.ZPDepartamentLaw}/${id}`,

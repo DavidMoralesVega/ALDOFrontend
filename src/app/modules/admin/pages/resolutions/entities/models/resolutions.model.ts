@@ -9,28 +9,30 @@ export class ResolutionAdapter {
 		public readonly RESummary: string,
 		public readonly REPublicationDate: string,
 		public readonly REIssueDate: string,
-		public readonly REStartYear: string,
-		public readonly REEndYear: string,
 		public readonly REDocumentNumber: string,
 		public readonly REType: string,
 		public readonly REFile: any,
 		public readonly REVisibility: boolean,
 		public readonly REState: boolean,
 		public readonly REDateRegister: string,
-		public readonly IdresolLeg: string
+		public readonly legislatureAdapter?: LegislatureAdapter
 	) {}
 }
 
 export type CreateResolutionDto = Omit<
 	ResolutionAdapter,
-	'IdDepartamentaLaw' | 'REState' | 'REDateRegister'
->;
+	'IdResolution' | 'REState' | 'REDateRegister'
+> & {
+	readonly IdcallLeg: string;
+};
+
+export type UpdateResolutionDto = Partial<ResolutionAdapter> & {
+	readonly IdcallLeg?: string;
+};
 
 export interface ResolutionForeignAdapter extends ResolutionAdapter {
 	readonly legislatura: LegislatureAdapter;
 }
-
-export interface UpdateResolutionDto extends Partial<ResolutionAdapter> {}
 
 @Injectable()
 export class Resolution implements Adapter<ResolutionAdapter> {
@@ -41,15 +43,13 @@ export class Resolution implements Adapter<ResolutionAdapter> {
 			resolutionAdapter.RESummary,
 			resolutionAdapter.REPublicationDate,
 			resolutionAdapter.REIssueDate,
-			resolutionAdapter.REStartYear,
-			resolutionAdapter.REEndYear,
 			resolutionAdapter.REDocumentNumber,
 			resolutionAdapter.REType,
 			resolutionAdapter.REFile,
 			resolutionAdapter.REVisibility,
 			resolutionAdapter.REState,
 			resolutionAdapter.REDateRegister,
-			resolutionAdapter.IdresolLeg
+			resolutionAdapter.legislatureAdapter
 		);
 	}
 }

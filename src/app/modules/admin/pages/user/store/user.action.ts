@@ -2,7 +2,7 @@ import { createAction, props } from '@ngrx/store';
 import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entities';
 
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { User, UpdateUserDto, CreateUserDto } from '../entities/models/user.model';
+import { User, UpdateAdminUserDto, CreateUserDto } from '../entities/models/user.model';
 
 export enum UserActionTypes {
 	// create
@@ -56,7 +56,7 @@ export const USER_FIND_ALL_FAILED = createAction(
 // update
 export const USER_UPDATE_REQUESTED = createAction(
 	UserActionTypes.USER_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateUserDto | CreateUserDto, string>>()
+	props<PayloadUpdate<UpdateAdminUserDto | CreateUserDto, string>>()
 );
 
 export const USER_UPDATE_LOADED = createAction(

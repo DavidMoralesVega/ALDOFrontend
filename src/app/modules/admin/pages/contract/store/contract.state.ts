@@ -1,9 +1,9 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { Contract, UpdateContractDto } from '../entities';
+import { Contract, CreateContractDto, UpdateContractDto } from '../entities';
 
 export interface ContractState {
 	create: {
-		createContractDto: FormData | null;
+		createContractDto: CreateContractDto | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		response: Response<Contract> | null;
@@ -21,7 +21,7 @@ export interface ContractState {
 		id: string | null;
 	};
 	update: {
-		updateContractDto: UpdateContractDto | FormData | null;
+		updateContractDto: UpdateContractDto | CreateContractDto | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

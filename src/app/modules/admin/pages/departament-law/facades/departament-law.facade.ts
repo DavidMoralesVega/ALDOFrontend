@@ -12,14 +12,19 @@ import {
 	DEPARTAMENTLAW_SEARCH_REQUESTED,
 	DEPARTAMENTLAW_SEARCHADVANCED_REQUESTED
 } from '../store/departament-law.action';
-import { DepartamentLaw, DepartamentLawAdapter, UpdateDepartamentLawDto } from '../entities';
+import {
+	CreateDepartamentLawDto,
+	DepartamentLaw,
+	DepartamentLawAdapter,
+	UpdateDepartamentLawDto
+} from '../entities';
 import { DepartamentLawState } from '../store/departament-law.state';
 import { search } from '../../../../../core/entities/interfaces/search.interface';
 
 @Injectable()
 export class DepartamentLawFacade {
 	// create
-	public createDto$: Observable<FormData | null>;
+	public createDto$: Observable<CreateDepartamentLawDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<DepartamentLaw> | null>;
@@ -37,7 +42,7 @@ export class DepartamentLawFacade {
 	public findOneResponse$: Observable<Response<DepartamentLaw> | null>;
 
 	// update
-	public updateDto$: Observable<FormData | null | UpdateDepartamentLawDto>;
+	public updateDto$: Observable<CreateDepartamentLawDto | null | UpdateDepartamentLawDto>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -102,7 +107,7 @@ export class DepartamentLawFacade {
 		);
 	}
 
-	create(createDepartamentLawDto: FormData) {
+	create(createDepartamentLawDto: CreateDepartamentLawDto) {
 		this.store.dispatch(DEPARTAMENTLAW_CREATE_REQUESTED({ payload: createDepartamentLawDto }));
 	}
 
@@ -114,7 +119,7 @@ export class DepartamentLawFacade {
 		this.store.dispatch(DEPARTAMENTLAW_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateDepartamentLawDto: FormData | UpdateDepartamentLawDto) {
+	update(id: string, updateDepartamentLawDto: CreateDepartamentLawDto | UpdateDepartamentLawDto) {
 		this.store.dispatch(
 			DEPARTAMENTLAW_UPDATE_REQUESTED({
 				id,

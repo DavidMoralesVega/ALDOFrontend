@@ -25,9 +25,8 @@ import { UserEffects } from './store/user.effects';
 import { UserService } from './services/user.service';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { UserFacade } from './facades/user.facade';
-import { UserCreateModule } from './components/user-create/user-create.module';
-import { UserUpdateModule } from './components/user-update/user-update.module';
 import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
+import { UserCreateUpdateModule } from './components/createUpdate/createUpdate.module';
 
 @NgModule({
 	declarations: [UserComponent],
@@ -50,8 +49,7 @@ import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
 		MatTableModule,
 		MatPaginatorModule,
 		MatDialogModule,
-		UserCreateModule,
-		UserUpdateModule,
+		UserCreateUpdateModule,
 		DataSetPipeModule
 	],
 	providers: [UserService, MatSnackBarService, UserFacade],

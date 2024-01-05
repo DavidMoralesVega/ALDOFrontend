@@ -2,7 +2,7 @@ import { createAction, props } from '@ngrx/store';
 import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entities';
 
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { Recognition, UpdateRecognitionDto } from '../entities';
+import { CreateRecognitionDto, Recognition, UpdateRecognitionDto } from '../entities';
 
 export enum RecognitionActionTypes {
 	// create
@@ -29,7 +29,7 @@ export enum RecognitionActionTypes {
 // create
 export const RECOGNITION_CREATE_REQUESTED = createAction(
 	RecognitionActionTypes.RECOGNITION_CREATE_REQUESTED,
-	props<Payload<FormData>>()
+	props<Payload<CreateRecognitionDto>>()
 );
 
 export const RECOGNITION_CREATE_LOADED = createAction(
@@ -77,7 +77,7 @@ export const RECOGNITION_FIND_ONE_FAILED = createAction(
 // update
 export const RECOGNITION_UPDATE_REQUESTED = createAction(
 	RecognitionActionTypes.RECOGNITION_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateRecognitionDto | FormData, string>>()
+	props<PayloadUpdate<UpdateRecognitionDto | CreateRecognitionDto, string>>()
 );
 
 export const RECOGNITION_UPDATE_LOADED = createAction(

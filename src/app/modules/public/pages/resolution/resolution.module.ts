@@ -8,6 +8,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ResolutionFacade } from 'src/app/modules/admin/pages/resolutions/facades/resolutions.facade';
 import { ResolutionsModule } from 'src/app/modules/admin/pages/resolutions/resolutions.module';
 import { LineZModule } from '../../../../core/components/line-z/line-z.module';
+import { MatIconModule } from '@angular/material/icon';
+import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file.module';
 
 @NgModule({
 	declarations: [ResolutionComponent],
@@ -17,7 +19,9 @@ import { LineZModule } from '../../../../core/components/line-z/line-z.module';
 		CallsModule,
 		NgxPaginationModule,
 		ResolutionsModule,
-		LineZModule
+		LineZModule,
+		MatIconModule,
+		StaticFilePipeModule
 	],
 	providers: [ResolutionFacade]
 })

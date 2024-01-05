@@ -2,7 +2,7 @@ import { createAction, props } from '@ngrx/store';
 import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entities';
 
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { Contract, UpdateContractDto } from '../entities';
+import { Contract, CreateContractDto, UpdateContractDto } from '../entities';
 
 export enum ContractActionTypes {
 	// create
@@ -29,7 +29,7 @@ export enum ContractActionTypes {
 // create
 export const CONTRACT_CREATE_REQUESTED = createAction(
 	ContractActionTypes.CONTRACT_CREATE_REQUESTED,
-	props<Payload<FormData>>()
+	props<Payload<CreateContractDto>>()
 );
 
 export const CONTRACT_CREATE_LOADED = createAction(
@@ -77,7 +77,7 @@ export const CONTRACT_FIND_ONE_FAILED = createAction(
 // update
 export const CONTRACT_UPDATE_REQUESTED = createAction(
 	ContractActionTypes.CONTRACT_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateContractDto | FormData, string>>()
+	props<PayloadUpdate<UpdateContractDto | CreateContractDto, string>>()
 );
 
 export const CONTRACT_UPDATE_LOADED = createAction(

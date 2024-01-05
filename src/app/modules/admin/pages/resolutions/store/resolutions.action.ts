@@ -2,7 +2,11 @@ import { createAction, props } from '@ngrx/store';
 import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entities';
 
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { Resolution, UpdateResolutionDto } from '../entities/models/resolutions.model';
+import {
+	CreateResolutionDto,
+	Resolution,
+	UpdateResolutionDto
+} from '../entities/models/resolutions.model';
 
 export enum ResolutionActionTypes {
 	// create
@@ -29,7 +33,7 @@ export enum ResolutionActionTypes {
 // create
 export const RESOLUTION_CREATE_REQUESTED = createAction(
 	ResolutionActionTypes.RESOLUTION_CREATE_REQUESTED,
-	props<Payload<FormData>>()
+	props<Payload<CreateResolutionDto>>()
 );
 
 export const RESOLUTION_CREATE_LOADED = createAction(
@@ -77,7 +81,7 @@ export const RESOLUTION_FIND_ONE_FAILED = createAction(
 // update
 export const RESOLUTION_UPDATE_REQUESTED = createAction(
 	ResolutionActionTypes.RESOLUTION_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateResolutionDto | FormData, string>>()
+	props<PayloadUpdate<UpdateResolutionDto | CreateResolutionDto, string>>()
 );
 
 export const RESOLUTION_UPDATE_LOADED = createAction(

@@ -1,5 +1,10 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { Legislature, CreateLegislatureDto, UpdateLegislatureDto } from '../entities';
+import {
+	Legislature,
+	CreateLegislatureDto,
+	UpdateLegislatureDto,
+	LegislatureAdapter
+} from '../entities';
 
 export interface LegislatureState {
 	create: {
@@ -9,7 +14,7 @@ export interface LegislatureState {
 		response: Response<Legislature> | null;
 	};
 	findAll: {
-		response: Response<Legislature[]> | null;
+		response: Response<LegislatureAdapter[]> | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		pagination: Pagination | null;

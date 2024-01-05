@@ -7,7 +7,11 @@ import * as zActions from './procceding.action';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { Payload, PayloadUpdate } from 'src/app/core/entities/adapters/object.adapter';
 import { ProccedingService } from '../services/procceding.service';
-import { Procceding, UpdateProccedingDto } from '../entities/models/procceding.model';
+import {
+	CreateProccedingDto,
+	Procceding,
+	UpdateProccedingDto
+} from '../entities/models/procceding.model';
 @Injectable()
 export class ProccedingEffects {
 	constructor(
@@ -20,7 +24,7 @@ export class ProccedingEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.PROCCEDING_CREATE_REQUESTED),
-				switchMap((action: Payload<FormData>) =>
+				switchMap((action: Payload<CreateProccedingDto>) =>
 					this.proccedingService.create(action.payload).pipe(
 						map((response: Response<Procceding>) => {
 							this.matSnackBarService.open('success', ZMessages.success);

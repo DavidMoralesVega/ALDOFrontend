@@ -4,7 +4,11 @@ import { Store } from '@ngrx/store';
 import { Exception, Pagination, Response } from 'src/app/core/entities';
 
 import * as zSelector from '../store/resolutions.selectors';
-import { Resolution, UpdateResolutionDto } from '../entities/models/resolutions.model';
+import {
+	CreateResolutionDto,
+	Resolution,
+	UpdateResolutionDto
+} from '../entities/models/resolutions.model';
 import { ResolutionState } from '../store/resolutions.state';
 import {
 	RESOLUTION_CREATE_REQUESTED,
@@ -16,7 +20,7 @@ import {
 @Injectable()
 export class ResolutionFacade {
 	// create
-	public createDto$: Observable<FormData | null>;
+	public createDto$: Observable<CreateResolutionDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<Resolution> | null>;
@@ -34,7 +38,7 @@ export class ResolutionFacade {
 	public findOneResponse$: Observable<Response<Resolution> | null>;
 
 	// update
-	public updateDto$: Observable<UpdateResolutionDto | FormData | null>;
+	public updateDto$: Observable<UpdateResolutionDto | CreateResolutionDto | null>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -67,7 +71,7 @@ export class ResolutionFacade {
 		this.updateResponse$ = this.store.select(zSelector.getResolutionUpdateResponse);
 	}
 
-	create(createResolutionDto: FormData) {
+	create(createResolutionDto: CreateResolutionDto) {
 		this.store.dispatch(RESOLUTION_CREATE_REQUESTED({ payload: createResolutionDto }));
 	}
 
@@ -79,7 +83,7 @@ export class ResolutionFacade {
 		this.store.dispatch(RESOLUTION_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateResolutionDto: UpdateResolutionDto | FormData) {
+	update(id: string, updateResolutionDto: UpdateResolutionDto | CreateResolutionDto) {
 		this.store.dispatch(
 			RESOLUTION_UPDATE_REQUESTED({
 				id,

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { RequestWritten, UpdateRequestWrittenDto } from '../entities';
+import { CreateRequestWrittenDto, RequestWritten, UpdateRequestWrittenDto } from '../entities';
 import { RequestWrittenState } from '../store/request-written.state';
 import * as zSelector from '../store/request-written.selectors';
 import {
@@ -15,7 +15,7 @@ import {
 @Injectable()
 export class RequestWrittenFacade {
 	// create
-	public createDto$: Observable<FormData | null>;
+	public createDto$: Observable<CreateRequestWrittenDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<RequestWritten> | null>;
@@ -33,7 +33,7 @@ export class RequestWrittenFacade {
 	public findOneResponse$: Observable<Response<RequestWritten> | null>;
 
 	// update
-	public updateDto$: Observable<UpdateRequestWrittenDto | FormData | null>;
+	public updateDto$: Observable<UpdateRequestWrittenDto | CreateRequestWrittenDto | null>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -66,7 +66,7 @@ export class RequestWrittenFacade {
 		this.updateResponse$ = this.store.select(zSelector.getRequestWrittenUpdateResponse);
 	}
 
-	create(createRequestWrittenDto: FormData) {
+	create(createRequestWrittenDto: CreateRequestWrittenDto) {
 		this.store.dispatch(REQUESTWRITTEN_CREATE_REQUESTED({ payload: createRequestWrittenDto }));
 	}
 
@@ -78,7 +78,7 @@ export class RequestWrittenFacade {
 		this.store.dispatch(REQUESTWRITTEN_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateRequestWrittenDto: UpdateRequestWrittenDto | FormData) {
+	update(id: string, updateRequestWrittenDto: UpdateRequestWrittenDto | CreateRequestWrittenDto) {
 		this.store.dispatch(
 			REQUESTWRITTEN_UPDATE_REQUESTED({
 				id,

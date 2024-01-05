@@ -1,9 +1,9 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { Procceding, UpdateProccedingDto } from '../entities';
+import { CreateProccedingDto, Procceding, UpdateProccedingDto } from '../entities';
 
 export interface ProccedingState {
 	create: {
-		createProccedingDto: FormData | null;
+		createProccedingDto: CreateProccedingDto | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		response: Response<Procceding> | null;

@@ -16,7 +16,7 @@
 		</div>
 	</div>
 	<div class="col-4 d-flex justify-content-end align-items-center">
-		<button class="z-btn mb-3" type="button" (click)="openProccedingCreate()">
+		<button class="z-btn mb-3" type="button" (click)="openProceddingCreateUpdate('create')">
 			<mat-icon fontIcon="add"></mat-icon>
 			Crear
 		</button>
@@ -77,7 +77,7 @@
 						matTooltip="Editar"
 						mat-icon-button
 						matTooltipClass="z-tooltip"
-						(click)="openProccedingUpdate(row)"
+						(click)="openProceddingCreateUpdate('update', row)"
 					>
 						<mat-icon class="material-symbols-outlined" fontIcon="edit"></mat-icon>
 					</button>

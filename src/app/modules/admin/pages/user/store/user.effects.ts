@@ -7,7 +7,7 @@ import * as zActions from './user.action';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { Payload, PayloadUpdate } from 'src/app/core/entities/adapters/object.adapter';
 import { UserService } from '../services/user.service';
-import { UpdateUserDto, CreateUserDto, User } from '../entities/models/user.model';
+import { UpdateAdminUserDto, CreateUserDto, User } from '../entities/models/user.model';
 
 @Injectable()
 export class UserEffects {
@@ -69,7 +69,7 @@ export class UserEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.USER_UPDATE_REQUESTED),
-				switchMap((action: PayloadUpdate<UpdateUserDto | CreateUserDto, string>) => {
+				switchMap((action: PayloadUpdate<UpdateAdminUserDto | CreateUserDto, string>) => {
 					return this.userService.update(action.id || '', action.payload).pipe(
 						map((response: Response<User>) => {
 							this.matSnackBarService.open('success', ZMessages.success);

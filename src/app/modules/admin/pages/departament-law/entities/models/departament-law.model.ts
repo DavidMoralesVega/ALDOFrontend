@@ -15,20 +15,23 @@ export class DepartamentLawAdapter {
 		public readonly dtvisibility: boolean,
 		public readonly dtstate: boolean,
 		public readonly DTDateRegister: string,
-		public readonly IddeparLwLeg: string
+		public readonly legislatureAdapter?: LegislatureAdapter
 	) {}
 }
 
 export type CreateDepartamentLawDto = Omit<
 	DepartamentLawAdapter,
 	'IdDepartamentaLaw' | 'dtstate' | 'DTDateRegister'
->;
+> & {
+	readonly IddeparLwLeg: string;
+};
 
+export type UpdateDepartamentLawDto = Partial<DepartamentLawAdapter> & {
+	readonly IddeparLwLeg?: string;
+};
 export interface UpdateDepartamentLawForeignAdapter extends DepartamentLawAdapter {
 	readonly legislatura: LegislatureAdapter;
 }
-
-export interface UpdateDepartamentLawDto extends Partial<DepartamentLawAdapter> {}
 
 @Injectable()
 export class DepartamentLaw implements Adapter<DepartamentLawAdapter> {
@@ -45,7 +48,7 @@ export class DepartamentLaw implements Adapter<DepartamentLawAdapter> {
 			departamentLawAdapter.dtvisibility,
 			departamentLawAdapter.dtstate,
 			departamentLawAdapter.DTDateRegister,
-			departamentLawAdapter.IddeparLwLeg
+			departamentLawAdapter.legislatureAdapter
 		);
 	}
 }

@@ -21,8 +21,7 @@ import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file
 import { ProccedingService } from './services/procceding.service';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { ProccedingFacade } from './facades/procceding.facade';
-import { ProccedingCreateModule } from './components/procceding-create/procceding-create.module';
-import { ProccedingUpdateModule } from './components/procceding-update/procceding-update.module';
+import { ProccedingCreateUpdateModule } from './components/createUpdate/createUpdate.module';
 
 @NgModule({
 	declarations: [ProccedingComponent],
@@ -42,8 +41,7 @@ import { ProccedingUpdateModule } from './components/procceding-update/proccedin
 		MatPaginatorModule,
 		MatDialogModule,
 		StaticFilePipeModule,
-		ProccedingCreateModule,
-		ProccedingUpdateModule
+		ProccedingCreateUpdateModule
 	],
 	providers: [ProccedingService, MatSnackBarService, ProccedingFacade],
 	exports: [StoreModule, EffectsModule]

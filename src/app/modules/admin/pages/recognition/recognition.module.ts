@@ -22,11 +22,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
-import { RecognitionCreateModule } from './components/recognition-create/recognition-create.module';
-import { RecognitionUpdateModule } from './components/recognition-update/recognition-update.module';
 import { RecognitionService } from './services/recognition.service';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { RecognitionFacade } from './facades/recognition.facade';
+import { RecognitionCreateUpdateModule } from './components/createUpdate/createUpdate.module';
 
 @NgModule({
 	declarations: [RecognitionComponent],
@@ -34,32 +33,23 @@ import { RecognitionFacade } from './facades/recognition.facade';
 		CommonModule,
 		RecognitionRoutingModule,
 		DatePipe,
-
 		StoreModule.forFeature(ZEffects.recognition, RecognitionReducer),
 		EffectsModule.forFeature([RecognitionEffects]),
 		MatSnackBarModule,
-
 		ReactiveFormsModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatIconModule,
-
 		MatProgressSpinnerModule,
-
-		// GET PIPE STATIC FILE
 		StaticFilePipeModule,
-
 		MatChipsModule,
 		MatButtonModule,
 		MatTooltipModule,
-
 		MatSortModule,
 		MatTableModule,
 		MatPaginatorModule,
 		MatDialogModule,
-
-		RecognitionCreateModule,
-		RecognitionUpdateModule
+		RecognitionCreateUpdateModule
 	],
 	providers: [RecognitionService, MatSnackBarService, RecognitionFacade],
 	exports: [StoreModule, EffectsModule]

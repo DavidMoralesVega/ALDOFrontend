@@ -3,12 +3,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { Pagination } from 'src/app/core/entities';
 import { Response } from '../../../../../core/entities/interfaces/response.interface';
-import { UserCreateComponent } from '../components/user-create/container/user-create.component';
-import { User, UserAdapter, UpdateUserDto } from '../entities/models/user.model';
+import { User, UserAdapter, UpdateAdminUserDto } from '../entities/models/user.model';
 import { UserFacade } from '../facades/user.facade';
+import { UserCreateUpdateComponent } from '../components/createUpdate/container/createUpdate.component';
 
 @Component({
 	selector: 'z-user',
@@ -18,6 +18,7 @@ export class UserComponent implements OnInit {
 	public findAllResponse$: Observable<Response<User[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public updateIsLoading$: Observable<boolean>;
+	private destroy$ = new Subject<void>();
 
 	public dataSource!: MatTableDataSource<User>;
 	private subscriptors: Subscription[] = [];
@@ -28,7 +29,8 @@ export class UserComponent implements OnInit {
 		'FullName',
 		'IsActive',
 		'celCorp',
-		'Roles'
+		'Roles',
+		'z-actions'
 	];
 
 	private readonly pagination: Pagination = {
@@ -75,7 +77,7 @@ export class UserComponent implements OnInit {
 	}
 
 	changeState(userAdapter: UserAdapter) {
-		const updateUserDto: UpdateUserDto = {
+		const updateUserDto: UpdateAdminUserDto = {
 			IsActive: !userAdapter.IsActive
 		};
 
@@ -87,14 +89,22 @@ export class UserComponent implements OnInit {
 		}, 100);
 	}
 
-	openUserCreate(): void {
-		const dialogRef = this.matDialog.open(UserCreateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%'
-		});
-
-		dialogRef.afterClosed().subscribe(() => this.userFacade.findAll(this.pagination));
+	openUserCreateUpdate(action: 'create' | 'update', userAdapter?: UserAdapter) {
+		this.matDialog
+			.open(UserCreateUpdateComponent, {
+				width: '500px',
+				maxWidth: '560px',
+				maxHeight: '100%',
+				backdropClass: 'zDialogRounded',
+				data: {
+					action,
+					z: userAdapter
+				}
+			})
+			.afterClosed()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe({
+				next: () => this.userFacade.findAll(this.pagination)
+			});
 	}
 }

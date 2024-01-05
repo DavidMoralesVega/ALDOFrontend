@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
 import { Response } from 'src/app/core/entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { Contract, UpdateContractDto } from '../entities';
+import { Contract, CreateContractDto, UpdateContractDto } from '../entities';
 
 @Injectable()
 export class ContractService {
@@ -12,7 +12,7 @@ export class ContractService {
 
 	constructor(private readonly httpClient: HttpClient) {}
 
-	create(createContractDto: FormData): Observable<Response<Contract>> {
+	create(createContractDto: CreateContractDto): Observable<Response<Contract>> {
 		return this.httpClient.post<Response<Contract>>(this.ZPContract, createContractDto);
 	}
 

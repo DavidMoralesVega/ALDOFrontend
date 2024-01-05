@@ -3,12 +3,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { Pagination, Response } from 'src/app/core/entities';
 import { Call, CallAdapter, UpdateCallDto } from '../entities';
 import { CallFacade } from '../facades/call.facade';
-import { CallsCreateComponent } from '../components/calls-create/container/calls-create.component';
-import { CallsUpdateComponent } from '../components/calls-update/container/calls-update.component';
+import { CallCreateUpdateComponent } from '../components/createUpdate/container/createUpdate.component';
 
 @Component({
 	selector: 'z-calls',
@@ -18,6 +17,7 @@ export class CallsComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Call[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public updateIsLoading$: Observable<boolean>;
+	private destroy$ = new Subject<void>();
 
 	public dataSource!: MatTableDataSource<Call>;
 	private subscriptors: Subscription[] = [];
@@ -63,15 +63,6 @@ export class CallsComponent implements OnInit {
 			this.findAllResponse$.subscribe({
 				next: (response: Response<Call[]> | null) => {
 					setTimeout(() => {
-						console.log(
-							'%c Result<==============================>! ',
-							'color: red; font-size: 40px'
-						);
-						console.log({ response });
-						console.log(
-							'%c Result<==============================>! ',
-							'color: red; font-size: 40px'
-						);
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;
 						this.dataSource.sort = this.sort;
@@ -100,26 +91,23 @@ export class CallsComponent implements OnInit {
 		}, 100);
 	}
 
-	openCallCreate(): void {
-		const dialogRef = this.matDialog.open(CallsCreateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%'
-		});
-
-		dialogRef.afterClosed().subscribe(() => this.callFacade.findAll(this.pagination));
-	}
-
-	openCallUpdate(call: Call): void {
-		const dialogRef = this.matDialog.open(CallsUpdateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%',
-			data: call
-		});
-		dialogRef.afterClosed().subscribe(() => this.callFacade.findAll(this.pagination));
+	openCallCreateUpdate(action: 'create' | 'update', callAdapter?: CallAdapter): void {
+		this.matDialog
+			.open(CallCreateUpdateComponent, {
+				width: '500px',
+				maxWidth: '560px',
+				maxHeight: '100%',
+				backdropClass: 'zDialogRounded',
+				data: {
+					action,
+					z: callAdapter
+				}
+			})
+			.afterClosed()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe({
+				next: () => this.callFacade.findAll(this.pagination)
+			});
 	}
 
 	ngOnDestroy(): void {

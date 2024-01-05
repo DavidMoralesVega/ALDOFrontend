@@ -7,7 +7,11 @@ import * as zActions from './file-archive.action';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { Payload, PayloadUpdate } from 'src/app/core/entities/adapters/object.adapter';
 import { FilesArchiveService } from '../services/file-archive.service';
-import { FilesArchive, UpdateFilesArchiveDto } from '../entities/models/file-archive.model';
+import {
+	CreateFilesArchiveDto,
+	FilesArchive,
+	UpdateFilesArchiveDto
+} from '../entities/models/file-archive.model';
 
 @Injectable()
 export class FilesArchiveEffects {
@@ -21,7 +25,7 @@ export class FilesArchiveEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.FILESARCHIVE_CREATE_REQUESTED),
-				switchMap((action: Payload<FormData>) =>
+				switchMap((action: Payload<CreateFilesArchiveDto>) =>
 					this.filesArchiveService.create(action.payload).pipe(
 						map((response: Response<FilesArchive>) => {
 							this.matSnackBarService.open('success', ZMessages.success);

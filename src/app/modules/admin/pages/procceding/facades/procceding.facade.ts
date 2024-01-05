@@ -11,12 +11,12 @@ import {
 	PROCCEDING_FIND_ONE_REQUESTED,
 	PROCCEDING_UPDATE_REQUESTED
 } from '../store/procceding.action';
-import { Procceding, UpdateProccedingDto } from '../entities';
+import { CreateProccedingDto, Procceding, UpdateProccedingDto } from '../entities';
 
 @Injectable()
 export class ProccedingFacade {
 	// create
-	public createDto$: Observable<FormData | null>;
+	public createDto$: Observable<CreateProccedingDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<Procceding> | null>;
@@ -67,7 +67,7 @@ export class ProccedingFacade {
 		this.updateResponse$ = this.store.select(zSelector.getProccedingUpdateResponse);
 	}
 
-	create(createCategoryDto: FormData) {
+	create(createCategoryDto: CreateProccedingDto) {
 		this.store.dispatch(PROCCEDING_CREATE_REQUESTED({ payload: createCategoryDto }));
 	}
 
@@ -79,7 +79,7 @@ export class ProccedingFacade {
 		this.store.dispatch(PROCCEDING_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateProccedingDto: FormData | UpdateProccedingDto) {
+	update(id: string, updateProccedingDto: CreateProccedingDto | UpdateProccedingDto) {
 		this.store.dispatch(
 			PROCCEDING_UPDATE_REQUESTED({
 				id,

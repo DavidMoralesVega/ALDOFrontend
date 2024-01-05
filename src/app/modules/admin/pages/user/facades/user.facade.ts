@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Exception, Pagination, Response } from 'src/app/core/entities';
 
 import * as zSelector from '../store/user.selectors';
-import { CreateUserDto, UpdateUserDto, User } from '../entities/models/user.model';
+import { CreateUserDto, UpdateAdminUserDto, User } from '../entities/models/user.model';
 import { UserState } from '../store/user.state';
 import {
 	USER_CREATE_REQUESTED,
@@ -27,7 +27,7 @@ export class UserFacade {
 	public findAllResponse$: Observable<Response<User[]> | null>;
 
 	// update
-	public updateDto$: Observable<UpdateUserDto | CreateUserDto | null>;
+	public updateDto$: Observable<UpdateAdminUserDto | CreateUserDto | null>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -62,11 +62,11 @@ export class UserFacade {
 		this.store.dispatch(USER_FIND_ALL_REQUESTED({ payload: pagination }));
 	}
 
-	update(id: string, updateUserDto: UpdateUserDto | CreateUserDto) {
+	update(id: string, updateAdminUserDto: UpdateAdminUserDto | CreateUserDto) {
 		this.store.dispatch(
 			USER_UPDATE_REQUESTED({
 				id,
-				payload: updateUserDto
+				payload: updateAdminUserDto
 			})
 		);
 	}

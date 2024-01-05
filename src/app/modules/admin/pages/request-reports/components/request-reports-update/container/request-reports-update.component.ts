@@ -4,7 +4,10 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { Observable } from 'rxjs';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { RequestReportsFacade } from '../../../facades/request-reports.facade';
-import { Legislature } from '../../../../legislature/entities/models/legislature.model';
+import {
+	Legislature,
+	LegislatureAdapter
+} from '../../../../legislature/entities/models/legislature.model';
 import { PayloadFile, Response, Pagination } from 'src/app/core/entities';
 import {
 	UpdateRequestReportsDto,
@@ -21,7 +24,7 @@ import { CreateFileUploadDto, FileUploadComponent } from 'src/app/core/component
 })
 export class RequestReportsUpdateComponent extends ZBaseService {
 	public formUpdate: FormGroup = new FormGroup({});
-	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllResponse$: Observable<Response<LegislatureAdapter[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
 	public readonly errorMatcher: DefaultErrorMatcher = new DefaultErrorMatcher();
 	public updateIsLoading$: Observable<boolean>;
@@ -126,7 +129,6 @@ export class RequestReportsUpdateComponent extends ZBaseService {
 			.afterClosed()
 			.subscribe({
 				next: (files: any) => {
-					console.log(files);
 					this.paths = files.data.paths;
 				}
 			});
@@ -147,7 +149,6 @@ export class RequestReportsUpdateComponent extends ZBaseService {
 			.afterClosed()
 			.subscribe({
 				next: (files: any) => {
-					console.log(files);
 					this.paths1 = files.data.paths;
 				}
 			});

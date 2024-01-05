@@ -1,9 +1,9 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { Recognition, UpdateRecognitionDto } from '../entities';
+import { CreateRecognitionDto, Recognition, UpdateRecognitionDto } from '../entities';
 
 export interface RecognitionState {
 	create: {
-		createRecognitionDto: FormData | null;
+		createRecognitionDto: CreateRecognitionDto | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		response: Response<Recognition> | null;
@@ -21,7 +21,7 @@ export interface RecognitionState {
 		id: string | null;
 	};
 	update: {
-		updateRecognitionDto: UpdateRecognitionDto | FormData | null;
+		updateRecognitionDto: UpdateRecognitionDto | CreateRecognitionDto | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

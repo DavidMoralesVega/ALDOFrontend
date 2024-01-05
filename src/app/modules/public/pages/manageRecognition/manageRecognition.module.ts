@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ManageRecognitionRoutingModule } from './manageRecognition-routing.module';
 import { ManageRecognitionComponent } from './container/manageRecognition.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RecognitionFacade } from 'src/app/modules/admin/pages/recognition/facades/recognition.facade';
 import { RecognitionModule } from 'src/app/modules/admin/pages/recognition/recognition.module';
 import { LineZModule } from '../../../../core/components/line-z/line-z.module';
+import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
 	declarations: [ManageRecognitionComponent],
@@ -15,7 +16,9 @@ import { LineZModule } from '../../../../core/components/line-z/line-z.module';
 		ManageRecognitionRoutingModule,
 		RecognitionModule,
 		NgxPaginationModule,
-		LineZModule
+		LineZModule,
+		StaticFilePipeModule,
+		MatIconModule
 	],
 	providers: [RecognitionFacade]
 })

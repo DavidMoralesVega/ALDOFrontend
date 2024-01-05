@@ -14,17 +14,21 @@ export class CallAdapter {
 		public readonly call_create: string,
 		public readonly call_estado: boolean,
 		public readonly CallVisibility: string,
-		public readonly IdcallLeg: string
+		public readonly legislatureAdapter?: LegislatureAdapter
 	) {}
 }
 
-export type CreateCallDto = Omit<CallAdapter, 'call_id' | 'call_create' | 'call_estado'>;
+export type CreateCallDto = Omit<CallAdapter, 'call_id' | 'call_create' | 'call_estado'> & {
+	readonly IdcallLeg: string;
+};
+
+export type UpdateCallDto = Partial<CallAdapter> & {
+	readonly IdcallLeg?: string;
+};
 
 export interface UpdateCallForeignAdapter extends CallAdapter {
 	readonly legislatura: LegislatureAdapter;
 }
-
-export interface UpdateCallDto extends Partial<CallAdapter> {}
 
 @Injectable()
 export class Call implements Adapter<CallAdapter> {
@@ -40,7 +44,7 @@ export class Call implements Adapter<CallAdapter> {
 			callAdapter.call_create,
 			callAdapter.call_estado,
 			callAdapter.CallVisibility,
-			callAdapter.IdcallLeg
+			callAdapter.legislatureAdapter
 		);
 	}
 }

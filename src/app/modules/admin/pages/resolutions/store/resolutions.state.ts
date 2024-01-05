@@ -1,9 +1,13 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { Resolution, UpdateResolutionDto } from '../entities/models/resolutions.model';
+import {
+	CreateResolutionDto,
+	Resolution,
+	UpdateResolutionDto
+} from '../entities/models/resolutions.model';
 
 export interface ResolutionState {
 	create: {
-		createResolutionDto: FormData | null;
+		createResolutionDto: CreateResolutionDto | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		response: Response<Resolution> | null;
@@ -21,7 +25,7 @@ export interface ResolutionState {
 		id: string | null;
 	};
 	update: {
-		updateResolutionDto: UpdateResolutionDto | FormData | null;
+		updateResolutionDto: UpdateResolutionDto | CreateResolutionDto | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

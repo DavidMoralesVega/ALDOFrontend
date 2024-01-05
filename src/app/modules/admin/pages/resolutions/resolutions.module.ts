@@ -19,8 +19,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ResolutionsCreateModule } from './components/resolutions-create/resolutions-create.module';
-import { ResolutionsUpdateModule } from './components/resolutions-update/resolutions-update.module';
 import { MatSnackBarService } from '../../../../core/services/mat-snack-bar.service';
 import { ResolutionReducer } from './store/resolutions.reducer';
 import { ResolutionEffects } from './store/resolutions.effects';
@@ -30,6 +28,7 @@ import { StaticFilePipeModule } from '../../../../core/pipes/static-file/static-
 import { LegislatureModule } from '../legislature/legislature.module';
 import { LegislatureFacade } from '../legislature/facades/legislature.facade';
 import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
+import { ResolutionsCreateUpdateModule } from './components/createUpdate/createUpdate.module';
 @NgModule({
 	declarations: [ResolutionsComponent],
 	imports: [
@@ -52,10 +51,9 @@ import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
 		MatTableModule,
 		MatPaginatorModule,
 		MatDialogModule,
-		ResolutionsCreateModule,
-		ResolutionsUpdateModule,
 		LegislatureModule,
-		DataSetPipeModule
+		DataSetPipeModule,
+		ResolutionsCreateUpdateModule
 	],
 	providers: [ResolutionService, MatSnackBarService, ResolutionFacade, LegislatureFacade],
 	exports: [StoreModule, EffectsModule]

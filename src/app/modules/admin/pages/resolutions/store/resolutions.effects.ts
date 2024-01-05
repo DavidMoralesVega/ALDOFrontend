@@ -7,7 +7,11 @@ import * as zActions from './resolutions.action';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { Payload, PayloadUpdate } from 'src/app/core/entities/adapters/object.adapter';
 import { ResolutionService } from '../services/resolutions.service';
-import { Resolution, UpdateResolutionDto } from '../entities/models/resolutions.model';
+import {
+	CreateResolutionDto,
+	Resolution,
+	UpdateResolutionDto
+} from '../entities/models/resolutions.model';
 
 @Injectable()
 export class ResolutionEffects {
@@ -21,7 +25,7 @@ export class ResolutionEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.RESOLUTION_CREATE_REQUESTED),
-				switchMap((action: Payload<FormData>) =>
+				switchMap((action: Payload<CreateResolutionDto>) =>
 					this.resolutionService.create(action.payload).pipe(
 						map((response: Response<Resolution>) => {
 							this.matSnackBarService.open('success', ZMessages.success);
@@ -92,24 +96,26 @@ export class ResolutionEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.RESOLUTION_UPDATE_REQUESTED),
-				switchMap((action: PayloadUpdate<UpdateResolutionDto | FormData, string>) => {
-					return this.resolutionService.update(action.id || '', action.payload).pipe(
-						map((response: Response<Resolution>) => {
-							this.matSnackBarService.open('success', ZMessages.success);
-							return zActions.RESOLUTION_UPDATE_LOADED({
-								payload: response
-							});
-						}),
-						catchError((exception: Exception) => {
-							this.matSnackBarService.open('error', ZMessages.error);
-							return of(
-								zActions.RESOLUTION_UPDATE_FAILED({
-									payload: exception
-								})
-							);
-						})
-					);
-				})
+				switchMap(
+					(action: PayloadUpdate<UpdateResolutionDto | CreateResolutionDto, string>) => {
+						return this.resolutionService.update(action.id || '', action.payload).pipe(
+							map((response: Response<Resolution>) => {
+								this.matSnackBarService.open('success', ZMessages.success);
+								return zActions.RESOLUTION_UPDATE_LOADED({
+									payload: response
+								});
+							}),
+							catchError((exception: Exception) => {
+								this.matSnackBarService.open('error', ZMessages.error);
+								return of(
+									zActions.RESOLUTION_UPDATE_FAILED({
+										payload: exception
+									})
+								);
+							})
+						);
+					}
+				)
 			) // , { dispatch: false }
 	);
 }

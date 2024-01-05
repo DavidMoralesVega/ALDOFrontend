@@ -7,7 +7,7 @@ import * as zActions from './recognition.action';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { Payload, PayloadUpdate } from 'src/app/core/entities/adapters/object.adapter';
 import { RecognitionService } from '../services/recognition.service';
-import { Recognition, UpdateRecognitionDto } from '../entities';
+import { CreateRecognitionDto, Recognition, UpdateRecognitionDto } from '../entities';
 
 @Injectable()
 export class RecognitionEffects {
@@ -21,7 +21,7 @@ export class RecognitionEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.RECOGNITION_CREATE_REQUESTED),
-				switchMap((action: Payload<FormData>) =>
+				switchMap((action: Payload<CreateRecognitionDto>) =>
 					this.recognitionService.create(action.payload).pipe(
 						map((response: Response<Recognition>) => {
 							this.matSnackBarService.open('success', ZMessages.success);
@@ -92,24 +92,26 @@ export class RecognitionEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.RECOGNITION_UPDATE_REQUESTED),
-				switchMap((action: PayloadUpdate<UpdateRecognitionDto | FormData, string>) => {
-					return this.recognitionService.update(action.id || '', action.payload).pipe(
-						map((response: Response<Recognition>) => {
-							this.matSnackBarService.open('success', ZMessages.success);
-							return zActions.RECOGNITION_UPDATE_LOADED({
-								payload: response
-							});
-						}),
-						catchError((exception: Exception) => {
-							this.matSnackBarService.open('error', ZMessages.error);
-							return of(
-								zActions.RECOGNITION_UPDATE_FAILED({
-									payload: exception
-								})
-							);
-						})
-					);
-				})
+				switchMap(
+					(action: PayloadUpdate<UpdateRecognitionDto | CreateRecognitionDto, string>) => {
+						return this.recognitionService.update(action.id || '', action.payload).pipe(
+							map((response: Response<Recognition>) => {
+								this.matSnackBarService.open('success', ZMessages.success);
+								return zActions.RECOGNITION_UPDATE_LOADED({
+									payload: response
+								});
+							}),
+							catchError((exception: Exception) => {
+								this.matSnackBarService.open('error', ZMessages.error);
+								return of(
+									zActions.RECOGNITION_UPDATE_FAILED({
+										payload: exception
+									})
+								);
+							})
+						);
+					}
+				)
 			) // , { dispatch: false }
 	);
 }

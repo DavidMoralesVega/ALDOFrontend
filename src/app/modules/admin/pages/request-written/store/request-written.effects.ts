@@ -7,7 +7,11 @@ import * as zActions from './request-written.action';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { Payload, PayloadUpdate } from 'src/app/core/entities/adapters/object.adapter';
 import { RequestWrittenService } from '../services/request-written.service';
-import { RequestWritten, UpdateRequestWrittenDto } from '../entities/models/request-written.model';
+import {
+	CreateRequestWrittenDto,
+	RequestWritten,
+	UpdateRequestWrittenDto
+} from '../entities/models/request-written.model';
 
 @Injectable()
 export class RequestWrittenEffects {
@@ -21,7 +25,7 @@ export class RequestWrittenEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.REQUESTWRITTEN_CREATE_REQUESTED),
-				switchMap((action: Payload<FormData>) =>
+				switchMap((action: Payload<CreateRequestWrittenDto>) =>
 					this.requestWrittenService.create(action.payload).pipe(
 						map((response: Response<RequestWritten>) => {
 							this.matSnackBarService.open('success', ZMessages.success);
@@ -92,24 +96,28 @@ export class RequestWrittenEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.REQUESTWRITTEN_UPDATE_REQUESTED),
-				switchMap((action: PayloadUpdate<UpdateRequestWrittenDto | FormData, string>) => {
-					return this.requestWrittenService.update(action.id || '', action.payload).pipe(
-						map((response: Response<RequestWritten>) => {
-							this.matSnackBarService.open('success', ZMessages.success);
-							return zActions.REQUESTWRITTEN_UPDATE_LOADED({
-								payload: response
-							});
-						}),
-						catchError((exception: Exception) => {
-							this.matSnackBarService.open('error', ZMessages.error);
-							return of(
-								zActions.REQUESTWRITTEN_UPDATE_FAILED({
-									payload: exception
-								})
-							);
-						})
-					);
-				})
+				switchMap(
+					(
+						action: PayloadUpdate<UpdateRequestWrittenDto | CreateRequestWrittenDto, string>
+					) => {
+						return this.requestWrittenService.update(action.id || '', action.payload).pipe(
+							map((response: Response<RequestWritten>) => {
+								this.matSnackBarService.open('success', ZMessages.success);
+								return zActions.REQUESTWRITTEN_UPDATE_LOADED({
+									payload: response
+								});
+							}),
+							catchError((exception: Exception) => {
+								this.matSnackBarService.open('error', ZMessages.error);
+								return of(
+									zActions.REQUESTWRITTEN_UPDATE_FAILED({
+										payload: exception
+									})
+								);
+							})
+						);
+					}
+				)
 			) // , { dispatch: false }
 	);
 }
