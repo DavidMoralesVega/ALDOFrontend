@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import {
 	Resolution,
 	ResolutionAdapter,
@@ -12,8 +12,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ResolutionFacade } from '../facades/resolutions.facade';
 import { MatDialog } from '@angular/material/dialog';
-import { ResolutionsUpdateComponent } from '../components/resolutions-update/container/resolutions-update.component';
-import { ResolutionsCreateComponent } from '../components/resolutions-create/container/resolutions-create.component';
+import { ResolutionsCreateUpdateComponent } from '../components/createUpdate/container/createUpdate.component';
 
 @Component({
 	selector: 'z-resolutions',
@@ -23,6 +22,7 @@ export class ResolutionsComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Resolution[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public updateIsLoading$: Observable<boolean>;
+	private destroy$ = new Subject<void>();
 
 	public dataSource!: MatTableDataSource<Resolution>;
 	private subscriptors: Subscription[] = [];
@@ -103,26 +103,26 @@ export class ResolutionsComponent implements OnInit {
 		}, 100);
 	}
 
-	openResolutionCreate(): void {
-		const dialogRef = this.matDialog.open(ResolutionsCreateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%'
-		});
-
-		dialogRef.afterClosed().subscribe(() => this.resolutionFacade.findAll(this.pagination));
-	}
-
-	openResolutionUpdate(resolution: Resolution): void {
-		const dialogRef = this.matDialog.open(ResolutionsUpdateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%',
-			data: resolution
-		});
-		dialogRef.afterClosed().subscribe(() => this.resolutionFacade.findAll(this.pagination));
+	openResolutionCreateUpdate(
+		action: 'create' | 'update',
+		resolutionAdapter?: ResolutionAdapter
+	): void {
+		this.matDialog
+			.open(ResolutionsCreateUpdateComponent, {
+				width: '500px',
+				maxWidth: '560px',
+				maxHeight: '100%',
+				backdropClass: 'zDialogRounded',
+				data: {
+					action,
+					z: resolutionAdapter
+				}
+			})
+			.afterClosed()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe({
+				next: () => this.resolutionFacade.findAll(this.pagination)
+			});
 	}
 
 	ngOnDestroy(): void {

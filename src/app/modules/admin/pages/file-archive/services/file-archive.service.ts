@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 import { Response } from 'src/app/core/entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
 import { FilesArchive } from '../entities';
-import { UpdateFilesArchiveDto } from '../entities/models/file-archive.model';
+import {
+	CreateFilesArchiveDto,
+	UpdateFilesArchiveDto
+} from '../entities/models/file-archive.model';
 
 @Injectable()
 export class FilesArchiveService {
@@ -13,7 +16,7 @@ export class FilesArchiveService {
 
 	constructor(private readonly httpClient: HttpClient) {}
 
-	create(createFilesArchiveDto: FormData): Observable<Response<FilesArchive>> {
+	create(createFilesArchiveDto: CreateFilesArchiveDto): Observable<Response<FilesArchive>> {
 		return this.httpClient.post<Response<FilesArchive>>(
 			this.ZPFilesArchive,
 			createFilesArchiveDto

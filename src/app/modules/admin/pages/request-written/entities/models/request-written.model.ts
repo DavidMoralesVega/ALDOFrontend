@@ -9,25 +9,29 @@ export class RequestWrittenAdapter {
 		public readonly RWSummary: string,
 		public readonly RWPublicationDate: string,
 		public readonly RWIssueDate: string,
-		public readonly RWDocumentNumber: string,
+		// public readonly RWDocumentNumber: string,
 		public readonly RWFile: any,
 		public readonly RWVisibility: boolean,
 		public readonly RWState: boolean,
 		public readonly RWDateRegister: string,
-		public readonly IdreqWrLeg: string
+		public readonly legislatureAdapter?: LegislatureAdapter
 	) {}
 }
 
 export type CreateRequestWrittenDto = Omit<
 	RequestWrittenAdapter,
 	'IdRequestWritten' | 'RWState' | 'RWDateRegister'
->;
+> & {
+	readonly IdreqWrLeg: string;
+};
+
+export type UpdateRequestWrittenDto = Partial<RequestWrittenAdapter> & {
+	readonly IdreqWrLeg?: string;
+};
 
 export interface RequestWrittenForeignAdapter extends RequestWrittenAdapter {
 	readonly legislatura: LegislatureAdapter;
 }
-
-export interface UpdateRequestWrittenDto extends Partial<RequestWrittenAdapter> {}
 
 @Injectable()
 export class RequestWritten implements Adapter<RequestWrittenAdapter> {
@@ -38,12 +42,12 @@ export class RequestWritten implements Adapter<RequestWrittenAdapter> {
 			requestWrittenAdapter.RWSummary,
 			requestWrittenAdapter.RWPublicationDate,
 			requestWrittenAdapter.RWIssueDate,
-			requestWrittenAdapter.RWDocumentNumber,
+			// requestWrittenAdapter.RWDocumentNumber,
 			requestWrittenAdapter.RWFile,
 			requestWrittenAdapter.RWVisibility,
 			requestWrittenAdapter.RWState,
 			requestWrittenAdapter.RWDateRegister,
-			requestWrittenAdapter.IdreqWrLeg
+			requestWrittenAdapter.legislatureAdapter
 		);
 	}
 }

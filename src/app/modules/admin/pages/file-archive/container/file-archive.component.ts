@@ -1,15 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
 import { FilesArchive, FilesArchiveAdapter, UpdateFilesArchiveDto } from '../entities';
 import { Response } from '../../../../../core/entities/interfaces/response.interface';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { Pagination } from '../../../../../core/entities/interfaces/pagination.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { FilesArchiveFacade } from '../facades/file-archive.facade';
 import { MatDialog } from '@angular/material/dialog';
-import { FileArchiveCreateComponent } from '../components/file-archive-create/container/file-archive-create.component';
-import { FileArchiveUpdateComponent } from '../components/file-archive-update/container/file-archive-update.component';
+import { FileArchiveCreateUpdateComponent } from '../components/createUpdate/container/createUpdate.component';
 
 @Component({
 	selector: 'z-file-archive',
@@ -22,6 +21,7 @@ export class FileArchiveComponent {
 
 	public dataSource!: MatTableDataSource<FilesArchive>;
 	private subscriptors: Subscription[] = [];
+	private destroy$ = new Subject<void>();
 
 	public readonly displayedColumns: string[] = [
 		'arch_id',
@@ -93,26 +93,26 @@ export class FileArchiveComponent {
 		}, 100);
 	}
 
-	openFilesArchiveCreate(): void {
-		const dialogRef = this.matDialog.open(FileArchiveCreateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%'
-		});
-
-		dialogRef.afterClosed().subscribe(() => this.filesArchiveFacade.findAll(this.pagination));
-	}
-
-	openFilesArchiveUpdate(filesArchive: FilesArchive): void {
-		const dialogRef = this.matDialog.open(FileArchiveUpdateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%',
-			data: filesArchive
-		});
-		dialogRef.afterClosed().subscribe(() => this.filesArchiveFacade.findAll(this.pagination));
+	openFileArchiveCreateUpdate(
+		action: 'create' | 'update',
+		filesArchiveAdapter?: FilesArchiveAdapter
+	): void {
+		this.matDialog
+			.open(FileArchiveCreateUpdateComponent, {
+				width: '500px',
+				maxWidth: '560px',
+				maxHeight: '100%',
+				backdropClass: 'zDialogRounded',
+				data: {
+					action,
+					z: filesArchiveAdapter
+				}
+			})
+			.afterClosed()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe({
+				next: () => this.filesArchiveFacade.findAll(this.pagination)
+			});
 	}
 
 	ngOnDestroy(): void {

@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
 import { Response } from 'src/app/core/entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { Procceding, UpdateProccedingDto } from '../entities';
+import { CreateProccedingDto, Procceding, UpdateProccedingDto } from '../entities';
 
 @Injectable()
 export class ProccedingService {
@@ -12,7 +12,7 @@ export class ProccedingService {
 
 	constructor(private readonly httpClient: HttpClient) {}
 
-	create(createProccedingDto: FormData): Observable<Response<Procceding>> {
+	create(createProccedingDto: CreateProccedingDto): Observable<Response<Procceding>> {
 		return this.httpClient.post<Response<Procceding>>(this.ZPProcceding, createProccedingDto);
 	}
 

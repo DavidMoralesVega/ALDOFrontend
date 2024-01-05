@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
 import { Response } from 'src/app/core/entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { Recognition, UpdateRecognitionDto } from '../entities';
+import { CreateRecognitionDto, Recognition, UpdateRecognitionDto } from '../entities';
 
 @Injectable()
 export class RecognitionService {
@@ -12,7 +12,7 @@ export class RecognitionService {
 
 	constructor(private readonly httpClient: HttpClient) {}
 
-	create(createRecognitionDto: FormData): Observable<Response<Recognition>> {
+	create(createRecognitionDto: CreateRecognitionDto): Observable<Response<Recognition>> {
 		return this.httpClient.post<Response<Recognition>>(this.ZPRecognition, createRecognitionDto);
 	}
 
@@ -29,7 +29,7 @@ export class RecognitionService {
 
 	update(
 		id: string,
-		updateRecognitionDto: UpdateRecognitionDto | FormData
+		updateRecognitionDto: UpdateRecognitionDto | CreateRecognitionDto
 	): Observable<Response<Recognition>> {
 		return this.httpClient.patch<Response<Recognition>>(
 			`${this.ZPRecognition}/${id}`,

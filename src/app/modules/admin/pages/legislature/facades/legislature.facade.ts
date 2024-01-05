@@ -2,7 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { Legislature, CreateLegislatureDto, UpdateLegislatureDto } from '../entities';
+import {
+	Legislature,
+	CreateLegislatureDto,
+	UpdateLegislatureDto,
+	LegislatureAdapter
+} from '../entities';
 import * as zSelector from '../store/legislature.selectors';
 import { LegislatureState } from '../store/legislature.state';
 import {
@@ -24,7 +29,7 @@ export class LegislatureFacade {
 	public findAllPagination$: Observable<Pagination | null>;
 	public findAllException$: Observable<Exception | null>;
 	public findAllIsLoading$: Observable<boolean>;
-	public findAllResponse$: Observable<Response<Legislature[]> | null>;
+	public findAllResponse$: Observable<Response<LegislatureAdapter[]> | null>;
 
 	// findOne
 	public findOneId$: Observable<string | null>;

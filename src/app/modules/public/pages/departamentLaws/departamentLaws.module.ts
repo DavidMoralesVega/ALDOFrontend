@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { DepartamentLawsRoutingModule } from './departamentLaws-routing.module';
 import { DepartamentLawsComponent } from './container/departamentLaws.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -20,6 +19,7 @@ import { LegislatureModule } from '../../../admin/pages/legislature/legislature.
 import { LegislatureFacade } from '../../../admin/pages/legislature/facades/legislature.facade';
 import { LineZModule } from '../../../../core/components/line-z/line-z.module';
 import { ZBannerModule } from 'src/app/modules/admin/components/banner/banner.module';
+import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file.module';
 
 @NgModule({
 	declarations: [DepartamentLawsComponent],
@@ -40,7 +40,8 @@ import { ZBannerModule } from 'src/app/modules/admin/components/banner/banner.mo
 		JsonAsyncModule,
 		LegislatureModule,
 		LineZModule,
-		ZBannerModule
+		ZBannerModule,
+		StaticFilePipeModule
 	],
 	providers: [DepartamentLawFacade, LegislatureFacade]
 })

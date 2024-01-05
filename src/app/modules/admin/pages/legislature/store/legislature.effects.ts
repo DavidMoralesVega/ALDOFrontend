@@ -10,7 +10,8 @@ import { LegislatureService } from '../services/legislature.service';
 import {
 	Legislature,
 	CreateLegislatureDto,
-	UpdateLegislatureDto
+	UpdateLegislatureDto,
+	LegislatureAdapter
 } from '../entities/models/legislature.model';
 
 @Injectable()
@@ -52,7 +53,7 @@ export class LegislatureEffects {
 				ofType(zActions.LEGISLATURE_FIND_ALL_REQUESTED),
 				mergeMap((action: Payload<Pagination>) =>
 					this.legislatureService.findAll(action.payload).pipe(
-						map((response: Response<Legislature[]>) => {
+						map((response: Response<LegislatureAdapter[]>) => {
 							return zActions.LEGISLATURE_FIND_ALL_LOADED({
 								payload: response
 							});

@@ -4,7 +4,11 @@ import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
 import { Response } from 'src/app/core/entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { Resolution, UpdateResolutionDto } from '../entities/models/resolutions.model';
+import {
+	CreateResolutionDto,
+	Resolution,
+	UpdateResolutionDto
+} from '../entities/models/resolutions.model';
 
 @Injectable()
 export class ResolutionService {
@@ -12,7 +16,7 @@ export class ResolutionService {
 
 	constructor(private readonly httpClient: HttpClient) {}
 
-	create(creaatResolutionDto: FormData): Observable<Response<Resolution>> {
+	create(creaatResolutionDto: CreateResolutionDto): Observable<Response<Resolution>> {
 		return this.httpClient.post<Response<Resolution>>(this.ZPResolution, creaatResolutionDto);
 	}
 
@@ -29,7 +33,7 @@ export class ResolutionService {
 
 	update(
 		id: string,
-		updateResolutionDto: UpdateResolutionDto | FormData
+		updateResolutionDto: UpdateResolutionDto | CreateResolutionDto
 	): Observable<Response<Resolution>> {
 		return this.httpClient.patch<Response<Resolution>>(
 			`${this.ZPResolution}/${id}`,

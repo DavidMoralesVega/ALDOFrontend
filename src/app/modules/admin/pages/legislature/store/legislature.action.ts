@@ -1,6 +1,11 @@
 import { createAction, props } from '@ngrx/store';
 import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entities';
-import { CreateLegislatureDto, UpdateLegislatureDto, Legislature } from '../entities';
+import {
+	CreateLegislatureDto,
+	UpdateLegislatureDto,
+	Legislature,
+	LegislatureAdapter
+} from '../entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
 
 export enum LegislatureActionTypes {
@@ -49,7 +54,7 @@ export const LEGISLATURE_FIND_ALL_REQUESTED = createAction(
 
 export const LEGISLATURE_FIND_ALL_LOADED = createAction(
 	LegislatureActionTypes.LEGISLATURE_FIND_ALL_LOADED,
-	props<Payload<Response<Legislature[]>>>()
+	props<Payload<Response<LegislatureAdapter[]>>>()
 );
 
 export const LEGISLATURE_FIND_ALL_FAILED = createAction(

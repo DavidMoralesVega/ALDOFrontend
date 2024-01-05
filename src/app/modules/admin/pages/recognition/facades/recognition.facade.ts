@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Exception, Pagination, Response } from 'src/app/core/entities';
 
 import * as zSelector from '../store/recognition.selectors';
-import { Recognition, UpdateRecognitionDto } from '../entities';
+import { CreateRecognitionDto, Recognition, UpdateRecognitionDto } from '../entities';
 import { RecognitionState } from '../store/recognition.state';
 import {
 	RECOGNITION_CREATE_REQUESTED,
@@ -16,7 +16,7 @@ import {
 @Injectable()
 export class RecognitionFacade {
 	// create
-	public createDto$: Observable<FormData | null>;
+	public createDto$: Observable<CreateRecognitionDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<Recognition> | null>;
@@ -34,7 +34,7 @@ export class RecognitionFacade {
 	public findOneResponse$: Observable<Response<Recognition> | null>;
 
 	// update
-	public updateDto$: Observable<UpdateRecognitionDto | FormData | null>;
+	public updateDto$: Observable<UpdateRecognitionDto | CreateRecognitionDto | null>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
@@ -67,7 +67,7 @@ export class RecognitionFacade {
 		this.updateResponse$ = this.store.select(zSelector.getRecognitionUpdateResponse);
 	}
 
-	create(createRecognitionDto: FormData) {
+	create(createRecognitionDto: CreateRecognitionDto) {
 		this.store.dispatch(RECOGNITION_CREATE_REQUESTED({ payload: createRecognitionDto }));
 	}
 
@@ -79,7 +79,7 @@ export class RecognitionFacade {
 		this.store.dispatch(RECOGNITION_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateRecognitionDto: UpdateRecognitionDto | FormData) {
+	update(id: string, updateRecognitionDto: UpdateRecognitionDto | CreateRecognitionDto) {
 		this.store.dispatch(
 			RECOGNITION_UPDATE_REQUESTED({
 				id,

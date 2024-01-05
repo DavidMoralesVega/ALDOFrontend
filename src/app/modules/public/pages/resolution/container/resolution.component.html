@@ -43,9 +43,9 @@
 
 	<section class="mb-10">
 		<h2 class="fw-bold mb-5 text-center">Resoluciones</h2>
-		<div class="row">
+		<div class="row gap-2 justify-content-around">
 			<div
-				class="card col-lg-6 col-md-12 mb-4"
+				class="card col-3 mb-4"
 				*ngFor="let data of dataResolution | paginate : { itemsPerPage: 10, currentPage: page }"
 				data-aos="flip-down"
 			>
@@ -54,7 +54,16 @@
 					<h5 class="card-title">{{ data.RETitle }}</h5>
 					<p class="card-text">{{ data.RESummary }}</p>
 					<span>{{ data.REPublicationDate | date : 'medium' }}</span>
-					<!-- <a href="#!" class="btn btn-primary">Button</a> -->
+					<a
+						href="{{ data.REFile | staticFile }}"
+						target="_blank"
+						class="z-btn-action d-block"
+						matTooltip="Visualizar"
+						mat-icon-button
+						matTooltipClass="z-tooltip"
+					>
+						<mat-icon>cloud_download</mat-icon>
+					</a>
 				</div>
 			</div>
 		</div>

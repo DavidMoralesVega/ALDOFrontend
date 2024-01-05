@@ -1,5 +1,5 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { User, CreateUserDto, UpdateUserDto } from '../entities/models/user.model';
+import { User, CreateUserDto, UpdateAdminUserDto } from '../entities/models/user.model';
 
 export interface UserState {
 	create: {
@@ -15,7 +15,7 @@ export interface UserState {
 		pagination: Pagination | null;
 	};
 	update: {
-		updateUserDto: UpdateUserDto | CreateUserDto | null;
+		updateUserDto: UpdateAdminUserDto | CreateUserDto | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

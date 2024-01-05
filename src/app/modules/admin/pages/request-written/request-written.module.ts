@@ -22,13 +22,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
-import { RequestWrittenCreateModule } from './components/request-written-create/request-written-create.module';
-import { RequestWrittenUpdateModule } from './components/request-written-update/request-written-update.module';
 import { RequestWrittenService } from './services/request-written.service';
 import { MatSnackBarService } from '../../../../core/services/mat-snack-bar.service';
 import { RequestWrittenFacade } from './facades/request-written.facade';
 import { LegislatureModule } from '../legislature/legislature.module';
 import { LegislatureFacade } from '../legislature/facades/legislature.facade';
+import { RequestWrittenCreateUpdateModule } from './components/createUpdate/createUpdate.module';
 
 @NgModule({
 	declarations: [RequestWrittenComponent],
@@ -53,8 +52,7 @@ import { LegislatureFacade } from '../legislature/facades/legislature.facade';
 		MatTableModule,
 		MatPaginatorModule,
 		MatDialogModule,
-		RequestWrittenCreateModule,
-		RequestWrittenUpdateModule,
+		RequestWrittenCreateUpdateModule,
 		LegislatureModule
 	],
 	providers: [RequestWrittenService, MatSnackBarService, RequestWrittenFacade, LegislatureFacade],

@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Exception, Pagination, Response } from 'src/app/core/entities';
 
 import * as zSelector from '../store/contract.selectors';
-import { Contract, UpdateContractDto } from '../entities';
+import { Contract, CreateContractDto, UpdateContractDto } from '../entities';
 import { ContractState } from '../store/contract.state';
 import {
 	CONTRACT_CREATE_REQUESTED,
@@ -16,7 +16,7 @@ import {
 @Injectable()
 export class ContractFacade {
 	// create
-	public createDto$: Observable<FormData | null>;
+	public createDto$: Observable<CreateContractDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
 	public createResponse$: Observable<Response<Contract> | null>;
@@ -67,7 +67,7 @@ export class ContractFacade {
 		this.updateResponse$ = this.store.select(zSelector.getContractUpdateResponse);
 	}
 
-	create(createContractDto: FormData) {
+	create(createContractDto: CreateContractDto) {
 		this.store.dispatch(CONTRACT_CREATE_REQUESTED({ payload: createContractDto }));
 	}
 
@@ -79,7 +79,7 @@ export class ContractFacade {
 		this.store.dispatch(CONTRACT_FIND_ONE_REQUESTED({ payload: id }));
 	}
 
-	update(id: string, updateContractDto: UpdateContractDto | FormData) {
+	update(id: string, updateContractDto: UpdateContractDto | CreateContractDto) {
 		this.store.dispatch(
 			CONTRACT_UPDATE_REQUESTED({
 				id,

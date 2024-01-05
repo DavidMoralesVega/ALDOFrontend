@@ -20,8 +20,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ZEffects } from 'src/app/core/entities';
 import { CallReducer } from './store/call.reducer';
 import { CallEffects } from './store/call.effects';
-import { CallsCreateModule } from './components/calls-create/calls-create.module';
-import { CallsUpdateModule } from './components/calls-update/calls-update.module';
 import { CallService } from './services/call.service';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { CallFacade } from './facades/call.facade';
@@ -30,6 +28,7 @@ import { StaticFilePipeModule } from 'src/app/core/pipes/static-file/static-file
 import { LegislatureModule } from '../legislature/legislature.module';
 import { LegislatureFacade } from '../legislature/facades/legislature.facade';
 import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
+import { CallCreateUpdateModule } from './components/createUpdate/createUpdate.module';
 
 @NgModule({
 	declarations: [CallsComponent],
@@ -50,8 +49,7 @@ import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
 		MatTableModule,
 		MatPaginatorModule,
 		MatDialogModule,
-		CallsCreateModule,
-		CallsUpdateModule,
+		CallCreateUpdateModule,
 		StaticFilePipeModule,
 		LegislatureModule,
 		DataSetPipeModule

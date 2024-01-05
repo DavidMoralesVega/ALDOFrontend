@@ -2,7 +2,11 @@ import { createAction, props } from '@ngrx/store';
 import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entities';
 
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { RequestWritten, UpdateRequestWrittenDto } from '../entities/models/request-written.model';
+import {
+	CreateRequestWrittenDto,
+	RequestWritten,
+	UpdateRequestWrittenDto
+} from '../entities/models/request-written.model';
 
 export enum RequestWrittenActionTypes {
 	// create
@@ -29,7 +33,7 @@ export enum RequestWrittenActionTypes {
 // create
 export const REQUESTWRITTEN_CREATE_REQUESTED = createAction(
 	RequestWrittenActionTypes.REQUESTWRITTEN_CREATE_REQUESTED,
-	props<Payload<FormData>>()
+	props<Payload<CreateRequestWrittenDto>>()
 );
 
 export const REQUESTWRITTEN_CREATE_LOADED = createAction(
@@ -77,7 +81,7 @@ export const REQUESTWRITTEN_FIND_ONE_FAILED = createAction(
 // update
 export const REQUESTWRITTEN_UPDATE_REQUESTED = createAction(
 	RequestWrittenActionTypes.REQUESTWRITTEN_UPDATE_REQUESTED,
-	props<PayloadUpdate<UpdateRequestWrittenDto | FormData, string>>()
+	props<PayloadUpdate<UpdateRequestWrittenDto | CreateRequestWrittenDto, string>>()
 );
 
 export const REQUESTWRITTEN_UPDATE_LOADED = createAction(

@@ -2,7 +2,11 @@ import { createAction, props } from '@ngrx/store';
 import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entities';
 
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { FilesArchive, UpdateFilesArchiveDto } from '../entities/models/file-archive.model';
+import {
+	CreateFilesArchiveDto,
+	FilesArchive,
+	UpdateFilesArchiveDto
+} from '../entities/models/file-archive.model';
 
 export enum FilesArchiveActionTypes {
 	// create
@@ -29,7 +33,7 @@ export enum FilesArchiveActionTypes {
 // create
 export const FILESARCHIVE_CREATE_REQUESTED = createAction(
 	FilesArchiveActionTypes.FILESARCHIVE_CREATE_REQUESTED,
-	props<Payload<FormData>>()
+	props<Payload<CreateFilesArchiveDto>>()
 );
 
 export const FILESARCHIVE_CREATE_LOADED = createAction(

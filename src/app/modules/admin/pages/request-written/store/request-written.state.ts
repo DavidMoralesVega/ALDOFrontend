@@ -1,10 +1,13 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
 import { RequestWritten } from '../entities';
-import { UpdateRequestWrittenDto } from '../entities/models/request-written.model';
+import {
+	CreateRequestWrittenDto,
+	UpdateRequestWrittenDto
+} from '../entities/models/request-written.model';
 
 export interface RequestWrittenState {
 	create: {
-		createRequestWrittenDto: FormData | null;
+		createRequestWrittenDto: CreateRequestWrittenDto | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		response: Response<RequestWritten> | null;
@@ -22,7 +25,7 @@ export interface RequestWrittenState {
 		id: string | null;
 	};
 	update: {
-		updateRequestWrittenDto: UpdateRequestWrittenDto | FormData | null;
+		updateRequestWrittenDto: UpdateRequestWrittenDto | CreateRequestWrittenDto | null;
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;

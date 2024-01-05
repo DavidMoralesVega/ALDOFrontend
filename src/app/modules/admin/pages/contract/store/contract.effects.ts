@@ -6,7 +6,7 @@ import { Exception, Pagination, Response, ZMessages } from 'src/app/core/entitie
 import * as zActions from './contract.action';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { Payload, PayloadUpdate } from 'src/app/core/entities/adapters/object.adapter';
-import { Contract, UpdateContractDto } from '../entities';
+import { Contract, CreateContractDto, UpdateContractDto } from '../entities';
 import { ContractService } from '../services/contract.service';
 
 @Injectable()
@@ -21,7 +21,7 @@ export class ContractEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.CONTRACT_CREATE_REQUESTED),
-				switchMap((action: Payload<FormData>) =>
+				switchMap((action: Payload<CreateContractDto>) =>
 					this.contractService.create(action.payload).pipe(
 						map((response: Response<Contract>) => {
 							this.matSnackBarService.open('success', ZMessages.success);
@@ -92,7 +92,7 @@ export class ContractEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.CONTRACT_UPDATE_REQUESTED),
-				switchMap((action: PayloadUpdate<UpdateContractDto | FormData, string>) => {
+				switchMap((action: PayloadUpdate<UpdateContractDto | CreateContractDto, string>) => {
 					return this.contractService.update(action.id || '', action.payload).pipe(
 						map((response: Response<Contract>) => {
 							this.matSnackBarService.open('success', ZMessages.success);

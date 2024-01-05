@@ -10,20 +10,23 @@ export class FilesArchiveAdapter {
 		public readonly arch_File: any,
 		public readonly arch_State: boolean,
 		public readonly arch_creado: string,
-		public readonly IdresolLeg: string
+		public readonly legislatureAdapter?: LegislatureAdapter
 	) {}
 }
 
 export type CreateFilesArchiveDto = Omit<
 	FilesArchiveAdapter,
 	'arch_id' | 'arch_State' | 'arch_creado'
->;
+> & {
+	readonly IdcallLeg: string;
+};
 
+export type UpdateFilesArchiveDto = Partial<FilesArchiveAdapter> & {
+	readonly IdcallLeg?: string;
+};
 export interface FilesArchiveForeignAdapter extends FilesArchiveAdapter {
 	readonly legislatura: LegislatureAdapter;
 }
-
-export interface UpdateFilesArchiveDto extends Partial<FilesArchiveAdapter> {}
 
 @Injectable()
 export class FilesArchive implements Adapter<FilesArchiveAdapter> {
@@ -35,7 +38,7 @@ export class FilesArchive implements Adapter<FilesArchiveAdapter> {
 			filesArchiveAdapter.arch_File,
 			filesArchiveAdapter.arch_State,
 			filesArchiveAdapter.arch_creado,
-			filesArchiveAdapter.IdresolLeg
+			filesArchiveAdapter.legislatureAdapter
 		);
 	}
 }

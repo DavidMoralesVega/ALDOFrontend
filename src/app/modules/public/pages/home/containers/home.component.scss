@@ -1,8 +1,5 @@
 .bg-image {
 	transition: all 3s;
-	&:hover {
-		// transform: scale(1.1);
-	}
 	&:before {
 		content: '';
 		position: absolute;

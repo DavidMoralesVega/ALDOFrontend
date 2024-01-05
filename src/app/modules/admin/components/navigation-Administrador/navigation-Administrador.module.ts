@@ -26,8 +26,6 @@ import {
 		IconsModule,
 		NavbarModule,
 		MatMenuModule
-
-		// MDBBootstrapModulesPro.forRoot()
 	],
 	exports: [NavigationBlogComponent]
 })

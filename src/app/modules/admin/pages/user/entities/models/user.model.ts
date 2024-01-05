@@ -15,7 +15,7 @@ export class UserAdapter {
 
 export type CreateUserDto = Omit<UserAdapter, 'IdUser' | 'IsActive'>;
 
-export interface UpdateUserDto extends Partial<UserAdapter> {}
+export interface UpdateAdminUserDto extends Partial<UserAdapter> {}
 
 @Injectable()
 export class User implements Adapter<UserAdapter> {

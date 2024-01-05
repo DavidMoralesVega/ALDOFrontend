@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { Pagination, Response } from 'src/app/core/entities';
 import { Procceding, ProccedingAdapter, UpdateProccedingDto } from '../entities';
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,18 +7,17 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ProccedingFacade } from '../facades/procceding.facade';
 import { MatDialog } from '@angular/material/dialog';
-import { ProccedingUpdateComponent } from '../components/procceding-update/container/procceding-update.component';
-import { ProccedingCreateComponent } from '../components/procceding-create/container/procceding-create.component';
+import { ProccedingCreateUpdateComponent } from '../components/createUpdate/container/createUpdate.component';
 @Component({
 	selector: 'z-procceding',
-	templateUrl: './procceding.component.html',
-	styleUrls: ['./procceding.component.scss']
+	templateUrl: './procceding.component.html'
 })
 export class ProccedingComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Procceding[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public updateIsLoading$: Observable<boolean>;
 
+	private destroy$ = new Subject<void>();
 	public dataSource!: MatTableDataSource<Procceding>;
 	private subscriptors: Subscription[] = [];
 
@@ -86,26 +85,26 @@ export class ProccedingComponent implements OnInit {
 		}, 100);
 	}
 
-	openProccedingCreate(): void {
-		const dialogRef = this.matDialog.open(ProccedingCreateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%'
-		});
-
-		dialogRef.afterClosed().subscribe(() => this.proccedingFacade.findAll(this.pagination));
-	}
-
-	openProccedingUpdate(procceding: Procceding): void {
-		const dialogRef = this.matDialog.open(ProccedingUpdateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%',
-			data: procceding
-		});
-		dialogRef.afterClosed().subscribe(() => this.proccedingFacade.findAll(this.pagination));
+	openProceddingCreateUpdate(
+		action: 'create' | 'update',
+		proccedingAdapter?: ProccedingAdapter
+	): void {
+		this.matDialog
+			.open(ProccedingCreateUpdateComponent, {
+				width: '500px',
+				maxWidth: '560px',
+				maxHeight: '100%',
+				backdropClass: 'zDialogRounded',
+				data: {
+					action,
+					z: proccedingAdapter
+				}
+			})
+			.afterClosed()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe({
+				next: () => this.proccedingFacade.findAll(this.pagination)
+			});
 	}
 
 	ngOnDestroy(): void {

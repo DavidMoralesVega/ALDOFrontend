@@ -17,10 +17,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FilesArchiveService } from './services/file-archive.service';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { FilesArchiveFacade } from './facades/file-archive.facade';
-import { FileArchiveCreateModule } from './components/file-archive-create/file-archive-create.module';
 import { LegislatureModule } from '../legislature/legislature.module';
 import { DataSetPipeModule } from 'src/app/core/pipes/data-set/data-set.module';
-import { FileArchiveUpdateModule } from './components/file-archive-update/file-archive-update.module';
+import { FileArchiveCreateUpdateModule } from './components/createUpdate/createUpdate.module';
 
 @NgModule({
 	declarations: [FileArchiveComponent],
@@ -35,11 +34,10 @@ import { FileArchiveUpdateModule } from './components/file-archive-update/file-a
 		MatPaginatorModule,
 		MatButtonModule,
 		MatProgressSpinnerModule,
-		FileArchiveCreateModule,
+		FileArchiveCreateUpdateModule,
 		StaticFilePipeModule,
 		DataSetPipeModule,
-		LegislatureModule,
-		FileArchiveUpdateModule
+		LegislatureModule
 	],
 	providers: [FilesArchiveService, MatSnackBarService, FilesArchiveFacade],
 	exports: [StoreModule, EffectsModule]

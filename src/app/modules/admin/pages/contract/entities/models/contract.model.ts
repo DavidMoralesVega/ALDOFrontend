@@ -6,12 +6,11 @@ export class ContractAdapter {
 		public readonly IdContract: string,
 		public readonly CTTitle: string,
 		public readonly CTSummary: string,
-		public readonly CTPublicationDate: string,
 		public readonly CTIssueDate: string,
 		public readonly CTDocumentNumber: string,
 		public readonly CTType: string,
 		public readonly CTFile: any,
-		public readonly CTVisibility: boolean,
+		public readonly CTVisibility: string,
 		public readonly CTState: boolean,
 		public readonly CTDateRegister: string
 	) {}
@@ -28,7 +27,6 @@ export class Contract implements Adapter<ContractAdapter> {
 			contractAdapter.IdContract,
 			contractAdapter.CTTitle,
 			contractAdapter.CTSummary,
-			contractAdapter.CTPublicationDate,
 			contractAdapter.CTIssueDate,
 			contractAdapter.CTDocumentNumber,
 			contractAdapter.CTType,

@@ -15,11 +15,11 @@ import { LegislatureUpdateComponent } from '../components/legislature-update/con
 	templateUrl: './legislature.component.html'
 })
 export class LegislatureComponent implements OnInit {
-	public findAllResponse$: Observable<Response<Legislature[]> | null>;
+	public findAllResponse$: Observable<Response<LegislatureAdapter[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public updateIsLoading$: Observable<boolean>;
 
-	public dataSource!: MatTableDataSource<Legislature>;
+	public dataSource!: MatTableDataSource<LegislatureAdapter>;
 	private subscriptors: Subscription[] = [];
 
 	public readonly displayedColumns: string[] = [
@@ -59,7 +59,7 @@ export class LegislatureComponent implements OnInit {
 	findAll() {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
-				next: (response: Response<Legislature[]> | null) => {
+				next: (response: Response<LegislatureAdapter[]> | null) => {
 					setTimeout(() => {
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;

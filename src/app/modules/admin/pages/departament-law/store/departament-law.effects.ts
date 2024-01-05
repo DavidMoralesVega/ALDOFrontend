@@ -27,7 +27,7 @@ export class DepartamentLawEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.DEPARTAMENTLAW_CREATE_REQUESTED),
-				switchMap((action: Payload<FormData>) =>
+				switchMap((action: Payload<CreateDepartamentLawDto>) =>
 					this.departamentLawService.create(action.payload).pipe(
 						map((response: Response<DepartamentLaw>) => {
 							this.matSnackBarService.open('success', ZMessages.success);
@@ -98,24 +98,28 @@ export class DepartamentLawEffects {
 		(): Observable<any> =>
 			this.actions$.pipe(
 				ofType(zActions.DEPARTAMENTLAW_UPDATE_REQUESTED),
-				switchMap((action: PayloadUpdate<FormData | UpdateDepartamentLawDto, string>) => {
-					return this.departamentLawService.update(action.id || '', action.payload).pipe(
-						map((response: Response<DepartamentLaw>) => {
-							this.matSnackBarService.open('success', ZMessages.success);
-							return zActions.DEPARTAMENTLAW_UPDATE_LOADED({
-								payload: response
-							});
-						}),
-						catchError((exception: Exception) => {
-							this.matSnackBarService.open('error', ZMessages.error);
-							return of(
-								zActions.DEPARTAMENTLAW_UPDATE_FAILED({
-									payload: exception
-								})
-							);
-						})
-					);
-				})
+				switchMap(
+					(
+						action: PayloadUpdate<CreateDepartamentLawDto | UpdateDepartamentLawDto, string>
+					) => {
+						return this.departamentLawService.update(action.id || '', action.payload).pipe(
+							map((response: Response<DepartamentLaw>) => {
+								this.matSnackBarService.open('success', ZMessages.success);
+								return zActions.DEPARTAMENTLAW_UPDATE_LOADED({
+									payload: response
+								});
+							}),
+							catchError((exception: Exception) => {
+								this.matSnackBarService.open('error', ZMessages.error);
+								return of(
+									zActions.DEPARTAMENTLAW_UPDATE_FAILED({
+										payload: exception
+									})
+								);
+							})
+						);
+					}
+				)
 			) // , { dispatch: false }
 	);
 

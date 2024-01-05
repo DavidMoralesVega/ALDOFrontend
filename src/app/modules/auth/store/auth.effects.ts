@@ -34,6 +34,26 @@ export class AuthEffects {
 							this.tokenStorageService.saveToken(response.data.token);
 							// this.router.navigateByUrl('/admin');
 
+							/* encargado_area_proceso legislativos */
+							if (response.data.Roles === '4') {
+								this.router.navigateByUrl('/encargado-area-proceso');
+							}
+							/* transcriptor */
+							if (response.data.Roles === '1') {
+								this.router.navigateByUrl('/transcriptor');
+							}
+							/* juridicos_administrativos */
+							if (response.data.Roles === '2') {
+								this.router.navigateByUrl('/juridicos-administrativos');
+							}
+							/* encargado_area_contratacion */
+							if (response.data.Roles === '3') {
+								this.router.navigateByUrl('/encargado-area-concentracion');
+							}
+							/* encargado de proceso legislativos Administrativos */
+							if (response.data.Roles === '0') {
+								this.router.navigateByUrl('/tecnico-supervisor');
+							}
 							/* administrador */
 							if (response.data.Roles === '5') {
 								this.router.navigateByUrl('/administrador');
@@ -41,26 +61,6 @@ export class AuthEffects {
 							/* administrador_blog */
 							if (response.data.Roles === '6') {
 								this.router.navigateByUrl('/administrador-blog');
-							}
-							/* encargado_area_concentracion */
-							if (response.data.Roles === '3') {
-								this.router.navigateByUrl('/encargado-area-concentracion');
-							}
-							/* juridicos_administrativos */
-							if (response.data.Roles === '2') {
-								this.router.navigateByUrl('/juridicos-administrativos');
-							}
-							/* encargado_area_proceso */
-							if (response.data.Roles === '4') {
-								this.router.navigateByUrl('/encargado-area-proceso');
-							}
-							/* tecnico_supervisor */
-							if (response.data.Roles === '0') {
-								this.router.navigateByUrl('/tecnico-supervisor');
-							}
-							/* transcriptor */
-							if (response.data.Roles === '1') {
-								this.router.navigateByUrl('/transcriptor');
 							}
 
 							// this.router.navigateByUrl('/administrador-blog');

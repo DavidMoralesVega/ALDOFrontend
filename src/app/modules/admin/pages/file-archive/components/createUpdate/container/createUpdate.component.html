@@ -1,0 +1,88 @@
+<div class="dialogContainer">
+	<div class="dialogContainer__header">
+		<h2 mat-dialog-title>Crear archivo</h2>
+		<button mat-icon-button mat-dialog-close>
+			<mat-icon class="material-symbols-outlined">close</mat-icon>
+		</button>
+	</div>
+
+	<form [formGroup]="zForm" (ngSubmit)="action()" novalidate="novalidate" autocomplete="off">
+		<div mat-dialog-content>
+			<div class="row">
+				<div class="col-12 mb-3">
+					<mat-label>Seleccionar Archivo Pdf</mat-label>
+					<z-file-list
+						[files]="paths"
+						[type]="'document'"
+						[isProgress]="false"
+						[isBtnRemove]="true"
+					></z-file-list>
+					<button type="button" class="zBtn zBtnPrimary zBtnMd" (click)="openFileUpload()">
+						<mat-icon fontIcon="upload" class="text-white"></mat-icon>
+						<span>Subir</span>
+					</button>
+				</div>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Seleccionar Legislatura</mat-label>
+					<input type="text" matInput formControlName="legislatura" [matAutocomplete]="auto" />
+					<mat-autocomplete
+						autoActiveFirstOption
+						#auto="matAutocomplete"
+						[displayWith]="getDisplayLegislature"
+					>
+						<mat-option
+							*ngFor="let option of (legislatureFindAllResponse$ | async)?.data"
+							[value]="option"
+						>
+							{{ option.LegDescripcion }}
+						</mat-option>
+					</mat-autocomplete>
+
+					<mat-error *ngIf="isErrorState(legislatura, null)">
+						<span *ngIf="legislatura.errors?.['required']"> Seleccione un país</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Código</mat-label>
+					<input matInput maxlength="40" formControlName="arch_code" />
+					<mat-hint align="start">Máximo 50 caracteres. </mat-hint>
+					<mat-hint align="end">{{ arch_code.value.length }} / 40</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(arch_code, null)">
+						<span *ngIf="arch_code.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El código es requerido.
+						</span>
+						<span *ngIf="arch_code.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							Máximo 40 caracteres.
+						</span>
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="col-lg-12" appearance="outline">
+					<mat-label>Nombre del archivo</mat-label>
+					<input matInput maxlength="40" formControlName="arch_name" />
+					<mat-hint align="start">Máximo 50 caracteres. </mat-hint>
+					<mat-hint align="end">{{ arch_name.value.length }} / 40</mat-hint>
+					<mat-error *ngIf="errorMatcher.isErrorState(arch_name, null)">
+						<span *ngIf="arch_name.errors?.['required']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							El nombre del archivo es requerido.
+						</span>
+						<span *ngIf="arch_name.errors?.['maxlength']">
+							<i class="fas fa-exclamation-circle mr-1"></i>
+							Máximo 40 caracteres.
+						</span>
+					</mat-error>
+				</mat-form-field>
+			</div>
+		</div>
+		<mat-dialog-actions align="end">
+			<button mat-button mat-dialog-close>Cancelar</button>
+			<button mat-button *ngIf="!(createIsLoading$ | async)">Guardar</button>
+			<button mat-button *ngIf="createIsLoading$ | async" disabled>Guardando...</button>
+		</mat-dialog-actions>
+	</form>
+</div>

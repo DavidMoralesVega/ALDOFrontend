@@ -3,12 +3,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { Pagination, Response } from 'src/app/core/entities';
-import { RecognitionCreateComponent } from '../components/recognition-create/container/recognition-create.component';
-import { RecognitionUpdateComponent } from '../components/recognition-update/container/recognition-update.component';
 import { Recognition, RecognitionAdapter, UpdateRecognitionDto } from '../entities';
 import { RecognitionFacade } from '../facades/recognition.facade';
+import { RecognitionCreateUpdateComponent } from '../components/createUpdate/container/createUpdate.component';
 @Component({
 	selector: 'z-recognition',
 	templateUrl: './recognition.component.html'
@@ -17,6 +16,7 @@ export class RecognitionComponent implements OnInit, AfterViewInit, OnDestroy {
 	public findAllResponse$: Observable<Response<Recognition[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public updateIsLoading$: Observable<boolean>;
+	private destroy$ = new Subject<void>();
 
 	public dataSource!: MatTableDataSource<Recognition>;
 	private subscriptors: Subscription[] = [];
@@ -93,26 +93,26 @@ export class RecognitionComponent implements OnInit, AfterViewInit, OnDestroy {
 		}, 100);
 	}
 
-	openRecognitionCreate(): void {
-		const dialogRef = this.matDialog.open(RecognitionCreateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%'
-		});
-
-		dialogRef.afterClosed().subscribe(() => this.recognitionFacade.findAll(this.pagination));
-	}
-
-	openRecognitionUpdate(recognition: Recognition): void {
-		const dialogRef = this.matDialog.open(RecognitionUpdateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%',
-			data: recognition
-		});
-		dialogRef.afterClosed().subscribe(() => this.recognitionFacade.findAll(this.pagination));
+	openRecognitionCreateUpdate(
+		action: 'create' | 'update',
+		recognitionAdapter?: RecognitionAdapter
+	): void {
+		this.matDialog
+			.open(RecognitionCreateUpdateComponent, {
+				width: '500px',
+				maxWidth: '560px',
+				maxHeight: '100%',
+				backdropClass: 'zDialogRounded',
+				data: {
+					action,
+					z: recognitionAdapter
+				}
+			})
+			.afterClosed()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe({
+				next: () => this.recognitionFacade.findAll(this.pagination)
+			});
 	}
 
 	ngOnDestroy(): void {

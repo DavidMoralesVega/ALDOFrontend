@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 import { Response } from 'src/app/core/entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
 import { RequestWritten } from '../entities';
-import { UpdateRequestWrittenDto } from '../entities/models/request-written.model';
+import {
+	CreateRequestWrittenDto,
+	UpdateRequestWrittenDto
+} from '../entities/models/request-written.model';
 
 @Injectable()
 export class RequestWrittenService {
@@ -13,7 +16,7 @@ export class RequestWrittenService {
 
 	constructor(private readonly httpClient: HttpClient) {}
 
-	create(createRequestWrittenDto: FormData): Observable<Response<RequestWritten>> {
+	create(createRequestWrittenDto: CreateRequestWrittenDto): Observable<Response<RequestWritten>> {
 		return this.httpClient.post<Response<RequestWritten>>(
 			this.ZPRequestWritten,
 			createRequestWrittenDto
@@ -33,7 +36,7 @@ export class RequestWrittenService {
 
 	update(
 		id: string,
-		updateRequestWrittenDto: UpdateRequestWrittenDto | FormData
+		updateRequestWrittenDto: UpdateRequestWrittenDto | CreateRequestWrittenDto
 	): Observable<Response<RequestWritten>> {
 		return this.httpClient.patch<Response<RequestWritten>>(
 			`${this.ZPRequestWritten}/${id}`,

@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
 	selector: 'z-institutional',
 	templateUrl: './institutional.component.html'
 })
-export class InstitutionalComponent implements OnInit {
+export class InstitutionalComponent {
 	constructor() {}
-
-	ngOnInit(): void {}
 }

@@ -3,12 +3,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { Pagination, Response } from 'src/app/core/entities';
-import { ContractCreateComponent } from '../components/contract-create/container/contract-create.component';
-import { ContractUpdateComponent } from '../components/contract-update/container/contract-update.component';
 import { Contract, ContractAdapter, UpdateContractDto } from '../entities';
 import { ContractFacade } from '../facades/contract.facade';
+import { ContractCreateUpdateComponent } from '../components/createUpdate/container/createUpdate.component';
 
 @Component({
 	selector: 'z-contract',
@@ -18,7 +17,7 @@ export class ContractComponent implements OnInit {
 	public findAllResponse$: Observable<Response<Contract[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public updateIsLoading$: Observable<boolean>;
-
+	private destroy$ = new Subject<void>();
 	public dataSource!: MatTableDataSource<Contract>;
 	private subscriptors: Subscription[] = [];
 
@@ -94,26 +93,23 @@ export class ContractComponent implements OnInit {
 		}, 100);
 	}
 
-	openContractCreate(): void {
-		const dialogRef = this.matDialog.open(ContractCreateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%'
-		});
-
-		dialogRef.afterClosed().subscribe(() => this.contractFacade.findAll(this.pagination));
-	}
-
-	openContractUpdate(departamentLaw: Contract): void {
-		const dialogRef = this.matDialog.open(ContractUpdateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%',
-			data: departamentLaw
-		});
-		dialogRef.afterClosed().subscribe(() => this.contractFacade.findAll(this.pagination));
+	openContractCreateUpdate(action: 'create' | 'update', contractAdapter?: ContractAdapter): void {
+		this.matDialog
+			.open(ContractCreateUpdateComponent, {
+				width: '500px',
+				maxWidth: '560px',
+				maxHeight: '100%',
+				backdropClass: 'zDialogRounded',
+				data: {
+					action,
+					z: contractAdapter
+				}
+			})
+			.afterClosed()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe({
+				next: () => this.contractFacade.findAll(this.pagination)
+			});
 	}
 
 	ngOnDestroy(): void {

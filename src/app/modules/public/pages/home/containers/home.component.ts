@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PostFacade } from '../../../../admin/pages/post/facades/post.facade';
 import { Pagination } from '../../../../../core/entities/interfaces/pagination.interface';
 import { Observable, Subscription } from 'rxjs';
@@ -34,7 +34,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 		])
 	]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 	public findAllResponse$: Observable<Response<Post[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 
@@ -48,12 +48,6 @@ export class HomeComponent implements OnInit {
 		offset: 0,
 		filter: 'ALL'
 	};
-
-	// @HostListener('window:scroll', ['$event'])
-	// onWindowScroll($event: any) {
-	//   const element = document.querySelector('.gradient-violet');
-	//   element!.style.animation = 'slide-in-down 500ms ease-in';
-	// }
 
 	constructor(private readonly postFacade: PostFacade) {
 		this.findAllResponse$ = this.postFacade.findAllResponse$;

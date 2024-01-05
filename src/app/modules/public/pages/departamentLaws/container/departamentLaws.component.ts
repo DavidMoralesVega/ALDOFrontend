@@ -7,10 +7,10 @@ import {
 	DepartamentLaw,
 	DepartamentLawAdapter
 } from 'src/app/modules/admin/pages/departament-law/entities';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { DefaultErrorMatcher } from '../../../../../core/shared/default.error-matcher';
 import { search } from 'src/app/core/entities/interfaces/search.interface';
-import { Legislature } from 'src/app/modules/admin/pages/legislature/entities';
+import { Legislature, LegislatureAdapter } from 'src/app/modules/admin/pages/legislature/entities';
 import { LegislatureFacade } from 'src/app/modules/admin/pages/legislature/facades/legislature.facade';
 
 @Component({
@@ -25,7 +25,7 @@ export class DepartamentLawsComponent implements OnInit {
 	public findAllIsLoading$: Observable<boolean>;
 	public searchResponse$: Observable<Response<DepartamentLaw[]> | null>;
 	public searchIsLoading$: Observable<boolean>;
-	public legislatureFindAllResponse$: Observable<Response<Legislature[]> | null>;
+	public legislatureFindAllResponse$: Observable<Response<LegislatureAdapter[]> | null>;
 	public legislatureFindAllIsLoading$: Observable<boolean>;
 
 	public ZListArea: any[] = ZListArea;

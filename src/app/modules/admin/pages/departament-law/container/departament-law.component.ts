@@ -1,15 +1,14 @@
 import { Component, ViewChild, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { Response } from '../../../../../core/entities/interfaces/response.interface';
-import { DepartamentLaw, DepartamentLawAdapter, UpdateDepartamentLawDto } from '../entities';
+import { DepartamentLawAdapter } from '../entities';
 import { Pagination } from '../../../../../core/entities/interfaces/pagination.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { DepartamentLawFacade } from '../facades/departament-law.facade';
 import { MatDialog } from '@angular/material/dialog';
-import { DepartamentLawCreateComponent } from '../components/departament-law-create/container/departament-law-create.component';
-import { DepartamentLawUpdateComponent } from '../components/departament-law-update/container/departament-law-update.component';
+import { DepartamentLawCreateUpdateComponent } from '../components/createUpdate/container/createUpdate.component';
 
 @Component({
 	selector: 'z-departament-law',
@@ -19,6 +18,7 @@ export class DepartamentLawComponent implements OnInit, AfterViewInit, OnDestroy
 	public findAllResponse$: Observable<Response<DepartamentLawAdapter[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public updateIsLoading$: Observable<boolean>;
+	private destroy$ = new Subject<void>();
 
 	public dataSource!: MatTableDataSource<DepartamentLawAdapter>;
 	private subscriptors: Subscription[] = [];
@@ -98,26 +98,26 @@ export class DepartamentLawComponent implements OnInit, AfterViewInit, OnDestroy
 		}, 100);
 	}
 
-	openDepartamentLawCreate(): void {
-		const dialogRef = this.matDialog.open(DepartamentLawCreateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%'
-		});
-
-		dialogRef.afterClosed().subscribe(() => this.departamentLawFacade.findAll(this.pagination));
-	}
-
-	openDepartamentLawUpdate(departamentLaw: DepartamentLaw): void {
-		const dialogRef = this.matDialog.open(DepartamentLawUpdateComponent, {
-			width: '500px',
-			// height: '400px',
-			maxWidth: '80%',
-			maxHeight: '100%',
-			data: departamentLaw
-		});
-		dialogRef.afterClosed().subscribe(() => this.departamentLawFacade.findAll(this.pagination));
+	openDepartamentLawCreateUpdate(
+		action: 'create' | 'update',
+		departamentLawAdapter?: DepartamentLawAdapter
+	): void {
+		this.matDialog
+			.open(DepartamentLawCreateUpdateComponent, {
+				width: '500px',
+				maxWidth: '560px',
+				maxHeight: '100%',
+				backdropClass: 'zDialogRounded',
+				data: {
+					action,
+					z: departamentLawAdapter
+				}
+			})
+			.afterClosed()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe({
+				next: () => this.departamentLawFacade.findAll(this.pagination)
+			});
 	}
 
 	ngOnDestroy(): void {

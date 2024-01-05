@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { Procceding, UpdateProccedingDto } from '../entities';
+import { CreateProccedingDto, Procceding, UpdateProccedingDto } from '../entities';
 
 export enum ProccedingActionTypes {
 	// create
@@ -28,7 +28,7 @@ export enum ProccedingActionTypes {
 // create
 export const PROCCEDING_CREATE_REQUESTED = createAction(
 	ProccedingActionTypes.PROCCEDING_CREATE_REQUESTED,
-	props<Payload<FormData>>()
+	props<Payload<CreateProccedingDto>>()
 );
 
 export const PROCCEDING_CREATE_LOADED = createAction(

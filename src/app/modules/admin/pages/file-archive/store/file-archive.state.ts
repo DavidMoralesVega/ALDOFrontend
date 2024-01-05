@@ -1,10 +1,13 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
 import { FilesArchive } from '../entities';
-import { UpdateFilesArchiveDto } from '../entities/models/file-archive.model';
+import {
+	CreateFilesArchiveDto,
+	UpdateFilesArchiveDto
+} from '../entities/models/file-archive.model';
 
 export interface FilesArchiveState {
 	create: {
-		createFilesArchiveDto: FormData | null;
+		createFilesArchiveDto: CreateFilesArchiveDto | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		response: Response<FilesArchive> | null;

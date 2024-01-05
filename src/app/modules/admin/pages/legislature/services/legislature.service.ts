@@ -4,7 +4,12 @@ import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
 import { Response } from 'src/app/core/entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
-import { CreateLegislatureDto, Legislature, UpdateLegislatureDto } from '../entities';
+import {
+	CreateLegislatureDto,
+	Legislature,
+	LegislatureAdapter,
+	UpdateLegislatureDto
+} from '../entities';
 
 @Injectable()
 export class LegislatureService {
@@ -16,9 +21,9 @@ export class LegislatureService {
 		return this.httpClient.post<Response<Legislature>>(this.ZPLegislature, createLegislatureDto);
 	}
 
-	findAll(pagination: Pagination): Observable<Response<Legislature[]>> {
+	findAll(pagination: Pagination): Observable<Response<LegislatureAdapter[]>> {
 		const { limit, offset, filter } = pagination;
-		return this.httpClient.get<Response<Legislature[]>>(
+		return this.httpClient.get<Response<LegislatureAdapter[]>>(
 			`${this.ZPLegislature}?limit=${limit}&offset=${offset}&filter=${filter}`
 		);
 	}

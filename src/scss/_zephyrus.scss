@@ -1,11 +1,11 @@
 // @import 'material';
 
-@import 'zephyrus/theme/colors.module.scss';
+// @import 'zephyrus/theme/colors.module.scss';
 @import 'zephyrus/theme/tokens.scss';
 @import 'zephyrus/theme/typography.module.scss';
 
 @import 'zephyrus/theme/theme.light.scss';
-@import 'zephyrus/theme/theme.dark.scss';
+// @import 'zephyrus/theme/theme.dark.scss';
 
 @import 'variables';
 // components
@@ -30,16 +30,6 @@
 @import 'zephyrus/components/toolbar';
 @import 'zephyrus/components/tooltip';
 @import 'zephyrus/components/upload';
-
-// pages
-@import 'zephyrus/pages/adm-usuario';
-@import 'zephyrus/pages/home';
-@import 'zephyrus/pages/kam-persona-create';
-@import 'zephyrus/pages/kam-persona-find-one';
-@import 'zephyrus/pages/cat-rol-turno';
-@import 'zephyrus/pages/dom-orgnivel';
-@import 'zephyrus/pages/sct-documento';
-@import 'zephyrus/pages/sct-emision';
 
 /* SYSTEM DESIGN */
 /* configuracion */
