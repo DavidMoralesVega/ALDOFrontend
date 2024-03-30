@@ -77,7 +77,9 @@ export class CallCreateUpdateComponent extends ZBaseService {
 
 		if (this.payloadDialog.action === ZDialogAction.update && this.payloadDialog) {
 			const { z } = this.payloadDialog;
-			this.zForm.patchValue({ ...z });
+			const call_dateUpdate = new Date(z.call_dateUpdate);
+			call_dateUpdate.setDate(call_dateUpdate.getDate() + 1);
+			this.zForm.patchValue({ ...z, call_dateUpdate });
 		}
 	}
 

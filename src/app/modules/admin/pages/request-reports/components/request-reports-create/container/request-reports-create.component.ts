@@ -85,7 +85,7 @@ export class RequestReportsCreateComponent extends ZBaseService {
 			IdreqRLeg: this.IdreqRLeg.value
 		};
 
-		console.log({ createRequestReportsDto });
+		// console.log({ createRequestReportsDto });
 
 		this.requestReportsFacade.create(createRequestReportsDto);
 		this.closeDialog(this.requestReportsFacade.createResponse$, this.dialogRef);
@@ -107,7 +107,7 @@ export class RequestReportsCreateComponent extends ZBaseService {
 			.afterClosed()
 			.subscribe({
 				next: (files: any) => {
-					console.log(files);
+					// console.log(files);
 					this.paths = files.data.paths;
 				}
 			});
@@ -128,7 +128,7 @@ export class RequestReportsCreateComponent extends ZBaseService {
 			.afterClosed()
 			.subscribe({
 				next: (files: any) => {
-					console.log(files);
+					// console.log(files);
 					this.paths1 = files.data.paths;
 				}
 			});

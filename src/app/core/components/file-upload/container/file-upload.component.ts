@@ -104,7 +104,7 @@ export class FileUploadComponent {
 		for (const item of files) {
 			item.progress = 0;
 			this.files.push(item);
-			console.log('image', files);
+			// console.log('image', files);
 		}
 
 		this.uploadFilesSimulator(0);
@@ -174,12 +174,12 @@ export class FileUploadComponent {
 					this.error = 'You have no output video device';
 				}
 			} catch (e) {
-				console.log('webcam', e);
+				// console.log('webcam', e);
 
 				this.error = e;
 			}
 		}
-		console.log('webcam', this.error);
+		// console.log('webcam', this.error);
 	}
 
 	drawImageToCanvas(image: any) {

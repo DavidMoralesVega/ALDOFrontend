@@ -3,9 +3,9 @@ export function isFileExtensionValid(file: File, acceptedExtensions: string): bo
 	const acceptedExtensionsArray = acceptedExtensions
 		.split(',')
 		.map((ext) => ext.trim().toLowerCase());
-	console.log('acceptedExtensionsArray', acceptedExtensionsArray);
+	// console.log('acceptedExtensionsArray', acceptedExtensionsArray);
 
-	console.log('calidate extension', acceptedExtensionsArray.includes(fileExtension));
+	// console.log('calidate extension', acceptedExtensionsArray.includes(fileExtension));
 
 	return acceptedExtensionsArray.includes(fileExtension);
 }

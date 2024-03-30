@@ -51,9 +51,6 @@ export class UserCreateUpdateComponent extends ZBaseService {
 
 		if (this.payloadDialog.action === ZDialogAction.update && this.payloadDialog) {
 			const { z } = this.payloadDialog;
-			console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
-			console.log(z);
-			console.log('%c Result<==============================>! ', 'color: red; font-size: 40px');
 			this.zForm.patchValue({ ...z });
 		}
 	}
