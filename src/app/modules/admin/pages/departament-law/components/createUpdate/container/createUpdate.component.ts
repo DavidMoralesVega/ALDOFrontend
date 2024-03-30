@@ -74,7 +74,11 @@ export class DepartamentLawCreateUpdateComponent extends ZBaseService {
 
 		if (this.payloadDialog.action === ZDialogAction.update && this.payloadDialog) {
 			const { z } = this.payloadDialog;
-			this.zForm.patchValue({ ...z });
+			const dtissueDate = new Date(z.dtissueDate);
+			dtissueDate.setDate(dtissueDate.getDate() + 1);
+			const dtpublicationdate = new Date(z.dtpublicationdate);
+			dtpublicationdate.setDate(dtpublicationdate.getDate() + 1);
+			this.zForm.patchValue({ ...z, dtissueDate, dtpublicationdate });
 		}
 	}
 

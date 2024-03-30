@@ -71,7 +71,11 @@ export class ResolutionsCreateUpdateComponent extends ZBaseService {
 
 		if (this.payloadDialog.action === ZDialogAction.update && this.payloadDialog) {
 			const { z } = this.payloadDialog;
-			this.zForm.patchValue({ ...z });
+			const REIssueDate = new Date(z.REIssueDate);
+			REIssueDate.setDate(REIssueDate.getDate() + 1);
+			const REPublicationDate = new Date(z.REPublicationDate);
+			REPublicationDate.setDate(REPublicationDate.getDate() + 1);
+			this.zForm.patchValue({ ...z, REIssueDate, REPublicationDate });
 		}
 	}
 

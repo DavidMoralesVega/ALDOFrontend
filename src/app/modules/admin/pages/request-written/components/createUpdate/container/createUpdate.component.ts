@@ -1,7 +1,7 @@
 import { Component, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Pagination, ZListModalidad, ZListSesiones, Response } from 'src/app/core/entities';
+import { Pagination, Response } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { ZBaseService } from 'src/app/core/services/base.service';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -9,7 +9,6 @@ import { CreateFileUploadDto, FileUploadComponent } from 'src/app/core/component
 import { ZDialogAction, ZPayloadDialog } from 'src/app/core/utils/adapters/Object.adapter';
 import { LegislatureFacade } from '../../../../legislature/facades/legislature.facade';
 import { LegislatureAdapter } from '../../../../legislature/entities';
-import { ZE_Patterns } from 'src/app/core/constants/patterns.enum';
 import { RequestWrittenFacade } from '../../../facades/request-written.facade';
 import {
 	CreateRequestWrittenDto,
@@ -73,7 +72,11 @@ export class RequestWrittenCreateUpdateComponent extends ZBaseService {
 
 		if (this.payloadDialog.action === ZDialogAction.update && this.payloadDialog) {
 			const { z } = this.payloadDialog;
-			this.zForm.patchValue({ ...z });
+			const RWIssueDate = new Date(z.RWIssueDate);
+			RWIssueDate.setDate(RWIssueDate.getDate() + 1);
+			const RWPublicationDate = new Date(z.RWPublicationDate);
+			RWPublicationDate.setDate(RWPublicationDate.getDate() + 1);
+			this.zForm.patchValue({ ...z, RWIssueDate, RWPublicationDate });
 		}
 	}
 
