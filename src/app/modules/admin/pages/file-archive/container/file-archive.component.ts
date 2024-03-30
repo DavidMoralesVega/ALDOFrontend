@@ -63,7 +63,7 @@ export class FileArchiveComponent {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
 				next: (response: Response<FilesArchive[]> | null) => {
-					console.log({ response });
+					// console.log({ response });
 					setTimeout(() => {
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;

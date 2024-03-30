@@ -74,7 +74,7 @@ export class ResolutionsComponent implements OnInit {
 			this.findAllResponse$.subscribe({
 				next: (response: Response<Resolution[]> | null) => {
 					setTimeout(() => {
-						console.log(response);
+						// console.log(response);
 
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;

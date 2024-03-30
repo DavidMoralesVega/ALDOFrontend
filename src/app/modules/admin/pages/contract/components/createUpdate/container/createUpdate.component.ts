@@ -58,7 +58,9 @@ export class ContractCreateUpdateComponent extends ZBaseService {
 
 		if (this.payloadDialog.action === ZDialogAction.update && this.payloadDialog) {
 			const { z } = this.payloadDialog;
-			this.zForm.patchValue({ ...z });
+			const date = new Date(z.CTIssueDate);
+			date.setDate(date.getDate() + 1);
+			this.zForm.patchValue({ ...z, CTIssueDate: date });
 		}
 	}
 	get CTTitle() {

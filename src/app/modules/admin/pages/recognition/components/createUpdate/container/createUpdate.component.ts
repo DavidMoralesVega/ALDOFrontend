@@ -52,7 +52,13 @@ export class RecognitionCreateUpdateComponent extends ZBaseService {
 
 		if (this.payloadDialog.action === ZDialogAction.update && this.payloadDialog) {
 			const { z } = this.payloadDialog;
-			this.zForm.patchValue({ ...z });
+			const REventDate = new Date(z.REventDate);
+			REventDate.setDate(REventDate.getDate() + 1);
+			const RIssueDate = new Date(z.RIssueDate);
+			RIssueDate.setDate(RIssueDate.getDate() + 1);
+			const RPublicationDate = new Date(z.RPublicationDate);
+			RPublicationDate.setDate(RPublicationDate.getDate() + 1);
+			this.zForm.patchValue({ ...z, REventDate, RIssueDate, RPublicationDate });
 		}
 	}
 
