@@ -43,9 +43,9 @@
 
 				<mat-form-field class="col-lg-8" appearance="outline">
 					<mat-label>Título</mat-label>
-					<input matInput maxlength="40" formControlName="dttitle" placeholder="Título" />
-					<mat-hint align="start">Máximo 40 carácteres. </mat-hint>
-					<mat-hint align="end">{{ dttitle.value.length }} / 40</mat-hint>
+					<input matInput maxlength="100" formControlName="dttitle" placeholder="Título" />
+					<mat-hint align="start">Máximo 100 carácteres. </mat-hint>
+					<mat-hint align="end">{{ dttitle.value.length }} / 100</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(dttitle, null)">
 						<span *ngIf="dttitle.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
@@ -54,7 +54,7 @@
 
 						<span *ngIf="dttitle.errors?.['maxlength']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							Máximo 40 carácteres.
+							Máximo 100 carácteres.
 						</span>
 					</mat-error>
 				</mat-form-field>
