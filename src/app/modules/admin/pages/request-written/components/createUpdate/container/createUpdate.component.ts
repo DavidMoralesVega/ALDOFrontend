@@ -62,8 +62,8 @@ export class RequestWrittenCreateUpdateComponent extends ZBaseService {
 	}
 	initFormCreate(): void {
 		this.zForm = new FormGroup({
-			RWTitle: new FormControl('', [Validators.required, Validators.maxLength(40)]),
-			RWSummary: new FormControl('', [Validators.required, Validators.maxLength(40)]),
+			RWTitle: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+			RWSummary: new FormControl('', [Validators.required]),
 			RWPublicationDate: new FormControl('', [Validators.required]),
 			RWIssueDate: new FormControl('', [Validators.required]),
 			RWVisibility: new FormControl('Público', [Validators.required]),

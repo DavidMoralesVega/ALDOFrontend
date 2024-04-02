@@ -33,8 +33,8 @@ export class CategoryCreateComponent extends ZBaseService {
 		this.formCreate = new FormGroup({
 			cat_nombre: new FormControl('', [
 				Validators.required,
-				Validators.maxLength(50),
-				Validators.pattern('[a-zA-Z]{1,50}')
+				Validators.maxLength(100),
+				Validators.pattern('[a-zA-Z]{1,100}')
 			])
 		});
 	}

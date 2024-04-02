@@ -49,8 +49,8 @@ export class ContractCreateUpdateComponent extends ZBaseService {
 	}
 	initFormCreate(): void {
 		this.zForm = new FormGroup({
-			CTTitle: new FormControl('', [Validators.required, Validators.maxLength(40)]),
-			CTSummary: new FormControl('', [Validators.required, Validators.maxLength(40)]),
+			CTTitle: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+			CTSummary: new FormControl('', [Validators.required]),
 			CTIssueDate: new FormControl('', [Validators.required]),
 			CTDocumentNumber: new FormControl('', [Validators.required]),
 			CTType: new FormControl('', [Validators.required])

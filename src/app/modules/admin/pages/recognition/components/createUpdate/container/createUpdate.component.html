@@ -26,9 +26,9 @@
 				<mat-form-field class="col-lg-12" appearance="outline">
 					<mat-label>Título</mat-label>
 
-					<input matInput maxlength="40" formControlName="RTitle" placeholder="Título" />
-					<mat-hint align="start">Máximo 40 caracteres. </mat-hint>
-					<mat-hint align="end">{{ RTitle.value.length }} / 40</mat-hint>
+					<input matInput maxlength="100" formControlName="RTitle" placeholder="Título" />
+					<mat-hint align="start">Máximo 100 caracteres. </mat-hint>
+					<mat-hint align="end">{{ RTitle.value.length }} / 100</mat-hint>
 					<mat-error *ngIf="errorMatcher.isErrorState(RTitle, null)">
 						<span *ngIf="RTitle.errors?.['required']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
@@ -37,7 +37,7 @@
 
 						<span *ngIf="RTitle.errors?.['maxlength']">
 							<i class="fas fa-exclamation-circle mr-1"></i>
-							Máximo 40 caracteres.
+							Máximo 100 caracteres.
 						</span>
 					</mat-error>
 				</mat-form-field>

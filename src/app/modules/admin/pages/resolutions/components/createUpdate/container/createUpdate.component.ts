@@ -59,8 +59,8 @@ export class ResolutionsCreateUpdateComponent extends ZBaseService {
 	}
 	initFormCreate(): void {
 		this.zForm = new FormGroup({
-			RETitle: new FormControl('', [Validators.required, Validators.maxLength(40)]),
-			RESummary: new FormControl('', [Validators.required, Validators.maxLength(40)]),
+			RETitle: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+			RESummary: new FormControl('', [Validators.required]),
 			REPublicationDate: new FormControl('', [Validators.required]),
 			REIssueDate: new FormControl('', [Validators.required]),
 			REDocumentNumber: new FormControl('', [Validators.required]),

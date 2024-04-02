@@ -42,8 +42,8 @@ export class RecognitionCreateUpdateComponent extends ZBaseService {
 	}
 	initFormCreate(): void {
 		this.zForm = new FormGroup({
-			RTitle: new FormControl('', [Validators.required, Validators.maxLength(40)]),
-			RSummary: new FormControl('', [Validators.required, Validators.maxLength(40)]),
+			RTitle: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+			RSummary: new FormControl('', [Validators.required]),
 			RPublicationDate: new FormControl('', [Validators.required]),
 			RIssueDate: new FormControl('', [Validators.required]),
 			REventDate: new FormControl('', [Validators.required]),
@@ -116,7 +116,7 @@ export class RecognitionCreateUpdateComponent extends ZBaseService {
 
 	openFileUpload(): void {
 		const createFileUploadDto: CreateFileUploadDto = {
-			directory: 'Recognition',
+			directory: 'recognition',
 			maxSize: '2',
 			acceptedExtensions: 'application/pdf',
 			multiple: false
