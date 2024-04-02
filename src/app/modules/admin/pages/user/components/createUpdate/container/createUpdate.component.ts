@@ -29,7 +29,6 @@ export class UserCreateUpdateComponent extends ZBaseService {
 		@Inject(MAT_DIALOG_DATA) readonly payloadDialog: ZPayloadDialog<UserAdapter>
 	) {
 		super();
-
 		this.title =
 			this.payloadDialog.action === ZDialogAction.create
 				? 'Crear Usuario'
@@ -51,7 +50,8 @@ export class UserCreateUpdateComponent extends ZBaseService {
 
 		if (this.payloadDialog.action === ZDialogAction.update && this.payloadDialog) {
 			const { z } = this.payloadDialog;
-			this.zForm.patchValue({ ...z });
+			const Password = '';
+			this.zForm.patchValue({ ...z, Password });
 		}
 	}
 
