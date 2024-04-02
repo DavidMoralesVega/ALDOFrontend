@@ -9,9 +9,12 @@
 	<form [formGroup]="zForm" (ngSubmit)="action()" novalidate="novalidate" autocomplete="off">
 		<div mat-dialog-content>
 			<div class="row">
-				<mat-form-field class="col-lg-12" appearance="outline">
+				<mat-form-field
+					class="col-lg-12"
+					appearance="outline"
+					*ngIf="!(this.payloadDialog.action === 'update')"
+				>
 					<mat-label>Correo electrónico</mat-label>
-
 					<input matInput maxlength="40" formControlName="Email" placeholder="Correo" />
 					<mat-error *ngIf="errorMatcher.isErrorState(Email, null)">
 						<span *ngIf="Email.errors?.['required']">
