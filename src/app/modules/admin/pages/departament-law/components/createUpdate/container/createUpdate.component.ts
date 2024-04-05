@@ -62,12 +62,12 @@ export class DepartamentLawCreateUpdateComponent extends ZBaseService {
 	}
 	initFormCreate(): void {
 		this.zForm = new FormGroup({
-			dttitle: new FormControl('', [Validators.required, Validators.maxLength(40)]),
-			dtsummary: new FormControl('', [Validators.required, Validators.maxLength(40)]),
+			dttitle: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+			dtsummary: new FormControl('', [Validators.required]),
 			dtpublicationdate: new FormControl(new Date(), [Validators.required]),
 			dtissueDate: new FormControl('', [Validators.required]),
 			DTDocumentNumber: new FormControl('', [Validators.required]),
-			dtarea: new FormControl('', [Validators.required]),
+			dtarea: new FormControl('', [Validators.required, Validators.maxLength(100)]),
 			dtvisibility: new FormControl('Público', [Validators.required]),
 			legislatura: new FormControl('', [Validators.required])
 		});

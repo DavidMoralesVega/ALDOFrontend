@@ -30,7 +30,11 @@
 				class="bg-image hover-overlay ripple shadow-2-strong rounded-5"
 				data-mdb-ripple-color="light"
 			>
-				<img src="{{ post.post_fotografia | staticFileNew }}" class="img-fluid rounded-5" />
+				<img
+					src="{{ post.post_fotografia | staticFileNew }}"
+					class="img-fluid rounded-5"
+					style="height: 600px !important; width: 100%"
+				/>
 				<a href="#!">
 					<div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
 				</a>
