@@ -230,7 +230,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 		title: 'Mesa Directiva',
 		children: [
 			{
-				name: 'Esperanza Mamani Ajhuacho',
 				role: 'PRESIDENTE',
 				img: 'directiva/PRESIDENTE.png',
 				col: '12',
@@ -238,7 +237,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Erwin Vargas Chacon',
 				role: 'VICEPRESIDENTE',
 				img: 'directiva/VICEPRESIDENTE.png',
 				col: '3',
@@ -246,7 +244,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Anabel Bernarda Chambi Laura',
 				role: 'SECRETARIO',
 				img: 'directiva/SECRETARIO.png',
 				col: '3',
@@ -254,7 +251,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Miguel Mauricio Choque',
 				role: 'VOCAL1',
 				img: 'directiva/VOCAL1.png',
 				col: '3',
@@ -262,7 +258,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Ana Tarqui Adrian',
 				role: 'VOCAL2',
 				img: 'directiva/VOCAL2.png',
 				col: '3',
@@ -278,7 +273,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 		title: 'Constitución, Desarrollo Legislativo, Sistema Electoral y Justicia',
 		children: [
 			{
-				name: 'Ronmie Villca Altamirano',
 				role: 'PRESIDENTE',
 				img: 'constitucion/PRESIDENTE.png',
 				col: '12',
@@ -286,7 +280,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Marina Quispe Choque',
 				role: 'VICEPRESIDENTE',
 				img: 'constitucion/VICEPRESIDENTE.png',
 				col: '4',
@@ -294,7 +287,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Francisca Luisa Rufino Calizaya',
 				role: 'SECRETARIO',
 				img: 'constitucion/SECRETARIO.png',
 				col: '4',
@@ -302,7 +294,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Natividad Cruz Acurana',
 				role: 'VOCAL',
 				img: 'constitucion/VOCAL.png',
 				col: '4',
@@ -318,7 +309,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 		title: 'Planificación, Política Económica y Finanzas Publicas',
 		children: [
 			{
-				name: 'Maria Carolina Lino Condori',
 				role: 'PRESIDENTE',
 				img: 'planificacion/PRESIDENTE.png',
 				col: '12',
@@ -326,7 +316,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Hugo Huanca Choque',
 				role: 'VICEPRESIDENTE',
 				img: 'planificacion/VICEPRESIDENTE.png',
 				col: '4',
@@ -334,7 +323,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Maria Mamani Molina',
 				role: 'SECRETARIO',
 				img: 'planificacion/SECRETARIO.png',
 				col: '4',
@@ -342,7 +330,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Edgar Alex Huanca Guanay',
 				role: 'VOCAL',
 				img: 'planificacion/VOCAL.png',
 				col: '4',
@@ -357,7 +344,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 		title: 'Infraestructura y Obra Públicas de Desarrollo',
 		children: [
 			{
-				name: 'Jhoselin Anconi Chambi',
 				role: 'PRESIDENTE',
 				img: 'infraestructura/PRESIDENTE.png',
 				col: '12',
@@ -365,7 +351,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Armando Barrera Choqueticlla',
 				role: 'VICEPRESIDENTE',
 				img: 'infraestructura/VICEPRESIDENTE.png',
 				col: '4',
@@ -373,7 +358,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'David Dante Choque Zegarra',
 				role: 'SECRETARIO',
 				img: 'infraestructura/SECRETARIO.png',
 				col: '4',
@@ -381,7 +365,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Teodoro Calizaya Choquerive',
 				role: 'VOCAL',
 				img: 'infraestructura/VOCAL.png',
 				col: '4',
@@ -396,7 +379,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 		title: 'Minería e Hidrocarburos, Recursos Naturales, Producción Industria, Comercio y Servicios',
 		children: [
 			{
-				name: 'Edwin Fuentes Camacho',
 				role: 'PRESIDENTE',
 				img: 'mineria/PRESIDENTE.png',
 				col: '12',
@@ -404,7 +386,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Freddy Castillo Chavez',
 				role: 'VICEPRESIDENTE',
 				img: 'mineria/VICEPRESIDENTE.png',
 				col: '6',
@@ -412,7 +393,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Ramon Raul Caro Santos',
 				role: 'SECRETARIO',
 				img: 'mineria/SECRETARIO.png',
 				col: '6',
@@ -427,7 +407,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 		title: 'Autonomía, Organización Territorial y Límites',
 		children: [
 			{
-				name: 'Zulma Arellano Choquetopa',
 				role: 'PRESIDENTE',
 				img: 'autonomia/PRESIDENTE.png',
 				col: '12',
@@ -435,7 +414,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Nicolas Choque Colque',
 				role: 'VICEPRESIDENTE',
 				img: 'autonomia/VICEPRESIDENTE.png',
 				col: '6',
@@ -443,7 +421,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Delia Gongora Veliz',
 				role: 'SECRETARIO',
 				img: 'autonomia/SECRETARIO.png',
 				col: '6',
@@ -459,7 +436,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 		title: 'Relaciones Intergubernamentales e Internacionales',
 		children: [
 			{
-				name: 'Franz Jhonny Ochoa Yucra',
 				role: 'PRESIDENTE',
 				img: 'relaciones/PRESIDENTE.png',
 				col: '12',
@@ -467,7 +443,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Mirian Lucia Rocha Canaviri',
 				role: 'VICEPRESIDENTE',
 				img: 'relaciones/VICEPRESIDENTE.png',
 				col: '4',
@@ -475,7 +450,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Jhnony Fernandez Calani',
 				role: 'SECRETARIO',
 				img: 'relaciones/SECRETARIO.png',
 				col: '4',
@@ -483,7 +457,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Roman Brito',
 				role: 'VOCAL',
 				img: 'relaciones/VOCAL.png',
 				col: '4',
@@ -499,7 +472,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 		title: 'Educación, Salud, Derechos Humanos y Política Social',
 		children: [
 			{
-				name: 'Maxima Apaza Luna',
 				role: 'PRESIDENTE',
 				img: 'educacion/PRESIDENTE.png',
 				col: '12',
@@ -507,7 +479,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Juana Gabriela Escarzo Mamani',
 				role: 'VICEPRESIDENTE',
 				img: 'educacion/VICEPRESIDENTE.png',
 				col: '6',
@@ -515,7 +486,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Alfredo Acapa Colque',
 				role: 'SECRETARIO',
 				img: 'educacion/SECRETARIO.png',
 				col: '6',
@@ -531,7 +501,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 		title: 'Medio Ambiente, Desarrollo Rural Integral Sustentable y Soberanía Alimentaria',
 		children: [
 			{
-				name: 'Jose Luis Aranibar Araviri',
 				role: 'PRESIDENTE',
 				img: 'ambiente/PRESIDENTE.png',
 				col: '12',
@@ -539,7 +508,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Freddy Raul Ramos Quispe',
 				role: 'VICEPRESIDENTE',
 				img: 'ambiente/VICEPRESIDENTE.png',
 				col: '6',
@@ -547,7 +515,6 @@ export const ZListCardCommissions: IZPathCard[] = [
 				width: '200'
 			},
 			{
-				name: 'Ausberto Condori Choque',
 				role: 'VOCAL',
 				img: 'ambiente/VOCAL.png',
 				col: '6',
