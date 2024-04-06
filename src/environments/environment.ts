@@ -1,6 +1,6 @@
 const config = {
 	protocol: 'http',
-	host: '192.168.1.101',
+	host: '192.168.1.100',
 	port: 3000,
 	api: 'api/v1'
 };

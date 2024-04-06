@@ -8,8 +8,8 @@ export class StaticFilePipe implements PipeTransform {
 	private ZPServerPoint: string = point.server;
 
 	transform(resource: string): string {
-		return `${this.ZPServerPoint}/files/${resource}`;
+		// return `${this.ZPServerPoint}/files/${resource}`;
 		// return `${this.ZPServerPoint}/${resource}`;
-		// return `${this.ZPServerPoint}/zephyrus-file-upload/${resource}`;
+		return `${this.ZPServerPoint}/zephyrus-file-upload/${resource}`;
 	}
 }
