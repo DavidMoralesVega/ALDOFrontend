@@ -1,15 +1,15 @@
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { Category, CreateCategoryDto, UpdateCategoryDto } from '../entities';
+import { Category, CategoryAdapter, CreateCategoryDto, UpdateCategoryDto } from '../entities';
 
 export interface CategoryState {
 	create: {
 		createCategoryDto: CreateCategoryDto | null;
 		exception: Exception | null;
 		isLoading: boolean;
-		response: Response<Category> | null;
+		response: Response<CategoryAdapter> | null;
 	};
 	findAll: {
-		response: Response<Category[]> | null;
+		response: Response<CategoryAdapter[]> | null;
 		exception: Exception | null;
 		isLoading: boolean;
 		pagination: Pagination | null;
@@ -17,7 +17,7 @@ export interface CategoryState {
 	findOne: {
 		exception: Exception | null;
 		isLoading: boolean;
-		response: Response<Category> | null;
+		response: Response<CategoryAdapter> | null;
 		id: string | null;
 	};
 	update: {
@@ -25,7 +25,7 @@ export interface CategoryState {
 		exception: Exception | null;
 		id: string | undefined;
 		isLoading: boolean;
-		response: Response<Category> | null;
+		response: Response<CategoryAdapter> | null;
 	};
 }
 

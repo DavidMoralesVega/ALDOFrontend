@@ -7,7 +7,12 @@ import * as zActions from './category.action';
 import { MatSnackBarService } from 'src/app/core/services/mat-snack-bar.service';
 import { Payload, PayloadUpdate } from 'src/app/core/entities/adapters/object.adapter';
 import { CategoryService } from '../services/category.service';
-import { Category, CreateCategoryDto, UpdateCategoryDto } from '../entities/models/category.model';
+import {
+	Category,
+	CategoryAdapter,
+	CreateCategoryDto,
+	UpdateCategoryDto
+} from '../entities/models/category.model';
 
 @Injectable()
 export class CategoryEffects {
@@ -23,7 +28,7 @@ export class CategoryEffects {
 				ofType(zActions.CATEGORY_CREATE_REQUESTED),
 				switchMap((action: Payload<CreateCategoryDto>) =>
 					this.CategoryService.create(action.payload).pipe(
-						map((response: Response<Category>) => {
+						map((response: Response<CategoryAdapter>) => {
 							this.matSnackBarService.open('success', ZMessages.success);
 							return zActions.CATEGORY_CREATE_LOADED({
 								payload: response
@@ -48,7 +53,7 @@ export class CategoryEffects {
 				ofType(zActions.CATEGORY_FIND_ALL_REQUESTED),
 				mergeMap((action: Payload<Pagination>) =>
 					this.CategoryService.findAll(action.payload).pipe(
-						map((response: Response<Category[]>) => {
+						map((response: Response<CategoryAdapter[]>) => {
 							return zActions.CATEGORY_FIND_ALL_LOADED({
 								payload: response
 							});
@@ -71,7 +76,7 @@ export class CategoryEffects {
 				ofType(zActions.CATEGORY_FIND_ONE_REQUESTED),
 				mergeMap((action: Payload<string>) =>
 					this.CategoryService.findOne(action.payload).pipe(
-						map((response: Response<Category>) =>
+						map((response: Response<CategoryAdapter>) =>
 							zActions.CATEGORY_FIND_ONE_LOADED({
 								payload: response
 							})
@@ -94,7 +99,7 @@ export class CategoryEffects {
 				ofType(zActions.CATEGORY_UPDATE_REQUESTED),
 				switchMap((action: PayloadUpdate<UpdateCategoryDto, string>) => {
 					return this.CategoryService.update(action.id || '', action.payload).pipe(
-						map((response: Response<Category>) => {
+						map((response: Response<CategoryAdapter>) => {
 							this.matSnackBarService.open('success', ZMessages.success);
 							return zActions.CATEGORY_UPDATE_LOADED({
 								payload: response
