@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 import { Pagination, Response } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
-import { Category } from '../../../../category/entities/';
+import { Category, CategoryAdapter } from '../../../../category/entities/';
 import { CategoryFacade } from '../../../../category/facades/category.facade';
 import { PostFacade } from '../../../facades/post.facade';
 import { PayloadFile } from 'src/app/core/entities';
@@ -22,7 +22,7 @@ export class PostCreateComponent extends ZBaseService {
 
 	public createIsLoading$: Observable<boolean>;
 	public paths: any[] = [];
-	public categoryFindAllResponse$: Observable<Response<Category[]> | null>;
+	public categoryFindAllResponse$: Observable<Response<CategoryAdapter[]> | null>;
 	public categoryFindAllIsLoading$: Observable<boolean>;
 
 	private pagination: Pagination = {
@@ -45,6 +45,23 @@ export class PostCreateComponent extends ZBaseService {
 		this.categoryFindAllIsLoading$ = this.categoryFacade.findAllIsLoading$;
 		this.categoryFindAllResponse$ = this.categoryFacade.findAllResponse$;
 		this.createIsLoading$ = postFacade.createIsLoading$;
+
+		this.categoryFacade.findAllResponse$.subscribe((itemL: any) => {
+			if (itemL && itemL.data) {
+				const filteredData = itemL.data.filter((item: CategoryAdapter) => item.cat_estado);
+				const response: Response<CategoryAdapter[]> = {
+					isArray: itemL.isArray,
+					path: itemL.path,
+					duration: itemL.duration,
+					method: itemL.method,
+					data: filteredData
+				};
+
+				this.categoryFindAllResponse$ = from([response]);
+			} else {
+				this.categoryFindAllResponse$ = of(null);
+			}
+		});
 	}
 
 	ngOnInit(): void {

@@ -1,13 +1,13 @@
 import { Component, inject, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
-import { Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { Post, PostForeignAdapter, UpdatePostDto } from '../../../entities';
 import { Pagination, Response } from 'src/app/core/entities';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { PostFacade } from '../../../facades/post.facade';
 import { CategoryFacade } from '../../../../category/facades/category.facade';
-import { Category } from '../../../../category/entities';
+import { Category, CategoryAdapter } from '../../../../category/entities';
 import { ZBaseService } from 'src/app/core/services/base.service';
 import { CreateFileUploadDto, FileUploadComponent } from 'src/app/core/components/file-upload/z';
 
@@ -21,7 +21,7 @@ export class PostUpdateComponent extends ZBaseService {
 
 	public updateIsLoading$: Observable<boolean>;
 	public paths: any[] = [];
-	public categoryFindAllResponse$: Observable<Response<Category[]> | null>;
+	public categoryFindAllResponse$: Observable<Response<CategoryAdapter[]> | null>;
 	public categoryFindAllIsLoading$: Observable<boolean>;
 
 	private pagination: Pagination = {
@@ -44,6 +44,23 @@ export class PostUpdateComponent extends ZBaseService {
 		this.categoryFacade.findAll(this.pagination);
 		this.categoryFindAllIsLoading$ = this.categoryFacade.findAllIsLoading$;
 		this.categoryFindAllResponse$ = this.categoryFacade.findAllResponse$;
+
+		this.categoryFacade.findAllResponse$.subscribe((itemL: any) => {
+			if (itemL && itemL.data) {
+				const filteredData = itemL.data.filter((item: CategoryAdapter) => item.cat_estado);
+				const response: Response<CategoryAdapter[]> = {
+					isArray: itemL.isArray,
+					path: itemL.path,
+					duration: itemL.duration,
+					method: itemL.method,
+					data: filteredData
+				};
+
+				this.categoryFindAllResponse$ = from([response]);
+			} else {
+				this.categoryFindAllResponse$ = of(null);
+			}
+		});
 	}
 
 	ngOnInit(): void {

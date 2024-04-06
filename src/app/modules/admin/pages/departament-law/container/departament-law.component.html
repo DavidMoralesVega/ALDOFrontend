@@ -47,6 +47,11 @@
 				<td mat-cell *matCellDef="let row">{{ row.dttitle }}</td>
 			</ng-container>
 
+			<ng-container matColumnDef="IdreqRLeg">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Legislatura</th>
+				<td mat-cell *matCellDef="let row">{{ row.legislatura.LegDescripcion }}</td>
+			</ng-container>
+
 			<ng-container matColumnDef="DTSummary">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Resumen</th>
 				<td mat-cell *matCellDef="let row">{{ row.dtsummary }}</td>

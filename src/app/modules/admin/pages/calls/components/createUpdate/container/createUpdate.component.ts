@@ -1,6 +1,6 @@
 import { Component, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 import { Pagination, ZListModalidad, ZListSesiones, Response } from 'src/app/core/entities';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { ZBaseService } from 'src/app/core/services/base.service';
@@ -56,6 +56,23 @@ export class CallCreateUpdateComponent extends ZBaseService {
 		this.createIsLoading$ = callFacade.createIsLoading$;
 		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
 		this.legislatureFindAllResponse$ = this.legislatureFacade.findAllResponse$;
+
+		this.legislatureFacade.findAllResponse$.subscribe((itemL: any) => {
+			if (itemL && itemL.data) {
+				const filteredData = itemL.data.filter((item: LegislatureAdapter) => item.LegEstado);
+				const response: Response<LegislatureAdapter[]> = {
+					isArray: itemL.isArray,
+					path: itemL.path,
+					duration: itemL.duration,
+					method: itemL.method,
+					data: filteredData
+				};
+
+				this.legislatureFindAllResponse$ = from([response]);
+			} else {
+				this.legislatureFindAllResponse$ = of(null);
+			}
+		});
 	}
 	ngOnInit(): void {
 		this.initFormCreate();

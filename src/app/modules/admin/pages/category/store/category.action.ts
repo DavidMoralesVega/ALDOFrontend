@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { Exception, Payload, PayloadUpdate, Response } from 'src/app/core/entities';
-import { CreateCategoryDto, UpdateCategoryDto, Category } from '../entities';
+import { CreateCategoryDto, UpdateCategoryDto, Category, CategoryAdapter } from '../entities';
 import { Pagination } from 'src/app/core/entities/interfaces/pagination.interface';
 
 export enum CategoryActionTypes {
@@ -33,7 +33,7 @@ export const CATEGORY_CREATE_REQUESTED = createAction(
 
 export const CATEGORY_CREATE_LOADED = createAction(
 	CategoryActionTypes.CATEGORY_CREATE_LOADED,
-	props<Payload<Response<Category>>>()
+	props<Payload<Response<CategoryAdapter>>>()
 );
 
 export const CATEGORY_CREATE_FAILED = createAction(
@@ -49,7 +49,7 @@ export const CATEGORY_FIND_ALL_REQUESTED = createAction(
 
 export const CATEGORY_FIND_ALL_LOADED = createAction(
 	CategoryActionTypes.CATEGORY_FIND_ALL_LOADED,
-	props<Payload<Response<Category[]>>>()
+	props<Payload<Response<CategoryAdapter[]>>>()
 );
 
 export const CATEGORY_FIND_ALL_FAILED = createAction(
@@ -65,7 +65,7 @@ export const CATEGORY_FIND_ONE_REQUESTED = createAction(
 
 export const CATEGORY_FIND_ONE_LOADED = createAction(
 	CategoryActionTypes.CATEGORY_FIND_ONE_LOADED,
-	props<Payload<Response<Category>>>()
+	props<Payload<Response<CategoryAdapter>>>()
 );
 
 export const CATEGORY_FIND_ONE_FAILED = createAction(
@@ -81,7 +81,7 @@ export const CATEGORY_UPDATE_REQUESTED = createAction(
 
 export const CATEGORY_UPDATE_LOADED = createAction(
 	CategoryActionTypes.CATEGORY_UPDATE_LOADED,
-	props<Payload<Response<Category>>>()
+	props<Payload<Response<CategoryAdapter>>>()
 );
 
 export const CATEGORY_UPDATE_FAILED = createAction(

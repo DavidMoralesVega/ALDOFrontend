@@ -7,6 +7,7 @@ import { ZI_Response } from 'src/app/core/entities';
 @Injectable()
 export class ZUploadService {
 	private readonly ZUpload: string = `http://192.168.1.101:3000/api/v1/zephyrus-file-upload`;
+	// private readonly ZUpload: string = `http://localhost:3000/api/v1/zephyrus-file-upload`;
 	private readonly httpClient = inject(HttpClient);
 
 	constructor() {}
