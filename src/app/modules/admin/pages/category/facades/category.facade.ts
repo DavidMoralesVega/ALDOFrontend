@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Exception, Pagination, Response } from 'src/app/core/entities';
-import { Category, CreateCategoryDto, UpdateCategoryDto } from '../entities';
+import { Category, CategoryAdapter, CreateCategoryDto, UpdateCategoryDto } from '../entities';
 import * as zSelector from '../store/category.selectors';
 import { CategoryState } from '../store/category.state';
 import {
@@ -18,26 +18,26 @@ export class CategoryFacade {
 	public createDto$: Observable<CreateCategoryDto | null>;
 	public createException$: Observable<Exception | null>;
 	public createIsLoading$: Observable<boolean>;
-	public createResponse$: Observable<Response<Category> | null>;
+	public createResponse$: Observable<Response<CategoryAdapter> | null>;
 
 	// findAll
 	public findAllPagination$: Observable<Pagination | null>;
 	public findAllException$: Observable<Exception | null>;
 	public findAllIsLoading$: Observable<boolean>;
-	public findAllResponse$: Observable<Response<Category[]> | null>;
+	public findAllResponse$: Observable<Response<CategoryAdapter[]> | null>;
 
 	// findOne
 	public findOneId$: Observable<string | null>;
 	public findOneException$: Observable<Exception | null>;
 	public findOneIsLoading$: Observable<boolean>;
-	public findOneResponse$: Observable<Response<Category> | null>;
+	public findOneResponse$: Observable<Response<CategoryAdapter> | null>;
 
 	// update
 	public updateDto$: Observable<UpdateCategoryDto | null>;
 	public updateId$: Observable<string | undefined>;
 	public updateException$: Observable<Exception | null>;
 	public updateIsLoading$: Observable<boolean>;
-	public updateResponse$: Observable<Response<Category> | null>;
+	public updateResponse$: Observable<Response<CategoryAdapter> | null>;
 
 	constructor(private readonly store: Store<CategoryState>) {
 		// create

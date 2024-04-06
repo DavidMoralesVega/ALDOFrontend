@@ -25,6 +25,7 @@ export class CallsComponent implements OnInit {
 	public readonly displayedColumns: string[] = [
 		'call_id',
 		'call_title',
+		'IdreqRLeg',
 		'call_modality',
 		'call_numSession',
 		'call_dateUpdate',

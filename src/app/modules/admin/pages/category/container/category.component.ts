@@ -15,11 +15,11 @@ import { CategoryUpdateComponent } from '../components/category-update/container
 	templateUrl: './category.component.html'
 })
 export class CategoryComponent implements OnInit {
-	public findAllResponse$: Observable<Response<Category[]> | null>;
+	public findAllResponse$: Observable<Response<CategoryAdapter[]> | null>;
 	public findAllIsLoading$: Observable<boolean>;
 	public updateIsLoading$: Observable<boolean>;
 
-	public dataSource!: MatTableDataSource<Category>;
+	public dataSource!: MatTableDataSource<CategoryAdapter>;
 	private subscriptors: Subscription[] = [];
 
 	public readonly displayedColumns: string[] = [
@@ -59,7 +59,7 @@ export class CategoryComponent implements OnInit {
 	findAll() {
 		this.subscriptors.push(
 			this.findAllResponse$.subscribe({
-				next: (response: Response<Category[]> | null) => {
+				next: (response: Response<CategoryAdapter[]> | null) => {
 					setTimeout(() => {
 						this.dataSource = new MatTableDataSource(response?.data);
 						this.dataSource.paginator = this.paginator;

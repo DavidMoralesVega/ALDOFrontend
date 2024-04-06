@@ -1,7 +1,7 @@
 import { Component, inject, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { DefaultErrorMatcher } from 'src/app/core/shared/default.error-matcher';
 import { RequestReportsFacade } from '../../../facades/request-reports.facade';
 import {
@@ -53,6 +53,23 @@ export class RequestReportsUpdateComponent extends ZBaseService {
 		this.updateIsLoading$ = requestReportsFacade.updateIsLoading$;
 		this.legislatureFindAllIsLoading$ = this.legislatureFacade.findAllIsLoading$;
 		this.legislatureFindAllResponse$ = this.legislatureFacade.findAllResponse$;
+
+		this.legislatureFacade.findAllResponse$.subscribe((itemL: any) => {
+			if (itemL && itemL.data) {
+				const filteredData = itemL.data.filter((item: LegislatureAdapter) => item.LegEstado);
+				const response: Response<LegislatureAdapter[]> = {
+					isArray: itemL.isArray,
+					path: itemL.path,
+					duration: itemL.duration,
+					method: itemL.method,
+					data: filteredData
+				};
+
+				this.legislatureFindAllResponse$ = from([response]);
+			} else {
+				this.legislatureFindAllResponse$ = of(null);
+			}
+		});
 	}
 
 	ngOnInit(): void {

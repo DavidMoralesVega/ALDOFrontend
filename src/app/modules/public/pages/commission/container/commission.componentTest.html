@@ -85,7 +85,36 @@
 						</div>
 
 						<h4 class="title font-weight-bold">{{ cChildren.name }}</h4>
-						<h5 class="sub-title">{{ cChildren.role }}</h5>
+						<h5 class="sub-title">{{ cChildren.role | uppercase }}</h5>
+
+						<div class="mt-3 mb-3">
+							<a
+								mdbPopover="
+                  Fecha de nacimiento: {{ cChildren.dateBirth }},
+                  Lugar de nacimiento: {{ cChildren.placeBirth }},
+                  Municipio o provincia: {{ cChildren.origin }}
+                "
+								placement="bottom"
+								popoverTitle="{{ cChildren.name }}"
+								triggers="focus"
+								mdbWavesEffect
+								type="button"
+								class="btn btn-outline-light btn-floating me-3"
+							>
+								<i class="fas fa-info"></i>
+							</a>
+
+							<a
+								href="https://api.whatsapp.com/send?phone=591{{ cChildren.whatsapp }}"
+								target="_blank"
+								class="btn btn-success btn-floating me-3"
+							>
+								<i class="fab fa-whatsapp"></i>
+							</a>
+							<!-- <button type="button" class="btn btn-primary btn-floating">
+								<i class="fab fa-linkedin-in"></i>
+							</button> -->
+						</div>
 					</div>
 				</div>
 			</div>
